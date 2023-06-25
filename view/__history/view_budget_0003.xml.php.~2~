@@ -1,0 +1,287 @@
+<?php
+<object class="view_budget0003" name="view_budget0003" baseclass="Page">
+  <property name="Background"></property>
+  <property name="Caption">PRESUPUESTO</property>
+  <property name="DocType">dtNone</property>
+  <property name="Height">612</property>
+  <property name="IsMaster">0</property>
+  <property name="Name">view_budget0003</property>
+  <property name="Width">652</property>
+  <property name="OnBeforeShowHeader">view_budget0003BeforeShowHeader</property>
+  <property name="OnShow">view_budget0003Show</property>
+  <object class="Label" name="Label1" >
+    <property name="Alignment">agRight</property>
+    <property name="Caption">Otros</property>
+    <property name="Height">13</property>
+    <property name="Left">135</property>
+    <property name="Name">Label1</property>
+    <property name="Top">88</property>
+    <property name="Width">75</property>
+  </object>
+  <object class="Label" name="Label2" >
+    <property name="Caption">Label2</property>
+    <property name="DataField">balance</property>
+    <property name="DataSource">dsentry1</property>
+    <property name="Height">13</property>
+    <property name="Left">258</property>
+    <property name="Name">Label2</property>
+    <property name="Top">88</property>
+    <property name="Width">75</property>
+  </object>
+  <object class="Label" name="Label3" >
+    <property name="Alignment">agRight</property>
+    <property name="Caption">Ahorro para envases</property>
+    <property name="Height">13</property>
+    <property name="Left">50</property>
+    <property name="Name">Label3</property>
+    <property name="Top">135</property>
+    <property name="Width">160</property>
+  </object>
+  <object class="Label" name="Label4" >
+    <property name="Caption">Label4</property>
+    <property name="DataField">balance</property>
+    <property name="DataSource">dsentry2</property>
+    <property name="Height">13</property>
+    <property name="Left">258</property>
+    <property name="Name">Label4</property>
+    <property name="Top">135</property>
+    <property name="Width">75</property>
+  </object>
+  <object class="Label" name="Label5" >
+    <property name="Alignment">agRight</property>
+    <property name="Caption">Ahorro para Costos de Venta</property>
+    <property name="Height">13</property>
+    <property name="Left">47</property>
+    <property name="Name">Label5</property>
+    <property name="Top">182</property>
+    <property name="Width">163</property>
+  </object>
+  <object class="Label" name="Label6" >
+    <property name="Caption">Label6</property>
+    <property name="DataField">balance</property>
+    <property name="DataSource">dsentry3</property>
+    <property name="Height">13</property>
+    <property name="Left">258</property>
+    <property name="Name">Label6</property>
+    <property name="Top">182</property>
+    <property name="Width">75</property>
+  </object>
+  <object class="Label" name="Label7" >
+    <property name="Alignment">agRight</property>
+    <property name="Caption">Ahorro para el Fondo de Inversiones</property>
+    <property name="Height">13</property>
+    <property name="Left">15</property>
+    <property name="Name">Label7</property>
+    <property name="Top">232</property>
+    <property name="Width">195</property>
+  </object>
+  <object class="Label" name="Label8" >
+    <property name="Caption">Label8</property>
+    <property name="DataField">balance</property>
+    <property name="DataSource">dsentry4</property>
+    <property name="Height">13</property>
+    <property name="Left">258</property>
+    <property name="Name">Label8</property>
+    <property name="Top">232</property>
+    <property name="Width">75</property>
+  </object>
+  <object class="Label" name="Label9" >
+    <property name="Alignment">agRight</property>
+    <property name="Caption">Ahorro para Costos de Produccion</property>
+    <property name="Height">13</property>
+    <property name="Left">17</property>
+    <property name="Name">Label9</property>
+    <property name="Top">277</property>
+    <property name="Width">193</property>
+  </object>
+  <object class="Label" name="Label10" >
+    <property name="Caption">Label10</property>
+    <property name="DataField">balance</property>
+    <property name="DataSource">dsentry5</property>
+    <property name="Height">13</property>
+    <property name="Left">258</property>
+    <property name="Name">Label10</property>
+    <property name="Top">277</property>
+    <property name="Width">75</property>
+  </object>
+  <object class="Label" name="Label11" >
+    <property name="Alignment">agRight</property>
+    <property name="Caption">Ahorro para Impuestos</property>
+    <property name="Height">13</property>
+    <property name="Left">47</property>
+    <property name="Name">Label11</property>
+    <property name="Top">317</property>
+    <property name="Width">163</property>
+  </object>
+  <object class="Label" name="Label12" >
+    <property name="Caption">Label12</property>
+    <property name="DataField">balance</property>
+    <property name="DataSource">dsentry7</property>
+    <property name="Height">13</property>
+    <property name="Left">258</property>
+    <property name="Name">Label12</property>
+    <property name="Top">317</property>
+    <property name="Width">75</property>
+  </object>
+  <object class="Label" name="Label13" >
+    <property name="Caption">PRESUPUESTO</property>
+    <property name="Height">13</property>
+    <property name="Left">75</property>
+    <property name="Name">Label13</property>
+    <property name="Top">25</property>
+    <property name="Width">75</property>
+  </object>
+  <object class="Label" name="Label14" >
+    <property name="Alignment">agRight</property>
+    <property name="Caption">TOTAL:</property>
+    <property name="Height">13</property>
+    <property name="Left">135</property>
+    <property name="Name">Label14</property>
+    <property name="Top">416</property>
+    <property name="Width">75</property>
+  </object>
+  <object class="Label" name="lblTotal" >
+    <property name="Caption">lblTotal</property>
+    <property name="Height">13</property>
+    <property name="Left">258</property>
+    <property name="Name">lblTotal</property>
+    <property name="Top">416</property>
+    <property name="Width">75</property>
+  </object>
+  <object class="Label" name="lblCostoProdMatPrim" >
+    <property name="Caption">lblCostoProdMatPrim</property>
+    <property name="DataField">balance</property>
+    <property name="DataSource">dsentry8</property>
+    <property name="Height">13</property>
+    <property name="Left">258</property>
+    <property name="Name">lblCostoProdMatPrim</property>
+    <property name="Top">384</property>
+    <property name="Width">115</property>
+  </object>
+  <object class="Label" name="Label18" >
+    <property name="Alignment">agRight</property>
+    <property name="Caption"><![CDATA[Ahorro para producci&oacute;n de mat. primas]]></property>
+    <property name="Height">13</property>
+    <property name="Left">15</property>
+    <property name="Name">Label18</property>
+    <property name="Top">384</property>
+    <property name="Width">188</property>
+  </object>
+  <object class="Database" name="dbamenoec1_erpdonjusto1" >
+        <property name="Left">105</property>
+        <property name="Top">494</property>
+    <property name="Connected">1</property>
+    <property name="DatabaseName">erpagasaja</property>
+    <property name="Host">localhost</property>
+    <property name="Name">dbamenoec1_erpdonjusto1</property>
+    <property name="UserName">agasaja_usr</property>
+    <property name="UserPassword">papanoel</property>
+  </object>
+  <object class="Datasource" name="dsentry1" >
+        <property name="Left">577</property>
+        <property name="Top">26</property>
+    <property name="Dataset">Query1</property>
+    <property name="Name">dsentry1</property>
+  </object>
+  <object class="Query" name="Query1" >
+        <property name="Left">499</property>
+        <property name="Top">37</property>
+    <property name="Active">1</property>
+    <property name="Database">dbamenoec1_erpdonjusto1</property>
+    <property name="Name">Query1</property>
+    <property name="Params">a:0:{}</property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:99:&quot;SELECT SUM(balance) as `balance` FROM `entry` WHERE account_id = 432  and entry_date &gt; '2019-06-28'&quot;;}]]></property>
+  </object>
+  <object class="Query" name="Query2" >
+        <property name="Left">508</property>
+        <property name="Top">101</property>
+    <property name="Active">1</property>
+    <property name="Database">dbamenoec1_erpdonjusto1</property>
+    <property name="Name">Query2</property>
+    <property name="Params">a:0:{}</property>
+    <property name="SQL"><![CDATA[a:3:{i:0;s:78:&quot;SELECT (SUM(balance)*-1) as `balance` FROM `entry` e INNER JOIN `account` a ON&quot;;i:1;s:27:&quot;(e.account_id=a.account_id)&quot;;i:2;s:65:&quot; WHERE a.`code` LIKE '7.1.4.1.05%'  and entry_date &gt; '2019-06-28'&quot;;}]]></property>
+  </object>
+  <object class="Query" name="Query3" >
+        <property name="Left">505</property>
+        <property name="Top">169</property>
+    <property name="Active">1</property>
+    <property name="Database">dbamenoec1_erpdonjusto1</property>
+    <property name="Name">Query3</property>
+    <property name="Params">a:0:{}</property>
+    <property name="SQL"><![CDATA[a:3:{i:0;s:78:&quot;SELECT (SUM(balance)*-1) as `balance` FROM `entry` e INNER JOIN `account` a ON&quot;;i:1;s:27:&quot;(e.account_id=a.account_id)&quot;;i:2;s:65:&quot; WHERE a.`code` LIKE '7.1.2.1.03%'  and entry_date &gt; '2019-06-28'&quot;;}]]></property>
+  </object>
+  <object class="Query" name="Query4" >
+        <property name="Left">507</property>
+        <property name="Top">233</property>
+    <property name="Active">1</property>
+    <property name="Database">dbamenoec1_erpdonjusto1</property>
+    <property name="Name">Query4</property>
+    <property name="Params">a:0:{}</property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:97:&quot;SELECT SUM(balance) as balance FROM `entry` WHERE account_id = 365  and entry_date &gt; '2019-06-28'&quot;;}]]></property>
+  </object>
+  <object class="Datasource" name="dsentry2" >
+        <property name="Left">581</property>
+        <property name="Top">109</property>
+    <property name="DataSet">Query2</property>
+    <property name="Name">dsentry2</property>
+  </object>
+  <object class="Datasource" name="dsentry3" >
+        <property name="Left">579</property>
+        <property name="Top">176</property>
+    <property name="DataSet">Query3</property>
+    <property name="Name">dsentry3</property>
+  </object>
+  <object class="Datasource" name="dsentry4" >
+        <property name="Left">571</property>
+        <property name="Top">234</property>
+    <property name="DataSet">Query4</property>
+    <property name="Name">dsentry4</property>
+  </object>
+  <object class="Query" name="Query5" >
+        <property name="Left">504</property>
+        <property name="Top">299</property>
+    <property name="Active">1</property>
+    <property name="Database">dbamenoec1_erpdonjusto1</property>
+    <property name="Name">Query5</property>
+    <property name="Params">a:0:{}</property>
+    <property name="SQL"><![CDATA[a:3:{i:0;s:78:&quot;SELECT (SUM(balance)*-1) as `balance` FROM `entry` e INNER JOIN `account` a ON&quot;;i:1;s:27:&quot;(e.account_id=a.account_id)&quot;;i:2;s:64:&quot; WHERE a.`code` LIKE '7.1.4.1.04%' and entry_date &gt; '2019-06-27'&quot;;}]]></property>
+  </object>
+  <object class="Datasource" name="dsentry5" >
+        <property name="Left">577</property>
+        <property name="Top">288</property>
+    <property name="DataSet">Query5</property>
+    <property name="Name">dsentry5</property>
+  </object>
+  <object class="Query" name="Query7" >
+        <property name="Left">503</property>
+        <property name="Top">426</property>
+    <property name="Active">1</property>
+    <property name="Database">dbamenoec1_erpdonjusto1</property>
+    <property name="Name">Query7</property>
+    <property name="Params">a:0:{}</property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:99:&quot;SELECT SUM(balance) as `balance` FROM `entry` WHERE account_id = 364  and entry_date &gt; '2019-06-28'&quot;;}]]></property>
+  </object>
+  <object class="Datasource" name="dsentry7" >
+        <property name="Left">568</property>
+        <property name="Top">424</property>
+    <property name="DataSet">Query7</property>
+    <property name="Name">dsentry7</property>
+  </object>
+  <object class="Query" name="Query8" >
+        <property name="Left">488</property>
+        <property name="Top">480</property>
+    <property name="Active">1</property>
+    <property name="Database">dbamenoec1_erpdonjusto1</property>
+    <property name="Name">Query8</property>
+    <property name="Params">a:0:{}</property>
+    <property name="SQL"><![CDATA[a:3:{i:0;s:78:&quot;SELECT (SUM(balance)*-1) as `balance` FROM `entry` e INNER JOIN `account` a ON&quot;;i:1;s:27:&quot;(e.account_id=a.account_id)&quot;;i:2;s:64:&quot; WHERE a.`code` LIKE '7.1.3.1.02%' and entry_date &gt; '2019-06-28'&quot;;}]]></property>
+    <property name="OnAfterOpen">Query8AfterOpen</property>
+  </object>
+  <object class="Datasource" name="dsentry8" >
+        <property name="Left">568</property>
+        <property name="Top">488</property>
+    <property name="DataSet">Query8</property>
+    <property name="Name">dsentry8</property>
+  </object>
+</object>
+?>

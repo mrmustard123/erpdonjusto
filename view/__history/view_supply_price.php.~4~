@@ -1,0 +1,42 @@
+<?php
+require_once("rpcl/rpcl.inc.php");
+//Includes
+use_unit("forms.inc.php");
+use_unit("extctrls.inc.php");
+use_unit("stdctrls.inc.php");
+use_unit("dbtables.inc.php");
+use_unit("db.inc.php");
+
+include("database_module01.php");
+
+
+//Class definition
+class Unit1 extends Page
+{
+    public $Button1 = null;
+    public $price1 = null;
+    public $supply_name1 = null;
+    public $supply_id1 = null;
+    public $dssupply1 = null;
+    public $tbsupply1 = null;
+    function supply_name1Change($sender, $params)
+    {
+            $account_id = $tbsupply1->fieldget('account_id');
+            $this->tbsupply1->edit();
+    }
+}
+
+global $application;
+
+global $Unit1;
+
+//Creates the form
+$Unit1=new Unit1($application);
+
+//Read from resource file
+$Unit1->loadResource(__FILE__);
+
+//Shows the form
+$Unit1->show();
+
+?>

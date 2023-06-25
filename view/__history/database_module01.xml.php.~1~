@@ -1,0 +1,17 @@
+<?php
+<object class="database_module01" name="database_module01" baseclass="DataModule">
+  <property name="Height">484</property>
+  <property name="Name">database_module01</property>
+  <property name="Width">781</property>
+  <object class="Database" name="dbapicolad_erpdonjusto1" >
+        <property name="Left">266</property>
+        <property name="Top">116</property>
+    <property name="Connected">1</property>
+    <property name="DatabaseName">apicolad_erpdonjusto</property>
+    <property name="Host">localhost</property>
+    <property name="Name">dbapicolad_erpdonjusto1</property>
+    <property name="UserName">apicolad_justo</property>
+    <property name="UserPassword">aA1NfDBW5Wlm</property>
+  </object>
+</object>
+?>
