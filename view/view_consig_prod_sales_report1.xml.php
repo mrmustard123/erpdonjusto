@@ -153,6 +153,7 @@
   <object class="Database" name="dbamenoec1_erpdonjusto1" >
         <property name="Left">255</property>
         <property name="Top">291</property>
+    <property name="Connected">1</property>
     <property name="DatabaseName">apicolad_erpdonjusto</property>
     <property name="Host">localhost</property>
     <property name="Name">dbamenoec1_erpdonjusto1</property>
@@ -174,7 +175,7 @@
     <property name="LimitStart">-1</property>
     <property name="Name">Query1</property>
     <property name="Params">a:0:{}</property>
-    <property name="SQL"><![CDATA[a:1:{i:0;s:254:&quot;SELECT p.product_name, SUM(c.cant) AS 'cantidad',  SUM(c.unit_price*c.cant) as 'Total_Bs' FROM `consig_prod` AS c INNER JOIN product AS p ON (c.product_id=p.product_id) WHERE c.consig_date BETWEEN ' ' AND ' ' AND c.mov_type = 'PAGO' GROUP BY c.product_id&quot;;}]]></property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:290:&quot;SELECT p.product_name, SUM(c.cant) AS 'cantidad', SUM(c.unit_price*c.cant) as 'Total_Bs' FROM `consig_prod` AS c INNER JOIN product AS p ON (c.product_id=p.product_id) WHERE c.consig_date BETWEEN '0000-00-00 00:00:00' AND '0000-00-00 00:00:00' AND c.mov_type = 'PAGO' GROUP BY c.product_id;&quot;;}]]></property>
   </object>
 </object>
 ?>

@@ -32,8 +32,9 @@ Item27=view_farmacorps_mas_salida.php
 Item28=view_farmacorps_mas_salida_a_60_dias.php
 Item29=view_consig_max_sprays_stock.php
 Item30=view_salidas_farmacorp_x_mes.php
-Item31=database_module01.php
+Item31=..\model\persistence.php
 Item32=view_supply_price.php
+Item33=database_module01.php
 
 [MainScript]
 Script=

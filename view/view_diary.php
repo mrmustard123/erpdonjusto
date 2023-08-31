@@ -211,6 +211,7 @@ jQuery( document ).ready(function(){
 
 <table width="100%" border="1">
   <tr>
+    <td>ID</td>
     <td>FECHA</td>
     <td>CODIGO</td>
     <td>CUENTA</td>
@@ -238,13 +239,14 @@ jQuery( document ).ready(function(){
                     {
 ?>                
                         <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>    
+                            <td>****</td>
+                            <td>****</td>
+                            <td>****</td>
+                            <td>****</td>
+                            <td>****</td>
+                            <td>****</td>
+                            <td>****</td>
+                            <td>****</td>    
                         </tr> 
 <?php                 
                     }
@@ -253,6 +255,7 @@ jQuery( document ).ready(function(){
 ?>    
                
                 <tr>
+                    <td><?php echo $entry['entry_id']; ?></td>
                     <td><?php echo $entry['entry_date']; ?></td>
                     <td><?php echo $entry['account_code']; ?></td>
                     <td><?php 

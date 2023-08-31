@@ -1,8 +1,8 @@
 <?php   /* echo 'estoy en model.php<br>';
 */
     require_once('persistence.php');
-       /* echo 'model: persistence cargado...<br>';
- */
+       /* echo 'model: persistence cargado...<br>';*/
+
     require_once ('class.account.php');
         /* echo 'model: class.account.php cargado... <br>';
 */
@@ -244,7 +244,7 @@ class model {
                                         $count = $params['text_count'];
                             /*Actualizamos la posicion*/
                 $position = new Position();
-                 $position->setPosition_id($params['text_position_id'.$count]);
+                $position->setPosition_id($params['text_position_id'.$count]);
                 $position-> setPos_name($params['text_pos_name'.$count]);
                 $position->setDescripcion($params['text_pos_descripcion'.$count]);
                 $position->setSalud($params['slct_salud'.$count]);
@@ -464,6 +464,12 @@ class model {
                 $this->persistence->modif_pendiente($pendiente);
 
     }
+    
+    public function get_list_pos_hist(){
+        $v_pos_histories = $this->persistence->getListPosHistory();
+        return $v_pos_histories;
+    }
+            
 
     /****************FUNCIONES PARA INVENTÁRIO *************************/
 

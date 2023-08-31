@@ -1,11 +1,11 @@
 <?php
-<object class="Page1" name="Page1" baseclass="Page">
+<object class="view_mapa_apiarios" name="view_mapa_apiarios" baseclass="Page">
   <property name="Background"></property>
-  <property name="Caption">Page1</property>
+  <property name="Caption">view_mapa</property>
   <property name="DocType">dtNone</property>
   <property name="Height">556</property>
   <property name="IsMaster">0</property>
-  <property name="Name">Page1</property>
+  <property name="Name">view_mapa_apiarios</property>
   <property name="Width">755</property>
   <object class="Image" name="Image1" >
     <property name="Border">0</property>

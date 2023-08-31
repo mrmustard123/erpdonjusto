@@ -17,27 +17,22 @@ Count=0
 Count=0
 
 [OpenFiles]
-Module2=database_module01.php
-Module3=view_consign_prod.php
-Module4=view_consign.php
-Module5=view_bitacora_list.php
-
-[database_module01.php]
-Line=0
-Position=0
-
-[view_consign_prod.php]
-Line=0
-Position=0
+Module2=view_consign.php
+Module3=database_module01.php
+Module4=view_new_consignee.php
 
 [view_consign.php]
 Line=0
 Position=0
 
-[view_bitacora_list.php]
-Line=43
-Position=34
+[database_module01.php]
+Line=0
+Position=0
+
+[view_new_consignee.php]
+Line=75
+Position=36
 
 [Status]
-OpenModule=view_bitacora_list.php
+OpenModule=view_new_consignee.php
 

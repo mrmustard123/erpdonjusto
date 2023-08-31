@@ -520,7 +520,18 @@
 
     }//end if
 
-    ?>
+    if(in_array('45', $v_functionalities)){
+
+    ?>   
+   
+    <tr>
+        <td class="menu_ppal_btn"><a href="index.php?action=report_pos_hist">-Reporte historia de posiciones</a></td>
+   </tr>
+    <?php
+
+    }//end if
+
+    ?>   
 
 
 

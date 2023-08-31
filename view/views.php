@@ -166,7 +166,13 @@ class views
     {                        
         require_once ('view_pendientes01.php');                    
         
-    }                    
+    }
+    
+    public function display_view_report_pos_hist($params)
+    {                        
+        require_once ('view_reporte_hist_posiciones.php');                    
+        
+    }      
     
  }     
     

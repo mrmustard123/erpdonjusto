@@ -9,7 +9,7 @@ include("database_module01.php");
 include("../model/class.db.php");
 
 //Class definition
-class Page1 extends Page
+class view_mapa_apiarios extends Page
 {
     public $Image1 = null;
     public $Panel2 = null;
@@ -19,15 +19,15 @@ class Page1 extends Page
 
 global $application;
 
-global $Page1;
+global $view_mapa_apiarios;
 
 //Creates the form
-$Page1=new Page1($application);
+$view_mapa_apiarios=new view_mapa_apiarios($application);
 
 //Read from resource file
-$Page1->loadResource(__FILE__);
+$view_mapa_apiarios->loadResource(__FILE__);
 
 //Shows the form
-$Page1->show();
+$view_mapa_apiarios->show();
 
 ?>

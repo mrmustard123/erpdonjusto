@@ -1,3 +1,9 @@
+<!--html>
+    <head>
+<link href="./view/css/bootstrap.min.css" rel="stylesheet">
+<link href="./view/js/bootstrap.bundle.min.js" rel="stylesheet"-->
+
+
 <?php    
 
 

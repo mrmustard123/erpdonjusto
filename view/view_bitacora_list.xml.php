@@ -37,9 +37,18 @@
       <property name="Width">269</property>
     </object>
   </object>
+  <object class="Label" name="Label1" >
+    <property name="Caption">Inicio</property>
+    <property name="Height">13</property>
+    <property name="Left">3</property>
+    <property name="Link">../index.php?action=home</property>
+    <property name="Name">Label1</property>
+    <property name="Top">8</property>
+    <property name="Width">75</property>
+  </object>
   <object class="Database" name="dbamenoec1_erpdonjusto1" >
-        <property name="Left">56</property>
-        <property name="Top">15</property>
+        <property name="Left">96</property>
+        <property name="Top">247</property>
     <property name="Connected"></property>
     <property name="DatabaseName">apicolad_erpdonjusto</property>
     <property name="Host">localhost</property>
@@ -48,10 +57,11 @@
     <property name="UserPassword">aA1NfDBW5Wlm</property>
   </object>
   <object class="Table" name="tbbitacora1" >
-        <property name="Left">216</property>
-        <property name="Top">17</property>
+        <property name="Left">56</property>
+        <property name="Top">329</property>
     <property name="Active">1</property>
     <property name="Database">database_module01.dbapicolad_erpdonjusto1</property>
+    <property name="LimitCount">-1</property>
     <property name="MasterFields">a:0:{}</property>
     <property name="MasterSource"></property>
     <property name="Name">tbbitacora1</property>
@@ -59,7 +69,7 @@
   </object>
   <object class="Datasource" name="dsbitacora1" >
         <property name="Left">152</property>
-        <property name="Top">3</property>
+        <property name="Top">323</property>
     <property name="Dataset">tbbitacora1</property>
     <property name="Name">dsbitacora1</property>
   </object>

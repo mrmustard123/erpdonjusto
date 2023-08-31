@@ -72,8 +72,6 @@ interface iPersistence{
 
     public  function save_pendiente($pendiente);
 
-    public function modif_pendiente($pendiente);
-
     public function getPosHistory($pos);
 
     public function getPosDescripHistory($pos);
@@ -89,6 +87,10 @@ interface iPersistence{
     public function savePosHistory($pos_history);
 
     public function getConsigProdHistory($fecha_ini, $fecha_fin, $consig_id, $product_id);
+    
+    public function modif_pendiente($pendiente);
+    
+    public function getListPosHistory();
                    
     /********SUBSISTEMA DE INVENTÁRIO*******/        
     public function getMovementsByDateCollection($fecha_ini, $fecha_fin);
