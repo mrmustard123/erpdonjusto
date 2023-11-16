@@ -112,41 +112,40 @@ class model {
      }
 
      public function saveEntry($params){
-                $entry = new Entry();
-                $entry->setAccount_id($params['hf_id_account']);
-                $fecha = new DateTime($params['edt_date']);
-                $entry->setEntry_date($fecha);
-                $entry->setDetails($params['ta_description']);
-                $entry->setBalance($params['edt_balance']);
-                             $entry->setCbte_cont_tipo($params['edt_cbte_tipo']);
-                             $entry->setCbte_cont_nro($params['edt_cbte_nro']);
-                             $entry->setUser_id($_SESSION['user_id']);
-                                       $this->persistence->saveEntry($entry);
-                            /*TO DO: Si es cuenta de caja sumar al saldo*/
-                /*TO DO: Verificar que es cuenta de caja*/
-                            $account = $this->persistence->getAccount($params['hf_id_account']);
-                            $config_value = $this->persistence->getConfigurationByName('Codigo cuenta general');
-                            $codigo_caja = $config_value;
-                            $codigo_account = $account->getAccount_code();
-                            $largo_cadena = strlen($codigo_caja);
-                            $es_caja = substr_compare($codigo_account,$codigo_caja, 0, $largo_cadena);
-                            /*Es cuenta de caja?*/
+        $entry = new Entry();
+        $entry->setAccount_id($params['hf_id_account']);
+        $fecha = new DateTime($params['edt_date']);
+        $entry->setEntry_date($fecha);
+        $entry->setDetails(utf8_encode($params['ta_description']));
+        $entry->setBalance($params['edt_balance']);
+        $entry->setCbte_cont_tipo($params['edt_cbte_tipo']);
+        $entry->setCbte_cont_nro($params['edt_cbte_nro']);
+        $entry->setUser_id($_SESSION['user_id']);
+        $this->persistence->saveEntry($entry);
+        /*TO DO: Si es cuenta de caja sumar al saldo*/
+        /*TO DO: Verificar que es cuenta de caja*/
+        $account = $this->persistence->getAccount($params['hf_id_account']);
+        $config_value = $this->persistence->getConfigurationByName('Codigo cuenta general');
+        $codigo_caja = $config_value;
+        $codigo_account = $account->getAccount_code();
+        $largo_cadena = strlen($codigo_caja);
+        $es_caja = substr_compare($codigo_account,$codigo_caja, 0, $largo_cadena);
+        /*Es cuenta de caja?*/
 
-                            if($es_caja==0){
-                                    $balance_checksum = new balance_checksum();
-                                    $last_checksum = $this->persistence->getLastBalance_checksum();
-                                    $budget = $this->persistence->getBudget();
-                                    $checksum =  $last_checksum + $params['edt_balance'];
-                                    $balance = $params['edt_balance'];
-                                    $cbte_cont_nro = $params['edt_cbte_nro'];
-                                    $balance_checksum->setChecksum($checksum);
-                                    $balance_checksum->setBudget($budget);
-                                    $balance_checksum->setChecksum_date($fecha);
-                                    $balance_checksum->setCbte_cont_nro($cbte_cont_nro);
-                                    $balance_checksum->setBalance($balance);
-                                    $this->persistence->saveBalance_checksum($balance_checksum);
-
-                            }
+        if($es_caja==0){
+                $balance_checksum = new balance_checksum();
+                $last_checksum = $this->persistence->getLastBalance_checksum();
+                $budget = $this->persistence->getBudget();
+                $checksum =  $last_checksum + $params['edt_balance'];
+                $balance = $params['edt_balance'];
+                $cbte_cont_nro = $params['edt_cbte_nro'];
+                $balance_checksum->setChecksum($checksum);
+                $balance_checksum->setBudget($budget);
+                $balance_checksum->setChecksum_date($fecha);
+                $balance_checksum->setCbte_cont_nro($cbte_cont_nro);
+                $balance_checksum->setBalance($balance);
+                $this->persistence->saveBalance_checksum($balance_checksum);
+        }
 
      }
 
@@ -246,14 +245,14 @@ class model {
                 $position = new Position();
                 $position->setPosition_id($params['text_position_id'.$count]);
                 $position-> setPos_name($params['text_pos_name'.$count]);
-                $position->setDescripcion($params['text_pos_descripcion'.$count]);
+                $position->setDescripcion(utf8_encode($params['text_pos_descripcion'.$count]));
                 $position->setSalud($params['slct_salud'.$count]);
                 $this->persistence->updatePosition($position);
                 $hd_change_descript = $params['hd_change_descript'.$count];
                 /*Si ha cambiado la descripción, hacemos el registro del cambio*/
                 if($hd_change_descript!=$params['text_pos_descripcion'.$count]){
                                     $PosicDescripHist = new PosicDescripHist();
-                                    $PosicDescripHist->setDescripcion($params['text_pos_descripcion'.$count]);
+                                    $PosicDescripHist->setDescripcion(utf8_encode($params['text_pos_descripcion'.$count]));
                                     $fecha = new DateTime($params['text_pos_date'.$count]);
                                     $PosicDescripHist->setPosic_descrip_hsit_date($fecha);
                                     $PosicDescripHist->setPosition_id($params['text_position_id'.$count]);

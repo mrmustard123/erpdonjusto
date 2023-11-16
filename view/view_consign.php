@@ -446,7 +446,7 @@ class view_consign extends Page
 
                  $this->entry_list->append();
                  $this->entry_list->fieldset('entry_date',$fecha_actual);
-                 $this->entry_list->fieldset('details',$comments);
+                 $this->entry_list->fieldset('details',utf8_encode($comments) );
                  $this->entry_list->fieldset('balance', $balance );
                  $this->entry_list->fieldset('account_id', $consignee_account_id);
                  $this->entry_list->fieldset('user_id',$user_id);
@@ -470,7 +470,7 @@ class view_consign extends Page
                   //Costo de producción del producto en el haber
                   $this->entry_list->append();
                   $this->entry_list->fieldset('entry_date',$fecha_actual);
-                  $this->entry_list->fieldset('details',$comments);
+                  $this->entry_list->fieldset('details',utf8_encode($comments));
                   $this->entry_list->fieldset('balance',$balance);
                   $this->entry_list->fieldset('account_id',$product_account_id);
                   $this->entry_list->fieldset('user_id',$user_id);
@@ -526,7 +526,7 @@ class view_consign extends Page
 
                  $this->entry_list->append();
                  $this->entry_list->fieldset('entry_date',$fecha_actual);
-                 $this->entry_list->fieldset('details',$comments);
+                 $this->entry_list->fieldset('details',utf8_encode($comments));
                  $this->entry_list->fieldset('entry_date',$fecha_actual);
                  $this->entry_list->fieldset('balance', $balance );
                  $this->entry_list->fieldset('account_id', $ganancia_por_venta_de_productos_id);
@@ -557,7 +557,7 @@ class view_consign extends Page
 
                  $this->entry_list->append();
                  $this->entry_list->fieldset('entry_date',$fecha_actual);
-                 $this->entry_list->fieldset('details', $comments);
+                 $this->entry_list->fieldset('details', utf8_encode($comments));
                  $this->entry_list->fieldset('balance', $balance );
                  $this->entry_list->fieldset('account_id', $utilidades_para_socios_id);
                  $this->entry_list->fieldset('user_id',$user_id);
@@ -625,7 +625,7 @@ class view_consign extends Page
 
                  $this->entry_list->append();
                  $this->entry_list->fieldset('entry_date',$fecha_actual);
-                 $this->entry_list->fieldset('details',$comments);
+                 $this->entry_list->fieldset('details',utf8_encode($comments));
                  $this->entry_list->fieldset('balance', $consignacion );
                  $this->entry_list->fieldset('account_id', $consignee_account_id);
                  $this->entry_list->fieldset('user_id',$user_id);
@@ -646,7 +646,7 @@ class view_consign extends Page
 
                  $this->entry_list->append();
                  $this->entry_list->fieldset('entry_date',$fecha_actual);
-                 $this->entry_list->fieldset('details',$comments);
+                 $this->entry_list->fieldset('details',utf8_encode($comments));
                  $this->entry_list->fieldset('entry_date',$fecha_actual);
                  $this->entry_list->fieldset('balance', $cuentas_por_cobrar );
                  $this->entry_list->fieldset('account_id', $cuentas_por_cobrar_a_clientes_account_id);
@@ -679,7 +679,7 @@ class view_consign extends Page
                   //Costo de producción del producto en el debe
                   $this->entry_list->append();
                   $this->entry_list->fieldset('entry_date',$fecha_actual);
-                  $this->entry_list->fieldset('details',$comments);
+                  $this->entry_list->fieldset('details',utf8_encode($comments));
                   $this->entry_list->fieldset('balance',$balance);
                   $this->entry_list->fieldset('account_id',$product_account_id);
                   $this->entry_list->fieldset('user_id',$user_id);
@@ -730,7 +730,7 @@ class view_consign extends Page
 
                  $this->entry_list->append();
                  $this->entry_list->fieldset('entry_date',$fecha_actual);
-                 $this->entry_list->fieldset('details',$comments);
+                 $this->entry_list->fieldset('details',utf8_encode($comments));
                  $this->entry_list->fieldset('entry_date',$fecha_actual);
                  $this->entry_list->fieldset('balance', $balance );
                  $this->entry_list->fieldset('account_id', $ganancia_por_venta_de_productos_id);
@@ -759,7 +759,7 @@ class view_consign extends Page
 
                  $this->entry_list->append();
                  $this->entry_list->fieldset('entry_date',$fecha_actual);
-                 $this->entry_list->fieldset('details', $comments);
+                 $this->entry_list->fieldset('details', utf8_encode($comments));
                  $this->entry_list->fieldset('balance', $balance );
                  $this->entry_list->fieldset('account_id', $utilidades_para_socios_id);
                  $this->entry_list->fieldset('user_id',$user_id);
@@ -775,7 +775,7 @@ class view_consign extends Page
 
                  $this->entry_list->append();
                  $this->entry_list->fieldset('entry_date',$fecha_actual);
-                 $this->entry_list->fieldset('details',$comments);
+                 $this->entry_list->fieldset('details',utf8_encode($comments));
                  $this->entry_list->fieldset('balance', $balance );
                  $this->entry_list->fieldset('account_id', $consignee_account_id);
                  $this->entry_list->fieldset('user_id',$user_id);
@@ -984,7 +984,7 @@ class view_consign extends Page
 
                    $this->entry_list->append();
                    $this->entry_list->fieldset('entry_date',$fecha_actual);
-                   $this->entry_list->fieldset('details',$comments);
+                   $this->entry_list->fieldset('details',utf8_encode($comments));
                    $balance1 = $unit_price * $pago_por_cobrar;
                    $this->entry_list->fieldset('balance', $balance1 );
                    $this->entry_list->fieldset('account_id', $venta_de_productos_terminados_id);
@@ -1002,7 +1002,7 @@ class view_consign extends Page
 
                     $this->entry_list->append();
                     $this->entry_list->fieldset('entry_date',$fecha_actual);
-                    $this->entry_list->fieldset('details',$comments);
+                    $this->entry_list->fieldset('details',utf8_encode($comments));
                     $this->entry_list->fieldset('balance', $balance );
                     $this->entry_list->fieldset('account_id', $cuentas_por_cobrar_a_clientes_account_id);
                     $this->entry_list->fieldset('user_id',$user_id);
@@ -1130,7 +1130,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_mano_de_obra );
                             $this->entry_list->fieldset('account_id', $caja_de_ahorro_mano_de_obra_id);
@@ -1145,7 +1145,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_costos_produccion);
                             $this->entry_list->fieldset('account_id', $caja_de_ahorro_costos_produccion_id);
@@ -1161,7 +1161,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_costos_comercializacion );
                             $this->entry_list->fieldset('account_id', $caja_de_ahorro_costos_comercializacion_id);
@@ -1177,7 +1177,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_envases );
                             $this->entry_list->fieldset('account_id', $caja_de_ahorro_envases_id);
@@ -1193,7 +1193,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_impuestos );
                             $this->entry_list->fieldset('account_id', $caja_de_ahorro_impuestos_id);
@@ -1238,7 +1238,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             //$this->entry_list->fieldset('balance', $caja_de_ahorro_reserva);
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim);
@@ -1280,7 +1280,7 @@ class view_consign extends Page
 
                         $this->entry_list->append();
                         $this->entry_list->fieldset('entry_date',$fecha_actual);
-                        $this->entry_list->fieldset('details',$comments);
+                        $this->entry_list->fieldset('details',utf8_encode($comments));
                         $this->entry_list->fieldset('entry_date',$fecha_actual);
                         $this->entry_list->fieldset('balance', $caja_de_ahorro_utilidades );
                         $this->entry_list->fieldset('account_id', $caja_de_ahorro_utilidades_id);
@@ -1294,7 +1294,7 @@ class view_consign extends Page
 
                    $this->entry_list->append();
                    $this->entry_list->fieldset('entry_date',$fecha_actual);
-                   $this->entry_list->fieldset('details',$comments);
+                   $this->entry_list->fieldset('details',utf8_encode($comments));
                    $balance2 = $unit_price * $pago_por_cobrar*-1;
                    $this->entry_list->fieldset('balance', $balance2 );
                    $this->entry_list->fieldset('account_id', $venta_de_productos_terminados_id);
@@ -1360,7 +1360,7 @@ class view_consign extends Page
 
                    $this->entry_list->append();
                    $this->entry_list->fieldset('entry_date',$fecha_actual);
-                   $this->entry_list->fieldset('details',$comments);
+                   $this->entry_list->fieldset('details',utf8_encode($comments));
                    $balance1 = $unit_price * $pago_normal;
                    $this->entry_list->fieldset('balance', $balance1 );
                    $this->entry_list->fieldset('account_id', $venta_de_productos_terminados_id);
@@ -1378,7 +1378,7 @@ class view_consign extends Page
 
                     $this->entry_list->append();
                     $this->entry_list->fieldset('entry_date',$fecha_actual);
-                    $this->entry_list->fieldset('details',$comments);
+                    $this->entry_list->fieldset('details',utf8_encode($comments));
                     $this->entry_list->fieldset('balance', $balance );
                     $this->entry_list->fieldset('account_id', $consignee_account_id);
                     $this->entry_list->fieldset('user_id',$user_id);
@@ -1502,7 +1502,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_mano_de_obra );
                             $this->entry_list->fieldset('account_id', $caja_de_ahorro_mano_de_obra_id);
@@ -1518,7 +1518,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_costos_produccion);
                             $this->entry_list->fieldset('account_id', $caja_de_ahorro_costos_produccion_id);
@@ -1534,7 +1534,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_costos_comercializacion );
                             $this->entry_list->fieldset('account_id', $caja_de_ahorro_costos_comercializacion_id);
@@ -1550,7 +1550,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_envases );
                             $this->entry_list->fieldset('account_id', $caja_de_ahorro_envases_id);
@@ -1566,7 +1566,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_impuestos );
                             $this->entry_list->fieldset('account_id', $caja_de_ahorro_impuestos_id);
@@ -1612,7 +1612,7 @@ class view_consign extends Page
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
+                            $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             //$this->entry_list->fieldset('balance', $caja_de_ahorro_reserva );
                             $this->entry_list->fieldset('balance', $caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim);
@@ -1654,7 +1654,7 @@ class view_consign extends Page
 
                         $this->entry_list->append();
                         $this->entry_list->fieldset('entry_date',$fecha_actual);
-                        $this->entry_list->fieldset('details',$comments);
+                        $this->entry_list->fieldset('details',utf8_encode($comments));
                         $this->entry_list->fieldset('entry_date',$fecha_actual);
                         $this->entry_list->fieldset('balance', $caja_de_ahorro_utilidades );
                         $this->entry_list->fieldset('account_id', $caja_de_ahorro_utilidades_id);
@@ -1669,7 +1669,7 @@ class view_consign extends Page
 
                    $this->entry_list->append();
                    $this->entry_list->fieldset('entry_date',$fecha_actual);
-                   $this->entry_list->fieldset('details',$comments);
+                   $this->entry_list->fieldset('details',utf8_encode($comments));
                    $balance2 = $unit_price * $pago_normal*-1;
                    $this->entry_list->fieldset('balance', $balance2 );
                    $this->entry_list->fieldset('account_id', $venta_de_productos_terminados_id);
