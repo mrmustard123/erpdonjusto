@@ -272,7 +272,7 @@ class view_consign extends Page
         $cantidad = $this->cant1->Text;
         $producto = $this->product_id1->Items[$this->product_id1->readItemIndex()];
         $lote=$this->lote1->Text;
-        $comments = $this->consig_prod_list->fieldget('comments');
+        $comments = utf8_encode($this->consig_prod_list->fieldget('comments'));
         $fecha_actual = $this->consig_date1->Text;
         $user_id = $_SESSION['user_id'];
 
@@ -414,6 +414,7 @@ class view_consign extends Page
         $this->consig_prod_list->fieldset('topay', $topay);
         $this->consig_prod_list->fieldset('consig_id', $consig_id);
         $this->consig_prod_list->fieldset('product_id', $product_id);
+        $this->consig_prod_list->fieldset('comments',$comments);
         $this->consig_prod_list->post();
         $this->consig_id1->setItemIndex(-1);
         $this->product_id1->setItemIndex(-1);
@@ -577,7 +578,7 @@ class view_consign extends Page
                  $this->movement_list->fieldset('mov_cant',$cantidad);
                  $this->movement_list->fieldset('mov_lot',$lote);
                  $this->movement_list->fieldset('product_id',$product_id);
-                 $this->movement_list->fieldset('comments',$comments);
+                 $this->movement_list->fieldset('comments',utf8_encode($comments));
                  $this->movement_list->fieldset('user_id',$user_id);
                  $this->movement_list->fieldset('reason','CONSIGNACION');
                  $this->movement_list->post();

@@ -53,7 +53,6 @@
         }
 
 
-
         $i++;
 
     }
@@ -266,7 +265,7 @@ jQuery( document ).ready(function(){
                         }
                         ?>
                     </td>
-                    <td id="entry_details"><?php echo utf8_encode($entry['details']); ?></td>
+                    <td id="entry_details"><?php echo ($entry['details']); ?></td>
 
                     <td><?php 
 

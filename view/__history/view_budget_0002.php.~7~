@@ -75,7 +75,7 @@ class view_budget0002 extends Page
     {
 
     /*
-    SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 582 AND entry_date BETWEEN '2019-06-28 11:48:46' AND ADDATE(NOW(),1);
+    SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 582 AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW()
     */
 
             $otros=$this->Query1->fieldget('balance');

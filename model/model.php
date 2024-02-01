@@ -524,7 +524,7 @@ class model {
                 $movement->setMov_cant($params['edt_cant']);
                 $movement->setProduct_id($params['hf_product_id']);
                 $movement->setMov_lot($params['edt_lot']);
-                $movement->setComments($params['ta_comments']);
+                $movement->setComments(utf8_encode($params['ta_comments']));
                 $movement->setUser_id($_SESSION['user_id']);
                 $movement->setReason($params['slct_mov_reason']);
                 $this->persistence->saveMovement($movement);
@@ -567,7 +567,7 @@ class model {
                                         /*$fecha_actual = date('Y-m-d H:i:s');
                                          $fecha = new DateTime($fecha_actual);*/
                                         $entry->setEntry_date($fecha);
-                                        $entry->setDetails($params['ta_comments']);
+                                        $entry->setDetails(utf8_encode($params['ta_comments']));
                                         $mov_cant=$movement->getMov_cant();
                                         $product_product_cant = $product_product['cant'];
                                         $costo = $mov_cant*$product_product_cant*$price*-1;
@@ -608,7 +608,7 @@ class model {
                                        /* $fecha_actual = date('Y-m-d H:i:s');
                                           $fecha = new DateTime($fecha_actual);*/
                                         $entry->setEntry_date($fecha);
-                                        $entry->setDetails($params['ta_comments']);
+                                        $entry->setDetails(utf8_encode($params['ta_comments']));
                                         $mov_cant=$movement->getMov_cant();
                                         $product_supply_cant = $product_supply['cant'];
                                         $costo = $mov_cant*$product_supply_cant*$price*-1;
@@ -644,7 +644,7 @@ class model {
                                            /* $fecha_actual = date('Y-m-d H:i:s');
                                              $fecha = new DateTime($fecha_actual);*/
                                             $entry->setEntry_date($fecha);
-                                            $entry->setDetails($params['ta_comments']);
+                                            $entry->setDetails(utf8_encode($params['ta_comments']));
                                                  $entry->setBalance($costo);
                                             $costo_total += $costo;
                                             $entry->setUser_id($_SESSION['user_id']);
@@ -669,7 +669,7 @@ class model {
                                            /* $fecha_actual = date('Y-m-d H:i:s');
                                               $fecha = new DateTime($fecha_actual);*/
                                             $entry->setEntry_date($fecha);
-                                            $entry->setDetails($params['ta_comments']);
+                                            $entry->setDetails(utf8_encode($params['ta_comments']));
                                             $entry->setBalance($costo);
                                             $costo_total += $costo;
                                             $entry->setUser_id($_SESSION['user_id']);
@@ -692,7 +692,7 @@ class model {
                                 /*$fecha_actual = date('Y-m-d H:i:s');
                                   $fecha = new DateTime($fecha_actual);*/
                                 $entry->setEntry_date($fecha);
-                                $entry->setDetails($params['ta_comments']);
+                                $entry->setDetails(utf8_encode($params['ta_comments']));
                                 $entry->setBalance($costo_total*-1);
                                 $entry->setUser_id($_SESSION['user_id']);
                                 $this->persistence->saveEntry($entry);
@@ -721,7 +721,7 @@ class model {
                                 $fecha_actual = date('Y-m-d H:i:s');
                                 $fecha = new DateTime($fecha_actual);
                                 $entry->setEntry_date($fecha);
-                                $entry->setDetails($params['ta_comments']);
+                                $entry->setDetails(utf8_encode($params['ta_comments']));
                                 $mov_cant=$movement->getMov_cant();
                                 $costo = $mov_cant*$product->getProduction_cost();
                                 $entry->setBalance($costo);
@@ -744,7 +744,7 @@ class model {
                                 $fecha_actual = date('Y-m-d H:i:s');
                                 $fecha = new DateTime($fecha_actual);
                                 $entry->setEntry_date($fecha);
-                                $entry->setDetails($params['ta_comments']);
+                                $entry->setDetails(utf8_encode($params['ta_comments']));
                                 $mov_cant=$movement->getMov_cant();
                                 $costo = $mov_cant*$product->getProduction_cost()*(-1);
                                 $entry->setBalance($costo);
@@ -847,7 +847,7 @@ class model {
                             $mov_supply->setMov_supply_cant($params['edt_cant']);
                             $mov_supply->setSupply_id($params['hf_supply_id']);
                             $mov_supply->setMov_supply_lot($params['edt_lot']);
-                            $mov_supply->setComments($params['ta_comments']);
+                            $mov_supply->setComments(utf8_encode($params['ta_comments']));
                             $mov_supply->setUser_id($_SESSION['user_id']);
                             $this->persistence->saveMovSupply($mov_supply);
                             /*2.- Disminuir po de movimiento el stock de ingredientes de la receta del producto */

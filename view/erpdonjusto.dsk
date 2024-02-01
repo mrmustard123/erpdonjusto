@@ -17,22 +17,22 @@ Count=0
 Count=0
 
 [OpenFiles]
-Module2=view_consign.php
-Module3=database_module01.php
-Module4=view_new_consignee.php
-
-[view_consign.php]
-Line=0
-Position=0
+Module1=database_module01.php
+Module2=view_new_consignee.php
+Module3=view_budget_0002.php
 
 [database_module01.php]
 Line=0
 Position=0
 
 [view_new_consignee.php]
-Line=75
-Position=36
+Line=0
+Position=0
+
+[view_budget_0002.php]
+Line=0
+Position=0
 
 [Status]
-OpenModule=view_new_consignee.php
+OpenModule=view_budget_0002.php
 

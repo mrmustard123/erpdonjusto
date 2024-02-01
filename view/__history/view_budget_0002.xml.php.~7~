@@ -214,7 +214,6 @@
   <object class="Database" name="dbamenoec1_erpdonjusto1" >
         <property name="Left">545</property>
         <property name="Top">542</property>
-    <property name="Connected"></property>
     <property name="DatabaseName">apicolad_erpdonjusto</property>
     <property name="Host">localhost</property>
     <property name="Name">dbamenoec1_erpdonjusto1</property>
@@ -234,7 +233,7 @@
     <property name="Database">database_module01.dbapicolad_erpdonjusto1</property>
     <property name="Name">Query1</property>
     <property name="Params">a:0:{}</property>
-    <property name="SQL"><![CDATA[a:1:{i:0;s:134:&quot;SELECT SUM(balance) as `balance` FROM `entry` WHERE account_id = 432 AND entry_date BETWEEN '2019-06-28 11:48:46' AND ADDDATE(now(),1)&quot;;}]]></property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:123:&quot;SELECT SUM(balance) as `balance` FROM `entry` WHERE account_id = 432 AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW()&quot;;}]]></property>
   </object>
   <object class="Query" name="Query2" >
         <property name="Left">508</property>
@@ -243,7 +242,7 @@
     <property name="Database">database_module01.dbapicolad_erpdonjusto1</property>
     <property name="Name">Query2</property>
     <property name="Params">a:0:{}</property>
-    <property name="SQL"><![CDATA[a:1:{i:0;s:144:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 413 AND entry_date BETWEEN '2019-06-28 11:48:46' AND ADDDATE(now(),1)&quot;;}]]></property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:133:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 413 AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW()&quot;;}]]></property>
   </object>
   <object class="Query" name="Query3" >
         <property name="Left">505</property>
@@ -252,7 +251,7 @@
     <property name="Database">database_module01.dbapicolad_erpdonjusto1</property>
     <property name="Name">Query3</property>
     <property name="Params">a:0:{}</property>
-    <property name="SQL"><![CDATA[a:1:{i:0;s:144:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 419 AND entry_date BETWEEN '2019-06-28 11:48:46' AND ADDDATE(now(),1)&quot;;}]]></property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:133:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 419 AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW()&quot;;}]]></property>
   </object>
   <object class="Query" name="Query4" >
         <property name="Left">507</property>
@@ -261,7 +260,7 @@
     <property name="Database">database_module01.dbapicolad_erpdonjusto1</property>
     <property name="Name">Query4</property>
     <property name="Params">a:0:{}</property>
-    <property name="SQL"><![CDATA[a:1:{i:0;s:144:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 433 AND entry_date BETWEEN '2019-06-28 11:48:46' AND ADDDATE(now(),1)&quot;;}]]></property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:133:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 433 AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW()&quot;;}]]></property>
   </object>
   <object class="Datasource" name="dsentry2" >
         <property name="Left">581</property>
@@ -288,7 +287,7 @@
     <property name="Database">database_module01.dbapicolad_erpdonjusto1</property>
     <property name="Name">Query5</property>
     <property name="Params">a:0:{}</property>
-    <property name="SQL"><![CDATA[a:1:{i:0;s:144:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 434 AND entry_date BETWEEN '2019-06-28 11:48:46' AND ADDDATE(now(),1)&quot;;}]]></property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:133:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 434 AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW()&quot;;}]]></property>
   </object>
   <object class="Datasource" name="dsentry5" >
         <property name="Left">577</property>
@@ -303,7 +302,7 @@
     <property name="Database">database_module01.dbapicolad_erpdonjusto1</property>
     <property name="Name">Query6</property>
     <property name="Params">a:0:{}</property>
-    <property name="SQL"><![CDATA[a:1:{i:0;s:144:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 435 AND entry_date BETWEEN '2019-06-28 11:48:46' AND ADDDATE(now(),1)&quot;;}]]></property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:133:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 435 AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW()&quot;;}]]></property>
   </object>
   <object class="Datasource" name="dsentry6" >
         <property name="Left">574</property>
@@ -318,7 +317,7 @@
     <property name="Database">database_module01.dbapicolad_erpdonjusto1</property>
     <property name="Name">Query7</property>
     <property name="Params">a:0:{}</property>
-    <property name="SQL"><![CDATA[a:1:{i:0;s:144:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 579 AND entry_date BETWEEN '2019-06-28 11:48:46' AND ADDDATE(now(),1)&quot;;}]]></property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:133:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 579 AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW()&quot;;}]]></property>
   </object>
   <object class="Datasource" name="dsentry7" >
         <property name="Left">568</property>
@@ -333,7 +332,7 @@
     <property name="Database">database_module01.dbapicolad_erpdonjusto1</property>
     <property name="Name">Query8</property>
     <property name="Params">a:0:{}</property>
-    <property name="SQL"><![CDATA[a:1:{i:0;s:144:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 581 AND entry_date BETWEEN '2019-06-28 11:48:46' AND ADDDATE(now(),1)&quot;;}]]></property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:133:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 581 AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW()&quot;;}]]></property>
   </object>
   <object class="Datasource" name="dsentry8" >
         <property name="Left">568</property>
@@ -348,7 +347,7 @@
     <property name="Database">database_module01.dbapicolad_erpdonjusto1</property>
     <property name="Name">Query9</property>
     <property name="Params">a:0:{}</property>
-    <property name="SQL"><![CDATA[a:1:{i:0;s:144:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 582 AND entry_date BETWEEN '2019-06-28 11:48:46' AND ADDDATE(now(),1)&quot;;}]]></property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:133:&quot;SELECT TRUNCATE(SUM(balance),2) as balance FROM `entry` WHERE account_id = 582 AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW()&quot;;}]]></property>
     <property name="OnAfterOpen">Query9AfterOpen</property>
   </object>
   <object class="Datasource" name="dsentry9" >
