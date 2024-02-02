@@ -8,7 +8,7 @@
  * Author: Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
 
-
+include "realpath.php"
 
 ?>
 <html>
@@ -19,19 +19,23 @@
         <meta name="HandheldFriendly" content="true">
 
         <meta name="viewport" content="width=device-width, initial-scale=0.666667, maximum-scale=0.666667, user-scalable=0">
+        
 
         <meta name="viewport" content="width=device-width">  
+        
+        <link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/bootstrap.min.css" rel="stylesheet" />
+        
     </head>
     <body>
         <a href="index.php?action=home">Inicio</a>
         <div>
             <h1>PLAN DE CUENTAS</h1>
-            <table border="1" width="100%">
+            <table class="table table-striped"  width="100%" border="0">
                 <tr>
-                    <td>Nro</td>
-                    <td>C&Oacute;DIGO</td>
-                    <td>CUENTA</td>
-                    <td>DESCRIPCI&Oacute;N</td>
+                    <th>Nro</th>
+                    <th>C&Oacute;DIGO</th>
+                    <th>CUENTA</th>
+                    <th>DESCRIPCI&Oacute;N</th>
                 </tr>
                 
                 <?php

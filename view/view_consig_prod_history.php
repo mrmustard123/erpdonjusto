@@ -7,71 +7,7 @@ error_reporting(1);
  * Author: Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
 
-
-    $path = dirname(dirname(__FILE__));
-
-
-    $dirname = str_replace('\\', '/', dirname(dirname(__FILE__)));
-
-    $v_dirname = explode('/',$dirname);
-
-    $v_script_name = explode('/',$_SERVER['SCRIPT_FILENAME']);
-
-    $i = 0;
-
-
-
-    $seguir = TRUE;
-
-    while(  $seguir ){
-
-
-
-        if($i>(count($v_dirname)-1)){
-
-            $seguir = FALSE;
-
-        }else{
-
-            if($i>(count($v_script_name)-1)){
-
-                $seguir = FALSE;
-
-            }else{  
-
-                if($v_dirname[$i]!=$v_script_name[$i]){
-
-                    $seguir = FALSE;
-
-                }
-
-            }
-
-        }
-
-
-
-        $i++;
-
-    }
-
-    $count_script=count($v_script_name);
-
-    $relative_path='';    
-
-    for($j=$i;$j<$count_script-1;$j++){
-
-       $relative_path .= '../'; 
-
-    }
-
-    $path_html ='';
-
-    for($i;$i<count($v_dirname);$i++){
-
-        $path_html .= $v_dirname[$i].'/';        
-
-    }
+include "realpath.php";
 
 
 
@@ -107,8 +43,10 @@ error_reporting(1);
         
 <script src="<?php echo $relative_path.$path_html; ?>view/js/jquery-1.6.4.min.js" type="text/javascript"></script>        
 <link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/erpdonjusto.css" rel="stylesheet" />	        
+<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/bootstrap.min.css" rel="stylesheet" />
 <link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.css" rel="stylesheet" />	        
 <script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.js"></script>         
+
         
 <script  type="text/javascript">
 
@@ -247,18 +185,18 @@ jQuery( document ).ready(function(){
 
         if($v_entries){
 ?>            
-<table width="100%" border="1">
+<table class="table table-striped"  width="100%" border="0">
   <tr>
-    <td>FECHA</td>
-    <td>MOVIMIENTO</td>
-    <td>PRODUCTO</td>
-    <td>CANTIDAD</td>
-    <td>TIENE</td>
-    <td>UDDS. POR PAGAR</td>
-    <td>PRECIO UNITARIO</td>
-    <td>TOTAL</td>
-    <td>COMENTARIO</td>
-    <td>CBTE. NRO.</td>
+    <th>FECHA</th>
+    <th>MOVIMIENTO</th>
+    <th>PRODUCTO</th>
+    <th>CANTIDAD</th>
+    <th>TIENE</th>
+    <th>UDDS. POR PAGAR</th>
+    <th>PRECIO UNITARIO</th>
+    <th>TOTAL</th>
+    <th>COMENTARIO</th>
+    <th>CBTE. NRO.</th>
   </tr>
              
 
