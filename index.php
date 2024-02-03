@@ -1,19 +1,11 @@
-<!--html>
-    <head>
-<link href="./view/css/bootstrap.min.css" rel="stylesheet">
-<link href="./view/js/bootstrap.bundle.min.js" rel="stylesheet"-->
-
-
 <?php    
-
-
     ini_set('session.gc_maxlifetime', 36000);    
-    session_start();    /*echo 'break0<br>';*/    
-    require_once ('request_functions.php');    /*echo 'break1<br>';*/    
-    require_once('controller/controller.php');    
-    /*echo 'break2<br>';*/    /*echo 'Action: '.$_GET['action'].'<br>';*/    
+    session_start();    /*echo 'break0<br>';*/
+    require_once ('request_functions.php');   /* echo 'break1<br>';   */
+    require_once('./controller/controller.php');    
+   /* echo 'break2<br>';    echo 'Action: '.$_GET['action'].'<br>';*/
     $params = import_request_data();   //recupera $params()      
-    /*echo 'request data:<br>';    var_dump($params);    echo '<br>';*/ 
+    /*echo 'request data:<br>';    var_dump($params);    echo '<br>';*/
     if(!isset($params['action']))
     {        
        $params['action']='login'; 
@@ -30,12 +22,12 @@
     }
 
     
-    /*echo 'Action: '.$params['action'].'<br>';*/    
+    /*echo 'Action: '.$params['action'].'<br>';*/
     $controller = new controller();        
-    /*$controller->proccess_test();*/        
-    /*var_dump($controller);*/        
-    /*echo 'brake06<br>';*/    
+    /*$controller->proccess_test();*/
+    /*var_dump($controller);*/
+    /*echo 'brake06<br>';*/
     $controller->action_performed($params);       
-    /* echo 'brake07<br>';*/     
+    /* echo 'brake07<br>'; */
         
 ?>

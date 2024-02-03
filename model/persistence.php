@@ -1,43 +1,6 @@
 <?php
-
-/*echo "persistence cargado<br>  ";*/
-
-require_once("/rpcl/rpcl.inc.php");
-
-//Includes
-use_unit("forms.inc.php");
-use_unit("extctrls.inc.php");
-use_unit("stdctrls.inc.php");
-use_unit("dbtables.inc.php");
-use_unit("db.inc.php");
-
-//Class definition
-class persistence extends DataModule
-{
-    public $dbapicolad_erpdonjusto1 = null;
-    public $tbpos_history1 = null;
-    public $dspos_history1 = null;
-    function persistenceShow($sender, $params)
-    {
-        $this->tbpos_history1->Active = true;
-    }
-}
-
-global $application;
-
-global $persistence;
-
-//Creates the form
-$persistence=new persistence($application);
-
-//Read from resource file
-$persistence->loadResource(__FILE__);
-
-//PERSISTENCE
     /*echo 'estoy en persistence.php<br>';*/
     require_once ('class.db.php');
-
-    //require_once("../view/database_module01.php");
 
 
 
@@ -212,7 +175,7 @@ $persistence->loadResource(__FILE__);
         public function getBudget(){
 
             $budget=0;
-            $sql = "SELECT SUM(balance) as `Total` FROM `entry` WHERE account_id in (432, 413, 419, 433, 434, 435, 579,581, 582) AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW();";
+            $sql = "SELECT SUM(balance) as `Total` FROM `entry` WHERE account_id in (432, 413, 419, 433, 434, 435, 579,581, 582) AND entry_date BETWEEN '2019-06-28 11:48:46' AND ADDDATE(now(),1);";
             $result=$this->db->query($sql);
             if(mysqli_num_rows($result)>0){
                 $tupla1 = mysqli_fetch_assoc($result);
@@ -523,9 +486,6 @@ $persistence->loadResource(__FILE__);
 
 
 
-
-
-
         public function getProductCostCollection(){
 
             $sql = "SELECT * FROM product_cost AS e WHERE 1 ORDER BY product_id DESC LIMIT 20";
@@ -754,13 +714,7 @@ $persistence->loadResource(__FILE__);
 
 
 
-
-
-
-
-
-
-        /**************FUNCTIONES DE INVENT?RIO****************************************/
+        /**************FUNCTIONES DE INVENTÁRIO****************************************/        
         public function getIngredientCollection(){
 
             $sql = "SELECT * FROM entry AS e WHERE 1 ORDER BY e.entry_name DESC LIMIT 20";
