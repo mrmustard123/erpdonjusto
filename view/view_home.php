@@ -8,7 +8,15 @@
  * Author: Leonardo Gabriel Tellez Saucedo (mr_mustard123@hotmail.com)
  */
 
-include "realpath.php";
+require_once "realpath.php";
+$paths = realpath::get_realpath();
+$relative_path = $paths["relative_path"];
+$path_html = $paths["path_html"];
+
+/*
+echo 'Relative path: '.$relative_path.'<br/>';
+echo 'Path html: '.$path_html.'<br/>';
+*/
 ?>
 
 

@@ -555,6 +555,7 @@
         public function getPosDescripHistory($pos){
 
             $sql = "select * from posic_descrip_hist where position_id = ".$pos;
+
             $result=$this->db->query($sql);
             if(mysqli_num_rows($result)>0){
                 while($tupla1 = mysqli_fetch_assoc($result))
