@@ -66,6 +66,13 @@
          require_once ('class.posic_salud_hist.php');
   /* echo 'model: class.posic_salud_hist.php cargado... <br>';
    */
+         
+include "realpath.php";
+?>
+    <link type="text/css" href="<?php echo $relative_path.$path_html; ?>view/css/erpdonjusto.css" rel="stylesheet" />	                 
+<?php
+
+
 class model {
     private $persistence;
     private $accounts;
@@ -486,6 +493,7 @@ class model {
                         $new_product->setProduct_id($product[0]);
                         $new_product->setStock($product[1]);
                         $new_product->setProduct_name($product[2]);
+                        $new_product->setStock_min($product[3]);
                         $this->products[] = $new_product;
 
                     }
@@ -505,14 +513,68 @@ class model {
                     foreach($products as $product)                {
                         /* put in bold the written text */
                         $name = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>', utf8_encode($product->getProduct_name()));
+                        $stock = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>', utf8_encode($product->getStock()));
+                        $stock_min = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>', utf8_encode($product->getStock_min()));
                         /* add new option */
-                        echo '<li onclick="set_item(\''.str_replace("'", "\'", utf8_encode($product->getProduct_name())).'\','.$product->getProduct_id().')">'.$name.'</li>';
+                        echo '<li onclick="set_item(\''.str_replace("'", "\'", utf8_encode($product->getProduct_name())).'\','.$product->getProduct_id().')">'.$name;
+                        if ($stock<$stock_min){
+                            echo '&nbsp;<span class="alert">'.$stock.'</span></li>';
+                        }else{
+                            echo '</li>';
+                        }                        
 
                     }
 
                 }else{
                   echo '<li onclick="set_item(\'Producto inexistente\',0)">Producto inexistente</li>';
                 }
+    }
+    
+    public function mail_stock_min($producto){
+
+        
+        
+        $para  = 'elianatellezsaucedo@gmail.com' . ', '; // atención a la coma
+        $para .= 'leonardo616@gmail.com';
+
+        // título
+        $título = 'Alerta de Stock M&iacute;nimo';
+
+        // mensaje
+        $mensaje = '
+        <html>
+        <head>
+          <title>Alerta de Stock m&iacute;nimo</title>
+        </head>
+        <body>
+          <p>¡Hola chicos!</p>
+          
+          Les cuento que se nos est&aacute; acabando: <br/>'.
+          $producto.'<br/>
+          Les aconcejo que repongan el stock ¡lo m&aacute;s pronto posible! <br/>
+          ¡Besos!<br/>
+          <br/>
+          Atte.<br/>
+          Brunilda (La robot)<br/>                                             
+        </body>
+        </html>
+        ';
+
+        // Para enviar un correo HTML, debe establecerse la cabecera Content-type
+        $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+        $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+        // Cabeceras adicionales
+        $cabeceras .= 'To: Eli <elianatellezsaucedo@gmail.com>, Leo <leonardo616@gmail.com>' . "\r\n";
+        $cabeceras .= 'From: Brunilda <brunilda@apicoladonjusto.com>' . "\r\n";
+
+        // Enviarlo
+        mail($para, $título, $mensaje, $cabeceras);        
+
+
+        /*echo 'Se envia email:  Falta producto '.$producto.'<br/>';*/
+        
+        
     }
 
      public function saveMovement($params){
@@ -558,6 +620,16 @@ class model {
                                         $params2['ta_comments']=$params['ta_comments'];
                                         $params2['slct_mov_reason']=$params['slct_mov_reason'];
                                         $this->saveMovement($params2);
+                                        
+                                        /*
+                                        $stock = $ingredient->getStock();
+                                        $stock_min = $ingredient->getStock_min();
+                                        
+                                        if($stock<$stock_min){
+                                            $this->mail_stock_min($ingredient->getProduct_name());
+                                        }*/
+                                        
+                                        
                                         $price = $ingredient->getProduction_cost();
                                         /*Asientos*/
                                         $costo=0;
@@ -598,8 +670,13 @@ class model {
                                         $params1['hf_supply_id']=$product_supply['supply_id'];
                                         $params1['edt_lot']=$params['edt_lot'];
                                         $params1['ta_comments']=$params['ta_comments'];
-                                                                                                                                                                                   $this->saveMovSupply($params1);
-                                                                                                                                                                                                                          $price = $supply->getPrice();
+                                                                                                                                                                                   
+                                        $this->saveMovSupply($params1);
+                                        
+
+                                         
+                                                                                                                                                                                                                          
+                                        $price = $supply->getPrice();
                                         /*Asientos */
                                         $costo=0;
                                         $entry = new Entry();
@@ -761,6 +838,16 @@ class model {
                                     /*2b. Disminuir el stock del producto */
                     $product->setStock($product->getStock() - $movement->getMov_cant());
                                                          $reason = $movement->getReason();
+                                                         
+                                        
+                    $stock = $product->getStock();
+                    $stock_min = $product->getStock_min();
+
+                    if($stock<$stock_min){
+                        $this->mail_stock_min($product->getProduct_name());
+                    }
+                    
+                    
                     switch ($reason){
                         case 'PRODUCCION':                                                
                             break;
@@ -858,7 +945,19 @@ class model {
 
                             }elseif ($mov_supply->getMov_supply_type() == 'SALIDA'){
                                 /*2b. Dusminuir el stock del producto */
-                                $supply->setStock($supply->getStock() - $mov_supply->getMov_supply_cant());                                         
+                                $supply->setStock($supply->getStock() - $mov_supply->getMov_supply_cant());  
+                                
+                    /******CHEQUEAMOS SI SE HA LLEGADO A LA CANTIDAD MINIMA****/
+                                $stock = $supply->getStock();
+                                $stock_min = $supply->getStock_min();
+
+                                if($stock<$stock_min){
+                                    $this->mail_stock_min($supply->getSupply_name());
+                                }
+                    /**********************************************************/
+                                                             
+                                
+                                
                             }
                             $this->persistence->updateSupply($supply);
                             /*3.- Disminuir o aumentar segun el tipo de movimiento el stock de insumos del producto            */

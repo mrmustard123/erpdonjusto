@@ -1,3 +1,16 @@
+<html>
+<head>
+
+    <title>REPORTE HISTORICO DE POSICIONES DEL API&Aacute;RIO </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <meta name="HandheldFriendly" content="true">
+
+        
+</head>
+
+<body>
+
 <?php
 error_reporting(1);
 /*
@@ -16,7 +29,7 @@ require_once 'model/class.pos_history.php';
     
     echo '<a href="index.php?action=home">Inicio</a>';  
     
-    echo '<H1>HISTORICO DE POSICIONES</H1>';
+    echo '<H1>REPORTE HISTORICO DE POSICIONES DEL API&Aacute;RIO </H1>';
     
     foreach($v_pos_histories as $pos_history){
         
@@ -43,12 +56,6 @@ require_once 'model/class.pos_history.php';
         
     }
     
-    
-    
-    
-
-
-
-
-
-
+?>
+</body>
+</html>

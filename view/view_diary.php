@@ -196,7 +196,7 @@ jQuery( document ).ready(function(){
                         }
                         ?>
                     </td>
-                    <td id="entry_details"><?php echo ($entry['details']); ?></td>
+                    <td class="entry_details"><?php echo ($entry['details']); ?></td>
 
                     <td><?php 
 

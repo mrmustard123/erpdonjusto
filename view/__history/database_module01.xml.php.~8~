@@ -8,11 +8,11 @@
         <property name="Left">266</property>
         <property name="Top">116</property>
     <property name="Connected">1</property>
-    <property name="DatabaseName">apicolado20_erpdonjusto</property>
+    <property name="DatabaseName">apicolad_erpdonjusto</property>
     <property name="Host">localhost</property>
     <property name="Name">dbapicolad_erpdonjusto1</property>
-    <property name="UserName">apicolado20_usr</property>
-    <property name="UserPassword">P4p4n03l123</property>
+    <property name="UserName">apicolad_justo</property>
+    <property name="UserPassword">aA1NfDBW5Wlm</property>
   </object>
   <object class="Table" name="tbpos_history1" >
         <property name="Left">136</property>

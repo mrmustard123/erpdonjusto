@@ -17,13 +17,14 @@ Count=0
 Count=0
 
 [OpenFiles]
-Module2=database_module01.php
-Module3=view_new_consignee.php
-Module4=view_budget_0002.php
-
-[database_module01.php]
-Line=0
-Position=0
+Module2=view_new_consignee.php
+Module3=view_budget_0002.php
+Module4=database_module01.php
+Module5=view_consign_prod.php
+Module6=view_get_consig_prod.php
+Module7=view_consign.php
+Module8=view_supply_price.php
+Module9=view_hist_posicion.php
 
 [view_new_consignee.php]
 Line=0
@@ -33,6 +34,30 @@ Position=0
 Line=0
 Position=0
 
+[database_module01.php]
+Line=0
+Position=0
+
+[view_consign_prod.php]
+Line=0
+Position=0
+
+[view_get_consig_prod.php]
+Line=0
+Position=0
+
+[view_consign.php]
+Line=0
+Position=0
+
+[view_supply_price.php]
+Line=0
+Position=0
+
+[view_hist_posicion.php]
+Line=0
+Position=0
+
 [Status]
-OpenModule=view_budget_0002.php
+OpenModule=view_hist_posicion.php
 

@@ -33,21 +33,21 @@
             /* the connection configuration*/
             $dbParams = array(
                 'driver'   => 'pdo_mysql',
-                'user'     => 'apicolad_justo',
-                'password' => 'aA1NfDBW5Wlm',
-                'dbname'   => 'apicolad_erpdonjusto',
+                'user'     => 'apicolado20_usr',
+                'password' => 'P4p4n03l123',
+                'dbname'   => 'apicolado20_erpdonjusto',
 
 
             );
             $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
             $this->entityManager = EntityManager::create($dbParams, $config);
-
+  
 
             $this->db = new db();
 
-            $this->db->setDb_name("apicolad_erpdonjusto");
-            $this->db->setUser("apicolad_justo");
-            $this->db->setPassword("aA1NfDBW5Wlm");
+            $this->db->setDb_name("apicolado20_erpdonjusto");
+            $this->db->setUser("apicolado20_usr");
+            $this->db->setPassword("P4p4n03l123");
             $this->db->setServer_name("localhost");
 
             $this->link = $this->db->connect();
@@ -774,7 +774,7 @@
             if(mysqli_num_rows($result)>0){
                 while($tupla1 = mysqli_fetch_assoc($result))
                 {
-                  $v_products [] = array($tupla1['product_id'],$tupla1['stock'],$tupla1['product_name']);
+                  $v_products [] = array($tupla1['product_id'],$tupla1['stock'],$tupla1['product_name'], $tupla1['stock_min']);
                 }
                 return $v_products;
 
