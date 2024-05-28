@@ -24,6 +24,7 @@ require_once 'model/class.pos_history.php';
     $model = new model();
 
     $v_pos_histories = $model->get_list_pos_hist();
+    $v_positions = $model->getPostionCollection();
     
     $old_position = 0;
     
@@ -43,7 +44,8 @@ require_once 'model/class.pos_history.php';
         $new_position = $PosHistory->getPosition_id();
         
         if($old_position<>$new_position){
-            echo '<h2>Posicion # '.$PosHistory->getPosition_id().'</h2>';
+            echo '<h2>Posicion # '.$PosHistory->getPosition_id().'</h2><br/>';
+            echo 'Configuraci&iacute;n actual: '.$PosHistory->ge
         }
         
         echo $PosHistory->getPos_hist_date().'</BR>';

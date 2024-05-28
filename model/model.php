@@ -239,6 +239,14 @@ class model {
                 return $v_entries;
 
      }
+     
+     
+     public function getPostionCollection(){
+                $v_positions = $this->persistence->getPostionCollection();
+                return $v_positions;
+
+     }     
+     
 
      public function getLastPosHistories(){
                 $v_pos_histories = $this->persistence->getLastPosHistories();

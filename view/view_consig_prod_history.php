@@ -211,7 +211,7 @@ jQuery( document ).ready(function(){
                 <tr>
                     <td><?php echo $entry['consig_date']; ?></td>
                     <td><?php echo $entry['mov_type']; ?></td>
-                    <td><?php echo utf8_encode($entry['product_name']);?></td>
+                    <td><?php echo $entry['product_name'];?></td>
                     <td><?php echo $entry['cant']; ?></td>
                     <td><?php echo $entry['tiene']; ?></td>
                     <td><?php echo $entry['topay']; ?></td>

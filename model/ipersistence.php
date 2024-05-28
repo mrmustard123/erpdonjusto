@@ -59,6 +59,8 @@ interface iPersistence{
     public function getProductCostCollection();
 
     public function saveBitacora($bitacora);
+    
+    public function getPositionCollection();
 
     public function getLastPosHistories();
 
