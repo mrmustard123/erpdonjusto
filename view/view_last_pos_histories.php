@@ -1,3 +1,14 @@
+<?php
+
+/**
+ * File: view_last_pos_histories
+ * Author: Leonardo G. Tellez Saucedo <leonardo616@gmail.com>
+ * Date: 28 may. de 2024 00:45:40
+ * User: user
+ */
+
+?>
+
 <html>
 <head>
 
@@ -13,10 +24,7 @@
 
 <?php
 error_reporting(1);
-/*
-  Created on : 26 jun. de 2023, 11:21:25
-  Author: Leonardo G. Tellez Saucedo
- */
+
 
 require_once 'model/model.php';
 require_once 'model/class.pos_history.php';
@@ -25,32 +33,14 @@ require_once 'model/class.position.php';
     $model = new model();
 
 
-    $v_positions = $model->getPositionCollection();
+    $v_pos_histories = $model->getLastPosHistories();
     
        
     echo '<a href="index.php?action=home">Inicio</a>';  
     
     echo '<H1>REPORTE HISTORICO DE POSICIONES DEL API&Aacute;RIO </H1>';
     
-    foreach($v_positions as $position){
-        
-        
-        $ActualPosition = new Position();
-               
-        $ActualPosition->setPosition_id($position['position_id']);
-        $ActualPosition->setPos_name($position['pos_name']);
-        $ActualPosition->setDescripcion($position['descripcion']);
-        $ActualPosition->setCoordenadas($position['coordenadas']);
-        $ActualPosition->setSalud($position['salud']);        
-        $ActualPosition->setId_apiario($position['id_apiario']);
-        
-        $pos = $ActualPosition->getPosition_id();
-        $v_pos_histories = $model->getPosHistory($pos);        
-        
-        
-        echo '<h2>Posici&oacute;n # '.$ActualPosition->getPosition_id().'</h2>';
-        echo '<p>Configuraci&oacute;n actual: '.$ActualPosition->getDescripcion().'</p>';
-        echo '<p>Salud actual: '.$ActualPosition->getSalud().'<p>';
+   
         
         foreach($v_pos_histories as $pos_history){
 
@@ -69,7 +59,7 @@ require_once 'model/class.position.php';
 
 
         }           
-    }
+    
     
 
     

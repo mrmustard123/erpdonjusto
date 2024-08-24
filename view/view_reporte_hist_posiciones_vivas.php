@@ -25,7 +25,7 @@ require_once 'model/class.position.php';
     $model = new model();
 
 
-    $v_positions = $model->getPositionCollection();
+    $v_positions = $model->getPositionCollection_alive();
     
        
     echo '<a href="index.php?action=home">Inicio</a>';  
@@ -49,8 +49,8 @@ require_once 'model/class.position.php';
         
         
         echo '<h2>Posici&oacute;n # '.$ActualPosition->getPosition_id().'</h2>';
-        echo '<p>Configuraci&oacute;n actual: '.$ActualPosition->getDescripcion().'</p>';
-        echo '<p>Salud actual: '.$ActualPosition->getSalud().'<p>';
+        echo '<p><strong>Configuraci&oacute;n actual: </strong>'.$ActualPosition->getDescripcion().'<br/>';
+        echo '<strong>Salud actual: </strong>'.$ActualPosition->getSalud().'</p>';
         
         foreach($v_pos_histories as $pos_history){
 
@@ -63,9 +63,9 @@ require_once 'model/class.position.php';
 
             $new_position = $PosHistory->getPosition_id();
 
-            echo $PosHistory->getPos_hist_date().'</BR>';
+            echo $PosHistory->getPos_hist_date().': ';
 
-            echo $PosHistory->getPos_hist_body().'</BR></BR>';
+            echo $PosHistory->getPos_hist_body().'</BR>';
 
 
         }           

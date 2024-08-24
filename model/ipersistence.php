@@ -93,6 +93,8 @@ interface iPersistence{
     public function modif_pendiente($pendiente);
     
     public function getListPosHistory();
+    
+    public function getPositionCollection_alive();
                    
     /********SUBSISTEMA DE INVENTÁRIO*******/        
     public function getMovementsByDateCollection($fecha_ini, $fecha_fin);

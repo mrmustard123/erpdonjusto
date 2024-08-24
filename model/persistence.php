@@ -527,6 +527,22 @@
             
         }
         
+        public function getPositionCollection_alive(){
+            $sql = "SELECT * from position where salud<>'MUERTA';";
+            $result=$this->db->query($sql);
+            if(mysqli_num_rows($result)>0){
+                while($tupla1 = mysqli_fetch_assoc($result))
+                {
+                  $v_positions[] = $tupla1;
+                }
+                return $v_positions;
+
+            }else{
+                return NULL;
+            }                           
+            
+        }        
+        
         
     public function getListPosHistory(){
 
@@ -571,7 +587,7 @@
 
         public function getPosHistory($pos){
 
-            $sql = "select * from pos_history where position_id = ".$pos;
+            $sql = "select * from pos_history where  position_id = ".$pos;
             $result=$this->db->query($sql);
             if(mysqli_num_rows($result)>0){
                 while($tupla1 = mysqli_fetch_assoc($result))

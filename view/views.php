@@ -172,7 +172,12 @@ class views
     {                        
         require_once ('view_reporte_hist_posiciones.php');                    
         
-    }      
+    }   
+    
+    public function display_view_report_pos_hist_alive($params)
+    {
+        require_once ('view_reporte_hist_posiciones_vivas.php');                            
+    }
     
  }     
     

@@ -241,11 +241,17 @@ class model {
      }
      
      
-     public function getPostionCollection(){
-                $v_positions = $this->persistence->getPostionCollection();
+     public function getPositionCollection(){
+                $v_positions = $this->persistence->getPositionCollection();
                 return $v_positions;
 
-     }     
+     }   
+     
+     public function getPositionCollection_alive(){
+                $v_positions = $this->persistence->getPositionCollection_alive();
+                return $v_positions;
+
+     }       
      
 
      public function getLastPosHistories(){

@@ -13,6 +13,7 @@ use_unit("mysql.inc.php");
 
 //require_once("../model/persistence.php");
 require_once("database_module01.php");
+
 include("../model/class.db.php");
 
 
@@ -99,8 +100,8 @@ class view_consign extends Page
         $this->consig_id1->setItemIndex( $_SESSION['consig_id']);
 
     }
-
-
+    
+    
     function view_consignShowHeader($sender, $params)
     {
 

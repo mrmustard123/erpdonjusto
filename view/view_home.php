@@ -39,21 +39,54 @@ echo 'Path html: '.$path_html.'<br/>';
         <link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/styles.css" rel="stylesheet" />
 	<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.css" rel="stylesheet" />
 	<script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.js"></script>
+        <script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-1.6.4.min.js"></script>
         
         
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="<?php echo $relative_path.$path_html; ?>view/js/jquery-3.3.1.slim.min.js"></script>    
     <!-- Bootstrap JS -->
-    <script src="<?php echo $relative_path.$path_html; ?>view/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="<?php echo $relative_path.$path_html; ?>view/js/bootstrap.min.js" 
+    ></script>
 
     <script type="text/javascript">
+        
+        function onclick(myurl){                                                        
+            $.ajax({
+                    url: myurl,
+                    type: 'POST',
+                    success:function(data){                        
+                      $('#div_target').show();
+                      $('#div_target').html(data);
+                    }
+            });                        
+        }//end function
+        
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
+            });                     
+            
+            $.ajax({
+
+                    url: '<?php echo $relative_path.$path_html; ?>index.php?action=gethintsupply',
+
+                    type: 'POST',
+
+                    success:function(data){
+
+                      $('#div_target').show();
+
+                      $('#div_target').html(data);
+
+                    }
+
             });
-        });
-    </script>         
+            
+            
+        });        
+    </script>   
+        
 
 
 <title>ERP DON JUSTO</title>
@@ -99,8 +132,6 @@ echo 'Path html: '.$path_html.'<br/>';
         $user_id = $_SESSION['user_id'];
 
         $v_functionalities = $model->getUserFunctionalities($user_id);
-
-
 
 
 ?>
@@ -364,13 +395,25 @@ echo 'Path html: '.$path_html.'<br/>';
                         </li>
                         <?php
                             }//end if
-                        ?>                          
+                            if(in_array('46', $v_functionalities)){
+                        ?>                           
+                        <li>
+                            <a href="index.php?action=report_pos_hist_alive">&bullet;&nbsp;Reporte historia de posiciones vivas</a>
+                        </li>
+                        <?php
+                            }//end if
+                        ?>   
+                        
                     </ul>
                 </li>
                  
             </ul>
 
         </nav>
+        
+        <div id="div_target">
+            
+        </div>
 
     </div>
 </body>

@@ -26,6 +26,7 @@ class ViewConsigSalesProdReport extends Page
     public $Button1 = null;
     public $DateTimePicker1 = null;
     public $DateTimePicker2 = null;
+    public $dbamenoec1_erpdonjusto1 = null;
     public $DBRepeater1 = null;
     public $Datasource1 = null;
     public $Query1 = null;
