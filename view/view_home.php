@@ -38,8 +38,7 @@ echo 'Path html: '.$path_html.'<br/>';
         <link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/erpdonjusto.css" rel="stylesheet" />        
         <link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/styles.css" rel="stylesheet" />
 	<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.css" rel="stylesheet" />
-	<script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.js"></script>
-        <script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-1.6.4.min.js"></script>
+	<!--script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.js"></script-->
         
         
 
@@ -51,39 +50,10 @@ echo 'Path html: '.$path_html.'<br/>';
 
     <script type="text/javascript">
         
-        function onclick(myurl){                                                        
-            $.ajax({
-                    url: myurl,
-                    type: 'POST',
-                    success:function(data){                        
-                      $('#div_target').show();
-                      $('#div_target').html(data);
-                    }
-            });                        
-        }//end function
-        
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
-            });                     
-            
-            $.ajax({
-
-                    url: '<?php echo $relative_path.$path_html; ?>index.php?action=gethintsupply',
-
-                    type: 'POST',
-
-                    success:function(data){
-
-                      $('#div_target').show();
-
-                      $('#div_target').html(data);
-
-                    }
-
-            });
-            
-            
+            });                                 
         });        
     </script>   
         
@@ -415,7 +385,7 @@ echo 'Path html: '.$path_html.'<br/>';
             
         </div>
 
-    </div>
+    </div> <!--end div wrapper-->
 </body>
 </html>
 
