@@ -6,6 +6,7 @@
    /* echo 'break2<br>';    echo 'Action: '.$_GET['action'].'<br>';*/
     $params = import_request_data();   //recupera $params()      
     /*echo 'request data:<br>';    var_dump($params);    echo '<br>';*/
+    $_SESSION['view']='';
     if(!isset($params['action']))
     {        
        $params['action']='login'; 

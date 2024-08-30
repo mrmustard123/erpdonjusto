@@ -6,25 +6,6 @@
  * Created on: Jul 19, 2020
  * Author: Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
-require_once "realpath.php";
-$paths = realpath::get_realpath();
-$relative_path = $paths["relative_path"];
-$path_html = $paths["path_html"];
-/*
-echo 'Relative path: '.$relative_path.'<br/>';
-echo 'Path html: '.$path_html.'<br/>'; 
-*/    
-/*    
-    if(isset($params['code'])){                
-        $_SESSION['account_code'] = $params['code'];        
-    }
-    
-    if(isset($params['code'])){                
-        $_SESSION['account_name'] = $params['name'];        
-    }
-*/    
-    
- 
 
 
 ?>
@@ -48,34 +29,38 @@ echo 'Path html: '.$path_html.'<br/>';
 
 <body>
 
-
-
-
-        
-<script src="<?php echo $relative_path.$path_html; ?>view/js/jquery-1.6.4.min.js" type="text/javascript"></script>        
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/erpdonjusto.css" rel="stylesheet" />	        
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/bootstrap.min.css" rel="stylesheet" /> 
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.css" rel="stylesheet" />	        
-<script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.js"></script>         
+    <?php require "view_links.php" ?>   
+    
+<!--script src="view/js/jquery-1.6.4.min.js" type="text/javascript"></script-->     
         
 <script  type="text/javascript">
-    
+     
     function clear_pos_hist(count){
-        
+       
         var d = new Date();
         
         document.getElementById('text_pos_body'+count).value = '';
         document.getElementById('text_pos_date'+count).value = d.getFullYear()+'-'+(d.getMonth()+1).toString()+'-'+d.getDate()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
         document.getElementById('btn_save_pos'+count).disabled = false;
         document.getElementById('text_pos_body'+count).style.backgroundColor = 'Yellow';
-        document.getElementById('text_pos_body'+count).focus();
-        
-                
+        document.getElementById('text_pos_body'+count).focus();                       
+    } 
+    
+    function recover_pos_hist(count){              
+        document.getElementById('btn_save_pos'+count).disabled = true;
+        document.getElementById('text_pos_body'+count).style.backgroundColor = 'White';                     
     }
-
+       
 
 
 </script>
+
+
+<div class="wrapper">
+    
+        <?php require "view/view_menu.php";  ?>
+
+        <div id="div_target">  
     
 <a href="index.php?action=home">Inicio</a>   
 <h1>POSICIONES DEL API&Aacute;RIO</h1>      
@@ -96,10 +81,73 @@ echo 'Path html: '.$path_html.'<br/>';
         $v_pos_histories = NULL;
             
         $v_pos_histories = $model->getLastPosHistories();
-             
-
         
+        $lenght = count($v_pos_histories);
+   
+
+
+ ?>
+
+
+        <script type="text/javascript">
+            
+            
+            $(document).ready(function(){       
+
+<?php
+            
+               $i=1;        
+            for($i=1;$i<=$lenght;$i++){
+                
+            
 ?>
+     
+                $("#btn_save_pos<?php echo $i; ?>").click(function(e) {
+                    e.preventDefault();                    
+                    
+                    var contador= <?php echo $i?>;
+                    var text_position_id<?php echo $i?> = $("#text_position_id<?php echo $i?>").val();
+                    var text_pos_name<?php echo $i?> = $("#text_pos_name<?php echo $i?>").val();
+                    var text_pos_descripcion<?php echo $i?> = $("#text_pos_descripcion<?php echo $i?>").val();
+                    var text_pos_date<?php echo $i; ?> = $("#text_pos_date<?php echo $i; ?>").val();
+                    var hd_change_salud<?php echo $i; ?> = $("#hd_change_salud<?php echo $i; ?>").val();
+                    var slct_salud<?php echo $i; ?> = $("#slct_salud<?php echo $i; ?>").val();
+                    var text_pos_body<?php echo $i?> = $("#text_pos_body<?php echo $i?>").val();                                                                
+                        
+                    $.ajax({
+                      type:'POST',
+                      data: {contador: contador, 
+                        text_position_id<?php echo $i?>: text_position_id<?php echo $i?>,
+                        text_pos_name<?php echo $i?>:text_pos_name<?php echo $i?>,
+                        text_pos_descripcion<?php echo $i?>:text_pos_descripcion<?php echo $i?>,
+                        text_pos_date<?php echo $i; ?>:text_pos_date<?php echo $i; ?>,
+                        hd_change_salud<?php echo $i; ?>:hd_change_salud<?php echo $i; ?>,
+                        slct_salud<?php echo $i; ?>:slct_salud<?php echo $i; ?>,
+                        text_pos_body<?php echo $i?>:text_pos_body<?php echo $i?>},
+                      dataType: 'JSON',
+                      async: true,
+                      url:'index.php?action=saveposhistory',
+                      beforeSend: function() {
+                        $('#btn_save_pos'+contador).prop('disabled', true);
+                        $('#text_pos_body'+contador).css("background-color", "White"); 
+                      },
+                      success:function() {                       
+                        alert('Datos salvados exitosamente');
+                      }
+                    });                 
+                                                                        
+                });                
+
+
+<?php
+            }//end for($i...
+?>
+
+            });            
+                        
+        </script> 
+
+
 
 
 <table width="100%" border="1">
@@ -124,13 +172,17 @@ echo 'Path html: '.$path_html.'<br/>';
         
         <br> 
         
-      <form method="post" action="<?php echo $relative_path.$path_html;?>index.php" id="form_results<?php echo $count?>" accept-charset="utf-8">
-          <input type="hidden" name="action" id="action" value="saveposhistory" />
-          
-          <input type="hidden" name="text_count" id="text_count" value="<?php echo $count; ?>" />
-          <input type="hidden" name="text_position_id<?php echo $count?>" id="text_position_id<?php echo $count?>" value="<?php echo $pos_history['position_id']; ?>" />
         
-          <input class="text_pos_name" name="text_pos_name<?php echo $count?>" id="text_pos_name<?php echo $count?>" value="<?php  echo utf8_encode($pos_history['pos_name']); ?>" />
+       
+        
+
+        
+        <form method="post" id="form_results" accept-charset="utf-8">
+          <!--input type="hidden" name="action" id="action" value="saveposhistory" /-->          
+          <input type="hidden" name="text_count" id="text_count" value="" />
+          <input type="hidden" name="text_position_id" id="text_position_id<?php echo $count?>" value="<?php echo $pos_history['position_id']; ?>" />
+        
+          <input class="text_pos_name" name="text_pos_name" id="text_pos_name<?php echo $count?>" value="<?php  echo utf8_encode($pos_history['pos_name']); ?>" />
                            
         <br> 
         <br>
@@ -165,7 +217,8 @@ echo 'Path html: '.$path_html.'<br/>';
         <br>
         <textarea class="text_pos_body" name="text_pos_body<?php echo $count?>" id="text_pos_body<?php echo $count?>"  rows=8 ><?php echo utf8_encode($pos_history['pos_hist_body']); ?></textarea>
         <br>                
-        <button type="submit" class="btn_save_pos" name="btn_save_pos<?php echo $count?>" id="btn_save_pos<?php echo $count?>" disabled="true">GRABAR</button>        
+        <button type="normal" class="btn_save_pos" name="btn_save_pos<?php echo $count?>" id="btn_save_pos<?php echo $count?>" disabled="true">GRABAR</button>   
+        
       </form>
       <button type="normal" class="btn_nueva_pos" id="btn_new_pos<?php echo $count?>" onclick="clear_pos_hist(<?php echo $count; ?>)">NUEVA ENTRADA</button>                
         
@@ -181,14 +234,17 @@ echo 'Path html: '.$path_html.'<br/>';
                 $count++;
 
             }//end foreach...
-            
-     
-            
-            
+                      
         }//end if($v_pos_histories...
 
 
 ?>
 </table>
+
+
+        </div> <!--end wrapper-->     
+    </div> <!--end div_target-->   
+
+
 </body>
 </html>

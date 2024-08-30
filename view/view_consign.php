@@ -1,5 +1,5 @@
 <?php
-error_reporting(1);
+error_reporting(0);
 require_once("rpcl/rpcl.inc.php");
 //Includes
 use_unit("forms.inc.php");
@@ -13,64 +13,61 @@ use_unit("mysql.inc.php");
 
 //require_once("../model/persistence.php");
 require_once("database_module01.php");
-include("../model/class.db.php");
+//include("../model/class.db.php");
 
 
 //Class definition
 class view_consign extends Page
 {
-    public $dsbalance_checksum1 = null;
-    public $Label16 = null;
+    public $Label6 = null;
+    public $consig_prod_id1 = null;
+    public $Label1 = null;
+    public $consig_date1 = null;
+    public $Label2 = null;
+    public $consig_id1 = null;
+    public $Label3 = null;
+    public $product_id1 = null;
+    public $Label4 = null;
+    public $cant1 = null;
+    public $unit_price1 = null;
+    public $Label15 = null;
+    public $Label10 = null;
+    public $Label14 = null;
+    public $lblTiene1 = null;
+    public $lblDebe1 = null;
+    public $Label5 = null;
+    public $Label13 = null;
+    public $mov_type1 = null;
+    public $lote1 = null;
+    public $comments1 = null;
+    public $cbte_cont_tipo1 = null;
     public $Label7 = null;
+    public $Label16 = null;
     public $cte_cont_nro1 = null;
+    public $Button1 = null;
+    public $DBRepeater1 = null;
+    public $dsbalance_checksum1 = null;
     public $qry_prod_cost = null;
     public $consignee_list = null;
     public $account_list = null;
     public $movement_list = null;
-    public $Label13 = null;
     public $entry_list = null;
-    public $Label15 = null;
-    public $lblDebe1 = null;
-    public $lblTiene1 = null;
-    public $Label14 = null;
     public $Datasource2 = null;
-    public $Label8 = null;
-    public $Label12 = null;
-    public $Label11 = null;
     public $Datasource1 = null;
     public $Query1 = null;
-    public $DBRepeater1 = null;
     public $consig_prod_list = null;
     public $dsconsig_prod1 = null;
-    public $consig_date1 = null;
-    public $consig_prod_id1 = null;
-    public $consig_id1 = null;
-    public $product_id1 = null;
-    public $cant1 = null;
-    public $mov_type1 = null;
-    public $comments1 = null;
-    public $Button1 = null;
-    public $Label1 = null;
-    public $Label2 = null;
-    public $Label3 = null;
-    public $Label4 = null;
-    public $Label5 = null;
-    public $Label6 = null;
     public $dsproduct1 = null;
     public $dsconsignee1 = null;
-    public $Label9 = null;
     public $Query2 = null;
     public $dbamenoec1_erpdonjusto1 = null;
-    public $Label10 = null;
-    public $unit_price1 = null;
-    public $lote1 = null;
     public $qry_prod_cost_prod = null;
     public $product_list = null;
     public $tbentry1 = null;
     public $configuration_list = null;
-    public $cbte_cont_tipo1 = null;
     public $tbbalance_checksum1 = null;
     public $qry_budget = null;
+    public $Panel1 = null;
     function view_consignBeforeShow($sender, $params)
     {
 
@@ -114,7 +111,7 @@ class view_consign extends Page
 
 
 
-        echo ' <link   type="text/css"  href="css/erpdonjusto.css'.'" rel="stylesheet" />';
+        //echo ' <link   type="text/css"  href="css/erpdonjusto.css'.'" rel="stylesheet" />';
         echo  '<script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>';
 
 
@@ -127,6 +124,7 @@ class view_consign extends Page
             (function(){
 
                 $("#product_id1").change(function() {
+
 
                         var product_id = $('#product_id1').val();
                         var consig_id = $('#consig_id1').val();
@@ -1697,11 +1695,6 @@ class view_consign extends Page
                     }//end if
             }//end if pago normal
 
-
-
-
-
-
      }
 
 
@@ -1709,7 +1702,7 @@ class view_consign extends Page
     {
 
         echo '<a href="../index.php?action=home">Inicio</a></br>';
-        echo '<a href="view_consign_prod.php">Consignaciones</a></br>';
+        echo '<a href="view_consign_prod_wrapper.php">Consignaciones</a></br>';
 
         $this->consig_prod_list->append();
 

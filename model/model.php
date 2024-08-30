@@ -1,5 +1,8 @@
 <?php   /* echo 'estoy en model.php<br>';
 */
+
+
+
     require_once('persistence.php');
        /* echo 'model: persistence cargado...<br>';*/
 
@@ -67,10 +70,7 @@
   /* echo 'model: class.posic_salud_hist.php cargado... <br>';
    */
          
-include "realpath.php";
-?>
-    <link type="text/css" href="<?php echo $relative_path.$path_html; ?>view/css/erpdonjusto.css" rel="stylesheet" />	                 
-<?php
+
 
 
 class model {
@@ -261,8 +261,8 @@ class model {
      }
 
      public function process_save_pos_history($params){
-                                        $count = $params['text_count'];
-                            /*Actualizamos la posicion*/
+                $count = $params['contador'];
+                /*Actualizamos la posicion*/
                 $position = new Position();
                 $position->setPosition_id($params['text_position_id'.$count]);
                 $position-> setPos_name($params['text_pos_name'.$count]);

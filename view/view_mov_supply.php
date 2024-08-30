@@ -6,18 +6,7 @@
  * Created on: Mar 13, 2017
  * Author: Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
-
-require_once "realpath.php";
-$paths = realpath::get_realpath();
-$relative_path = $paths["relative_path"];
-$path_html = $paths["path_html"];
-/*
-echo 'Relative path: '.$relative_path.'<br/>';
-echo 'Path html: '.$path_html.'<br/>';
- */
-?>  
-
-
+?>
 
 <html>
     <head>
@@ -35,12 +24,7 @@ echo 'Path html: '.$path_html.'<br/>';
 
 <body>
 
-        
-    <script src="<?php echo $relative_path.$path_html; ?>view/js/jquery-1.6.4.min.js" type="text/javascript"></script>        
-    <link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/erpdonjusto.css" rel="stylesheet" />	        
-    <link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.css" rel="stylesheet" />	        
-    <script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.js"></script>         
-
+    <?php    require 'view_links.php'; ?>
      <script  type="text/javascript">
 
             /* set_item : this function will be executed when we select an item */
@@ -85,7 +69,7 @@ echo 'Path html: '.$path_html.'<br/>';
 
                   ({
 
-                    url: '<?php echo $relative_path.$path_html; ?>index.php?action=gethintsupply',
+                    url: 'index.php?action=gethintsupply',
 
                     type: 'POST',
 
@@ -123,10 +107,12 @@ echo 'Path html: '.$path_html.'<br/>';
 
     <body>  
         
-        
-        
-        
-        
+    <div class="wrapper">
+
+        <?php require "view/view_menu.php";  ?>
+
+        <div id="div_target">
+            
 <?php
 
         require_once 'model/model.php';
@@ -141,8 +127,6 @@ echo 'Path html: '.$path_html.'<br/>';
 ?>
         
         
-    <a href="index.php?action=home">Inicio</a>
-
         <form method="post" action="<?php echo $relative_path.$path_html; ?>index.php" id="form_mov_supply"> 
 
             <input type="hidden" name="action" id="action" value="save_mov_supply" />
@@ -221,8 +205,7 @@ echo 'Path html: '.$path_html.'<br/>';
 <?php                
 
         if($v_movements){
-
-           
+   
             foreach($v_movements as $movement){
 
 ?>    
@@ -231,22 +214,14 @@ echo 'Path html: '.$path_html.'<br/>';
                     <td><?php echo $movement['mov_supply_date']; ?></td>
                     <td><?php echo $movement['mov_supply_type']; ?></td>
                     <td><?php echo utf8_encode($movement['supply_name']);?></td>
-                    <td><?php echo $movement['mov_supply_cant']; ?></td>
-                    
-                </tr>                    
-                
-
+                    <td><?php echo $movement['mov_supply_cant']; ?></td>                    
+                </tr>                         
 <?php                
-
-            }
-           
-
-        }        
-
-
-
+            }//end foreach...
+        }//end if($v_movements...     
 ?>                
-        
-        
+        </div> <!--end wrapper-->     
+    </div> <!--end div_target-->        
+
     </body>
 </html>

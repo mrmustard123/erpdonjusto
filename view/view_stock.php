@@ -26,10 +26,21 @@
 </head>
 
 <body>
+    
+    
+<?php    require 'view/view_links.php'; ?>
+
+    <div class="wrapper">
+
+        <?php require "view/view_menu.php";  ?>
+
+        <div id="div_target">
+            
+  
 <h2>STOCK</h2>
 
 <a href="index.php?action=movement">Nuevo Movimiento Producto/Ingrediente</a><br/>   
-<a href="index.php?action=home">Inicio</a>  
+
 
 <h2>PRODUCTOS</h2>
 <table width="100%" border="1">
@@ -75,10 +86,7 @@
   <?php
             }
         }
-  
-  
-  
-  
+
   
   ?>
   
@@ -135,12 +143,15 @@
   ?>
   
   
-</table>
-
-
-
-
-
+</table>            
+            
+        
+            
+        </div> <!--end div_target-->
+    </div> <!--end wrapper-->    
+    
+    
+  
 </body>
 </html>
 

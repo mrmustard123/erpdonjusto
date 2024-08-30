@@ -8,7 +8,7 @@ use_unit("stdctrls.inc.php");
 use_unit("dbtables.inc.php");
 
 include("database_module01.php");
-include("../model/class.db.php");
+//include("../model/class.db.php");
 
 //Class definition
 class view_get_consig_prod extends Page
@@ -34,6 +34,10 @@ class view_get_consig_prod extends Page
 
             }
 
+    }
+    function view_get_consig_prodShowHeader($sender, $params)
+    {
+       echo '<script src="./js/jquery-1.6.4.min.js" type="text/javascript"></script>';
     }
 }
 

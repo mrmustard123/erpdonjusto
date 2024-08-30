@@ -7,7 +7,7 @@
  * Author: Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
 
-include "realpath.php";
+
 ?>
 
 
@@ -27,13 +27,11 @@ include "realpath.php";
 </head>
 
 <body>
-
+    
+    <?php require "view_links.php" ?>    
         
-<script src="<?php echo $relative_path.$path_html; ?>view/js/jquery-1.6.4.min.js" type="text/javascript"></script>        
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/erpdonjusto.css" rel="stylesheet" />	        
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.css" rel="stylesheet" />	        
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/bootstrap.min.css" rel="stylesheet" />
-<script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.js"></script>         
+        
+
         
 <script  type="text/javascript">
 
@@ -77,7 +75,15 @@ jQuery( document ).ready(function(){
 
 </script>
     
-<a href="index.php?action=home">Inicio</a>   
+
+<div class="wrapper">
+    
+        <?php require "view/view_menu.php";  ?>
+
+        <div id="div_target">    
+    
+    
+
 <div class="date_select_container">
 
       <form method="post" action="<?php echo $relative_path.$path_html; ?>index.php" id="form_results">
@@ -244,6 +250,8 @@ jQuery( document ).ready(function(){
 
 </div>
 
+        </div> <!--end wrapper-->     
+    </div> <!--end div_target-->            
 
 </body>
 </html>

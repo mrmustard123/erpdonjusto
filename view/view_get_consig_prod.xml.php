@@ -8,9 +8,11 @@
   <property name="Name">view_get_consig_prod</property>
   <property name="Width">597</property>
   <property name="OnShow">view_get_consig_prodShow</property>
+  <property name="OnShowHeader">view_get_consig_prodShowHeader</property>
   <object class="Database" name="dbamenoec1_erpdonjusto1" >
         <property name="Left">418</property>
         <property name="Top">51</property>
+    <property name="Connected"></property>
     <property name="DatabaseName">apicolad_erpdonjusto</property>
     <property name="Host">localhost</property>
     <property name="Name">dbamenoec1_erpdonjusto1</property>

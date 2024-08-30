@@ -3,83 +3,19 @@
   <property name="Background"></property>
   <property name="Caption">PRECIO DEL INSUMO</property>
   <property name="DocType">dtNone</property>
+  <property name="Encoding">Unicode (UTF-8)            |utf-8</property>
+  <property name="GenerateTable">0</property>
   <property name="Height">484</property>
   <property name="IsMaster">0</property>
   <property name="Name">view_supply_price</property>
   <property name="Width">781</property>
   <property name="OnAfterShow">view_supply_priceAfterShow</property>
+  <property name="OnAfterShowFooter">view_supply_priceAfterShowFooter</property>
   <property name="OnBeforeShowHeader">view_supply_priceBeforeShowHeader</property>
   <property name="OnShow">view_supply_priceShow</property>
-  <object class="Label" name="supply_id1" >
-    <property name="Caption">supply_id1</property>
-    <property name="DataField">supply_id</property>
-    <property name="Datasource">dssupply2</property>
-    <property name="Height">13</property>
-    <property name="Left">59</property>
-    <property name="Name">supply_id1</property>
-    <property name="Top">43</property>
-    <property name="Width">75</property>
-  </object>
-  <object class="ComboBox" name="supply_name1" >
-    <property name="Height">18</property>
-    <property name="Items">a:0:{}</property>
-    <property name="Left">59</property>
-    <property name="Name">supply_name1</property>
-    <property name="Top">97</property>
-    <property name="Width">403</property>
-    <property name="OnChange">supply_name1Change</property>
-  </object>
-  <object class="Edit" name="price1" >
-    <property name="DataField">price</property>
-    <property name="Datasource">dssupply2</property>
-    <property name="Height">21</property>
-    <property name="Left">59</property>
-    <property name="Name">price1</property>
-    <property name="Top">155</property>
-    <property name="Width">121</property>
-  </object>
-  <object class="Button" name="Button1" >
-    <property name="Caption">Aceptar</property>
-    <property name="Height">25</property>
-    <property name="Left">59</property>
-    <property name="Name">Button1</property>
-    <property name="Top">272</property>
-    <property name="Width">75</property>
-    <property name="OnClick">Button1Click</property>
-  </object>
-  <object class="Label" name="Label1" >
-    <property name="Caption">ID:</property>
-    <property name="Height">13</property>
-    <property name="Left">59</property>
-    <property name="Name">Label1</property>
-    <property name="Top">24</property>
-    <property name="Width">75</property>
-  </object>
-  <object class="Label" name="Label2" >
-    <property name="Caption">Insumo:</property>
-    <property name="Height">13</property>
-    <property name="Left">59</property>
-    <property name="Name">Label2</property>
-    <property name="Top">80</property>
-    <property name="Width">75</property>
-  </object>
-  <object class="Label" name="Label3" >
-    <property name="Caption">Precio:</property>
-    <property name="Height">13</property>
-    <property name="Left">59</property>
-    <property name="Name">Label3</property>
-    <property name="Top">141</property>
-    <property name="Width">75</property>
-  </object>
-  <object class="Button" name="Button2" >
-    <property name="Caption">Editar Precio</property>
-    <property name="Height">25</property>
-    <property name="Left">59</property>
-    <property name="Name">Button2</property>
-    <property name="Top">200</property>
-    <property name="Width">75</property>
-    <property name="OnClick">Button2Click</property>
-  </object>
+  <property name="OnShowHeader">view_supply_priceShowHeader</property>
+  <property name="OnStartBody">view_supply_priceStartBody</property>
+  <property name="OnTemplate">view_supply_priceTemplate</property>
   <object class="Table" name="tbsupply1" >
         <property name="Left">673</property>
         <property name="Top">133</property>
@@ -151,6 +87,88 @@
     <property name="Name">Query1</property>
     <property name="Params">a:0:{}</property>
     <property name="SQL">a:0:{}</property>
+  </object>
+  <object class="Panel" name="Panel1" >
+    <property name="Height">482</property>
+    <property name="Layout">
+    <property name="Type">XY_LAYOUT</property>
+    </property>
+    <property name="Left">-6</property>
+    <property name="Name">Panel1</property>
+    <property name="Width">506</property>
+    <property name="OnAfterShow">Panel1AfterShow</property>
+    <property name="OnBeforeShow">Panel1BeforeShow</property>
+    <property name="OnShow">Panel1Show</property>
+    <object class="Label" name="Label1" >
+      <property name="Caption">ID:</property>
+      <property name="Height">13</property>
+      <property name="Left">59</property>
+      <property name="Name">Label1</property>
+      <property name="Top">24</property>
+      <property name="Width">75</property>
+    </object>
+    <object class="Label" name="supply_id1" >
+      <property name="Caption">supply_id1</property>
+      <property name="DataField">supply_id</property>
+      <property name="Datasource">dssupply2</property>
+      <property name="Height">13</property>
+      <property name="Left">59</property>
+      <property name="Name">supply_id1</property>
+      <property name="Top">43</property>
+      <property name="Width">75</property>
+    </object>
+    <object class="Label" name="Label2" >
+      <property name="Caption">Insumo:</property>
+      <property name="Height">13</property>
+      <property name="Left">59</property>
+      <property name="Name">Label2</property>
+      <property name="Top">80</property>
+      <property name="Width">75</property>
+    </object>
+    <object class="ComboBox" name="supply_name1" >
+      <property name="Height">18</property>
+      <property name="Items">a:0:{}</property>
+      <property name="Left">59</property>
+      <property name="Name">supply_name1</property>
+      <property name="Top">97</property>
+      <property name="Width">341</property>
+      <property name="OnChange">supply_name1Change</property>
+    </object>
+    <object class="Label" name="Label3" >
+      <property name="Caption">Precio:</property>
+      <property name="Height">13</property>
+      <property name="Left">59</property>
+      <property name="Name">Label3</property>
+      <property name="Top">141</property>
+      <property name="Width">75</property>
+    </object>
+    <object class="Edit" name="price1" >
+      <property name="DataField">price</property>
+      <property name="Datasource">dssupply2</property>
+      <property name="Height">21</property>
+      <property name="Left">59</property>
+      <property name="Name">price1</property>
+      <property name="Top">155</property>
+      <property name="Width">121</property>
+    </object>
+    <object class="Button" name="Button2" >
+      <property name="Caption">Editar Precio</property>
+      <property name="Height">25</property>
+      <property name="Left">59</property>
+      <property name="Name">Button2</property>
+      <property name="Top">200</property>
+      <property name="Width">75</property>
+      <property name="OnClick">Button2Click</property>
+    </object>
+    <object class="Button" name="Button1" >
+      <property name="Caption">Aceptar</property>
+      <property name="Height">25</property>
+      <property name="Left">59</property>
+      <property name="Name">Button1</property>
+      <property name="Top">272</property>
+      <property name="Width">75</property>
+      <property name="OnClick">Button1Click</property>
+    </object>
   </object>
 </object>
 ?>

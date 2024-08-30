@@ -16,30 +16,28 @@ include("../model/class.db.php");
 //Class definition
 class view_consign_prod extends Page
 {
+    public $Label1 = null;
+    public $consig_id1 = null;
+    public $consig_details1 = null;
+    public $Button1 = null;
+    public $Label2 = null;
+    public $Label3 = null;
+    public $Label4 = null;
+    public $Label9 = null;
+    public $Label10 = null;
+    public $Label7 = null;
+    public $Label11 = null;
+    public $Label13 = null;
+    public $DBRepeater1 = null;
+    public $Panel1 = null;
     public $dsconsignee2 = null;
     public $tbconsignee1 = null;
-    public $Button1 = null;
-    public $consig_details1 = null;
-    public $Label8 = null;
-    public $Label7 = null;
-    public $topay1 = null;
     public $dsconsig_prod1 = null;
-    public $Label14 = null;
-    public $Label11 = null;
-    public $Label10 = null;
-    public $Label9 = null;
     public $dbamenoec1_erpdonjusto1 = null;
     public $Datasource1 = null;
-    public $Label4 = null;
-    public $Label3 = null;
-    public $Label2 = null;
     public $consignee_list = null;
     public $dsconsignee1 = null;
-    public $consig_id1 = null;
-    public $Label1 = null;
     public $Query1 = null;
-    public $DBRepeater1 = null;
-    public $Label13 = null;
     public $tbconsig_prod1 = null;
     function consig_id1Change($sender, $params)
     {
@@ -63,11 +61,12 @@ class view_consign_prod extends Page
             }
 
 
+
     }
     function view_consign_prodShow($sender, $params)
     {
 
-        echo '<a href="../index.php?action=home">Inicio</a>';
+
         $this->consignee_list->first();
         $this->consig_id1->Clear();
 
@@ -91,8 +90,6 @@ class view_consign_prod extends Page
 
         echo '<meta name="viewport" content="width=device-width">';
 
-        echo ' <link   type="text/css"  href="css/erpdonjusto.css'.'" rel="stylesheet" />';
-        echo  '<script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>';
 
     }
     function Button1Click($sender, $params)

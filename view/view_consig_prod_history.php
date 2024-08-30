@@ -1,5 +1,5 @@
 <?php
-error_reporting(1);
+error_reporting(0);
 /**
  * Project:  ErpDonJusto 
  * File: view_consig_prod_history.php
@@ -7,18 +7,6 @@ error_reporting(1);
  * Author: Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
 
-include "realpath.php";
-
-
-
-
-        require_once 'model/model.php';
-
-
-
-        $model = new model();
-
-        /*var_dump($model);*/
 
 ?>
 
@@ -35,18 +23,15 @@ include "realpath.php";
         <meta name="viewport" content="width=device-width, initial-scale=0.666667, maximum-scale=0.666667, user-scalable=0">
 
         <meta name="viewport" content="width=device-width">  
-
+        
 </head>
 
 <body>
 
+  <?php require "view_links.php" ?>       
+    
+  
         
-<script src="<?php echo $relative_path.$path_html; ?>view/js/jquery-1.6.4.min.js" type="text/javascript"></script>        
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/erpdonjusto.css" rel="stylesheet" />	        
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/bootstrap.min.css" rel="stylesheet" />
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.css" rel="stylesheet" />	        
-<script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.js"></script>         
-
         
 <script  type="text/javascript">
 
@@ -89,9 +74,16 @@ jQuery( document ).ready(function(){
 
 
 </script>
+
+
+    <div class="wrapper">
     
-<a href="index.php?action=home">Inicio</a>   </br>
-<a href="view/view_consign_prod.php">Consignaciones</a></br>
+        <?php require "view/view_menu.php";  ?>
+
+        <div id="div_target">  
+    
+    
+
 <div class="date_select_container">
 
       <form method="post" action="<?php echo $relative_path.$path_html; ?>index.php" id="form_results">
@@ -130,16 +122,7 @@ jQuery( document ).ready(function(){
   
 ?> 
                 
-            </select>  
-  
-              
-              
-              
-              
-              
-              
-              
-              
+            </select>       
               
           </div>
           <div id="div_button">
@@ -149,12 +132,18 @@ jQuery( document ).ready(function(){
       <p>&nbsp;</p>
 </div>
         
-        
-        
-        
-        
+    
 
 <?php
+
+
+        require_once 'model/model.php';
+        
+
+
+        $model = new model();
+
+        /*var_dump($model);*/
         
         $v_entries = NULL;
 
@@ -222,28 +211,24 @@ jQuery( document ).ready(function(){
                     
 
 
-
-
                 </tr>                    
                 
-
 <?php                
 
-            }
-           
-
+            }            
         }        
 
-
-
 ?>
+
+
 
 </table>
 
 </div>
 
+        </div> <!--end wrapper-->     
+    </div> <!--end div_target-->    
 
 </body>
 </html>
-
 

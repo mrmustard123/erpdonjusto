@@ -1,4 +1,4 @@
-<?php
+<?php echo 'HOla mundo!';
 error_reporting(1);
 require_once("rpcl/rpcl.inc.php");
 //Includes
@@ -11,18 +11,17 @@ use_unit("dbgrids.inc.php");
 use_unit("dbctrls.inc.php");
 
 include("database_module01.php");
-include("../model/class.db.php");
+//include("../model/class.db.php");
 
 //Class definition
 class view_bitacora_list extends Page
 {
+    public $DBRepeater1 = null;
     public $dbamenoec1_erpdonjusto1 = null;
     public $tbbitacora1 = null;
     public $dsbitacora1 = null;
-    public $DBRepeater1 = null;
-    public $fecha1 = null;
-    public $cuerpo1 = null;
     public $Label1 = null;
+    public $Panel1 = null;
     function view_bitacora_listShowHeader($sender, $params)
     {
 
@@ -32,8 +31,8 @@ class view_bitacora_list extends Page
 
         echo '<meta name="viewport" content="width=device-width">';
 
-        echo ' <link   type="text/css"  href="css/erpdonjusto.css'.'" rel="stylesheet" />';
-        echo  '<script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>';
+        //echo ' <link   type="text/css"  href="css/erpdonjusto.css'.'" rel="stylesheet" />';
+        //echo  '<script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>';
     }
     function view_bitacora_listShow($sender, $params)
     {

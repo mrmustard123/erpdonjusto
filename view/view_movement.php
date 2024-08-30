@@ -7,8 +7,6 @@
  * Author: Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
 
-include "realpath.php";
-
 
 ?>  
 
@@ -29,11 +27,14 @@ include "realpath.php";
         
 
     </head>
-
-    <script src="<?php echo $relative_path.$path_html; ?>view/js/jquery-1.6.4.min.js" type="text/javascript"></script>        
-    <link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.css" rel="stylesheet" />	        
-    <script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.js"></script>         
-    <link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/bootstrap.min.css" rel="stylesheet" />            
+    
+    
+<?php    require 'view/view_links.php'; ?>
+    
+    <!--script src="<?php echo $relative_path.$path_html; ?>view/js/jquery-1.6.4.min.js" type="text/javascript"></script>        
+    <link   type="text/css"       href="view/js/jquery-ui-1.11.4.css" rel="stylesheet" />	        
+    <script type="text/javascript" src="view/js/jquery-ui-1.11.4.js"></script>         
+    <link   type="text/css"       href="view/css/bootstrap.min.css" rel="stylesheet" /-->            
 
 
      <script  type="text/javascript">
@@ -119,8 +120,13 @@ include "realpath.php";
     <body>  
         
         
-        
-        
+    <div class="wrapper">
+
+        <?php require "view/view_menu.php";  ?>
+
+        <div id="div_target">
+            
+      
         
 <?php
 
@@ -209,7 +215,7 @@ include "realpath.php";
             <br/>
             <br/>
 
-            <input type="submit" id="btn_movement" />
+            <input type="submit" id="btn_movement" value="Aceptar"  />
 
         </form>        
         
@@ -245,16 +251,14 @@ include "realpath.php";
                 
 
 <?php                
-
-            }
-           
-
+            }           
         }        
-
-
 
 ?>                
         
+        </div> <!--end wrapper-->     
+    </div> <!--end div_target-->                       
+                
         
     </body>
 </html>

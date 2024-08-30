@@ -20,8 +20,8 @@ Count=0
 Module1=database_module01.php
 
 [database_module01.php]
-Line=0
-Position=0
+Line=8
+Position=37
 
 [Status]
 OpenModule=database_module01.php

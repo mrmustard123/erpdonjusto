@@ -116,7 +116,7 @@ class views
     
     public function display_view_consig_prod($params)
     {            
-        require_once('view_consign_prod.php');        
+        require_once('view_consign_prod_wrapper.php');        
         
     }                    
     
@@ -178,6 +178,14 @@ class views
     {
         require_once ('view_reporte_hist_posiciones_vivas.php');                            
     }
+    
+    
+    public function display_view_supply_price($params)
+    {
+        require_once ('view_supply_price.php');                            
+    }
+    
+    
     
  }     
     

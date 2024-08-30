@@ -1,5 +1,9 @@
 <?php
-error_reporting(1);
+error_reporting(0);
+    session_start();
+
+    $_SESSION['view']='radphp';
+
 require_once("rpcl/rpcl.inc.php");
 //Includes
 use_unit("forms.inc.php");
@@ -13,28 +17,20 @@ use_unit("dbctrls.inc.php");
 use_unit("mysql.inc.php");
 
 include("database_module01.php");
-include("../model/class.db.php");
-
+//include("../model/class.db.php");
 
 //Class definition
 class view_supply_price extends Page
 {
-    public $Button2 = null;
-    public $Query1 = null;
-    public $dssupply2 = null;
-    public $tbsupply2 = null;
-    public $tbsupply_price1 = null;
-    public $Label3 = null;
-    public $Label2 = null;
-    public $dsproduct_cost1 = null;
-    public $tbproduct_cost1 = null;
-    public $Button1 = null;
-    public $price1 = null;
-    public $supply_name1 = null;
-    public $supply_id1 = null;
-    public $dssupply1 = null;
+    public $Panel1 = null;
     public $tbsupply1 = null;
-    public $Label1 = null;
+    public $dssupply1 = null;
+    public $tbproduct_cost1 = null;
+    public $dsproduct_cost1 = null;
+    public $tbsupply_price1 = null;
+    public $tbsupply2 = null;
+    public $dssupply2 = null;
+    public $Query1 = null;
 
     public $account_id;
 
@@ -56,13 +52,9 @@ class view_supply_price extends Page
             }
 
 
-
-
     }
     function Button1Click($sender, $params)
     {
-
-
 
            $cost_value = $this->tbsupply2->fieldget('price');
            $supply_id= $this->tbsupply2->fieldget('supply_id');
@@ -84,7 +76,6 @@ class view_supply_price extends Page
            $this->Query1->open();
 
 
-
            date_default_timezone_set('America/La_Paz');
            $fecha_actual = date('Y-m-d H:i:s');
 
@@ -98,25 +89,9 @@ class view_supply_price extends Page
 
 
     }
-    function view_supply_priceAfterShow($sender, $params)
-    {
-       echo '<a href="../index.php?action=home">Inicio</a>';
-
-
-    }
-    function view_supply_priceBeforeShowHeader($sender, $params)
-    {
-        echo '<meta name="HandheldFriendly" content="true">';
-
-        echo '<meta name="viewport" content="width=device-width, initial-scale=0.666667, maximum-scale=0.666667, user-scalable=0">';
-
-        echo '<meta name="viewport" content="width=device-width">';
-
-        echo ' <link   type="text/css"  href="css/erpdonjusto.css'.'" rel="stylesheet" />';
-        echo  '<script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>';
-    }
     function view_supply_priceShow($sender, $params)
     {
+        //echo 'ESTO ES ON SHOW!';
         $this->supply_name1->Clear();
         $this->supply_name1->AddItem('[selecionar]', null, 0);
         $this->tbsupply1->first();
@@ -126,10 +101,84 @@ class view_supply_price extends Page
             $this->supply_name1->AddItem($supply_name1 , null, $supply_id);
             $this->tbsupply1->next();
         }
+
+
     }
     function Button2Click($sender, $params)
     {
         $this->tbsupply2->edit();
+    }
+
+
+    function view_supply_priceShowHeader($sender, $params)
+    {
+        echo '<meta name="HandheldFriendly" content="true">';
+
+        echo '<meta name="viewport" content="width=device-width, initial-scale=0.666667, maximum-scale=0.666667, user-scalable=0">';
+
+        echo '<meta name="viewport" content="width=device-width">';
+
+        require 'view_links.php';
+
+        /*echo '<script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>';*/
+
+
+
+
+
+    }
+    function view_supply_priceStartBody($sender, $params)
+    {
+      //echo 'ESTO ES ON START BODY';
+
+      //echo '<form  style="margin-bottom: 0" id="view_supply_price" name="view_supply_price" method="post"   action="/erpdonjusto/view/view_supply_price.php" >';
+
+      echo "<style>
+
+                #Panel1_outer{
+                    position: relative !important;
+                    width: 100% !important;
+                }
+
+
+            </style>";
+       echo '<div class="wrapper">';
+       require "view_menu.php";
+       echo '<div id="div_target">';
+
+
+    }
+    function view_supply_priceAfterShow($sender, $params)
+    {
+       //echo 'ESTO ES AFTER SHOW';
+    }
+    function view_supply_priceAfterShowFooter($sender, $params)
+    {
+      //echo 'ESTO ES AFTER SHOW FOOTER';
+      echo '</div> <!--end div_target-->';
+      echo '</div> <!--end wrapper-->';
+      //echo '</form>';
+
+    }
+    function view_supply_priceTemplate($sender, $params)
+    {
+      //echo 'ESTO ES ON TEMPLATE';
+    }
+    function view_supply_priceBeforeShowHeader($sender, $params)
+    {
+      //echo 'ESTO ES ON BEFORE SHOW HEADER';
+    }
+    function Panel1AfterShow($sender, $params)
+    {
+       //echo 'ESTO ES PANEL1 AFTER SHOW';
+    }
+    function Panel1BeforeShow($sender, $params)
+    {
+      //echo 'ESTO ES PANEL1 BEFORE SHOW';
+    }
+    function Panel1Show($sender, $params)
+    {
+      //echo 'ESTO ES PANEL1 ON SHOW';
     }
 }
 

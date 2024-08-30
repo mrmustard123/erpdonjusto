@@ -6,9 +6,7 @@
  * Created on: Mar 20, 2017
  * Author: Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
-
-include "realpath.php";
-    
+  
     
     
     
@@ -49,16 +47,8 @@ include "realpath.php";
 
 <body>
 
-
-
-
-        
-<script src="<?php echo $relative_path.$path_html; ?>view/js/jquery-1.6.4.min.js" type="text/javascript"></script>        
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/erpdonjusto.css" rel="stylesheet" />	        
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.css" rel="stylesheet" />	        
-<link   type="text/css"       href="<?php echo $relative_path.$path_html; ?>view/css/bootstrap.min.css" rel="stylesheet" />        
-<script type="text/javascript" src="<?php echo $relative_path.$path_html; ?>view/js/jquery-ui-1.11.4.js"></script>         
-
+<?php    require 'view/view_links.php'; ?>
+    
 <script  type="text/javascript">
 
 
@@ -100,7 +90,13 @@ jQuery( document ).ready(function(){
 
 </script>
     
-<a href="index.php?action=home">Inicio</a>   
+
+    <div class="wrapper">
+
+        <?php require "view/view_menu.php";  ?>
+
+        <div id="div_target">
+            
 <h1>Libro Mayor <?php echo $_SESSION['account_code']; ?></h1>
 <h1><?php echo utf8_encode($_SESSION['account_name']); ?></h1>
 <div class="date_select_container">
@@ -213,14 +209,18 @@ jQuery( document ).ready(function(){
   
   
   
-<?php  
+<?php         
             
-            
-            
-        }
+        }//end if($v_entries...
 
 
 ?>
-</table>
+</table>            
+            
+            
+        </div> <!--end wrapper-->     
+    </div> <!--end div_target-->
+
+
 </body>
 </html>

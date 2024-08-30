@@ -141,11 +141,38 @@ li {
 }
 
 #div_target{
-    border: 2px solid red;
+    border: 2px solid red;  
     width: 100%;
-    height: 500px;
+    
     
 }
+
+
+.wrapper {
+    border: 2px solid greenyellow; 
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.txt_company{
+    font-size: 1.5em;
+    
+}
+
+@media (min-width: 500px) {
+    
+    .wrapper{
+        border: 2px solid greenyellow;  
+        display: flex;
+        width: 100%;
+        align-items: stretch;        
+    }    
+
+}
+
+
+
 
 
 
@@ -167,16 +194,6 @@ li {
 
 }
 
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
-@media (min-width: 500px) {
-    .wrapper{
-        display: flex;
-        width: 100%;
-        align-items: stretch;        
-    }
-}
 
 
 @media (max-width: 768px) {

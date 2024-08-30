@@ -12,7 +12,7 @@
 <body>
 
 <?php
-error_reporting(1);
+error_reporting(0);
 /*
   Created on : 26 jun. de 2023, 11:21:25
   Author: Leonardo G. Tellez Saucedo

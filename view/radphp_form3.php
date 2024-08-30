@@ -1,0 +1,124 @@
+<html  DIR=ltr >
+<head>
+<meta name="HandheldFriendly" content="true"><meta name="viewport" content="width=device-width, initial-scale=0.666667, maximum-scale=0.666667, user-scalable=0"><meta name="viewport" content="width=device-width">
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js" ></script>
+
+	
+	<link   type="text/css"       href="css/bootstrap.min.css" rel="stylesheet" />
+        <link   type="text/css"       href="css/erpdonjusto.css" rel="stylesheet" />        
+        <link   type="text/css"       href="css/styles.css" rel="stylesheet" />        
+	<link   type="text/css"       href="js/jquery-ui-1.11.4.css" rel="stylesheet" />
+        <!--/*ES IMPORTANTE EL ORDEN DE LOS SCRIPTS JS PARA LA COMPATIBILIDAD
+        POR EJEMPLO DEL DATAPICKER Y EL SIDEBAR COLLAPSE*/ -->
+        <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
+	<script src="js/jquery-ui-1.11.4.js" type="text/javascript"></script>
+        
+        
+
+   <title>PRECIO DEL INSUMO</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="rpcl/js/common.js"></script>
+<script type="text/javascript">var view_supply_price=new Object(Object);</script>
+<script type="text/javascript">
+<!--
+function supply_name1ChangeWrapper(event, hiddenfield, submitvalue, wrappedfunc)
+{
+
+var event = event || window.event;
+submit1=true;
+submit2=true;
+if (typeof(wrappedfunc) == 'function') submit1=wrappedfunc(event);
+form = hiddenfield.form;
+if ((form) && (form.onsubmit) && (typeof(form.onsubmit) == 'function')) submit2=form.onsubmit();
+if ((submit1) && (submit2)) { hiddenfield.value = submitvalue; form.submit(); }
+return false;
+
+}
+
+        	function price1_updatehidden(event)
+            {
+            	edit=findObj('price1');
+                hidden=findObj('price1_hidden');
+                hidden.value=edit.value;
+                            }
+        function Button2ClickWrapper(event, hiddenfield, submitvalue, wrappedfunc)
+{
+
+var event = event || window.event;
+submit1=true;
+submit2=true;
+if (typeof(wrappedfunc) == 'function') submit1=wrappedfunc(event);
+form = hiddenfield.form;
+if ((form) && (form.onsubmit) && (typeof(form.onsubmit) == 'function')) submit2=form.onsubmit();
+if ((submit1) && (submit2)) { hiddenfield.value = submitvalue; form.submit(); }
+return false;
+
+}
+
+function Button1ClickWrapper(event, hiddenfield, submitvalue, wrappedfunc)
+{
+
+var event = event || window.event;
+submit1=true;
+submit2=true;
+if (typeof(wrappedfunc) == 'function') submit1=wrappedfunc(event);
+form = hiddenfield.form;
+if ((form) && (form.onsubmit) && (typeof(form.onsubmit) == 'function')) submit2=form.onsubmit();
+if ((submit1) && (submit2)) { hiddenfield.value = submitvalue; form.submit(); }
+return false;
+
+}
+
+-->
+</script>
+</head>
+
+<body  style=" margin-left: 0px;  margin-top: 0px;  margin-right: 0px;  margin-bottom: 0px; "  >
+<input type="hidden" id="supply_name1SubmitEvent" name="supply_name1SubmitEvent" value="" /><input type="hidden" name="price1_hidden" value=""><input type="hidden" id="Button2SubmitEvent" name="Button2SubmitEvent" value="" /><input type="hidden" id="Button1SubmitEvent" name="Button1SubmitEvent" value="" /><form style="margin-bottom: 0" id="view_supply_price" name="view_supply_price" method="post"   action="/erpdonjusto/view/view_supply_price.php"><style>
+
+                #Panel1_outer{
+                    position: relative !important;
+                }
+            </style><div class="wrapper"><div id="div_target">
+<table  width="781"   style="height:484px"  border="0" cellpadding="0" cellspacing="0"  ><tr><td valign="top">
+<div id="Panel1_outer" style="Z-INDEX: 0; LEFT: 0px; WIDTH: 507px; POSITION: absolute; TOP: 0px; HEIGHT: 483px">
+<table id="Panel1_table"  width="507"   height="483"  border="0"  cellpadding="0" cellspacing="0"     style=" border: 0px solid ; "   >
+<tr>
+<td valign="top">
+<div id="Label1_outer" style="Z-INDEX: 0; LEFT: 59px; WIDTH: 75px; POSITION: absolute; TOP: 24px; HEIGHT: 13px">
+<div id="Label1" style=" font-family: Tahoma; font-size: 11px;  cursor: default;height:13px;width:75px;"   >ID:</div>
+</div>
+<div id="supply_id1_outer" style="Z-INDEX: 1; LEFT: 59px; WIDTH: 75px; POSITION: absolute; TOP: 43px; HEIGHT: 13px">
+<div id="supply_id1" style=" font-family: Tahoma; font-size: 11px;  cursor: default;height:13px;width:75px;"   >1</div>
+</div>
+<div id="Label2_outer" style="Z-INDEX: 2; LEFT: 59px; WIDTH: 75px; POSITION: absolute; TOP: 80px; HEIGHT: 13px">
+<div id="Label2" style=" font-family: Tahoma; font-size: 11px;  cursor: default;height:13px;width:75px;"   >Insumo:</div>
+</div>
+<div id="supply_name1_outer" style="Z-INDEX: 3; LEFT: 59px; WIDTH: 341px; POSITION: absolute; TOP: 97px; HEIGHT: 18px">
+<select name="supply_name1" id="supply_name1" size="1" style=" font-family: Tahoma; font-size: 11px;  cursor: default;height:16px;width:341px;"   tabindex="0"   onchange="return supply_name1ChangeWrapper(event, findObj('supply_name1SubmitEvent'), 'supply_name1_supply_name1Change')"  ><option value="0">[selecionar]</option><option value="1">Frasco de vidrio 460ml</option><option value="2">Frasco de vidrio 212ml</option><option value="3">Etiqueta Grande</option><option value="4">Etiqueta Chica</option><option value="5">Prescinto retrocontraible transparente</option><option value="6">Envase de Spray de 60 ml</option><option value="7">Gotero de vidrio 20 ml</option><option value="8">Prescinto retrocontraible blanco</option><option value="9">Frasco de vidrio de 800gr.</option><option value="10">Frasco PET ambar 30ml.</option><option value="12">Envase de plastico cuadrado con tapa</option><option value="13">Frasco de vidrio de 1000gr</option><option value="14">Frasco de vidrio de 28ml</option><option value="15">Etiqueta para crema vaselina</option><option value="16">Frasco de vidrio 370ml(500gr. de miel)</option><option value="17">Etiqueta de spray</option><option value="18">V�lvula spray</option><option value="19">Cajita spray</option><option value="20">Etiqueta de gotero</option><option value="21">Cajita gotero</option><option value="22">Etiqueta Propomiel</option><option value="23">Etiqueta Apienergetico</option><option value="24">Tapa para frasco 28ml</option><option value="25">Tapa dorada para frasco 212ml.</option><option value="26">Etiqueta para crema coco</option><option value="27">Frasco plastico 110ml. c/tapa dispensadora</option><option value="28">Frasco plastico hexagonal 212ml. c/dispensador</option><option value="30">Etiqueta miel 500gr.</option><option value="32">Etiqueta miel 250gr.</option><option value="33">Etiqueta miel 150gr.</option><option value="34">Tapa dorada para frasco 460ml.</option></select>
+</div>
+<div id="Label3_outer" style="Z-INDEX: 4; LEFT: 59px; WIDTH: 75px; POSITION: absolute; TOP: 141px; HEIGHT: 13px">
+<div id="Label3" style=" font-family: Tahoma; font-size: 11px;  cursor: default;height:13px;width:75px;"   >Precio:</div>
+</div>
+<div id="price1_outer" style="Z-INDEX: 5; LEFT: 59px; WIDTH: 121px; POSITION: absolute; TOP: 155px; HEIGHT: 21px">
+<input type="hidden" name="price1_key[supply_id]" value="1" /><input type="text" id="price1" onchange="return price1_updatehidden(event)" name="price1" value="2.97000" style=" font-family: Tahoma; font-size: 11px;  cursor: default;height:20px;width:121px;"    tabindex="0"    />
+</div>
+<div id="Button2_outer" style="Z-INDEX: 6; LEFT: 59px; WIDTH: 75px; POSITION: absolute; TOP: 200px; HEIGHT: 25px">
+<input type="submit" id="Button2" name="Button2" value="Editar Precio"  onclick="return Button2ClickWrapper(event, findObj('Button2SubmitEvent'), 'Button2_Button2Click')"  style=" font-family: Tahoma; font-size: 11px;  cursor: default;height:25px;width:75px;"   tabindex="0"    />
+</div>
+<div id="Button1_outer" style="Z-INDEX: 7; LEFT: 59px; WIDTH: 75px; POSITION: absolute; TOP: 272px; HEIGHT: 25px">
+<input type="submit" id="Button1" name="Button1" value="Aceptar"  onclick="return Button1ClickWrapper(event, findObj('Button1SubmitEvent'), 'Button1_Button1Click')"  style=" font-family: Tahoma; font-size: 11px;  cursor: default;height:25px;width:75px;"   tabindex="0"    />
+</div>
+</td>
+</tr>
+</table>
+
+</div>
+</td></tr></table>
+</div> <!--end div_target--></div> <!--end wrapper--></form></body>
+</html>
+<!-- view_supply_price end -->

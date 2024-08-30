@@ -54,10 +54,7 @@ a:focus {
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
-.wrapper {
-    width: 100%;
-    align-items: stretch;
-}
+
 
 #sidebar {
     min-width: 285px;
@@ -159,11 +156,7 @@ a.article:hover {
     MEDIAQUERIES
 ----------------------------------------------------- */
 @media (min-width: 500px) {
-    .wrapper{
-        display: flex;
-        width: 100%;
-        align-items: stretch;        
-    }
+
 }
 
 
