@@ -1,7 +1,5 @@
 <?php
 error_reporting(0);
-session_start();
-$_SESSION['view']='radphp';
 require_once("rpcl/rpcl.inc.php");
 //Includes
 use_unit("forms.inc.php");
@@ -92,33 +90,11 @@ class view_consign_prod extends Page
 
         echo '<meta name="viewport" content="width=device-width">';
 
-        require 'view_links.php';
-
 
     }
     function Button1Click($sender, $params)
     {
       $this->tbconsignee1->post();
-    }
-    function view_consign_prodStartBody($sender, $params)
-    {
-
-      echo "<style>
-                #Panel1_outer{
-                    position: relative !important;
-                    width: 100% !important;
-                }
-            </style>";
-       echo '<div class="wrapper">';
-       require "view_menu.php";
-       echo '<div id="div_target">';
-    }
-    function view_consign_prodAfterShowFooter($sender, $params)
-    {
-
-       echo '</div> <!--end div_target-->';
-       echo '</div> <!--end wrapper-->';
-
     }
 }
 

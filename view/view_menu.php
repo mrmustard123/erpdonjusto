@@ -170,7 +170,7 @@ Author: Leonardo G. Tellez Saucedo
                         ?>                        
                         <li>
                             <!--a href="<?php echo $path;?>index.php?action=consignaciones">&bullet;&nbsp;Consignaciones</a-->
-                            <a href="<?php echo $path_view;?>view_consign_prod_wrapper.php">&bullet;&nbsp;Consignaciones</a>
+                            <a href="<?php echo $path_view;?>view_consign_prod.php">&bullet;&nbsp;Consignaciones</a>
                         </li>
                         <?php
                             }//end if

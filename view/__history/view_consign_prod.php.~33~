@@ -113,13 +113,6 @@ class view_consign_prod extends Page
        require "view_menu.php";
        echo '<div id="div_target">';
     }
-    function view_consign_prodAfterShowFooter($sender, $params)
-    {
-
-       echo '</div> <!--end div_target-->';
-       echo '</div> <!--end wrapper-->';
-
-    }
 }
 
 global $application;

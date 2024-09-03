@@ -57,7 +57,7 @@
       </property>
       <property name="Height">27</property>
       <property name="Left">2</property>
-      <property name="Link">view_consign.php</property>
+      <property name="Link">view_consign_wrapper.php</property>
       <property name="LinkTarget">_self</property>
       <property name="Name">Label2</property>
       <property name="ParentFont">0</property>

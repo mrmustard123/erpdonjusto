@@ -11,6 +11,7 @@
   <property name="Width">984</property>
   <property name="OnAfterShowFooter">view_consignAfterShowFooter</property>
   <property name="OnBeforeShow">view_consignBeforeShow</property>
+  <property name="OnBeforeShowHeader">view_consignBeforeShowHeader</property>
   <property name="OnShow">view_consignShow</property>
   <property name="OnShowHeader">view_consignShowHeader</property>
   <property name="OnStartBody">view_consignStartBody</property>

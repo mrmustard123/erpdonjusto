@@ -1,7 +1,8 @@
 <?php
 error_reporting(0);
-session_start();
-$_SESSION['view']='radphp';
+    session_start();
+
+    $_SESSION['view']='radphp';
 
 require_once("rpcl/rpcl.inc.php");
 //Includes
@@ -133,10 +134,13 @@ class view_supply_price extends Page
       //echo '<form  style="margin-bottom: 0" id="view_supply_price" name="view_supply_price" method="post"   action="/erpdonjusto/view/view_supply_price.php" >';
 
       echo "<style>
+
                 #Panel1_outer{
                     position: relative !important;
                     width: 100% !important;
                 }
+
+
             </style>";
        echo '<div class="wrapper">';
        require "view_menu.php";

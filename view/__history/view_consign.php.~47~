@@ -1,8 +1,5 @@
 <?php
 error_reporting(0);
-session_start();
-$_SESSION['view']='radphp';
-
 require_once("rpcl/rpcl.inc.php");
 //Includes
 use_unit("forms.inc.php");
@@ -14,8 +11,9 @@ use_unit("dbgrids.inc.php");
 use_unit("dbctrls.inc.php");
 use_unit("mysql.inc.php");
 
+//require_once("../model/persistence.php");
 require_once("database_module01.php");
-include("../model/class.db.php");
+//include("../model/class.db.php");
 
 
 //Class definition
@@ -111,11 +109,10 @@ class view_consign extends Page
 
         echo '<meta name="viewport" content="width=device-width">';
 
-         require 'view_links.php';
 
 
         //echo ' <link   type="text/css"  href="css/erpdonjusto.css'.'" rel="stylesheet" />';
-       // echo  '<script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>';
+        echo  '<script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>';
 
 
         ?>
@@ -1704,6 +1701,9 @@ class view_consign extends Page
     function view_consignShow($sender, $params)
     {
 
+        echo '<a href="../index.php?action=home">Inicio</a></br>';
+        echo '<a href="view_consign_prod_wrapper.php">Consignaciones</a></br>';
+
         $this->consig_prod_list->append();
 
         date_default_timezone_set('America/La_Paz');
@@ -1719,24 +1719,6 @@ class view_consign extends Page
 
         $this->consig_prod_list->fieldset('unit_price', 0);
 
-    }
-    function view_consignStartBody($sender, $params)
-    {
-       echo "<style>
-                #Panel1_outer{
-                    position: relative !important;
-                    width: 100% !important;
-                }
-            </style>";
-       echo '<div class="wrapper">';
-       require "view_menu.php";
-       echo '<div id="div_target">';
-
-    }
-    function view_consignAfterShowFooter($sender, $params)
-    {
-       echo '</div> <!--end div_target-->';
-       echo '</div> <!--end wrapper-->';
     }
 }
 

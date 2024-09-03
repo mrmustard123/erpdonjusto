@@ -1704,6 +1704,9 @@ class view_consign extends Page
     function view_consignShow($sender, $params)
     {
 
+        echo '<a href="../index.php?action=home">Inicio</a></br>';
+        echo '<a href="view_consign_prod_wrapper.php">Consignaciones</a></br>';
+
         $this->consig_prod_list->append();
 
         date_default_timezone_set('America/La_Paz');
@@ -1719,6 +1722,10 @@ class view_consign extends Page
 
         $this->consig_prod_list->fieldset('unit_price', 0);
 
+    }
+    function view_consignBeforeShowHeader($sender, $params)
+    {
+        require 'view_links.php';
     }
     function view_consignStartBody($sender, $params)
     {
