@@ -64,10 +64,11 @@ class view_supply_price extends Page
 
            $this->tbsupply2->post();
 
+           $prod_cost_id = $this->tbproduct_cost1->fieldget('prod_cost_id');
 
            if(ISSET($supply_prod_cost_id)){
 
-            $sql = "UPDATE prod_cost_prod SET cost_value=".$cost_value." WHERE prod_cost_id=".$supply_prod_cost_id." #";
+            $sql = "UPDATE prod_cost_prod SET cost_value='".$cost_value."' WHERE prod_cost_id=".$prod_cost_id." #";
 
             $this->Query1->setSQL($sql);
 

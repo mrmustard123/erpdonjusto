@@ -155,7 +155,7 @@ Author: Leonardo G. Tellez Saucedo
                         <li>
                             <a href="<?php echo $path_view;?>view_supply_price.php">&bullet;&nbsp;PRECIO DEL INSUMO</a>
                             <!--a href="index.php?action=supply_price">&bullet;&nbsp;PRECIO DEL INSUMO</a-->
-                        </li>
+                        <li>
                         <?php
                             }//end if    
                         ?>                        

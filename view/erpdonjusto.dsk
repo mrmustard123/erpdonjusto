@@ -18,26 +18,11 @@ Count=0
 
 [OpenFiles]
 Module1=database_module01.php
-Module2=view_consign_prod.php
-Module3=view_supply_price.php
-Module4=view_consign.php
 
 [database_module01.php]
 Line=0
 Position=0
 
-[view_consign_prod.php]
-Line=17
-Position=43
-
-[view_supply_price.php]
-Line=131
-Position=40
-
-[view_consign.php]
-Line=1711
-Position=81
-
 [Status]
-OpenModule=view_consign.php
+OpenModule=database_module01.php
 
