@@ -160,7 +160,8 @@ jQuery( document ).ready(function(){
             foreach($v_activos as $activo){ 
                 $total_activos = $total_activos + $activo['Suma'];
 ?>    
-    <tr>      
+    <tr>     
+	  <td><?php echo $activo['account_code']; ?></td>
       <td><?php echo utf8_encode($activo['Cuenta']); ?></td>
       <td><?php echo $activo['Suma']; ?></td>
     </tr>
@@ -196,7 +197,8 @@ jQuery( document ).ready(function(){
             foreach($v_pasivos as $pasivo){  
                 $total_pasivos = $total_pasivos + $pasivo['Suma'];
 ?>    
-    <tr>      
+    <tr>    
+	  <td><?php echo $activo['account_code']; ?></td>	
       <td><?php echo utf8_encode($pasivo['Cuenta']); ?></td>
       <td><?php echo $pasivo['Suma']; ?></td>
     </tr>
@@ -234,6 +236,7 @@ jQuery( document ).ready(function(){
             foreach($v_capitales as $capital){                  
 ?>    
     <tr>      
+	  <td><?php echo $activo['account_code']; ?></td>
       <td><?php echo utf8_encode($capital['Cuenta']); ?></td>
       <td><?php echo $capital['Suma']; ?></td>
 
@@ -274,7 +277,8 @@ jQuery( document ).ready(function(){
                     $total_ingresos = $total_ingresos + $ingreso['Suma'];
                 }
 ?>    
-    <tr>      
+    <tr> 
+	  <td><?php echo $activo['account_code']; ?></td>	
       <td><?php echo utf8_encode($ingreso['Cuenta']); ?></td>
       <td><?php echo $ingreso['Suma']; ?></td>
     </tr>
@@ -313,7 +317,8 @@ jQuery( document ).ready(function(){
             foreach($v_egresos as $egreso){  
                 $total_egresos = $total_egresos + $egreso['Suma'];
 ?>    
-    <tr>      
+    <tr>  
+	  <td><?php echo $activo['account_code']; ?></td>    
       <td><?php echo utf8_encode($egreso['Cuenta']); ?></td>
       <td><?php echo $egreso['Suma']; ?></td>
     </tr>

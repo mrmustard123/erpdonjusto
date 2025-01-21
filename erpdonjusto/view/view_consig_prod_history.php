@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+error_reporting(1);
 /**
  * Project:  ErpDonJusto 
  * File: view_consig_prod_history.php

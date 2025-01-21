@@ -24,9 +24,39 @@
         public $db;
         public $item_per_page;
         public $link;
+        
+        function __construct() {
+            /*constructor PHP 7+*/
+            $paths = array("./");
+            $isDevMode = false;
+
+            /* the connection configuration*/
+            $dbParams = array(
+                'driver'   => 'pdo_mysql',
+                'user'     => 'apicolado20_usr',
+                'password' => 'P4p4n03l123',
+                'dbname'   => 'apicolado20_erpdonjusto',
+
+
+            );
+            $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+            $this->entityManager = EntityManager::create($dbParams, $config);
+  
+
+            $this->db = new db();
+
+            $this->db->setDb_name("apicolado20_erpdonjusto");
+            $this->db->setUser("apicolado20_usr");
+            $this->db->setPassword("P4p4n03l123");
+            $this->db->setServer_name("localhost");
+
+            $this->link = $this->db->connect();
+
+            $this->item_per_page = 50; /*item to display per page*/
+        }
 
         public function PersistenceErpLeo(){
-            /*constructor*/
+            /*constructor PHP 5.6*/
             $paths = array("./");
             $isDevMode = false;
 
@@ -223,7 +253,7 @@
 
         public function getBalanceActivos($fecha_ini,$fecha_fin){
 
-            $sql= "SELECT a.`name`  AS Cuenta, SUM(e.balance) AS Suma FROM entry AS e  INNER JOIN account AS a ON (e.account_id = a.account_id)
+            $sql= "SELECT a.`account_code`, a.`name`  AS Cuenta, SUM(e.balance) AS Suma FROM entry AS e  INNER JOIN account AS a ON (e.account_id = a.account_id)
                     WHERE a.`account_code` LIKE '1.%' AND a.account_type = 'Apropiacion' AND (e.entry_date >= '".$fecha_ini."') AND (e.entry_date <= DATE('".$fecha_fin." ')  + INTERVAL 1 DAY  )
                     GROUP BY e.account_id";
 
@@ -244,7 +274,7 @@
 
         public function getBalancePasivos($fecha_ini,$fecha_fin){
 
-            $sql= "SELECT a.`name`  AS Cuenta, SUM(e.balance) AS Suma FROM entry AS e  INNER JOIN account AS a ON (e.account_id = a.account_id)
+            $sql= "SELECT a.`account_code`, a.`name`  AS Cuenta, SUM(e.balance) AS Suma FROM entry AS e  INNER JOIN account AS a ON (e.account_id = a.account_id)
                     WHERE a.`account_code` LIKE '2.%' AND a.account_type = 'Apropiacion' AND (e.entry_date >= '".$fecha_ini."' AND e.entry_date <=  DATE('".$fecha_fin." ')  + INTERVAL 1 DAY  )
                     GROUP BY e.account_id";
 
@@ -266,7 +296,7 @@
 
         public function getBalanceCapitales($fecha_ini,$fecha_fin){
 
-            $sql= "SELECT a.`name`  AS Cuenta,  SUM(e.balance)  AS Suma FROM entry AS e  INNER JOIN account AS a ON (e.account_id = a.account_id)
+            $sql= "SELECT a.`account_code`, a.`name`  AS Cuenta,  SUM(e.balance)  AS Suma FROM entry AS e  INNER JOIN account AS a ON (e.account_id = a.account_id)
                     WHERE a.`account_code` LIKE '3.%' AND a.account_type = 'Apropiacion' AND (e.entry_date >= '".$fecha_ini."' AND e.entry_date <= DATE('".$fecha_fin." ')  + INTERVAL 1 DAY  )
                     GROUP BY e.account_id";
 
@@ -286,7 +316,7 @@
 
         public function getResultadosIngresos($fecha_ini,$fecha_fin){
 
-            $sql= "SELECT a.`name`  AS Cuenta, SUM( IF(e.balance<0,0,e.balance) ) AS Suma FROM entry AS e  INNER JOIN account AS a ON (e.account_id = a.account_id)
+            $sql= "SELECT a.`account_code`, a.`name`  AS Cuenta, SUM( IF(e.balance<0,0,e.balance) ) AS Suma FROM entry AS e  INNER JOIN account AS a ON (e.account_id = a.account_id)
                     WHERE a.`account_code` LIKE '4.%' AND a.account_type = 'Apropiacion' AND (e.entry_date >= '".$fecha_ini."' AND e.entry_date <=  DATE('".$fecha_fin." ')  + INTERVAL 1 DAY  )
                     GROUP BY e.account_id";
 
@@ -306,7 +336,7 @@
 
         public function getResultadosEgresos($fecha_ini,$fecha_fin){
 
-            $sql= "SELECT a.`name`  AS Cuenta,  SUM( IF(e.balance>0,e.balance,0)  )  AS Suma FROM entry AS e  INNER JOIN account AS a ON (e.account_id = a.account_id)
+            $sql= "SELECT a.`account_code`, a.`name`  AS Cuenta,  SUM( IF(e.balance>0,e.balance,0)  )  AS Suma FROM entry AS e  INNER JOIN account AS a ON (e.account_id = a.account_id)
                     WHERE a.`account_code` LIKE '7.%' AND a.account_type = 'Apropiacion' AND (e.entry_date >= '".$fecha_ini."' AND e.entry_date <=  DATE('".$fecha_fin." ')  + INTERVAL 1 DAY  )
                     GROUP BY e.account_id";
 

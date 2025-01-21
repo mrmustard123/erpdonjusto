@@ -1,0 +1,1 @@
+18ene2025: Se ha anulado el asiento que alimentaba la caja de ahorros para impuestos por causa de que impuestos es un costo fijo y desde ahora se asignará desde caja de ahorros de reserva. view_consign.php

@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+error_reporting(1);
 /**
  * Project:  erpdonjusto_1_0_0_6 
  * File: view_pend_empresa01.php

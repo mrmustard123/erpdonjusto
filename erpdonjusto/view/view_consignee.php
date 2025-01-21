@@ -1,6 +1,6 @@
 <?php
 require_once("rpcl/rpcl.inc.php");
-error_reporting(0);
+error_reporting(1);
 //Includes
 use_unit("forms.inc.php");
 use_unit("extctrls.inc.php");

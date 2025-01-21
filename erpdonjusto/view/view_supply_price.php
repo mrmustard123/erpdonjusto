@@ -1,6 +1,6 @@
 <?php
 /*HE DESHABILITADO ESTE ARCHIVO POR QUE ESTABA ACTUALIZANDO MAL PROD_COST_PROD*/
-error_reporting(0);
+error_reporting(1);
 session_start();
 $_SESSION['view']='radphp';
 

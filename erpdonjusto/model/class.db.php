@@ -1,11 +1,16 @@
-<?php    /*echo 'estoy * en class.db.php <br>';*/    
+<?php    /*echo 'estoy * en class.db.php <br>';*/  
+error_reporting(1);
 class db    {        
     
     
-    public  $link;        
+    public  $link;   
+    
+    function __construct() {
+        $this->link=null;
+    }
     
     function db(){
-        /****/                       
+        $this->link=null;                      
         
     }        
     
@@ -45,9 +50,10 @@ class db    {
         $this->password = $password;        }
 
     public function connect(){
-        $this->link = mysqli_connect($this->getServer_name(), $this->getUser(), $this->getPassword()) or die(mysqli_error($this->link)) ;
+        
+        $this->link = mysqli_connect($this->getServer_name(),$this->getUser() ,$this->getPassword()) or die(mysqli_error($this->link)) ;       
         mysqli_select_db ($this->link , $this->getDb_name()) or die(mysqli_error($this->link));
-        return $this->link;        
+        return $this->link;          
         
     }   
     

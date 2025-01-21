@@ -79,6 +79,12 @@ class model {
     private $products;
     private $supplies;
     private $clients;
+    
+    function __construct() {
+                /*echo 'Persistence?<br>';*/
+               $this->persistence = new PersistenceErpLeo();
+                /*echo 'Persistence ok <br>';*/
+    }
 
     public function model() {
                 /*echo 'Persistence?<br>';*/

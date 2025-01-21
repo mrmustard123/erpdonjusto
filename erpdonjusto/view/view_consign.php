@@ -1,4 +1,5 @@
 <?php
+//error_reporting(E_ALL);
 error_reporting(0);
 session_start();
 $_SESSION['view']='radphp';
@@ -948,18 +949,12 @@ class view_consign extends Page
 
 
 
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////CUENTAS POR COBRAR/////////////////////////////////////////////////////////////////////
 
 
 
             if($cuentas_por_cobrar_clientes >0){
-
-
-
 
 
 
@@ -1184,9 +1179,12 @@ class view_consign extends Page
                             $this->entry_list->post();
                         }
 
-
+                        /*COSTOS POR COBRAR:
+                         * 18ene2025: Se borrara este asiento por que los impuestos son 
+                         * un costo fijo.
+                         */
                         //ASIENTO DE CAJA DE AHORRO PARA IMPUESTOS
-                        if($caja_de_ahorro_impuestos!=0)
+                        /*if($caja_de_ahorro_impuestos!=0)
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
@@ -1199,8 +1197,11 @@ class view_consign extends Page
                             $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
                             $this->entry_list->post();
                         }
-
-                        /***03sept2021: Estoy anulando este codigo por que a partir de ahora
+                        */
+                        
+                        /*CUENTAS POR COBRAR:
+                        * 
+                        **03sept2021: Estoy anulando este codigo por que a partir de ahora*
                          * la caja de ahorro de mat. prim. sera un costo fijo y se sacara de
                          * caja de ahorro reserva de forma anual.
                          * REVISION 04AGO2022: Lo volvere a habilitar pues lo que haremos
@@ -1209,9 +1210,9 @@ class view_consign extends Page
                          * Ahora lo de mat. primas no irá a utilidades sino a reserva.
                          ***/
 
-                        /*/ASIENTO DE CAJA DE AHORRO DE MATERIAS PRIMAS
-                        if($caja_de_ahorro_mat_prim!=0)
-                        {
+                        //ASIENTO DE CAJA DE AHORRO DE MATERIAS PRIMAS
+                       if($caja_de_ahorro_mat_prim!=0)
+                       {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('details',$comments);
@@ -1222,11 +1223,8 @@ class view_consign extends Page
                             $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
                             $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
                             $this->entry_list->post();
-                        }*/
-
-
-
-
+                       }
+                        /*/
 
                         /*$caja_de_ahorro_reserva = $caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim; Ya no adicionaremos a reserva lo de mat. primas*/
 
@@ -1268,7 +1266,7 @@ class view_consign extends Page
 
                         /*Revision 04ago2022: volvemos a lo anterior pues solo pondremos el costo en 0 */
                         $costos = $caja_de_ahorro_mano_de_obra+$caja_de_ahorro_impuestos+$caja_de_ahorro_costos_comercializacion+$caja_de_ahorro_costos_produccion+$caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim+$caja_de_ahorro_envases;
-
+                        
                         $caja_de_ahorro_utilidades = ($pago_por_cobrar*$unit_price)-$costos;
 
                         $checksum = $checksum + $costos + $caja_de_ahorro_utilidades;
@@ -1557,8 +1555,12 @@ class view_consign extends Page
                             $this->entry_list->post();
                         }
 
-
+                        /*PAGO NORMAL:
+                         * 18ene2025: Se borrara este asiento por que los impuestos son 
+                         * un costo fijo.
+                         */
                         //ASIENT0 DE CAJA DE AHORRO PARA IMPUESTOS
+                        /*
                         if($caja_de_ahorro_impuestos!=0)
                         {
                             $this->entry_list->append();
@@ -1572,11 +1574,10 @@ class view_consign extends Page
                             $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
                             $this->entry_list->post();
                         }
+                        */
 
-
-
-
-                        /***03sept2021: Estoy anulando este codigo por que a partir de ahora
+                        /*PAGO NORMAL:
+                         * **03sept2021: Estoy anulando este codigo por que a partir de ahora
                          * la caja de ahorro de mat. prim. sera un costo fijo y se sacara de
                          * caja de ahorro reserva de forma anual.
                          * REVISION 04AGO2022: Lo volvere a habilitar pues lo que haremos
@@ -1585,7 +1586,7 @@ class view_consign extends Page
                          * Ahora lo de mat. primas no irá a utilidades sino a reserva.
                          ***/
 
-                        /*/ASIENTO DE CAJA DE AHORRO PARA PRODUCCION DE MATERIAS PRIMAS
+                        //ASIENTO DE CAJA DE AHORRO PARA PRODUCCION DE MATERIAS PRIMAS
                         if($caja_de_ahorro_mat_prim!=0)
                         {
                             $this->entry_list->append();
@@ -1598,7 +1599,8 @@ class view_consign extends Page
                             $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
                             $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
                             $this->entry_list->post();
-                        } */
+                        } 
+                        /*/
 
 
                         /***Entonces adicionamos este nuevo codigo***/

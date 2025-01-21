@@ -17,7 +17,7 @@ Count=0
 Count=0
 
 [OpenFiles]
-Module1=database_module01.php
+Module2=database_module01.php
 
 [database_module01.php]
 Line=0
