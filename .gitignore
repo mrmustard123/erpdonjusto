@@ -17,5 +17,5 @@ yarn-error.log
 /.idea
 /.vscode
 /nbproject/private/
-/erpdonjusto/view/database_module01.xml
+/erpdonjusto/view/database_module01.xml.php
 /erpdonjusto/model/connection.php
