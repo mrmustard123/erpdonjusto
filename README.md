@@ -39,7 +39,7 @@ This project was created as a custom solution for a small company specializing i
 
 - **Backend**: Doctrine 2
 - **Frontend**: RADPHP (rpcl library)
-- **Database**: SQL (direct interactions in some cases)
+- **Database**: MySQL (direct interactions in some cases)
 
 ---
 
