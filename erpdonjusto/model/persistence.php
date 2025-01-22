@@ -2,7 +2,7 @@
     /*echo 'estoy en persistence.php<br>';*/
     require_once ('class.db.php');
 
-
+    include 'connection.php';
 
     require_once ("doctrine2/autoload.php");
 
@@ -31,28 +31,22 @@
             $isDevMode = false;
 
             /* the connection configuration*/
-            $dbParams = array(
-                'driver'   => 'pdo_mysql',
-                'user'     => 'apicolado20_usr',
-                'password' => 'P4p4n03l123',
-                'dbname'   => 'apicolado20_erpdonjusto',
-
-
-            );
+            $dbParams = connect_db();
+            
             $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
             $this->entityManager = EntityManager::create($dbParams, $config);
   
 
             $this->db = new db();
 
-            $this->db->setDb_name("apicolado20_erpdonjusto");
-            $this->db->setUser("apicolado20_usr");
-            $this->db->setPassword("P4p4n03l123");
+            $this->db->setDb_name($dbParams['dbname']);
+            $this->db->setUser($dbParams['user']);
+            $this->db->setPassword($dbParams['password']);
             $this->db->setServer_name("localhost");
 
             $this->link = $this->db->connect();
 
-            $this->item_per_page = 50; /*item to display per page*/
+            $this->item_per_page = 50; /*item to display per page*/ 
         }
 
         public function PersistenceErpLeo(){
@@ -61,28 +55,23 @@
             $isDevMode = false;
 
             /* the connection configuration*/
-            $dbParams = array(
-                'driver'   => 'pdo_mysql',
-                'user'     => 'apicolado20_usr',
-                'password' => 'P4p4n03l123',
-                'dbname'   => 'apicolado20_erpdonjusto',
-
-
-            );
+            $dbParams = connect_db();
+            
             $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
             $this->entityManager = EntityManager::create($dbParams, $config);
   
 
             $this->db = new db();
 
-            $this->db->setDb_name("apicolado20_erpdonjusto");
-            $this->db->setUser("apicolado20_usr");
-            $this->db->setPassword("P4p4n03l123");
+            $this->db->setDb_name($dbParams['dbname']);
+            $this->db->setUser($dbParams['user']);
+            $this->db->setPassword($dbParams['password']);
             $this->db->setServer_name("localhost");
 
             $this->link = $this->db->connect();
 
-            $this->item_per_page = 50; /*item to display per page*/
+            $this->item_per_page = 50; /*item to display per page*/             
+
 
         }
 
