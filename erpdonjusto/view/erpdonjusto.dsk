@@ -18,11 +18,16 @@ Count=0
 
 [OpenFiles]
 Module2=database_module01.php
+Module3=view_consig_prod_sales_report1.php
 
 [database_module01.php]
 Line=0
 Position=0
 
+[view_consig_prod_sales_report1.php]
+Line=0
+Position=0
+
 [Status]
-OpenModule=database_module01.php
+OpenModule=view_consig_prod_sales_report1.php
 
