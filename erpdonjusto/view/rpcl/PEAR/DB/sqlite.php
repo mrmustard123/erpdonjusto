@@ -682,7 +682,7 @@ class DB_sqlite extends DB_common
      *                     DB_ERROR* constant here.  If this isn't passed
      *                     the error information gathered from the DBMS.
      *
-     * @return object  the DB_Error object
+     * @return ObjectFactory  the DB_Error object
      *
      * @see DB_common::raiseError(),
      *      DB_sqlite::errorNative(), DB_sqlite::errorCode()

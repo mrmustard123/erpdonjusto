@@ -145,7 +145,7 @@ class Image extends FocusControl
         private function getImageSourcePath()
         {
                 // check if relative
-                if (substr($this->_imagesource, 0, 2) == ".." || $this->_imagesource{0} == ".")
+                if (substr($this->_imagesource, 0, 2) == ".." || $this->_imagesource[0] == ".")
                 {
                         return dirname($_SERVER['SCRIPT_FILENAME']).'/'.$this->_imagesource;
                 }
@@ -413,8 +413,7 @@ class Image extends FocusControl
                         {
                                 echo "<map name=\"map$this->_name\">\n";
                                 reset($this->controls->items);
-                                while (list($k,$v)=each($this->controls->items))
-                                {
+                                foreach ($this->controls->items as $k => $v) {
                                         if ($v->Visible)
                                         {
                                                 $v->show();
@@ -1569,8 +1568,7 @@ class CustomButtonView extends QWidget
                         echo "\n";
                         echo "  <!-- Define Buttons - Start -->\n";
                 }
-                while(list($index, $item) = each($items))
-                {
+                foreach ($items as $index => $item) {
                         $caption=$item['Caption'];
 
                         $imageindex=$item['ImageIndex'];
@@ -2004,7 +2002,7 @@ class CustomRadioGroup extends FocusControl
                                 }
 
                                 //Dumps hidden fields to know which is the record to update
-                                $this->dumpHiddenKeyFields();
+                                $this->dumpHiddenKeyFields("",[],false);
                         }
                 }
 
@@ -2336,7 +2334,7 @@ function RadioGroupClick(elem, index)
 *
 * A RadioGroup object is a special group box that contains only radio buttons.
 * Radio buttons that are placed directly in the same control component are said
-* to be “grouped.” When the user checks a radio button, all other radio buttons
+* to be ï¿½grouped.ï¿½ When the user checks a radio button, all other radio buttons
 * in its group become unchecked. Hence, two radio buttons on a form can be
 * checked at the same time only if they are placed in separate containers,
 * such as group boxes.
@@ -2566,7 +2564,7 @@ class RadioGroup extends CustomRadioGroup
  * used to fill it.
  *
  * If the shape is only part of the image of a custom control, use the methods of the
- * control’s canvas instead.
+ * controlï¿½s canvas instead.
  */
 class Shape extends Control
 {
@@ -2894,7 +2892,7 @@ class Bevel extends GraphicControl
  * and to simplify processing the timer events. Use one timer component for each timer in the application.
  *
  * The execution of the timer occurs through its OnTimer event. Timer has an Interval property
- * that determines how often the timer’s OnTimer event occurs. Interval corresponds to the parameter
+ * that determines how often the timerï¿½s OnTimer event occurs. Interval corresponds to the parameter
  * for the javascript settimeout() function.
  *
  * @link http://developer.mozilla.org/en/docs/DOM:window.setTimeout
@@ -2911,7 +2909,7 @@ class Timer extends Component
         {
                 parent::dumpJavascript();
 
-                if (($this->ControlState & csDesigning) == csDesigning) Break;
+                if (($this->ControlState & csDesigning) == csDesigning) ;
 
                 if (($this->_enabled) && ($this->_jsontimer != null))
                 {
@@ -3023,7 +3021,7 @@ class Timer extends Component
  * Use PaintBox to add custom images to a form. Unlike Image, which displays an
  * image that is stored in a file, PaintBox requires an application to draw the
  * image directly on a canvas. Use the OnPaint event handler to draw on the paint
- * box’s Canvas, the drawing surface of the paint box.
+ * boxï¿½s Canvas, the drawing surface of the paint box.
  *
  * @example Canvas/TestCanvas.php How to use Canvas
  */

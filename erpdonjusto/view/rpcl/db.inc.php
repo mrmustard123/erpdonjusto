@@ -37,7 +37,7 @@ define('daAbort','daAbort');
  * to be shown on data-aware component.
  *
  */
-class Field extends Object
+class Field extends ObjectFactory
 {
         private $_fieldname;
         private $_displaylabel;
@@ -2470,7 +2470,7 @@ class Datasource extends Component
         }
 }
 
-class ArrayRecordSet extends Object
+class ArrayRecordSet extends ObjectFactory
 {
   public $fields=array();
 }

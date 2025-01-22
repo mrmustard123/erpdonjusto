@@ -66,7 +66,7 @@ class MDB2_Driver_Datatype_mssql extends MDB2_Driver_Datatype_Common
      * @param mixed   $value refernce to a value to be converted
      * @param string  $type  specifies which type to convert to
      * @param boolean $rtrim [optional] when TRUE [default], apply rtrim() to text
-     * @return object a MDB2 error on failure
+     * @return ObjectFactory a MDB2 error on failure
      * @access protected
      */
     function _baseConvertResult($value, $type, $rtrim = true)

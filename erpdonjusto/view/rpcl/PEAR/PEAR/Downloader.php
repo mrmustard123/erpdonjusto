@@ -1476,8 +1476,8 @@ class PEAR_Downloader extends PEAR_Common
      * setting), the proxy will be used.
      *
      * @param string  $url       the URL to download
-     * @param object  $ui        PEAR_Frontend_* instance
-     * @param object  $config    PEAR_Config instance
+     * @param ObjectFactory  $ui        PEAR_Frontend_* instance
+     * @param ObjectFactory  $config    PEAR_Config instance
      * @param string  $save_dir  directory to save file in
      * @param mixed   $callback  function/method to call for status
      *                           updates

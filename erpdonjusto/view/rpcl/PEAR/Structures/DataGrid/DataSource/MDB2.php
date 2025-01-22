@@ -96,7 +96,7 @@ class Structures_DataGrid_DataSource_MDB2
     /**
      * Reference to the PEAR::MDB2 object
      *
-     * @var object MDB2
+     * @var ObjectFactory MDB2
      * @access private
      */
     var $_db;

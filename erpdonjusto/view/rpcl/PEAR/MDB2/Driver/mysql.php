@@ -118,11 +118,11 @@ class MDB2_Driver_mysql extends MDB2_Driver_Common
     function errorInfo($error = null)
     {
         if ($this->connection) {
-            $native_code = @mysql_errno($this->connection);
-            $native_msg  = @mysql_error($this->connection);
+            $native_code = @mysqli_errno($this->connection);
+            $native_msg  = @mysqli_error($this->connection);
         } else {
-            $native_code = @mysql_errno();
-            $native_msg  = @mysql_error();
+            $native_code = @mysqli_errno();
+            $native_msg  = @mysqli_error();
         }
         if (is_null($error)) {
             static $ecode_map;
@@ -196,7 +196,7 @@ class MDB2_Driver_mysql extends MDB2_Driver_Common
         if (PEAR::isError($connection)) {
             return $connection;
         }
-        $text = @mysql_real_escape_string($text, $connection);
+        $text = @mysqli_real_escape_string($text, $connection);
         return $text;
     }
 
@@ -430,14 +430,14 @@ class MDB2_Driver_mysql extends MDB2_Driver_Common
             $params[] = isset($this->dsn['client_flags'])
                 ? $this->dsn['client_flags'] : null;
         }
-        $connect_function = $this->options['persistent'] ? 'mysql_pconnect' : 'mysql_connect';
+        $connect_function = $this->options['persistent'] ? 'mysqli_pconnect' : 'mysqli_connect';
 
         //Fix for the IPV6 mysql issue
         if (strtolower($params[0])=='localhost') $params[0]='127.0.0.1';
 
         $connection = @call_user_func_array($connect_function, $params);
         if (!$connection) {
-            if (($err = @mysql_error()) != '') {
+            if (($err = @mysqli_error()) != '') {
                 return $this->raiseError(MDB2_ERROR_CONNECT_FAILED, null, null,
                     $err, __FUNCTION__);
             } else {
@@ -461,7 +461,7 @@ class MDB2_Driver_mysql extends MDB2_Driver_Common
 
         if ($this->database_name) {
             if ($this->database_name != $this->connected_database_name) {
-                if (!@mysql_select_db($this->database_name, $connection)) {
+                if (!@mysqli_select_db($this->database_name, $connection)) {
                     $err = $this->raiseError(null, null, null,
                         'Could not select the database: '.$this->database_name, __FUNCTION__);
                     return $err;
@@ -515,7 +515,7 @@ class MDB2_Driver_mysql extends MDB2_Driver_Common
                 return $connection;
             }
         }
-        $query = "SET NAMES '".mysql_real_escape_string($charset, $connection)."'";
+        $query = "SET NAMES '".mysqli_real_escape_string($charset, $connection)."'";
         return $this->_doQuery($query, true, $connection);
     }
 
@@ -548,7 +548,7 @@ class MDB2_Driver_mysql extends MDB2_Driver_Common
             }
 
             if (!$this->opened_persistent || $force) {
-                @mysql_close($this->connection);
+                @mysqli_close($this->connection);
             }
         }
         return parent::disconnect($force);
@@ -593,7 +593,7 @@ class MDB2_Driver_mysql extends MDB2_Driver_Common
 
         if ($database_name) {
             if ($database_name != $this->connected_database_name) {
-                if (!@mysql_select_db($database_name, $connection)) {
+                if (!@mysqli_select_db($database_name, $connection)) {
                     $err = $this->raiseError(null, null, null,
                         'Could not select the database: '.$database_name, __FUNCTION__);
                     return $err;
@@ -602,8 +602,10 @@ class MDB2_Driver_mysql extends MDB2_Driver_Common
             }
         }
 
-        $function = $this->options['result_buffering']
-            ? 'mysql_query' : 'mysql_unbuffered_query';
+        $function = $this->options['result_buffering'] 
+            ? 'mysqli_query' 
+            : 'mysqli_use_result';
+
         $result = @$function($query, $connection);
         if (!$result) {
             $err =& $this->raiseError(null, null, null,
@@ -634,7 +636,7 @@ class MDB2_Driver_mysql extends MDB2_Driver_Common
                 return $connection;
             }
         }
-        return @mysql_affected_rows($connection);
+        return @mysqli_affected_rows($connection);
     }
 
     // }}}
@@ -710,7 +712,7 @@ class MDB2_Driver_mysql extends MDB2_Driver_Common
         if ($this->connected_server_info) {
             $server_info = $this->connected_server_info;
         } else {
-            $server_info = @mysql_get_server_info($connection);
+            $server_info = @mysqli_get_server_info($connection);
         }
         if (!$server_info) {
             return $this->raiseError(null, null, null,
@@ -1101,7 +1103,7 @@ class MDB2_Driver_mysql extends MDB2_Driver_Common
      */
     function lastInsertID($table = null, $field = null)
     {
-        // not using mysql_insert_id() due to http://pear.php.net/bugs/bug.php?id=8051
+        // not using mysqli_insert_id() due to http://pear.php.net/bugs/bug.php?id=8051
         return $this->queryOne('SELECT LAST_INSERT_ID()', 'integer');
     }
 
@@ -1156,14 +1158,14 @@ class MDB2_Result_mysql extends MDB2_Result_Common
             $fetchmode = $this->db->fetchmode;
         }
         if ($fetchmode & MDB2_FETCHMODE_ASSOC) {
-            $row = @mysql_fetch_assoc($this->result);
+            $row = @mysqli_fetch_assoc($this->result);
             if (is_array($row)
                 && $this->db->options['portability'] & MDB2_PORTABILITY_FIX_CASE
             ) {
                 $row = array_change_key_case($row, $this->db->options['field_case']);
             }
         } else {
-           $row = @mysql_fetch_row($this->result);
+           $row = @mysqli_fetch_row($this->result);
         }
 
         if (!$row) {
@@ -1217,7 +1219,7 @@ class MDB2_Result_mysql extends MDB2_Result_Common
             return $numcols;
         }
         for ($column = 0; $column < $numcols; $column++) {
-            $column_name = @mysql_field_name($this->result, $column);
+            $column_name = @mysqli_field_name($this->result, $column);
             $columns[$column_name] = $column;
         }
         if ($this->db->options['portability'] & MDB2_PORTABILITY_FIX_CASE) {
@@ -1238,7 +1240,7 @@ class MDB2_Result_mysql extends MDB2_Result_Common
      */
     function numCols()
     {
-        $cols = @mysql_num_fields($this->result);
+        $cols = @mysqli_num_fields($this->result);
         if (is_null($cols)) {
             if ($this->result === false) {
                 return $this->db->raiseError(MDB2_ERROR_NEED_MORE_DATA, null, null,
@@ -1264,7 +1266,7 @@ class MDB2_Result_mysql extends MDB2_Result_Common
     function free()
     {
         if (is_resource($this->result) && $this->db->connection) {
-            $free = @mysql_free_result($this->result);
+            $free = @mysqli_free_result($this->result);
             if ($free === false) {
                 return $this->db->raiseError(null, null, null,
                     'Could not free result', __FUNCTION__);
@@ -1296,7 +1298,7 @@ class MDB2_BufferedResult_mysql extends MDB2_Result_mysql
      */
     function seek($rownum = 0)
     {
-        if ($this->rownum != ($rownum - 1) && !@mysql_data_seek($this->result, $rownum)) {
+        if ($this->rownum != ($rownum - 1) && !@mysqli_data_seek($this->result, $rownum)) {
             if ($this->result === false) {
                 return $this->db->raiseError(MDB2_ERROR_NEED_MORE_DATA, null, null,
                     'resultset has already been freed', __FUNCTION__);
@@ -1339,7 +1341,7 @@ class MDB2_BufferedResult_mysql extends MDB2_Result_mysql
      */
     function numRows()
     {
-        $rows = @mysql_num_rows($this->result);
+        $rows = @mysqli_num_rows($this->result);
         if (is_null($rows)) {
             if ($this->result === false) {
                 return $this->db->raiseError(MDB2_ERROR_NEED_MORE_DATA, null, null,

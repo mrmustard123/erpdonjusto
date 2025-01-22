@@ -62,7 +62,7 @@ function rewriteCountQuery($sql)
 }
 
 /**
- * @param object PEAR::DB instance
+ * @param ObjectFactory PEAR::DB instance
  * @param string db query
  * @param array  PEAR::Pager options
  * @param boolean Disable pagination (get all results)
@@ -126,7 +126,7 @@ function Pager_Wrapper_DB(&$db, $query, $pager_options = array(), $disabled = fa
 }
 
 /**
- * @param object PEAR::MDB instance
+ * @param ObjectFactory PEAR::MDB instance
  * @param string db query
  * @param array  PEAR::Pager options
  * @param boolean Disable pagination (get all results)
@@ -186,7 +186,7 @@ function Pager_Wrapper_MDB(&$db, $query, $pager_options = array(), $disabled = f
 }
 
 /**
- * @param object PEAR::MDB2 instance
+ * @param ObjectFactory PEAR::MDB2 instance
  * @param string db query
  * @param array  PEAR::Pager options
  * @param boolean Disable pagination (get all results)
@@ -242,7 +242,7 @@ function Pager_Wrapper_MDB2(&$db, $query, $pager_options = array(), $disabled = 
 }
 
 /**
- * @param object PEAR::DataObject instance
+ * @param ObjectFactory PEAR::DataObject instance
  * @param array  PEAR::Pager options
  * @param boolean Disable pagination (get all results)
  * @return array with links and paged data
@@ -278,7 +278,7 @@ function Pager_Wrapper_DBDO(&$db, $pager_options = array(), $disabled = false)
 }
 
 /**
- * @param object PHP Eclipse instance
+ * @param ObjectFactory PHP Eclipse instance
  * @param string db query
  * @param array  PEAR::Pager options
  * @param boolean Disable pagination (get all results)

@@ -91,7 +91,7 @@ class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
     /**
      * Set an individual item, optionally by identifier (overwrites)
      *
-     * @param  array|object $item
+     * @param  array|ObjectFactory $item
      * @param  string|null $identifier
      * @return Zend_Dojo_Data
      */
@@ -105,7 +105,7 @@ class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
     /**
      * Add an individual item, optionally by identifier
      *
-     * @param  array|object $item
+     * @param  array|ObjectFactory $item
      * @param  string|null $id
      * @return Zend_Dojo_Data
      */
@@ -440,7 +440,7 @@ class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
      * ArrayAccess: set value by offset
      *
      * @param  string $offset
-     * @param  array|object|null $value
+     * @param  array|ObjectFactory|null $value
      * @return void
      */
     public function offsetSet($offset, $value)
@@ -522,7 +522,7 @@ class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
     /**
      * Normalize an item to attach to the collection
      *
-     * @param  array|object $item
+     * @param  array|ObjectFactory $item
      * @param  string|int|null $id
      * @return array
      */

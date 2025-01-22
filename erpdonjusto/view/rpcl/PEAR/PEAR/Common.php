@@ -153,13 +153,13 @@ class PEAR_Common extends PEAR
     /**
      * User Interface object (PEAR_Frontend_* class).  If null,
      * the log() method uses print.
-     * @var object
+     * @var ObjectFactory
      */
     var $ui = null;
 
     /**
      * Configuration object (PEAR_Config).
-     * @var object
+     * @var ObjectFactory
      */
     var $config = null;
 
@@ -167,7 +167,7 @@ class PEAR_Common extends PEAR
 
     /**
      * PEAR_SourceAnalyzer instance
-     * @var object
+     * @var ObjectFactory
      */
     var $source_analyzer = null;
     /**
@@ -329,7 +329,7 @@ class PEAR_Common extends PEAR
     /**
      * Set object that represents the frontend to be used.
      *
-     * @param  object Reference of the frontend object
+     * @param  ObjectFactory Reference of the frontend object
      * @return void
      * @access public
      */
@@ -1076,8 +1076,8 @@ class PEAR_Common extends PEAR
      * setting), the proxy will be used.
      *
      * @param string  $url       the URL to download
-     * @param object  $ui        PEAR_Frontend_* instance
-     * @param object  $config    PEAR_Config instance
+     * @param ObjectFactory  $ui        PEAR_Frontend_* instance
+     * @param ObjectFactory  $config    PEAR_Config instance
      * @param string  $save_dir  (optional) directory to save file in
      * @param mixed   $callback  (optional) function/method to call for status
      *                           updates

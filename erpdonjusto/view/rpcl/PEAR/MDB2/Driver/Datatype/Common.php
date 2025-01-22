@@ -164,7 +164,7 @@ class MDB2_Driver_Datatype_Common extends MDB2_Module_Common
      * @param mixed   $value reference to a value to be converted
      * @param string  $type  specifies which type to convert to
      * @param boolean $rtrim [optional] when TRUE [default], apply rtrim() to text
-     * @return object an MDB2 error on failure
+     * @return ObjectFactory an MDB2 error on failure
      * @access protected
      */
     function _baseConvertResult($value, $type, $rtrim = true)

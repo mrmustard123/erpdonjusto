@@ -1478,8 +1478,7 @@ class CustomPageControl extends QWidget
                                 echo "  $this->Name.getPane().add($pagelist);\n";
 
                                 reset($pages);
-                                while(list($key, $val)=each($pages))
-                                {
+                                foreach ($pages as $key => $val) {
                                     $this->dumpChildrenControls(-31,-11,$val, $names[$key]);
                                 }
 
@@ -1863,7 +1862,7 @@ class TreeNode extends Persistent
         *
         * A Parent node is one level higher than the node and contains the node as a subnode.
         *
-        * @return object Returns a TreeNode object or null if root.
+        * @return ObjectFactory Returns a TreeNode object or null if root.
         */
         function getParentNode() { return $this->_parentnode; }
         function setParentNode($value) { $this->_parentnode=$value; }
@@ -1921,7 +1920,7 @@ class CustomTreeView extends QWidget
         *
         * @param array $itemsarray The array of items to convert.Has to be in the
         *                          same format as the serialized array of the object inspector.
-        * @param object $parentnode Defines the parent TreeNode object to which the tree nodes
+        * @param ObjectFactory $parentnode Defines the parent TreeNode object to which the tree nodes
         *                           (or itmes) are assigend to.
         * @return array Returns an array of TreeNode objects that were converted.
         */
@@ -2170,8 +2169,7 @@ class CustomTreeView extends QWidget
                 if (count($items) > 0)
                 {
                         $i = 0;
-                        while (list($k, $child)=each($items))
-                        {
+                        foreach ($items as $k => $child) {
                                 $this->dumpItem($child, $c, ($level + 1));
                         }
                 }
@@ -2218,8 +2216,7 @@ class CustomTreeView extends QWidget
                         $this->_itemcountatlevel = array();
                         echo "  var trs = null;\n";
                         reset($this->_items);
-                        while (list($k, $item)=each($this->_items))
-                        {
+                        foreach ($this->_items as $k => $item) {
                                 // Level is 1 since the real root node is the tree
                                 $this->dumpItem($item, $this->Name, 1);
                         }
@@ -3810,8 +3807,7 @@ class GraphicMainMenu extends Control
 
                         reset($subitems);
                         echo $itemc."mbar = ".$this->Name.".createMenuBar('$itemc',$w);\n";
-                        while (list($k,$v)=each($subitems))
-                        {
+                        foreach ($subitems as $k => $v) {
                         $this->dumpItem($v,$itemc."mbar");
                         }
                 }
@@ -3865,8 +3861,7 @@ class GraphicMainMenu extends Control
                 echo $this->Name."mbar = ".$this->Name.".createMenuBar('".$this->Name."main',".$this->_menuwidth.",".$this->_menuheight.",".$this->_submenuoffset.",0);\n";
                 reset($items);
 
-                while (list($k,$v)=each($items))
-                {
+                foreach ($items as $k => $v) {
                         $item=$v;
                         $this->dumpItem($item,$this->Name."mbar");
                 }
@@ -4106,14 +4101,12 @@ class CustomRichEdit extends CustomMemo
         xinha_editors.<?php echo $this->_name;     ?>.config.toolbar=[
         <?php
             reset($this->_toolbars);
-            while(list($key, $line)=each($this->_toolbars))
-            {
+            foreach ($this->_toolbars as $key => $line) {
                 if ($key>0) echo ",\n";
                 $items=explode(',',$line);
                 reset($items);
                 echo '[';
-                while(list($k, $toolbutton)=each($items))
-                {
+                foreach ($items as $k => $toolbutton) {
                     if ($k>0) echo ',';
                     echo '"'.$toolbutton.'"';
                 }
@@ -5315,8 +5308,7 @@ class CustomToolBar extends QWidget
         private function dumpParts()
         {
                 reset($this->_items);
-                while(list($index, $item) = each($this->_items))
-                {
+                foreach ($this->_items as $index => $item) {
                         echo "\n";
                         echo "  <!-- Part #$index Start -->\n";
                         echo "    var tbp = new qx.ui.toolbar.Part;\n";
@@ -5341,8 +5333,7 @@ class CustomToolBar extends QWidget
         private function dumpButtons($name, $items)
         {
                 reset($items);
-                while(list($index, $item) = each($items))
-                {
+                foreach ($items as $index => $item) {
                         $caption=$item['Caption'];
 
                         $imageindex=$item['ImageIndex'];

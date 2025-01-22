@@ -364,7 +364,7 @@ class Zend_Loader_Autoloader
     /**
      * Add an autoloader to the beginning of the stack
      *
-     * @param  object|array|string $callback PHP callback or Zend_Loader_Autoloader_Interface implementation
+     * @param  ObjectFactory|array|string $callback PHP callback or Zend_Loader_Autoloader_Interface implementation
      * @param  string|array $namespace Specific namespace(s) under which to register callback
      * @return Zend_Loader_Autoloader
      */
@@ -387,7 +387,7 @@ class Zend_Loader_Autoloader
     /**
      * Append an autoloader to the autoloader stack
      *
-     * @param  object|array|string $callback PHP callback or Zend_Loader_Autoloader_Interface implementation
+     * @param  ObjectFactory|array|string $callback PHP callback or Zend_Loader_Autoloader_Interface implementation
      * @param  string|array $namespace Specific namespace(s) under which to register callback
      * @return Zend_Loader_Autoloader
      */
@@ -410,7 +410,7 @@ class Zend_Loader_Autoloader
     /**
      * Remove an autoloader from the autoloader stack
      *
-     * @param  object|array|string $callback PHP callback or Zend_Loader_Autoloader_Interface implementation
+     * @param  ObjectFactory|array|string $callback PHP callback or Zend_Loader_Autoloader_Interface implementation
      * @param  null|string|array $namespace Specific namespace(s) from which to remove autoloader
      * @return Zend_Loader_Autoloader
      */

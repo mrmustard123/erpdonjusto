@@ -1516,7 +1516,7 @@ class PEAR_PackageFile_Generator_v2_XML_Util {
     * @access   public
     * @param    string      error message
     * @param    integer     error code
-    * @return   object PEAR_Error
+    * @return   ObjectFactory PEAR_Error
     */
     function raiseError($msg, $code)
     {

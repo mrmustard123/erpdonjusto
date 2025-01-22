@@ -285,7 +285,7 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
      * Get Azure accessor from reflection member
      * 
      * @param ReflectionProperty|ReflectionMethod $member
-     * @return object
+     * @return ObjectFactory
      */
     public static function getAzureAccessor($member)
     {

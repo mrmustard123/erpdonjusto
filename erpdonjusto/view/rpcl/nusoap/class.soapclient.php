@@ -695,7 +695,7 @@ class nusoap_client extends nusoap_base  {
 	* dynamically creates an instance of a proxy class,
 	* allowing user to directly call methods from wsdl
 	*
-	* @return   object soap_proxy object
+	* @return   ObjectFactory soap_proxy object
 	* @access   public
 	*/
 	function getProxy() {

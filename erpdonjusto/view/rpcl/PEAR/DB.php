@@ -440,7 +440,7 @@ class DB
      * @param string $type     the database type (eg "mysql")
      * @param array  $options  an associative array of option names and values
      *
-     * @return object  a new DB object.  A DB_Error object on failure.
+     * @return ObjectFactory  a new DB object.  A DB_Error object on failure.
      *
      * @see DB_common::setOption()
      */
@@ -505,7 +505,7 @@ class DB
      *                         format returned by DB::parseDSN()
      * @param array $options  an associative array of option names and values
      *
-     * @return object  a new DB object.  A DB_Error object on failure.
+     * @return ObjectFactory  a new DB object.  A DB_Error object on failure.
      *
      * @uses DB_dbase::connect(), DB_fbsql::connect(), DB_ibase::connect(),
      *       DB_ifx::connect(), DB_msql::connect(), DB_mssql::connect(),
@@ -1003,7 +1003,7 @@ class DB_result
 
     /**
      * A reference to the DB_<driver> object
-     * @var object
+     * @var ObjectFactory
      */
     var $dbh;
 
@@ -1088,7 +1088,7 @@ class DB_result
     /**
      * This constructor sets the object's properties
      *
-     * @param object   &$dbh     the DB object reference
+     * @param ObjectFactory   &$dbh     the DB object reference
      * @param resource $result   the result resource id
      * @param array    $options  an associative array with result options
      *

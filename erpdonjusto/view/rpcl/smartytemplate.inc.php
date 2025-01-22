@@ -160,8 +160,7 @@ class SmartyTemplate extends PageTemplate
                 $this->_smarty->assign('EndForm', $this->endform());
 
                 reset($form->controls->items);
-                while (list($k,$v)=each($form->controls->items))
-                {
+                foreach ($form->controls->items as $k => $v) {
                         $dump = false;
 
                         if( $v->Visible && !$v->IsLayer )
@@ -242,8 +241,7 @@ class VCLTemplate extends SmartyTemplate
 
         //Process here all <php> tags
         reset($form->controls->items);
-        while (list($k,$v)=each($form->controls->items))
-        {
+        foreach ($form->controls->items as $k => $v) {
             $dump = false;
 
             if( $v->Visible && !$v->IsLayer )
@@ -291,8 +289,7 @@ class VCLTemplate extends SmartyTemplate
                                		$st=explode(';',$values);
                                     $style='';
                                     reset($st);
-                                    while(list($key, $val)=each($st))
-                                    {
+                                    foreach ($st as $key => $val) {
                                     	if (strpos($val,'left:')===false)
                                         {
                                         	if (strpos($val,'width:')===false)
@@ -325,8 +322,7 @@ class VCLTemplate extends SmartyTemplate
         }
 
         reset($form->components->items);
-        while (list($k,$v)=each($form->components->items))
-        {
+        foreach ($form->components->items as $k => $v) {
             $dump = false;
 
             if (($v->inheritsFrom('Component')) && (!$v->inheritsFrom('Control')))

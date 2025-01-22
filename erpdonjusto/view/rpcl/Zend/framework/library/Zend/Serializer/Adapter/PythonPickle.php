@@ -508,7 +508,7 @@ class Zend_Serializer_Adapter_PythonPickle extends Zend_Serializer_Adapter_Adapt
     /**
      * Write an object as an dictionary
      *
-     * @param  object $value
+     * @param  ObjectFactory $value
      * @return void
      */
     protected function _writeObject($value)

@@ -110,7 +110,7 @@ class PEAR_Frontend_CLI extends PEAR_Frontend
     // {{{ displayError(eobj)
 
     /**
-     * @param object PEAR_Error object
+     * @param ObjectFactory PEAR_Error object
      */
     function displayError($eobj)
     {
@@ -121,7 +121,7 @@ class PEAR_Frontend_CLI extends PEAR_Frontend
     // {{{ displayFatalError(eobj)
 
     /**
-     * @param object PEAR_Error object
+     * @param ObjectFactory PEAR_Error object
      */
     function displayFatalError($eobj)
     {
@@ -202,7 +202,7 @@ class PEAR_Frontend_CLI extends PEAR_Frontend
 
     /**
      * @param array $xml contents of postinstallscript tag
-     * @param object $script post-installation script
+     * @param ObjectFactory $script post-installation script
      * @param string install|upgrade
      */
     function runInstallScript($xml, &$script)

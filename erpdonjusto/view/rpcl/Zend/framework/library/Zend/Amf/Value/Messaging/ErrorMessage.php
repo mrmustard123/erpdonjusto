@@ -37,7 +37,7 @@ class Zend_Amf_Value_Messaging_ErrorMessage extends Zend_Amf_Value_Messaging_Ack
 {
     /**
      * Additional data with error
-     * @var object
+     * @var ObjectFactory
      */
     public $extendedData = null;
 
@@ -61,7 +61,7 @@ class Zend_Amf_Value_Messaging_ErrorMessage extends Zend_Amf_Value_Messaging_Ack
 
     /**
      * root cause of error
-     * @var object
+     * @var ObjectFactory
      */
     public $rootCause = null;
 }

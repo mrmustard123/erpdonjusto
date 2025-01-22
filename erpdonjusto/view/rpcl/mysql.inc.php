@@ -53,7 +53,7 @@ class MySQLDatabase extends CustomConnection
 
             $rs = $this->Execute(sprintf($metaColumnsSQL,$tablename));
             $result=array();
-            while ($row=mysql_fetch_row($rs))
+            while ($row=mysqli_fetch_row($rs))
             {
                 $result[$row[0]]='';
             }
@@ -215,15 +215,15 @@ class MySQLDatabase extends CustomConnection
          *
          * @param string $query Query to execute
          * @param array $params Not used
-         * @return object
+         * @return ObjectFactory
          */
         function execute($query,$params=array())
         {
                 $this->open();
-                $rs = @mysql_query($query,$this->_connection);
+                $rs = @mysqli_query($query,$this->_connection);
                 if ($rs===false)
                 {
-                        DatabaseError("Error executing query: $query [".mysql_error($this->_connection)."]");
+                        DatabaseError("Error executing query: $query [".mysqli_error($this->_connection)."]");
                 }
 
                 return($rs);
@@ -238,7 +238,7 @@ class MySQLDatabase extends CustomConnection
          * @param integer $numrows Rows to get
          * @param integer $offset First row to start counting
          * @param array $params Parameters to use on the query
-         * @return object
+         * @return ObjectFactory
          */
         function executelimit($query,$numrows,$offset, $params=array())
         {
@@ -254,7 +254,7 @@ class MySQLDatabase extends CustomConnection
         {
             if (($this->ControlState & csDesigning)!=csDesigning)
             {
-                $this->_connection = mysql_connect($this->Host, $this->UserName, $this->UserPassword);
+                $this->_connection = mysqli_connect($this->Host, $this->UserName, $this->UserPassword);
 
                 if (!$this->_connection)
                 {
@@ -262,7 +262,7 @@ class MySQLDatabase extends CustomConnection
                 }
                 else
                 {
-                    $selected=mysql_select_db($this->DatabaseName, $this->_connection);
+                    $selected=mysqli_select_db($this->DatabaseName, $this->_connection);
                     if (!$selected)
                     {
                         DatabaseError("Cannot select database $this->DatabaseName");
@@ -275,7 +275,7 @@ class MySQLDatabase extends CustomConnection
         {
                 if ($this->_connection!=null)
                 {
-                        mysql_close($this->_connection);
+                        mysqli_close($this->_connection);
                         $this->_connection=null;
                 }
         }
@@ -299,12 +299,11 @@ class MySQLDatabase extends CustomConnection
                                 $q="select * from $this->_dictionary where dict_tablename='$table' and dict_fieldname='$field'";
                                 $r=$this->execute($q);
                                 $props=array();
-                                while ($arow=mysql_fetch_assoc($r))
+                                while ($arow=mysqli_fetch_assoc($r))
                                 {
                                         $row=array();
                                         reset($arow);
-                                        while (list($k,$v)=each($arow))
-                                        {
+                                        foreach ($arow as $k => $v) {
                                                 $row[strtolower($k)]=$v;
                                         }
 
@@ -353,7 +352,7 @@ class MySQLDatabase extends CustomConnection
             $indexes = array();
 
         // parse index data into array
-        while ($row = mysql_fetch_row($rs))
+        while ($row = mysqli_fetch_row($rs))
         {
                 if ($primary == FALSE AND $row[2] == 'PRIMARY') {
                         continue;
@@ -453,7 +452,7 @@ class MySQLDatabase extends CustomConnection
                 if ($rs === false) return $false;
 
                 $rr=array();
-                while ($arr = mysql_fetch_row($rs))
+                while ($arr = mysqli_fetch_row($rs))
                 {
                         $rr[]=$arr[0];
                 }
@@ -507,7 +506,7 @@ class MySQLDataSet extends DataSet
     {
         if ($this->_rs!=null)
         {
-                return(mysql_num_rows($this->_rs));
+                return(mysqli_num_rows($this->_rs));
         }
         else return(parent::readRecordCount());
     }
@@ -520,7 +519,7 @@ class MySQLDataSet extends DataSet
         {
           for($i=0;$i<=$distance-1;$i++)
           {
-              $this->_eof=!($buff=mysql_fetch_assoc($this->_rs));
+              $this->_eof=!($buff=mysqli_fetch_assoc($this->_rs));
           }
           if (!$this->_eof) $this->_buffer=$buff;
         }
@@ -770,8 +769,7 @@ class CustomMySQLTable extends MySQLDataSet
         {
                 $where='';
                 reset($this->_keyfields);
-                while(list($key, $fname)=each($this->_keyfields))
-                {
+                foreach ($this->_keyfields as $key => $fname) {
                     $val=$this->fieldbuffer[$fname];
                     if (trim($val)=='') continue;
                     if ($where!='') $where.=" and ";
@@ -808,8 +806,7 @@ class CustomMySQLTable extends MySQLDataSet
                 $where='';
                 $buffer=$this->fieldbuffer;
                 reset($this->_keyfields);
-                while(list($key, $fname)=each($this->_keyfields))
-                {
+                foreach ($this->_keyfields as $key => $fname) {
                     $val=$this->fieldbuffer[$fname];
                     unset($buffer[$fname]);
                     if (trim($val)=='') continue;
@@ -819,8 +816,7 @@ class CustomMySQLTable extends MySQLDataSet
 
                 $set="";
                 reset($buffer);
-                while(list($key, $fname)=each($buffer))
-                {
+                foreach ($buffer as $key => $fname) {
                     if ($set!="") $set.=", ";
                     $set.=" $key = '$fname' ";
                 }
@@ -846,8 +842,7 @@ class CustomMySQLTable extends MySQLDataSet
                 $values='';
 
                 reset($this->fieldbuffer);
-                while(list($key, $val)=each($this->fieldbuffer))
-                {
+                foreach ($this->fieldbuffer as $key => $val) {
                         if ($fields!='') $fields.=',';
                         $fields.="$key";
 
@@ -907,8 +902,7 @@ class CustomMySQLTable extends MySQLDataSet
                             $ms="";
                             reset($this->_masterfields);
 
-                            while(list($key, $val)=each($this->_masterfields))
-                            {
+                            foreach ($this->_masterfields as $key => $val) {
                                 $thisfield=$key;
                                 $msfield=$val;
 
@@ -973,13 +967,13 @@ class CustomMySQLTable extends MySQLDataSet
 
                 if (is_array($indexes))
                 {
-                    list(,$primary)=each($indexes);
+                    //list(,$primary)=each($indexes);//codigo antiguo
+                    $primary = reset($indexes);//codigo actualizado
 
                     $result=$primary['columns'];
                     if (is_array($result))
                     {
-                        while (list($k,$v)=each($result))
-                        {
+                        foreach ($result as $k => $v) {
                                 $result[$k]=trim($v);
                         }
                     }
@@ -988,7 +982,7 @@ class CustomMySQLTable extends MySQLDataSet
                 return($result);
         }
 
-        function dumpHiddenKeyFields($basename, $values=array())
+        function dumpHiddenKeyFields($basename, $values=array(), $force=false)
         {
                 $keyfields=$this->readKeyFields();
 
@@ -1000,8 +994,7 @@ class CustomMySQLTable extends MySQLDataSet
                 if (is_array($keyfields))
                 {
                     reset($keyfields);
-                    while (list($k,$v)=each($keyfields))
-                    {
+                    foreach ($keyfields as $k => $v) {
                                 $avalue=$values[$v];
                                 $avalue=str_replace('"','&quot;',$avalue);
                             echo "<input type=\"hidden\" name=\"".$basename."[$v]\" value=\"$avalue\" />";
@@ -1135,7 +1128,7 @@ class CustomMySQLQuery extends CustomMySQLTable
          * edited by invoking the String List editor in the Object Inspector.
          *
          * The SQL property may contain only one complete SQL statement at a time.
-         * In general, multiple “batch” statements are not allowed unless a particular
+         * In general, multiple ï¿½batchï¿½ statements are not allowed unless a particular
          * server supports them.
          *
          * <code>
@@ -1189,7 +1182,7 @@ class CustomMySQLQuery extends CustomMySQLTable
         }
 
         /**
-         * Contains the parameters for a query’s SQL statement.
+         * Contains the parameters for a queryï¿½s SQL statement.
          *
          * Access Params at runtime to view and set parameter names and values
          * dynamically (at design time use the editor for the Params property to
@@ -1247,7 +1240,7 @@ class CustomMySQLQuery extends CustomMySQLTable
  *
  * Query components are useful because they can:
  *
- * Access more than one table at a time (called a “join” in SQL).
+ * Access more than one table at a time (called a ï¿½joinï¿½ in SQL).
  *
  * Automatically access a subset of rows and columns in its underlying table(s),
  * rather than always returning all rows and columns.
@@ -1332,11 +1325,11 @@ class MySQLQuery extends CustomMySQLQuery
  * MySQLStoredProc encapsulates a stored procedure in an application.
  *
  * Use a MySQLStoredProc object in applications to use a stored procedure on a MySQL database server.
- * A stored procedure is a grouped set of statements, stored as part of a database server’s
+ * A stored procedure is a grouped set of statements, stored as part of a database serverï¿½s
  * metadata (just like tables, indexes, and domains), that performs a frequently repeated,
  * database-related task on the server and passes results to the client.
  *
- * Note:   Not all MySQL versions support stored procedures. See a specific server’s
+ * Note:   Not all MySQL versions support stored procedures. See a specific serverï¿½s
  * documentation to determine if it supports stored procedures.
  *
  * Many stored procedures require a series of input arguments, or parameters, that are used
@@ -1406,8 +1399,7 @@ class MySQLStoredProc extends CustomMySQLQuery
                     $pars="";
 
                     reset($this->_params);
-                    while(list($key, $val)=each($this->_params))
-                    {
+                    foreach ($this->_params as $key => $val) {
                         if ($pars!="") $pars.=', ';
                         $pars.="'$val'";
                     }

@@ -95,7 +95,7 @@ class ACLManager
    *
    * @see isAllowed
    *
-   * @param object $acl ACL object to add
+   * @param ObjectFactory $acl ACL object to add
    */
    function addACL($acl)
    {
@@ -125,8 +125,7 @@ class ACLManager
 
       $result = false;
       reset($this->acl_objects);
-      while(list($k, $acl) = each($this->acl_objects))
-      {
+      foreach ($this->acl_objects as $k => $acl) {
          if($acl->isAllowed($role, $resource, $privilege))
          {
             $result = true;
@@ -155,8 +154,7 @@ class ACLManager
       if(count($this->acl_objects) != 0)
       {
          reset($this->acl_objects);
-         while(list($k, $acl) = each($this->acl_objects))
-         {
+         foreach ($this->acl_objects as $k => $acl) {
             $acl->add($resourcename);
          }
       }
@@ -175,7 +173,7 @@ $aclmanager = new ACLManager();
 *
 * @see ACLManager::addResource
 *
-* @param string|object $object Object or string identifier for the resource to be added
+* @param string|ObjectFactory $object Object or string identifier for the resource to be added
 */
 function acl_addresource($object)
 {

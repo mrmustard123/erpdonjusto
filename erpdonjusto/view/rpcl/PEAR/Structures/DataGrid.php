@@ -109,7 +109,7 @@ class Structures_DataGrid
 {
     /**
      * Renderer driver
-     * @var object Structures_DataGrid_Renderer_* family
+     * @var ObjectFactory Structures_DataGrid_Renderer_* family
      * @access private
      */
     var $_renderer;
@@ -123,7 +123,7 @@ class Structures_DataGrid
 
     /**
      * Renderer driver backup
-     * @var object Structures_DataGrid_Renderer_* family
+     * @var ObjectFactory Structures_DataGrid_Renderer_* family
      * @access private
      */
     var $_rendererBackup;
@@ -162,7 +162,7 @@ class Structures_DataGrid
 
     /**
      * The Data Source Driver object
-     * @var object Structures_DataGrid_DataSource
+     * @var ObjectFactory Structures_DataGrid_DataSource
      * @access private
      */
     var $_dataSource;
@@ -326,7 +326,7 @@ class Structures_DataGrid
      *
      * @param string $className Name of the driver class
      * @access private
-     * @return object The driver object or a PEAR_Error
+     * @return ObjectFactory The driver object or a PEAR_Error
      * @static
      */
     function &loadDriver($className)
@@ -569,7 +569,7 @@ class Structures_DataGrid
      *
      * Retrieves the renderer object as a reference
      *
-     * @return object Renderer object reference
+     * @return ObjectFactory Renderer object reference
      * @access public
      */
     function &getRenderer()
@@ -583,7 +583,7 @@ class Structures_DataGrid
      *
      * Retrieves the DataSource object as a reference
      *
-     * @return object DataSource object reference or null if no driver is loaded
+     * @return ObjectFactory DataSource object reference or null if no driver is loaded
      * @access public
      */
     function &getDataSource()
@@ -702,7 +702,7 @@ class Structures_DataGrid
     /**
      * Attach an already instantiated Rendering driver
      *
-     * @param object $renderer Driver object, subclassing
+     * @param ObjectFactory $renderer Driver object, subclassing
      *                         Structures_DataGrid_Renderer
      * @return mixed           Renderer instance or a PEAR_Error object
      * @access public
@@ -739,7 +739,7 @@ class Structures_DataGrid
      *
      * @example fill-sortform.php Fill a form with sort fields
      * @example fill-pager.php    Filling a Pager object
-     * @param object &$container A rendering container of any of the supported
+     * @param ObjectFactory &$container A rendering container of any of the supported
      *                          types (example: an HTML_Table object,
      *                          a Spreadsheet_Excel_Writer object, etc...)
      * @param array  $options   Options for the corresponding rendering driver
@@ -950,7 +950,7 @@ class Structures_DataGrid
      *
      * @example addColumn.php       Adding a simple column
      * @access  public
-     * @param   object  $column     The Structures_DataGrid_Column object
+     * @param   ObjectFactory  $column     The Structures_DataGrid_Column object
      *                              (reference to)
      * @param   string  $position   One of: "last", "first", "after" or "before"
      *                              (default: "last")
@@ -1037,7 +1037,7 @@ class Structures_DataGrid
      *
      * @access  public
      * @param   string   $name      The name (label) of the column to look for
-     * @return  object              Either the column object (reference to) or
+     * @return  ObjectFactory              Either the column object (reference to) or
      *                              false if there is no such column
      */
     function &getColumnByName($name)
@@ -1057,7 +1057,7 @@ class Structures_DataGrid
      *
      * @access  public
      * @param   string   $fieldName The field name of the column to look for
-     * @return  object              Either the column object (reference to) or
+     * @return  ObjectFactory              Either the column object (reference to) or
      *                              false if there is no such column
      */
     function &getColumnByField($fieldName)
@@ -1077,7 +1077,7 @@ class Structures_DataGrid
      *
      * @example removeColumn.php    Remove an unneeded column
      * @access  public
-     * @param   object  $column     The Structures_DataGrid_Column object
+     * @param   ObjectFactory  $column     The Structures_DataGrid_Column object
      *                              (reference to)
      * @return  void
      */
@@ -1419,7 +1419,7 @@ class Structures_DataGrid
     /**
      * Detect rendering container type
      *
-     * @param object $container The rendering container
+     * @param ObjectFactory $container The rendering container
      * @return string           The container type or null if unrecognized
      * @access private
      */

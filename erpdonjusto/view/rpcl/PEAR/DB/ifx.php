@@ -494,7 +494,7 @@ class DB_ifx extends DB_common
      *                     DB_ERROR* constant here.  If this isn't passed
      *                     the error information gathered from the DBMS.
      *
-     * @return object  the DB_Error object
+     * @return ObjectFactory  the DB_Error object
      *
      * @see DB_common::raiseError(),
      *      DB_ifx::errorNative(), DB_ifx::errorCode()
@@ -557,7 +557,7 @@ class DB_ifx extends DB_common
      * an error will be raised saying
      * <samp>can't distinguish duplicate field names</samp>.
      *
-     * @param object|string  $result  DB_result object from a query or a
+     * @param ObjectFactory|string  $result  DB_result object from a query or a
      *                                 string containing the name of a table.
      *                                 While this also accepts a query result
      *                                 resource identifier, this behavior is

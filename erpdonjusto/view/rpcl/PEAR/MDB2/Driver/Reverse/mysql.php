@@ -358,7 +358,7 @@ class MDB2_Driver_Reverse_mysql extends MDB2_Driver_Reverse_Common
     /**
      * Returns information about a table or a result set
      *
-     * @param object|string  $result  MDB2_result object from a query or a
+     * @param ObjectFactory|string  $result  MDB2_result object from a query or a
      *                                 string containing the name of a table.
      *                                 While this also accepts a query result
      *                                 resource identifier, this behavior is
@@ -397,7 +397,7 @@ class MDB2_Driver_Reverse_mysql extends MDB2_Driver_Reverse_Common
             $case_func = 'strval';
         }
 
-        $count = @mysql_num_fields($resource);
+        $count = @mysqli_num_fields($resource);
         $res   = array();
 
         if ($mode) {
@@ -407,11 +407,11 @@ class MDB2_Driver_Reverse_mysql extends MDB2_Driver_Reverse_Common
         $db->loadModule('Datatype', null, true);
         for ($i = 0; $i < $count; $i++) {
             $res[$i] = array(
-                'table' => $case_func(@mysql_field_table($resource, $i)),
-                'name'  => $case_func(@mysql_field_name($resource, $i)),
-                'type'  => @mysql_field_type($resource, $i),
-                'length'   => @mysql_field_len($resource, $i),
-                'flags' => @mysql_field_flags($resource, $i),
+                'table' => $case_func(@mysqli_field_table($resource, $i)),
+                'name'  => $case_func(@mysqli_field_name($resource, $i)),
+                'type'  => @mysqli_field_type($resource, $i),
+                'length'   => @mysqli_field_len($resource, $i),
+                'flags' => @mysqli_field_flags($resource, $i),
             );
             if ($res[$i]['type'] == 'string') {
                 $res[$i]['type'] = 'char';

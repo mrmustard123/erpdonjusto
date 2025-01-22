@@ -406,7 +406,7 @@ class MDB2_Driver_Reverse_mssql extends MDB2_Driver_Reverse_Common
      * NOTE: only supports 'table' and 'flags' if <var>$result</var>
      * is a table name.
      *
-     * @param object|string  $result  MDB2_result object from a query or a
+     * @param ObjectFactory|string  $result  MDB2_result object from a query or a
      *                                 string containing the name of a table.
      *                                 While this also accepts a query result
      *                                 resource identifier, this behavior is
@@ -489,7 +489,7 @@ class MDB2_Driver_Reverse_mssql extends MDB2_Driver_Reverse_Common
      * "multiple_key" (multikey index)
      *
      * mssql timestamp is NOT similar to the mysql timestamp so this is maybe
-     * not useful at all - is the behaviour of mysql_field_flags that primary
+     * not useful at all - is the behaviour of mysqli_field_flags that primary
      * keys are alway unique? is the interpretation of multiple_key correct?
      *
      * @param string $table   the table name

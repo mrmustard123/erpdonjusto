@@ -525,8 +525,7 @@ class CustomCheckListBox extends FocusControl
           //This changes string-key based array to integer-key based array
           $this->_header=array();
           reset($value);
-          while (list($k,$v)=each($value))
-          {
+          foreach ($value as $k => $v) {
             $this->_header[$k]=$v;
           }
         }
@@ -604,8 +603,7 @@ class CustomCheckListBox extends FocusControl
           //This changes string-key based array to integer-key based array
           $this->_checked=array();
           reset($value);
-          while (list($k,$v)=each($value))
-          {
+          foreach ($value as $k => $v) {
             $this->_checked[$k]=$v;
           }
         }

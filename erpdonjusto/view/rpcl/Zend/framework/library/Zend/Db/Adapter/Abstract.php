@@ -82,7 +82,7 @@ abstract class Zend_Db_Adapter_Abstract
     /**
      * Database connection
      *
-     * @var object|resource|null
+     * @var ObjectFactory|resource|null
      */
     protected $_connection = null;
 
@@ -297,7 +297,7 @@ abstract class Zend_Db_Adapter_Abstract
      * Returns the underlying database connection object or resource.
      * If not presently connected, this initiates the connection.
      *
-     * @return object|resource|null
+     * @return ObjectFactory|resource|null
      */
     public function getConnection()
     {

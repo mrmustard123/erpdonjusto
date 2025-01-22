@@ -466,7 +466,7 @@ function readAccessibility($method, $defaccessibility)
 *  @see getReadOnly()
 *
 *  @param array $params Array of parameters to this method
-*  @param object $error RPC Error object to return if anything goes wrong
+*  @param ObjectFactory $error RPC Error object to return if anything goes wrong
 *  @return mixed
 */
 function updateRow($params, $error)

@@ -56,7 +56,7 @@ function boolToStr( $value )
 * <code>
 * <?php
 *
-* echo textToHtml("this is plain-text\nIncluding áéíóú chars\n");
+* echo textToHtml("this is plain-text\nIncluding ï¿½ï¿½ï¿½ï¿½ï¿½ chars\n");
 * // This will produce "this is plain-text<br>Incluiding &aacute;&eacute;&iacute;&oacute;&uacute; chars<br>"
 *
 * ?>
@@ -91,7 +91,7 @@ function textToHtml( $text, $charset=null )
 * <?php
 *
 * echo htmlToText("this is HTML<br />Including &aacute;&eacute;&iacute;&oacute;&uacute; chars<br />");
-* // This will produce "this is HTML\nIncluding áéíóú chars\n"
+* // This will produce "this is HTML\nIncluding ï¿½ï¿½ï¿½ï¿½ï¿½ chars\n"
 *
 * ?>
 * </code>
@@ -141,7 +141,7 @@ function redirect( $file )
 * Note that $var can contain anything, it doesn't check if it's an object or not.
 *
 *
-* @param object $var Object to check
+* @param ObjectFactory $var Object to check
 * @return boolean
 */
 function assigned($var)
@@ -152,7 +152,7 @@ function assigned($var)
 /**
 * EAbort is the exception class for errors that should not display an error message.
 *
-* Use EAbort to raise an exception without displaying an error message. If applications do not trap such “silent” exceptions,
+* Use EAbort to raise an exception without displaying an error message. If applications do not trap such ï¿½silentï¿½ exceptions,
 * the EAbort exception is passed to the standard exception handler.
 *
 * The Abort procedure provides a simple, standard way to raise EAbort.
@@ -287,8 +287,7 @@ function urlparams()
 {
     $result='';
     reset($_GET);
-    while(list($key, $val)=each($_GET))
-    {
+    foreach ($_GET as $key => $val) {
         if ($key=='restore_session') continue;
         if ($result!='') $result.='&';
         $result.=$key.'='.$val;

@@ -118,7 +118,7 @@ class PEAR_Installer extends PEAR_Downloader
     /**
      * PEAR_Installer constructor.
      *
-     * @param object $ui user interface object (instance of PEAR_Frontend_*)
+     * @param ObjectFactory $ui user interface object (instance of PEAR_Frontend_*)
      *
      * @access public
      */

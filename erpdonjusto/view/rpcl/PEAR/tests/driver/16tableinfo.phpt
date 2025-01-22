@@ -78,7 +78,7 @@ require_once './mktable.inc';
  * In general, it prints out an error message and kills the process.
  * But some errors are expected and allowed to exist.
  *
- * @param object  $o  PEAR error object automatically passed to this method
+ * @param ObjectFactory  $o  PEAR error object automatically passed to this method
  * @return void
  * @see PEAR::setErrorHandling()
  */

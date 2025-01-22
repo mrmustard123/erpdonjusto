@@ -1,5 +1,65 @@
-dbtables.inc.php
+﻿dbtables.inc.php
 troquei _rs->Fields por _rs->fields
 
 classes.inc.php on line 484
 comentei a linha
+
+09:44 29/11/2024
+Correcciones para adaptar a PHP8
+Refactorizaci�n de class Object -> class ObjectFactory
+en classes.inc.php
+As� como el cambio de each() en foreach() en varios archivos.
+
+11:29 04/12/2024
+Corrigiendo error al ingresar a Consignaciones (view_consig_prod.php)
+Warning: Undefined array key "" in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1390
+
+Application raised an exception class EPropertyNotFound with message 'Trying to access non-existant property view_consign_prod->dbapicolad_erpdonjusto1 in classes.inc.php, line 1393.'
+
+Warning:  Undefined array key "file" in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 127
+
+17:39 07/12/2024
+
+Application raised an exception class EPropertyNotFound with message 'Trying to access non-existant property view_bitacora_list->dbapicolad_erpdonjusto1 in classes.inc.php, line 1396.'
+Click for detailed information
+Callstack #0 File: C:\wamp64\www\erpdonjusto_php8\view\view_bitacora_list_wrapper.php Line: 51
+  |_Callstack #1 File: C:\wamp64\www\erpdonjusto_php8\view\view_bitacora_list.php Line: 51
+    |_Callstack #2 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 1927
+      |_Callstack #3 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 2023
+        |_Callstack #4 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 638
+          |_Callstack #5 File:  Line: 
+            |_Callstack #6 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 561
+              |_Callstack #7 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 1280
+                |_Callstack #8 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\dbtables.inc.php Line: 496
+                  |_Callstack #9 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\dbtables.inc.php Line: 491
+                    |_Callstack #10 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 1396
+
+18:08 08/12/2024
+Comenté la linea 344 de forms.inc.php
+
+He restaurado los $$variable que las había borrado en forms.inc.php
+
+11:31 09/12/2024
+
+graphics.inc.php: 475
+Cambié:    $x+=$v;
+Por:    $x= (int)$x+(int)$v;
+En PHP 8 es más estricto a la hora de sumar string con int
+
+graphics.inc.php: 487
+Cambié:        $y+=$hv;
+Por:        $y = int($y)+(int)$hv;
+
+14:31 14/12/2024
+Hoy he hecho algo diferente, en vez de modificar o actualizar el archivo adodb-mysql.inc.php voy a volver a copiar los archivos de la carpeta original. Los archivos reemplazados los dejé en una carpeta en el proyecto migración como rpcl_2_2
+
+20/12/2024
+Se ha modificado rpcl\adob\drivers\adodb-mysql.inc.php:770
+	function MetaType($t, $len = -1, $fieldobj = false)
+para que se parezca a adodb-mysqli.inc.php con las constantes que estaban faltando.
+POR FIN FUNCIONA INSERT EN PHP 8!!
+
+
+
+
+

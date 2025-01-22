@@ -503,7 +503,7 @@ class MDB2_Driver_mysqli extends MDB2_Driver_Common
                 return $connection;
             }
         }
-        $query = "SET NAMES '".mysql_real_escape_string($charset, $connection)."'";
+        $query = "SET NAMES '".mysqli_real_escape_string($charset, $connection)."'";
         return $this->_doQuery($query, true, $connection);
     }
 
@@ -594,7 +594,7 @@ class MDB2_Driver_mysqli extends MDB2_Driver_Common
             $result = mysqli_multi_query($connection, $query);
         } else {
             $resultmode = $this->options['result_buffering'] ? MYSQLI_USE_RESULT : MYSQLI_USE_RESULT;
-            $result = mysqli_query($connection, $query);
+            $result = mysqli_query($query,$connection);
         }
 
         if (!$result) {
@@ -1097,7 +1097,7 @@ class MDB2_Driver_mysqli extends MDB2_Driver_Common
      */
     function lastInsertID($table = null, $field = null)
     {
-        // not using mysql_insert_id() due to http://pear.php.net/bugs/bug.php?id=8051
+        // not using mysqli_insert_id() due to http://pear.php.net/bugs/bug.php?id=8051
         return $this->queryOne('SELECT LAST_INSERT_ID()');
     }
 

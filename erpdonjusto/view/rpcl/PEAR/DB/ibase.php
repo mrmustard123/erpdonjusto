@@ -544,7 +544,7 @@ class DB_ibase extends DB_common
      *                      passed must match quantity of placeholders in
      *                      query:  meaning 1 for non-array items or the
      *                      quantity of elements in the array.
-     * @return object  a new DB_Result or a DB_Error when fail
+     * @return ObjectFactory  a new DB_Result or a DB_Error when fail
      * @see DB_ibase::prepare()
      * @access public
      */
@@ -855,7 +855,7 @@ class DB_ibase extends DB_common
      *                     DB_ERROR* constant here.  If this isn't passed
      *                     the error information gathered from the DBMS.
      *
-     * @return object  the DB_Error object
+     * @return ObjectFactory  the DB_Error object
      *
      * @see DB_common::raiseError(),
      *      DB_ibase::errorNative(), DB_ibase::errorCode()
@@ -957,7 +957,7 @@ class DB_ibase extends DB_common
      * NOTE: only supports 'table' and 'flags' if <var>$result</var>
      * is a table name.
      *
-     * @param object|string  $result  DB_result object from a query or a
+     * @param ObjectFactory|string  $result  DB_result object from a query or a
      *                                 string containing the name of a table.
      *                                 While this also accepts a query result
      *                                 resource identifier, this behavior is

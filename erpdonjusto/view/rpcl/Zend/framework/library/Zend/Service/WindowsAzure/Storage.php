@@ -401,7 +401,7 @@ class Zend_Service_WindowsAzure_Storage
 	 * Parse result from Zend_Http_Response
 	 *
 	 * @param Zend_Http_Response $response Response from HTTP call
-	 * @return object
+	 * @return ObjectFactory
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
 	protected function _parseResponse(Zend_Http_Response $response = null)

@@ -34,7 +34,7 @@ class Zend_Search_Lucene_FSMAction
     /**
      * Object reference
      *
-     * @var object
+     * @var ObjectFactory
      */
     private $_object;
 
@@ -48,7 +48,7 @@ class Zend_Search_Lucene_FSMAction
     /**
      * Object constructor
      *
-     * @param object $object
+     * @param ObjectFactory $object
      * @param string $method
      */
     public function __construct($object, $method)

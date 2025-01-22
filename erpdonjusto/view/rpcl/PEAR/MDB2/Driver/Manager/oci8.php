@@ -60,7 +60,7 @@ class MDB2_Driver_Manager_oci8 extends MDB2_Driver_Manager_Common
     /**
      * create a new database
      *
-     * @param object $db database object that is extended by this class
+     * @param ObjectFactory $db database object that is extended by this class
      * @param string $name name of the database that should be created
      * @return mixed MDB2_OK on success, a MDB2 error on failure
      * @access public
@@ -107,7 +107,7 @@ class MDB2_Driver_Manager_oci8 extends MDB2_Driver_Manager_Common
     /**
      * drop an existing database
      *
-     * @param object $db database object that is extended by this class
+     * @param ObjectFactory $db database object that is extended by this class
      * @param string $name name of the database that should be dropped
      * @return mixed MDB2_OK on success, a MDB2 error on failure
      * @access public
@@ -813,7 +813,7 @@ END;
     /**
      * create sequence
      *
-     * @param object $db database object that is extended by this class
+     * @param ObjectFactory $db database object that is extended by this class
      * @param string $seq_name name of the sequence to be created
      * @param string $start start value of the sequence; default is 1
      * @return mixed MDB2_OK on success, a MDB2 error on failure
@@ -838,7 +838,7 @@ END;
     /**
      * drop existing sequence
      *
-     * @param object $db database object that is extended by this class
+     * @param ObjectFactory $db database object that is extended by this class
      * @param string $seq_name name of the sequence to be dropped
      * @return mixed MDB2_OK on success, a MDB2 error on failure
      * @access public

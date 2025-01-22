@@ -619,7 +619,7 @@ class DB_sybase extends DB_common
      *                     DB_ERROR* constant here.  If this isn't passed
      *                     the error information gathered from the DBMS.
      *
-     * @return object  the DB_Error object
+     * @return ObjectFactory  the DB_Error object
      *
      * @see DB_common::raiseError(),
      *      DB_sybase::errorNative(), DB_sybase::errorCode()
@@ -717,7 +717,7 @@ class DB_sybase extends DB_common
      * NOTE: only supports 'table' and 'flags' if <var>$result</var>
      * is a table name.
      *
-     * @param object|string  $result  DB_result object from a query or a
+     * @param ObjectFactory|string  $result  DB_result object from a query or a
      *                                 string containing the name of a table.
      *                                 While this also accepts a query result
      *                                 resource identifier, this behavior is

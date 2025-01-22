@@ -11,7 +11,7 @@ require_once './connect.inc';
 /**
  * Determine if the database connection matches what's expected
  *
- * @param object $dbh   the PEAR DB object
+ * @param ObjectFactory $dbh   the PEAR DB object
  * @param string $name  the name of the current test
  *
  * @return void

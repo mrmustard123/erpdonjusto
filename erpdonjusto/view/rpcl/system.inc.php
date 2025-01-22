@@ -74,7 +74,7 @@ class EPropertyNotFound extends Exception
  * To create a class that belongs to the class library, you must, at least, inherit
  * from Object, which provides the basic methods to work.
  */
-class Object
+class ObjectFactory
 {
         /**
         * Global input object, easily accessible without declaring global
@@ -93,7 +93,7 @@ class Object
         * In Object, this constructor basically assigns the globa Input object to be
         * available as a field for all objects.
         *
-        * @return Object
+        * @return ObjectFactory
         */
         function __construct()
         {
@@ -298,8 +298,7 @@ class Object
                                 {
                                         /*
                                         reset($this->components->items);
-                                        while (list($k,$v)=each($this->components->items))
-                                        {
+                                        foreach ($this->components->items as $k => $v) {
                                                 if (strtolower($v->Name)==strtolower($nm)) return($v);
                                         }
                                         */
@@ -471,8 +470,7 @@ class InputParam
                         $data=$this->stream[$this->name];
                         reset($data);
                         $result=array();
-                        while (list($k,$v)=each($data))
-                        {
+                        foreach ($data as $k => $v) {
                                 $result[$filter_func($k,FILTER_SANITIZE_STRING)]=$filter_func($v,FILTER_SANITIZE_STRING);
                         }
                         return($result);

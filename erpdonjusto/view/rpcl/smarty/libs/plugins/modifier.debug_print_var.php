@@ -15,7 +15,7 @@
  * @link http://smarty.php.net/manual/en/language.modifier.debug.print.var.php
  *          debug_print_var (Smarty online manual)
  * @author   Monte Ohrt <monte at ohrt dot com>
- * @param array|object
+ * @param array|ObjectFactory
  * @param integer
  * @param integer
  * @return string

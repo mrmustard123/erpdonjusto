@@ -1601,7 +1601,7 @@ class PEAR_Downloader_Package
 
     /**
      * @param array output of package.getDownloadURL
-     * @param string|array|object information for detecting packages to be downloaded, and
+     * @param string|array|ObjectFactory information for detecting packages to be downloaded, and
      *                            for errors
      * @param array name information of the package
      * @param array|null packages to be downloaded

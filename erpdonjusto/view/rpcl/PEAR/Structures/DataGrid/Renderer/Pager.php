@@ -93,7 +93,7 @@ class Structures_DataGrid_Renderer_Pager extends Structures_DataGrid_Renderer
 {
     /**
      * Rendering container
-     * @var object Pager object
+     * @var ObjectFactory Pager object
      * @access protected
      */
     var $_pager;
@@ -135,7 +135,7 @@ class Structures_DataGrid_Renderer_Pager extends Structures_DataGrid_Renderer
     /**
      * Attach an already instantiated Pager object
      *
-     * @var     object  Pager object
+     * @var     ObjectFactory  Pager object
      * @return  mixed   True or PEAR_Error
      * @access public
      */
@@ -148,7 +148,7 @@ class Structures_DataGrid_Renderer_Pager extends Structures_DataGrid_Renderer
     /**
      * Return the currently used Pager object
      *
-     * @return object Pager (reference to) or PEAR_Error
+     * @return ObjectFactory Pager (reference to) or PEAR_Error
      * @access public
      */
     function &getContainer()
@@ -230,7 +230,7 @@ class Structures_DataGrid_Renderer_Pager extends Structures_DataGrid_Renderer
      *
      * This is (or has been...) used by the HTMLTable and Smarty driver
      * 
-     * @param object $renderer External driver
+     * @param ObjectFactory $renderer External driver
      * @param array  $pagerOptions pager options
      * @return void
      * @access public

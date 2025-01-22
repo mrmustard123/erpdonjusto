@@ -151,8 +151,7 @@ class Layout extends Persistent
                 if ($this->_control!=null)
                 {
                         reset($this->_control->controls->items);
-                        while (list($k,$v)=each($this->_control->controls->items))
-                        {
+                        foreach ($this->_control->controls->items as $k => $v) {
                                 if (!empty($exclude))
                                 {
                                         if (in_array($v->classname(),$exclude))
@@ -226,8 +225,7 @@ class Layout extends Persistent
                         $arrayOfControls = $this->_control->controls->items;
                         usort($arrayOfControls, array(&$this, "cmp_obj"));
 
-                        while (list($k,$v)=each($arrayOfControls))
-                        {
+                        foreach ($arrayOfControls as $k => $v) {
                                 if (!empty($exclude))
                                 {
                                         if (in_array($v->classname(),$exclude))
@@ -283,8 +281,7 @@ class Layout extends Persistent
                         //Iterates through controls calling show for all of them
 
                         reset($this->_control->controls->items);
-                        while (list($k,$v)=each($this->_control->controls->items))
-                        {
+                        foreach ($this->_control->controls->items as $k => $v) {
                                 $dump=false;
 
                                 if( $v->Visible && !$v->IsLayer )
@@ -331,8 +328,7 @@ class Layout extends Persistent
                                         $widths=array();
                                         reset($x);
                                         if ($x[0]!=0) $widths[]=$x[0];
-                                        while (list($k,$v)=each($x))
-                                        {
+                                        foreach ($x as $k => $v) {
                                                 if ($k<count($x)-1)
                                                 {
                                                         if ($x[$k+1]-$v!=0) $widths[]=$x[$k+1]-$v;
@@ -343,8 +339,7 @@ class Layout extends Persistent
                                         $heights=array();
                                         reset($y);
                                         if ($y[0]!=0) $heights[]=$y[0];
-                                        while (list($k,$v)=each($y))
-                                        {
+                                        foreach ($y as $k => $v) {
                                                 if ($k<count($y)-1)
                                                 {
                                                         if ($y[$k+1]-$v!=0) $heights[]=$y[$k+1]-$v;
@@ -356,8 +351,7 @@ class Layout extends Persistent
                                         $y=0;
                                         reset($heights);
 
-                                        while (list($hk,$hv)=each($heights))
-                                        {
+                                        foreach ($heights as $hk => $hv) {
                                                         if ($hv!="")
                                                         {
 
@@ -371,8 +365,7 @@ class Layout extends Persistent
                                                 reset($widths);
 
                                                 ob_start();
-                                                while (list($k,$v)=each($widths))
-                                                {
+                                                foreach ($widths as $k => $v) {
                                                         $cs=1;
                                                         $rs=1;
 
@@ -381,7 +374,7 @@ class Layout extends Persistent
                                                         {
                                                                 if ((!is_object($pos[$x][$y]))  && ($pos[$x][$y]==-1))
                                                                 {
-                                                                        $x+=$v;
+                                                                        $x=(int)$x+(int)$v;
                                                                         continue;
                                                                 }
                                                         }
@@ -431,8 +424,7 @@ class Layout extends Persistent
                                                                                         $pos[$x+$th][$y]=-1;
 
                                                                                         reset($also);
-                                                                                        while(list($ak,$av)=each($also))
-                                                                                        {
+                                                                                        foreach ($also as $ak => $av) {
                                                                                                 $pos[$x+$th][$av]=-1;
                                                                                         }
                                                                                 }
@@ -480,7 +472,7 @@ class Layout extends Persistent
                                                         }
 
                                                         echo "</td>\n";
-                                                        $x+=$v;
+                                                        $x= (int)$x+(int)$v;
                                                 }
                                                 $trow=ob_get_contents();
                                                 ob_end_clean();
@@ -492,7 +484,7 @@ class Layout extends Persistent
                                                 }
                                                 echo $trow;
                                                 echo "</tr>\n";
-                                                $y+=$hv;
+                                                $y = (int)$y+(int)$hv;
                                         }
                                 }
                                 else
@@ -503,8 +495,7 @@ class Layout extends Persistent
                                 }
 
                         reset($this->_control->controls->items);
-                        while (list($k,$v)=each($this->_control->controls->items))
-                        {
+                        foreach ($this->_control->controls->items as $k => $v) {
                                 if (($v->Visible) && ($v->IsLayer))
                                 {
                                         echo "<div id=\"".$v->Name."_outer\">\n";
@@ -526,8 +517,7 @@ class Layout extends Persistent
             {
                 //Iterates through controls calling show for all of them
                 reset($this->_control->controls->items);
-                while (list($k,$v)=each($this->_control->controls->items))
-                {
+                foreach ($this->_control->controls->items as $k => $v) {
                         if (!empty($exclude))
                         {
                                 if (in_array($v->classname(),$exclude))
@@ -577,7 +567,7 @@ class Layout extends Persistent
                         case GRIDBAG_LAYOUT: $this->dumpGridBagLayout($exclude); break;
                         case ABS_XY_LAYOUT: $this->dumpABSLayout($exclude); break;
                         case REL_XY_LAYOUT: $this->dumpRELLayout($exclude); break;
-                        case XY_LAYOUT: $this->dumpXYLayout($exclude); break;
+                        case XY_LAYOUT: $this->dumpXYLayout(intval($exclude)); break;
                         case FLOW_LAYOUT: $this->dumpFlowLayout($exclude); break;
                 }
             }
@@ -592,7 +582,7 @@ class Layout extends Persistent
         */
             function dumpGridBagLayout($exclude=array())
             {
-                    $this->dumpGrid($exclude, $this->_cols, $this->_rows, "100%");
+                    $this->dumpGrid($this->_cols, $this->_rows, "100%", $exclude);
             }
 
         /**
@@ -604,7 +594,7 @@ class Layout extends Persistent
         */
             function dumpRowLayout($exclude=array())
             {
-                    $this->dumpGrid($exclude, $this->_cols, 1, "100%");
+                    $this->dumpGrid($this->_cols, 1, "100%",$exclude);
             }
 
         /**
@@ -616,7 +606,7 @@ class Layout extends Persistent
         */
             function dumpColLayout($exclude=array())
             {
-                    $this->dumpGrid($exclude, 1, $this->_rows, "100%");
+                    $this->dumpGrid(1, $this->_rows, "100%",$exclude);
             }
 
         /**
@@ -629,7 +619,7 @@ class Layout extends Persistent
         * @param integer $rows Number of rows for the grid
         * @param string $width Width for the layout
         */
-            function dumpGrid($exclude=array(),$cols,$rows,$width)
+            function dumpGrid($cols,$rows,$width,$exclude=array())
             {
                     $pwidth=$this->_control->Width;
                     $pheight=$this->_control->Height;
@@ -639,8 +629,7 @@ class Layout extends Persistent
 
                     $controls=array();
                         reset($this->_control->controls->items);
-                        while (list($k,$v)=each($this->_control->controls->items))
-                        {
+                        foreach ($this->_control->controls->items as $k => $v) {
                             $col=round($v->Left / $cwidth,0);
                             $row=round($v->Top / $cheight,0);
 
@@ -746,7 +735,7 @@ class Font extends Persistent
         * Assign Font object to another Font object, this is done by assigning
         * all Font properties from one object to another
         *
-        * @param object $dest Destination, where the new font settings are assigned to.
+        * @param ObjectFactory $dest Destination, where the new font settings are assigned to.
         */
         function assignTo($dest)
         {
@@ -1603,7 +1592,7 @@ class Canvas extends Persistent
          * Draws a rectangle on the canvas.
          *
          * Use Rectangle to draw a rectangle using Pen and fill it with Brush.
-         * Specify the rectangle’s coordinates giving four coordinates that define the upper left
+         * Specify the rectangleï¿½s coordinates giving four coordinates that define the upper left
          * corner at the point (X1, Y1) and the lower right corner at the point (X2, Y2).
          *
          * To fill a rectangular region without drawing the boundary in the current pen, use FillRect.

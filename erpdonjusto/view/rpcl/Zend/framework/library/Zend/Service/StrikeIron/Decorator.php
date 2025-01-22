@@ -40,14 +40,14 @@ class Zend_Service_StrikeIron_Decorator
 
     /**
      * Object to decorate
-     * @var object
+     * @var ObjectFactory
      */
     protected $_object = null;
 
     /**
      * Class constructor
      *
-     * @param object       $object  Object to decorate
+     * @param ObjectFactory       $object  Object to decorate
      * @param null|string  $name    Name of the object
      */
     public function __construct($object, $name = null)
@@ -124,7 +124,7 @@ class Zend_Service_StrikeIron_Decorator
     /**
      * Return the object being decorated
      *
-     * @return object
+     * @return ObjectFactory
      */
     public function getDecoratedObject()
     {

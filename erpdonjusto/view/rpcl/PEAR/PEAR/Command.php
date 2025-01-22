@@ -112,9 +112,9 @@ class PEAR_Command
      * Get the right object for executing a command.
      *
      * @param string $command The name of the command
-     * @param object $config  Instance of PEAR_Config object
+     * @param ObjectFactory $config  Instance of PEAR_Config object
      *
-     * @return object the command object or a PEAR error
+     * @return ObjectFactory the command object or a PEAR error
      *
      * @access public
      * @static
@@ -167,7 +167,7 @@ class PEAR_Command
     /**
      * Get instance of frontend object.
      *
-     * @return object|PEAR_Error
+     * @return ObjectFactory|PEAR_Error
      * @static
      */
     function &getFrontendObject()
@@ -184,7 +184,7 @@ class PEAR_Command
      *
      * @param string $uiclass Name of class implementing the frontend
      *
-     * @return object the frontend object, or a PEAR error
+     * @return ObjectFactory the frontend object, or a PEAR error
      * @static
      */
     function &setFrontendClass($uiclass)
@@ -201,7 +201,7 @@ class PEAR_Command
      *
      * @param string $uitype Name of the frontend type (for example "CLI")
      *
-     * @return object the frontend object, or a PEAR error
+     * @return ObjectFactory the frontend object, or a PEAR error
      * @static
      */
     function setFrontendType($uitype)

@@ -47,9 +47,9 @@ define('RPCL_VERSION',RPCL_VERSION_MAJOR.'.'.RPCL_VERSION_MINOR);
         if (isset($_SERVER['SCRIPT_FILENAME'])) $scriptfilename= $_SERVER['SCRIPT_FILENAME'];
         else
         {
-                        global $HTTP_SERVER_VARS;
+                        global $_SERVER;
 
-                        $scriptfilename=$HTTP_SERVER_VARS["SCRIPT_NAME"];
+                        $scriptfilename=$_SERVER["SCRIPT_NAME"];
         }
 
         //Defines the PATH where the RPCL resides

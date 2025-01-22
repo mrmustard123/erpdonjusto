@@ -265,7 +265,7 @@ class Zend_XmlRpc_Server extends Zend_Server_Abstract
      * Any additional arguments beyond $namespace will be passed to a method at
      * invocation.
      *
-     * @param string|object $class
+     * @param string|ObjectFactory $class
      * @param string $namespace Optional
      * @param mixed $argv Optional arguments to pass to methods
      * @return void

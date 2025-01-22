@@ -128,7 +128,7 @@ class Zend_Service_WindowsAzure_Storage_Queue extends Zend_Service_WindowsAzure_
 	 *
 	 * @param string $queueName Queue name
 	 * @param array  $metadata  Key/value pairs of meta data
-	 * @return object Queue properties
+	 * @return ObjectFactory Queue properties
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
 	public function createQueue($queueName = '', $metadata = array())

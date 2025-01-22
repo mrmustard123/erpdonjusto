@@ -57,7 +57,7 @@ class Zend_Amf_Value_Messaging_AbstractMessage
     public $timeToLive;
 
     /**
-     * @var object Message headers
+     * @var ObjectFactory Message headers
      */
     public $headers;
 

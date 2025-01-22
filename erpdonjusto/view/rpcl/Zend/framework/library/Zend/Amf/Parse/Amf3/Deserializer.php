@@ -274,7 +274,7 @@ class Zend_Amf_Parse_Amf3_Deserializer extends Zend_Amf_Parse_Deserializer
      * Read an object from the AMF stream and convert it into a PHP object
      *
      * @todo   Rather than using an array of traitsInfo create Zend_Amf_Value_TraitsInfo
-     * @return object|array
+     * @return ObjectFactory|array
      */
     public function readObject()
     {

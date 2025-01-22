@@ -517,7 +517,7 @@ class PEAR
      *                  the error message parameter will be dropped.
      *
      * @access public
-     * @return object   a PEAR error object
+     * @return ObjectFactory   a PEAR error object
      * @see PEAR::setErrorHandling
      * @since PHP 4.0.5
      */

@@ -151,7 +151,7 @@ abstract class Zend_Server_Abstract implements Zend_Server_Interface
      * Build a method signature
      *
      * @param  Zend_Server_Reflection_Function_Abstract $reflection
-     * @param  null|string|object $class
+     * @param  null|string|ObjectFactory $class
      * @return Zend_Server_Method_Definition
      * @throws Zend_Server_Exception on duplicate entry
      */

@@ -49,7 +49,7 @@ class PEAR_Dependency
      * Constructor
      *
      * @access public
-     * @param  object Registry object
+     * @param  ObjectFactory Registry object
      * @return void
      */
     function PEAR_Dependency(&$registry)

@@ -58,7 +58,7 @@ class PEAR_Command_Common extends PEAR
 
     /**
      * User Interface object, for all interaction with the user.
-     * @var object
+     * @var ObjectFactory
      */
     var $ui;
 

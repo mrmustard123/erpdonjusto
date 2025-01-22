@@ -520,7 +520,7 @@ class DB_msql extends DB_common
      *
      * @param string $str  the identifier name to be quoted
      *
-     * @return object  a DB_Error object
+     * @return ObjectFactory  a DB_Error object
      *
      * @see DB_common::quoteIdentifier()
      * @since Method available since Release 1.7.0
@@ -574,7 +574,7 @@ class DB_msql extends DB_common
      *                     DB_ERROR* constant here.  If this isn't passed
      *                     the error information gathered from the DBMS.
      *
-     * @return object  the DB_Error object
+     * @return ObjectFactory  the DB_Error object
      *
      * @see DB_common::raiseError(),
      *      DB_msql::errorNative(), DB_msql::errorCode()
@@ -690,7 +690,7 @@ class DB_msql extends DB_common
     /**
      * Returns information about a table or a result set
      *
-     * @param object|string  $result  DB_result object from a query or a
+     * @param ObjectFactory|string  $result  DB_result object from a query or a
      *                                 string containing the name of a table.
      *                                 While this also accepts a query result
      *                                 resource identifier, this behavior is

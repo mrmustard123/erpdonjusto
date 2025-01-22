@@ -52,7 +52,7 @@ class Zend_Server_Method_Definition
     protected $_name;
 
     /**
-     * @var null|object
+     * @var null|ObjectFactory
      */
     protected $_object;
 
@@ -223,7 +223,7 @@ class Zend_Server_Method_Definition
     /**
      * Set object to use with method calls
      *
-     * @param  object $object
+     * @param  ObjectFactory $object
      * @return Zend_Server_Method_Definition
      */
     public function setObject($object)
@@ -239,7 +239,7 @@ class Zend_Server_Method_Definition
     /**
      * Get object to use with method calls
      *
-     * @return null|object
+     * @return null|ObjectFactory
      */
     public function getObject()
     {

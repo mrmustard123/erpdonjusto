@@ -195,7 +195,7 @@ class Zend_Service_WindowsAzure_Storage_Blob extends Zend_Service_WindowsAzure_S
 	 *
 	 * @param string $containerName Container name
 	 * @param array  $metadata      Key/value pairs of meta data
-	 * @return object Container properties
+	 * @return ObjectFactory Container properties
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
 	public function createContainer($containerName = '', $metadata = array())
@@ -519,7 +519,7 @@ class Zend_Service_WindowsAzure_Storage_Blob extends Zend_Service_WindowsAzure_S
 	 * @param string $localFileName      Local file name to be uploaded
 	 * @param array  $metadata           Key/value pairs of meta data
 	 * @param array  $additionalHeaders  Additional headers. See http://msdn.microsoft.com/en-us/library/dd179371.aspx for more information.
-	 * @return object Partial blob properties
+	 * @return ObjectFactory Partial blob properties
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
 	public function putBlob($containerName = '', $blobName = '', $localFileName = '', $metadata = array(), $additionalHeaders = array())
@@ -591,7 +591,7 @@ class Zend_Service_WindowsAzure_Storage_Blob extends Zend_Service_WindowsAzure_S
 	 * @param string $blobName Blob name
 	 * @param string $localFileName Local file name to be uploaded
 	 * @param array  $metadata      Key/value pairs of meta data
-	 * @return object Partial blob properties
+	 * @return ObjectFactory Partial blob properties
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
 	public function putLargeBlob($containerName = '', $blobName = '', $localFileName = '', $metadata = array())
@@ -835,7 +835,7 @@ class Zend_Service_WindowsAzure_Storage_Blob extends Zend_Service_WindowsAzure_S
 	 * @param string $destinationBlobName       Destination blob name
 	 * @param array  $metadata                  Key/value pairs of meta data
 	 * @param array  $additionalHeaders         Additional headers. See http://msdn.microsoft.com/en-us/library/dd894037.aspx for more information.
-	 * @return object Partial blob properties
+	 * @return ObjectFactory Partial blob properties
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
 	public function copyBlob($sourceContainerName = '', $sourceBlobName = '', $destinationContainerName = '', $destinationBlobName = '', $metadata = array(), $additionalHeaders = array())

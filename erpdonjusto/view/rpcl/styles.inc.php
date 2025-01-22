@@ -106,8 +106,7 @@ class CustomStyleSheet extends Component
                 reset($lines);
                 $flag = false;
                 $lines2=array();
-                while (list($index, $line) = each($lines))
-                {
+                foreach ($lines as $index => $line) {
                         while ($line!=="")
                         {
                                 if ($flag)
@@ -164,7 +163,7 @@ class CustomStyleSheet extends Component
                                         $pos2 = strpos($word, '#');
                                         if (($pos1 === 0) || ($pos2 === 0))
                                         {
-                                                $prefix = $word{0};
+                                                $prefix = $word[0];
                                                 $word = trim(substr($word, 1, strlen($word)));
                                                 $parts = split('[ .#]', $word);
                                                 reset($parts);

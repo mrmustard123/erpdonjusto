@@ -1,0 +1,68 @@
+Notice: session_start(): Ignoring session_start() because a session is already active in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\forms.inc.php on line 151
+
+Warning: Undefined array key "" in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1390
+
+Warning: Attempt to read property "dbapicolad_erpdonjusto1" on null in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1393
+
+Warning: Undefined array key "" in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1390
+
+Warning: Attempt to read property "tbpos_history1" on null in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1393
+
+Warning: Undefined array key "" in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1390
+
+Warning: Attempt to read property "dsconsignee2" on null in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1393
+
+Warning: Undefined array key "" in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1390
+
+Warning: Attempt to read property "Datasource1" on null in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1393
+
+Warning: Undefined array key "" in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1390
+
+Warning: Attempt to read property "Datasource1" on null in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1393
+
+Warning: Undefined array key "" in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1390
+
+Warning: Attempt to read property "Datasource1" on null in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1393
+
+Warning: Undefined array key "" in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1390
+
+Warning: Attempt to read property "Datasource1" on null in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1393
+
+Warning: Undefined array key "" in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1390
+
+Warning: Attempt to read property "Datasource1" on null in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1393
+
+Warning: Undefined array key "" in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1390
+
+Warning: Attempt to read property "Datasource1" on null in C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php on line 1393
+
+Application raised an exception class EDatabaseError with message 'consignee_list: Cannot perform this operation on a closed dataset'
+Click for detailed information
+Callstack #0 File: C:\wamp64\www\laraveldonjusto\erpdonjusto\view\view_consign_prod.php Line: 136
+  |_Callstack #1 File: C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\controls.inc.php Line: 1166
+    |_Callstack #2 File: C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\forms.inc.php Line: 1605
+      |_Callstack #3 File: C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\classes.inc.php Line: 1461
+        |_Callstack #4 File: C:\wamp64\www\laraveldonjusto\erpdonjusto\view\view_consign_prod.php Line: 72
+          |_Callstack #5 File: C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\db.inc.php Line: 1793
+            |_Callstack #6 File: C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\db.inc.php Line: 1610
+              |_Callstack #7 File: C:\wamp64\www\laraveldonjusto\erpdonjusto\view\rpcl\db.inc.php Line: 1307
+
+
+
+11:42 06/12/2024
+
+Application raised an exception class EPropertyNotFound with message 'Trying to access non-existant property view_consign_prod->dbapicolad_erpdonjusto1 in classes.inc.php, line 1395.'
+Click for detailed information
+Callstack #0 File: C:\wamp64\www\erpdonjusto_php8\view\view_consign_prod.php Line: 133
+  |_Callstack #1 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 1926
+    |_Callstack #2 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 2022
+      |_Callstack #3 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 638
+        |_Callstack #4 File:  Line: 
+          |_Callstack #5 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 561
+            |_Callstack #6 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 1280
+              |_Callstack #7 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\dbtables.inc.php Line: 496
+                |_Callstack #8 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\dbtables.inc.php Line: 491
+                  |_Callstack #9 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\classes.inc.php Line: 1395
+
+
+

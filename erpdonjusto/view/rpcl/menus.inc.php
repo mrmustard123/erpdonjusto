@@ -159,8 +159,7 @@ class CustomMainMenu extends QWidget
                         echo "  d.add(m$level);\n";
                 }
                 reset($items);
-                while(list($k,$v)=each($items))
-                {
+                foreach ($items as $k => $v) {
                         $caption=$v['Caption'];
                         $tag=$v['Tag'];
                         if ($tag=='') $tag=0;
@@ -231,8 +230,7 @@ class CustomMainMenu extends QWidget
             if (is_array($this->_items))
             {
                 reset($this->_items);
-                while(list($k,$v)=each($this->_items))
-                {
+                foreach ($this->_items as $k => $v) {
                         echo "  <!-- Topbutton Start -->\n";
                         $caption=$v['Caption'];
                         $m='null';
@@ -395,8 +393,7 @@ class CustomPopupMenu extends Component
                 if (isset($elements)) unset($elements);
 
                 reset($items);                     // $this->_items -> $k
-                while(list($index, $item) = each($items))
-        {
+                foreach ($items as $index => $item) {
                         $caption=$item['Caption'];
 
                         $imageindex=$item['ImageIndex'];

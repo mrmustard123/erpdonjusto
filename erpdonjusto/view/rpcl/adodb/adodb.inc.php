@@ -234,7 +234,7 @@
 	
 		var $createdir = true; // requires creation of temp dirs
 		
-		function ADODB_Cache_File()
+		function __construct()
 		{
 		global $ADODB_INCLUDED_CSV;
 			if (empty($ADODB_INCLUDED_CSV)) include_once(ADODB_DIR.'/adodb-csvlib.inc.php');
@@ -427,7 +427,7 @@
 	/**
 	 * Constructor
 	 */
-	function ADOConnection()			
+	function __construct()			
 	{
 		die('Virtual Class -- cannot instantiate');
 	}
@@ -964,28 +964,28 @@
 				foreach($inputarr as $arr) {
 					$sql = ''; $i = 0;
 					//Use each() instead of foreach to reduce memory usage -mikefedyk
-					while(list(, $v) = each($arr)) {
-						$sql .= $sqlarr[$i];
-						// from Ron Baldwin <ron.baldwin#sourceprose.com>
-						// Only quote string types	
-						$typ = gettype($v);
+					foreach ($arr as $v) {
+                                            $sql .= $sqlarr[$i];
+                                            // from Ron Baldwin <ron.baldwin#sourceprose.com>
+                                            // Only quote string types
+                                            $typ = gettype($v);
 						if ($typ == 'string')
 							//New memory copy of input created here -mikefedyk
-							$sql .= $this->qstr($v);
+                                                $sql .= $this->qstr($v);
 						else if ($typ == 'double')
 							$sql .= str_replace(',','.',$v); // locales fix so 1.1 does not get converted to 1,1
 						else if ($typ == 'boolean')
-							$sql .= $v ? $this->true : $this->false;
+                                                $sql .= $v ? $this->true : $this->false;
 						else if ($typ == 'object') {
 							if (method_exists($v, '__toString')) $sql .= $this->qstr($v->__toString());
 							else $sql .= $this->qstr((string) $v);
 						} else if ($v === null)
-							$sql .= 'NULL';
+                                                $sql .= 'NULL';
 						else
-							$sql .= $v;
-						$i += 1;
+                                                $sql .= $v;                                 
+                                            $i += 1;
 						
-						if ($i == $nparams) break;
+                                            if ($i == $nparams) break;
 					} // while
 					if (isset($sqlarr[$i])) {
 						$sql .= $sqlarr[$i];
@@ -2657,7 +2657,7 @@ http://www.stanford.edu/dept/itss/docs/oracle/10g/server.101/b10759/statements_1
 	/**
 	* Will select the supplied $page number from a recordset, given that it is paginated in pages of 
 	* $nrows rows per page. It also saves two boolean values saying if the given page is the first 
-	* and/or last one of the recordset. Added by Iván Oliva to provide recordset pagination.
+	* and/or last one of the recordset. Added by Ivï¿½n Oliva to provide recordset pagination.
 	*
 	* See readme.htm#ex8 for an example of usage.
 	*
@@ -2684,7 +2684,7 @@ http://www.stanford.edu/dept/itss/docs/oracle/10g/server.101/b10759/statements_1
 	/**
 	* Will select the supplied $page number from a recordset, given that it is paginated in pages of 
 	* $nrows rows per page. It also saves two boolean values saying if the given page is the first 
-	* and/or last one of the recordset. Added by Iván Oliva to provide recordset pagination.
+	* and/or last one of the recordset. Added by Ivï¿½n Oliva to provide recordset pagination.
 	*
 	* @param secs2cache	seconds to cache data, set to 0 to force query
 	* @param sql
@@ -2883,9 +2883,9 @@ http://www.stanford.edu/dept/itss/docs/oracle/10g/server.101/b10759/statements_1
 	var $_obj; 				/** Used by FetchObj */
 	var $_names;			/** Used by FetchObj */
 	
-	var $_currentPage = -1;	/** Added by Iván Oliva to implement recordset pagination */
-	var $_atFirstPage = false;	/** Added by Iván Oliva to implement recordset pagination */
-	var $_atLastPage = false;	/** Added by Iván Oliva to implement recordset pagination */
+	var $_currentPage = -1;	/** Added by Ivï¿½n Oliva to implement recordset pagination */
+	var $_atFirstPage = false;	/** Added by Ivï¿½n Oliva to implement recordset pagination */
+	var $_atLastPage = false;	/** Added by Ivï¿½n Oliva to implement recordset pagination */
 	var $_lastPageNo = -1; 
 	var $_maxRecordCount = 0;
 	var $datetime = false;
@@ -2896,7 +2896,7 @@ http://www.stanford.edu/dept/itss/docs/oracle/10g/server.101/b10759/statements_1
 	 * @param queryID  	this is the queryID returned by ADOConnection->_query()
 	 *
 	 */
-	function ADORecordSet($queryID) 
+	function __construct($queryID) 
 	{
 		$this->_queryID = $queryID;
 	}
@@ -3887,13 +3887,13 @@ http://www.stanford.edu/dept/itss/docs/oracle/10g/server.101/b10759/statements_1
 		 * Constructor
 		 *
 		 */
-		function ADORecordSet_array($fakeid=1)
+		function __construct($fakeid=1)
 		{
 		global $ADODB_FETCH_MODE,$ADODB_COMPAT_FETCH;
 		
 			// fetch() on EOF does not delete $this->fields
 			$this->compat = !empty($ADODB_COMPAT_FETCH);
-			$this->ADORecordSet($fakeid); // fake queryID		
+			parent::__construct($fakeid); // fake queryID		
 			$this->fetchMode = $ADODB_FETCH_MODE;
 		}
 		

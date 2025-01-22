@@ -386,7 +386,7 @@ class Zend_Tool_Framework_Registry implements Zend_Tool_Framework_Registry_Inter
     /**
      * isObjectRegistryEnablable() - Check whether an object is registry enablable
      *
-     * @param object $object
+     * @param ObjectFactory $object
      * @return bool
      */
     public function isObjectRegistryEnablable($object)
@@ -402,7 +402,7 @@ class Zend_Tool_Framework_Registry implements Zend_Tool_Framework_Registry_Inter
     /**
      * enableRegistryOnObject() - make an object registry enabled
      *
-     * @param object $object
+     * @param ObjectFactory $object
      * @return Zend_Tool_Framework_Registry
      */
     public function enableRegistryOnObject($object)

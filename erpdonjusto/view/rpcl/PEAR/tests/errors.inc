@@ -30,7 +30,7 @@
  * If things go wrong, print "UNEXPECTED OUTCOME" and display the
  * error's information.
  *
- * @param object  $e                 the DB_Error object from the query
+ * @param ObjectFactory  $e                 the DB_Error object from the query
  * @param int     $expected_db_code  the DB_ERROR* constant to expect
  * @param boolean $should_be_error   does the DBMS consider this an error?
  *
@@ -63,7 +63,7 @@ function check_error($e, $expected_db_code, $should_be_error = true) {
 /**
  * Local error callback handler
  * 
- * @param object  $o  PEAR error object automatically passed to this method
+ * @param ObjectFactory  $o  PEAR error object automatically passed to this method
  * @return void
  * @see PEAR::setErrorHandling()
  */

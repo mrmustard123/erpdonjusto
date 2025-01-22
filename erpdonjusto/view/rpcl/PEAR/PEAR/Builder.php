@@ -68,7 +68,7 @@ class PEAR_Builder extends PEAR_Common
     /**
      * PEAR_Builder constructor.
      *
-     * @param object $ui user interface object (instance of PEAR_Frontend_*)
+     * @param ObjectFactory $ui user interface object (instance of PEAR_Frontend_*)
      *
      * @access public
      */

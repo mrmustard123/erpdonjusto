@@ -709,7 +709,7 @@ class Smarty
      * Registers object to be used in templates
      *
      * @param string $object name of template object
-     * @param object &$object_impl the referenced PHP object to register
+     * @param ObjectFactory &$object_impl the referenced PHP object to register
      * @param null|array $allowed list of allowed methods (empty = all)
      * @param boolean $smarty_args smarty argument format, else traditional
      * @param null|array $block_functs list of methods that are block format
@@ -1326,7 +1326,7 @@ class Smarty
      * return a reference to a registered object
      *
      * @param string $name
-     * @return object
+     * @return ObjectFactory
      */
     function &get_registered_object($name) {
         if (!isset($this->_reg_objects[$name]))

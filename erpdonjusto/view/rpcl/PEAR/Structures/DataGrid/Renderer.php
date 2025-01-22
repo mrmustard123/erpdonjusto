@@ -528,7 +528,7 @@ class Structures_DataGrid_Renderer
      * must implement this method.
      *
      * @abstract
-     * @param  object Container of the class supported by the driver
+     * @param  ObjectFactory Container of the class supported by the driver
      * @access public
      * @return mixed  True or PEAR_Error
      */
@@ -544,7 +544,7 @@ class Structures_DataGrid_Renderer
      * for rendering containers.
      *
      * @abstract
-     * @return object Container of the class supported by the driver
+     * @return ObjectFactory Container of the class supported by the driver
      *                or PEAR_Error
      * @access public
      */
@@ -935,7 +935,7 @@ class Structures_DataGrid_Renderer
      * </code>
      *
      * @param string $method The name of the unsupported method
-     * @return object PEAR_Error with code DATAGRID_ERROR_UNSUPPORTED
+     * @return ObjectFactory PEAR_Error with code DATAGRID_ERROR_UNSUPPORTED
      * @access protected
      */
     function _noSupport($method)
@@ -977,7 +977,7 @@ class Structures_DataGrid_Renderer
     /**
      * Perform record/column to cell intersection and formatting
      *
-     * @param  object $column The column object
+     * @param  ObjectFactory $column The column object
      * @param  array  $record Array of record values
      * @param  int    $row    The row number of the cell
      * @param  int    $col    The column number of the cell

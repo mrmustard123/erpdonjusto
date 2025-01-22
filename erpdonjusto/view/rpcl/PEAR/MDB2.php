@@ -1833,7 +1833,7 @@ class MDB2_Driver_Common extends PEAR
      * @param   bool    if the class to load for the module is specific to the
      *                  phptype
      *
-     * @return  object  on success a reference to the given module is returned
+     * @return ObjectFactoryt  on success a reference to the given module is returned
      *                  and on failure a PEAR error
      *
      * @access  public
@@ -4200,7 +4200,7 @@ class MDB2_Module_Common
     /**
      * Get the instance of MDB2 associated with the module instance
      *
-     * @return  object  MDB2 instance or a MDB2 error on failure
+     * @return ObjectFactoryt  MDB2 instance or a MDB2 error on failure
      *
      * @access  public
      */
@@ -4248,7 +4248,7 @@ function MDB2_closeOpenTransactions()
 /**
  * default debug output handler
  *
- * @param   object  reference to an MDB2 database object
+ * @param  ObjectFactoryt  reference to an MDB2 database object
  * @param   string  usually the method name that triggered the debug call:
  *                  for example 'query', 'prepare', 'execute', 'parameters',
  *                  'beginTransaction', 'commit', 'rollback'

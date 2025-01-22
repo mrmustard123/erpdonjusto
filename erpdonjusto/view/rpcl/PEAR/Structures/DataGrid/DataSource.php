@@ -215,7 +215,7 @@ class Structures_DataGrid_DataSource
      * @abstract
      * @param   integer $offset     Limit offset (starting from 0)
      * @param   integer $len        Limit length
-     * @return  object              PEAR_Error with message 
+     * @return  ObjectFactory              PEAR_Error with message 
      *                              "No data source driver loaded" 
      * @access  public                          
      */
@@ -233,7 +233,7 @@ class Structures_DataGrid_DataSource
      * or a PEAR_Error object on failure
      * 
      * @abstract
-     * @return  object              PEAR_Error with message 
+     * @return  ObjectFactory              PEAR_Error with message 
      *                              "No data source driver loaded" 
      * @access  public                          
      */
@@ -258,7 +258,7 @@ class Structures_DataGrid_DataSource
      *                              If "multiSort" is not supported, then this
      *                              can only be a string.
      * @param   string  $sortDir    Sort direction: 'ASC' or 'DESC'
-     * @return  object              PEAR_Error with message 
+     * @return  ObjectFactory              PEAR_Error with message 
      *                              "No data source driver loaded" 
      * @access  public                          
      */
@@ -276,7 +276,7 @@ class Structures_DataGrid_DataSource
      * @abstract
      * @param   mixed $container The datasource container
      * @param   array $options   Binding options
-     * @return  object           PEAR_Error with message 
+     * @return  ObjectFactory           PEAR_Error with message 
      *                           "No data source driver loaded" 
      * @access  public                          
      */
@@ -296,7 +296,7 @@ class Structures_DataGrid_DataSource
      * @abstract
      * @param   array   $data   Associative array of the form: 
      *                          array(field => value, ..)
-     * @return  object          PEAR_Error with message 
+     * @return  ObjectFactory          PEAR_Error with message 
      *                          "No data source driver loaded or write mode not 
      *                          supported by the current driver"
      * @access  public                          
@@ -338,7 +338,7 @@ class Structures_DataGrid_DataSource
      * @param   array   $key    Unique record identifier
      * @param   array   $data   Associative array of the form: 
      *                          array(field => value, ..)
-     * @return  object          PEAR_Error with message 
+     * @return  ObjectFactory          PEAR_Error with message 
      *                          "No data source driver loaded or write mode 
      *                          not supported by the current driver"
      * @access  public                          
@@ -359,7 +359,7 @@ class Structures_DataGrid_DataSource
      *
      * @abstract
      * @param   array   $key    Unique record identifier
-     * @return  object          PEAR_Error with message 
+     * @return  ObjectFactory          PEAR_Error with message 
      *                          "No data source driver loaded or write mode 
      *                          not supported by the current driver"
      * @access  public                          

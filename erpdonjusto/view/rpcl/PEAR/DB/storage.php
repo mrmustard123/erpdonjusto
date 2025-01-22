@@ -288,7 +288,7 @@ class DB_storage extends PEAR
      * Static method used to create new DB storage objects.
      * @param $data assoc. array where the keys are the names
      *              of properties/columns
-     * @return object a new instance of DB_storage or a subclass of it
+     * @return ObjectFactory a new instance of DB_storage or a subclass of it
      */
     function &create($table, &$data)
     {

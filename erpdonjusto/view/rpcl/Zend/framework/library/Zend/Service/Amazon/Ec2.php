@@ -38,7 +38,7 @@ class Zend_Service_Amazon_Ec2
      * @param string $key               Override the default aws key
      * @param string $secret_key        Override the default aws secretkey
      * @throws Zend_Service_Amazon_Ec2_Exception
-     * @return object
+     * @return ObjectFactory
      */
     public static function factory($section, $key = null, $secret_key = null)
     {

@@ -118,7 +118,7 @@ class PEAR_XMLParser
      * Start element handler for XML parser
      *
      * @access private
-     * @param  object $parser  XML parser object
+     * @param  ObjectFactory $parser  XML parser object
      * @param  string $element XML element
      * @param  array  $attribs attributes of XML tag
      * @return void
@@ -164,7 +164,7 @@ class PEAR_XMLParser
      * End element handler for XML parser
      *
      * @access private
-     * @param  object XML parser object
+     * @param  ObjectFactory XML parser object
      * @param  string
      * @return void
      */
@@ -249,7 +249,7 @@ class PEAR_XMLParser
      * Handler for character data
      *
      * @access private
-     * @param  object XML parser object
+     * @param  ObjectFactory XML parser object
      * @param  string CDATA
      * @return void
      */

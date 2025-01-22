@@ -1,0 +1,14 @@
+Application raised an exception class ArgumentCountError with message 'Too few arguments to function Component::dumpHiddenKeyFields(), 0 passed in C:\wamp64\www\erpdonjusto_php8\view\rpcl\stdctrls.inc.php on line 1368 and at least 1 expected'
+Click for detailed information
+Callstack #0 File: C:\wamp64\www\erpdonjusto_php8\view\view_consign.php Line: 1754
+  |_Callstack #1 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\controls.inc.php Line: 1166
+    |_Callstack #2 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\forms.inc.php Line: 1771
+      |_Callstack #3 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\forms.inc.php Line: 1896
+        |_Callstack #4 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\graphics.inc.php Line: 568
+          |_Callstack #5 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\graphics.inc.php Line: 185
+            |_Callstack #6 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\controls.inc.php Line: 1166
+              |_Callstack #7 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\extctrls.inc.php Line: 1314
+                |_Callstack #8 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\graphics.inc.php Line: 568
+                  |_Callstack #9 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\graphics.inc.php Line: 185
+                    |_Callstack #10 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\controls.inc.php Line: 1166
+                      |_Callstack #11 File: C:\wamp64\www\erpdonjusto_php8\view\rpcl\stdctrls.inc.php Line: 1368

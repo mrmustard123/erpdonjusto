@@ -92,21 +92,21 @@ class HTML_Table extends HTML_Common {
 
     /**
      * HTML_Table_Storage object for the (t)head of the table
-     * @var    object
+     * @var    ObjectFactory
      * @access private
      */
     var $_thead = null;
 
     /**
      * HTML_Table_Storage object for the (t)foot of the table
-     * @var    object
+     * @var    ObjectFactory
      * @access private
      */
     var $_tfoot = null;
 
     /**
      * HTML_Table_Storage object for the (t)body of the table
-     * @var    object
+     * @var    ObjectFactory
      * @access private
      */
     var $_tbody = null;
@@ -151,7 +151,7 @@ class HTML_Table extends HTML_Common {
     /**
      * Returns the HTML_Table_Storage object for <thead>
      * @access  public
-     * @return  object
+     * @return  ObjectFactory
      */
     function &getHeader()
     {
@@ -167,7 +167,7 @@ class HTML_Table extends HTML_Common {
     /**
      * Returns the HTML_Table_Storage object for <tfoot>
      * @access  public
-     * @return  object
+     * @return  ObjectFactory
      */
     function &getFooter()
     {
@@ -184,7 +184,7 @@ class HTML_Table extends HTML_Common {
      * Returns the HTML_Table_Storage object for <tbody>
      * (or the whole table if <t{head|foot|body> is not used)
      * @access  public
-     * @return  object
+     * @return  ObjectFactory
      */
     function &getBody()
     {

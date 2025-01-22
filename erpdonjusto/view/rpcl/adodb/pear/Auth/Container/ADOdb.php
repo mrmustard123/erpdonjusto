@@ -40,7 +40,7 @@ class Auth_Container_ADOdb extends Auth_Container
 
     /**
      * DB object
-     * @var object
+     * @var ObjectFactory
      */
     var $db = null;
     var $dsn = '';
@@ -59,7 +59,7 @@ class Auth_Container_ADOdb extends Auth_Container
      * Initate connection to the database via PEAR::ADOdb
      *
      * @param  string Connection data or DB object
-     * @return object Returns an error object if something went wrong
+     * @return ObjectFactory Returns an error object if something went wrong
      */
     function Auth_Container_ADOdb($dsn)
     {

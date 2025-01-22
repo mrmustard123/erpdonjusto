@@ -321,7 +321,7 @@ class OracleDatabase extends CustomConnection
          *
          * @param string $query Query to execute
          * @param array $params Not used
-         * @return object
+         * @return ObjectFactory
          */
         function execute($query,&$params=array())
         {
@@ -365,7 +365,7 @@ class OracleDatabase extends CustomConnection
          * @param integer $lmtcount Rows to get
          * @param integer $lmtstart First row to start counting
          * @param array $params Parameters to use on the query
-         * @return object
+         * @return ObjectFactory
          */
         function executelimit($query,$lmtcount,$lmtstart,$params=array())
         {
@@ -619,8 +619,7 @@ class OracleDatabase extends CustomConnection
                                 {
                                         $row=array();
                                         reset($arow);
-                                        while (list($k,$v)=each($arow))
-                                        {
+                                        foreach ($arow as $k => $v) {
                                                 $row[strtolower($k)]=$v;
                                         }
 
@@ -924,7 +923,7 @@ class OracleDataSet extends DataSet
                 {
                   $dtype = oci_field_type($this->_rs,$i);
 
-                  if (eregi('LOB',$dtype))
+                  if (preg_match('/LOB/i', $dtype))
                   {
                     $len = oci_field_size($this->_rs,$i);
                     if ($buff[$k])
@@ -1267,8 +1266,7 @@ class CustomOracleTable extends OracleDataSet
                 $where='';
                 $buffer=$this->fieldbuffer;
                 reset($this->_keyfields);
-                while(list($key, $fname)=each($this->_keyfields))
-                {
+                foreach ($this->_keyfields as $key => $fname) {
                     $val=$this->fieldbuffer[$fname];
                     unset($buffer[$fname]);
                     if (trim($val)=='') continue;
@@ -1278,8 +1276,7 @@ class CustomOracleTable extends OracleDataSet
 
                 $set="";
                 reset($buffer);
-                while(list($key, $fname)=each($buffer))
-                {
+                foreach ($buffer as $key => $fname) {
                     if ($set!="") $set.=", ";
                     $set.=" $key = '$fname' ";
                 }
@@ -1305,8 +1302,7 @@ class CustomOracleTable extends OracleDataSet
                 $values='';
 
                 reset($this->fieldbuffer);
-                while(list($key, $val)=each($this->fieldbuffer))
-                {
+                foreach ($this->fieldbuffer as $key => $val) {
                         if ($fields!='') $fields.=',';
                         $fields.="$key";
 
@@ -1365,8 +1361,7 @@ class CustomOracleTable extends OracleDataSet
                             $ms="";
                             reset($this->_masterfields);
 
-                            while(list($key, $val)=each($this->_masterfields))
-                            {
+                            foreach ($this->_masterfields as $key => $val) {
                                 $thisfield=$key;
                                 $msfield=$val;
 
@@ -1438,8 +1433,7 @@ class CustomOracleTable extends OracleDataSet
                     $result=$primary['columns'];
                     if (is_array($result))
                     {
-                        while (list($k,$v)=each($result))
-                        {
+                        foreach ($result as $k => $v) {
                                 $result[$k]=trim($v);
                         }
                     }
@@ -1448,7 +1442,7 @@ class CustomOracleTable extends OracleDataSet
                 return($result);
         }
 
-        function dumpHiddenKeyFields($basename, $values=array())
+        function dumpHiddenKeyFields($basename, $values=array(), $force=false)
         {
                 $keyfields=$this->readKeyFields();
 
@@ -1460,8 +1454,7 @@ class CustomOracleTable extends OracleDataSet
                 if (is_array($keyfields))
                 {
                     reset($keyfields);
-                    while (list($k,$v)=each($keyfields))
-                    {
+                    foreach ($keyfields as $k => $v) {
                             echo "<input type=\"hidden\" name=\"".$basename."[$v]\" value=\"$values[$v]\" />";
                     }
                 }
@@ -1626,12 +1619,12 @@ class CustomOracleQuery extends CustomOracleTable
           {
             $num = -1;
             $query = str_replace("\0",'', $this->_lastquery);
-            if (eregi('^select',$query))
+            if (preg_match('/\^select/i', $query))
             {
               while ($row = oci_fetch($this->_rs)){}
               $num = oci_num_rows($this->_rs);
               $query = str_replace("\0",'', $this->_lastquery);
-              if (eregi('^select',$query))
+              if (preg_match('/\^select/i', $query))
               {
                 $this->InternalOpen($this->_lastquery);
               }

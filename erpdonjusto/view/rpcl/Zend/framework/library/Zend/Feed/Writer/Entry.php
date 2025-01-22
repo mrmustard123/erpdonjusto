@@ -651,7 +651,7 @@ class Zend_Feed_Writer_Entry
      * Return an Extension object with the matching name (postfixed with _Entry)
      *
      * @param string $name
-     * @return object
+     * @return ObjectFactory
      */
     public function getExtension($name)
     {

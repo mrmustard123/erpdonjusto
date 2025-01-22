@@ -1,0 +1,1031 @@
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb-csvlib.inc.php
+--------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+--------------------------------------------------------------------------------------------------------------------
+ 253 | WARNING | Function get_magic_quotes_runtime() is deprecated since PHP 7.4
+--------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb-datadict.inc.php
+----------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------------------------------------------------
+ 521 | WARNING | Function each() is deprecated since PHP 7.2; Use a foreach loop instead
+----------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb-error.inc.php
+-------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-------------------------------------------------------------------------------------------------------------------
+ 106 | WARNING | Function each() is deprecated since PHP 7.2; Use a foreach loop instead
+-------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb-lib.inc.php
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+ 1114 | WARNING | Since PHP 7.0, functions inspecting arguments, like debug_backtrace(), no longer report the original value as passed to a
+      |         | parameter, but will instead provide the current value. The parameter "$ishtml" was used, and possibly changed (by reference), on
+      |         | line 1104.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb-memcache.lib.inc.php
+--------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+--------------------------------------------------------------------------------------------------------------------------
+ 51 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb-pager.inc.php
+-------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-------------------------------------------------------------------------------------------------------------------
+ 58 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb-pear.inc.php
+------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+------------------------------------------------------------------------------------------------------------------
+ 365 | WARNING | Function dl() is deprecated since PHP 5.3
+------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb-perf.inc.php
+------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+------------------------------------------------------------------------------------------------------------------
+  694 | WARNING | Function get_magic_quotes_gpc() is deprecated since PHP 7.4
+ 1000 | WARNING | Function get_magic_quotes_gpc() is deprecated since PHP 7.4
+------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb-time.inc.php
+--------------------------------------------------------------------------------------------------------------------
+FOUND 2 ERRORS AFFECTING 1 LINE
+--------------------------------------------------------------------------------------------------------------------
+ 732 | ERROR | The "is_dst" parameter for function mktime() is deprecated since PHP 5.1 and removed since PHP 7.0
+ 732 | ERROR | The "is_dst" parameter for function gmmktime() is deprecated since PHP 5.1 and removed since PHP 7.0
+--------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb-xmlschema.inc.php
+-----------------------------------------------------------------------------------------------------------------------
+FOUND 6 ERRORS AND 7 WARNINGS AFFECTING 13 LINES
+-----------------------------------------------------------------------------------------------------------------------
+  121 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  160 | ERROR   | "$this" can no longer be unset since PHP 7.1.
+  251 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  645 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  789 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  988 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 1304 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 1306 | WARNING | Function get_magic_quotes_runtime() is deprecated since PHP 7.4
+ 1307 | ERROR   | INI directive 'magic_quotes_runtime' is deprecated since PHP 5.3 and removed since PHP 5.4
+ 2197 | ERROR   | INI directive 'magic_quotes_runtime' is deprecated since PHP 5.3 and removed since PHP 5.4
+ 2199 | ERROR   | "$this" can no longer be unset since PHP 7.1.
+ 2216 | ERROR   | "$this" can no longer be used in a plain function or method since PHP 7.1.
+ 2217 | ERROR   | "$this" can no longer be used in a plain function or method since PHP 7.1.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb-xmlschema03.inc.php
+-------------------------------------------------------------------------------------------------------------------------
+FOUND 6 ERRORS AND 7 WARNINGS AFFECTING 13 LINES
+-------------------------------------------------------------------------------------------------------------------------
+  139 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  178 | ERROR   | "$this" can no longer be unset since PHP 7.1.
+  276 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  686 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  831 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 1087 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 1408 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 1410 | WARNING | Function get_magic_quotes_runtime() is deprecated since PHP 7.4
+ 1412 | ERROR   | INI directive 'magic_quotes_runtime' is deprecated since PHP 5.3 and removed since PHP 5.4
+ 2378 | ERROR   | INI directive 'magic_quotes_runtime' is deprecated since PHP 5.3 and removed since PHP 5.4
+ 2380 | ERROR   | "$this" can no longer be unset since PHP 7.1.
+ 2397 | ERROR   | "$this" can no longer be used in a plain function or method since PHP 7.1.
+ 2398 | ERROR   | "$this" can no longer be used in a plain function or method since PHP 7.1.
+-------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\adodb.inc.php
+-------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 10 WARNINGS AFFECTING 10 LINES
+-------------------------------------------------------------------------------------------------------------
+  237 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  281 | WARNING | INI directive 'safe_mode' is deprecated since PHP 5.3 and removed since PHP 5.4
+  430 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  689 | WARNING | Function get_magic_quotes_gpc() is deprecated since PHP 7.4
+  967 | WARNING | Function each() is deprecated since PHP 7.2; Use a foreach loop instead
+ 1799 | WARNING | Function get_magic_quotes_runtime() is deprecated since PHP 7.4
+ 2614 | WARNING | INI directive 'magic_quotes_sybase' is deprecated since PHP 5.3 and removed since PHP 5.4
+ 2648 | WARNING | INI directive 'magic_quotes_sybase' is deprecated since PHP 5.3 and removed since PHP 5.4
+ 2899 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 3890 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-access.inc.php
+----------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+----------------------------------------------------------------------------------------------------------------------------
+ 32 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 81 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-ado.inc.php
+-------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+-------------------------------------------------------------------------------------------------------------------------
+  40 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 226 | WARNING | Function each() is deprecated since PHP 7.2; Use a foreach loop instead
+ 344 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-ado5.inc.php
+--------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+--------------------------------------------------------------------------------------------------------------------------
+  40 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 249 | WARNING | Function each() is deprecated since PHP 7.2; Use a foreach loop instead
+ 378 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-ado_access.inc.php
+--------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+--------------------------------------------------------------------------------------------------------------------------------
+ 31 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 49 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-ado_mssql.inc.php
+-------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+-------------------------------------------------------------------------------------------------------------------------------
+  42 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 149 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-ads.inc.php
+-------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 10 WARNINGS AFFECTING 9 LINES
+-------------------------------------------------------------------------------------------------------------------------
+  69 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  78 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+  85 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+  97 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 101 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 522 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 523 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 617 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 617 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 657 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-borland_ibase.inc.php
+-----------------------------------------------------------------------------------------------------------------------------------
+FOUND 2 ERRORS AND 2 WARNINGS AFFECTING 3 LINES
+-----------------------------------------------------------------------------------------------------------------------------------
+ 24 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 34 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 34 | ERROR   | Function ibase_trans() is removed since PHP 7.4
+ 87 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-csv.inc.php
+-------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+-------------------------------------------------------------------------------------------------------------------------
+  39 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 194 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-db2.inc.php
+-------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 8 WARNINGS AFFECTING 8 LINES
+-------------------------------------------------------------------------------------------------------------------------
+  64 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  72 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+  91 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 106 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 114 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 628 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 629 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 729 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-db2oci.inc.php
+----------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+----------------------------------------------------------------------------------------------------------------------------
+ 161 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 223 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-db2ora.inc.php
+----------------------------------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AND 2 WARNINGS AFFECTING 3 LINES
+----------------------------------------------------------------------------------------------------------------------------
+ 39 | ERROR   | preg_replace() - /e modifier is deprecated since PHP 5.5 and removed since PHP 7.0
+ 55 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 73 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-fbsql.inc.php
+---------------------------------------------------------------------------------------------------------------------------
+FOUND 20 ERRORS AND 2 WARNINGS AFFECTING 22 LINES
+---------------------------------------------------------------------------------------------------------------------------
+  26 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  32 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+  37 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+  42 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+  45 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+  47 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+  68 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+  77 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 123 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 132 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 138 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 145 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 151 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 165 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 184 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 185 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 192 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 194 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 198 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 207 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 212 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+ 217 | ERROR   | Extension 'fbsql' is removed since PHP 5.3
+---------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-firebird.inc.php
+------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+------------------------------------------------------------------------------------------------------------------------------
+ 24 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 72 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-ibase.inc.php
+---------------------------------------------------------------------------------------------------------------------------
+FOUND 80 ERRORS AND 2 WARNINGS AFFECTING 46 LINES
+---------------------------------------------------------------------------------------------------------------------------
+  57 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  59 | ERROR   | The constant "IBASE_DEFAULT" is removed since PHP 7.4
+  86 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+  87 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+  88 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+  89 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+  92 | ERROR   | INI directive 'ibase.timestampformat' is removed since PHP 7.4
+  93 | ERROR   | INI directive 'ibase.dateformat' is removed since PHP 7.4
+  94 | ERROR   | INI directive 'ibase.timeformat' is removed since PHP 7.4
+ 154 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 154 | ERROR   | Function ibase_commit() is removed since PHP 7.4
+ 184 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 184 | ERROR   | Function ibase_rollback() is removed since PHP 7.4
+ 290 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 290 | ERROR   | Function ibase_errmsg() is removed since PHP 7.4
+ 306 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 306 | ERROR   | Function ibase_prepare() is removed since PHP 7.4
+ 368 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 368 | ERROR   | Function ibase_commit() is removed since PHP 7.4
+ 377 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 377 | ERROR   | Function ibase_rollback() is removed since PHP 7.4
+ 378 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 378 | ERROR   | Function ibase_close() is removed since PHP 7.4
+ 542 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 542 | ERROR   | Function ibase_blob_create() is removed since PHP 7.4
+ 543 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 543 | ERROR   | Function ibase_blob_add() is removed since PHP 7.4
+ 544 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 544 | ERROR   | Function ibase_blob_close() is removed since PHP 7.4
+ 561 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 561 | ERROR   | Function ibase_blob_open() is removed since PHP 7.4
+ 562 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 562 | ERROR   | Function ibase_blob_get() is removed since PHP 7.4
+ 563 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 563 | ERROR   | Function ibase_blob_get() is removed since PHP 7.4
+ 566 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 566 | ERROR   | Function ibase_blob_close() is removed since PHP 7.4
+ 574 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 574 | ERROR   | Function ibase_blob_info() is removed since PHP 7.4
+ 575 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 575 | ERROR   | Function ibase_blob_open() is removed since PHP 7.4
+ 578 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 578 | ERROR   | Function ibase_blob_info() is removed since PHP 7.4
+ 579 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 579 | ERROR   | Function ibase_blob_open() is removed since PHP 7.4
+ 584 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 584 | ERROR   | Function ibase_blob_get() is removed since PHP 7.4
+ 586 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 586 | ERROR   | Function ibase_blob_get() is removed since PHP 7.4
+ 590 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 590 | ERROR   | Function ibase_blob_get() is removed since PHP 7.4
+ 593 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 593 | ERROR   | Function ibase_blob_close() is removed since PHP 7.4
+ 601 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 601 | ERROR   | Function ibase_blob_create() is removed since PHP 7.4
+ 606 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 606 | ERROR   | Function ibase_blob_add() is removed since PHP 7.4
+ 610 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 610 | ERROR   | Function ibase_blob_close() is removed since PHP 7.4
+ 627 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 627 | ERROR   | Function ibase_blob_create() is removed since PHP 7.4
+ 642 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 642 | ERROR   | Function ibase_blob_add() is removed since PHP 7.4
+ 648 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 648 | ERROR   | Function ibase_blob_add() is removed since PHP 7.4
+ 652 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 652 | ERROR   | Function ibase_blob_close() is removed since PHP 7.4
+ 661 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 661 | ERROR   | Function ibase_blob_create() is removed since PHP 7.4
+ 662 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 662 | ERROR   | Function ibase_blob_add() is removed since PHP 7.4
+ 663 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 663 | ERROR   | Function ibase_blob_close() is removed since PHP 7.4
+ 733 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 749 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 749 | ERROR   | Function ibase_field_info() is removed since PHP 7.4
+ 778 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 778 | ERROR   | Function ibase_num_fields() is removed since PHP 7.4
+ 794 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 794 | ERROR   | Function ibase_fetch_row() is removed since PHP 7.4
+ 851 | ERROR   | Extension 'ibase' is removed since PHP 7.4; Use pecl/ibase instead
+ 851 | ERROR   | Function ibase_free_result() is removed since PHP 7.4
+---------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-informix.inc.php
+------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+------------------------------------------------------------------------------------------------------------------------------
+ 35 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-informix72.inc.php
+--------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+--------------------------------------------------------------------------------------------------------------------------------
+  57 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 349 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-ldap.inc.php
+--------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+--------------------------------------------------------------------------------------------------------------------------
+  46 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 293 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-mssql.inc.php
+---------------------------------------------------------------------------------------------------------------------------
+FOUND 36 ERRORS AND 5 WARNINGS AFFECTING 41 LINES
+---------------------------------------------------------------------------------------------------------------------------
+  108 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  183 | WARNING | INI directive 'magic_quotes_sybase' is deprecated since PHP 5.3 and removed since PHP 5.4
+  459 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  461 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  463 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  465 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  471 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  525 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  533 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  542 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  544 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  546 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  547 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  556 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  567 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  601 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  623 | WARNING | Function create_function() is deprecated since PHP 7.2; Use an anonymous function instead
+  681 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  759 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  761 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  763 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  768 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  772 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  782 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  810 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  828 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  829 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  837 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  868 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  871 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  880 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  893 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  897 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  899 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  932 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  948 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  951 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  953 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  984 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+  994 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+ 1013 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+---------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-mssqlnative.inc.php
+---------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 4 WARNINGS AFFECTING 4 LINES
+---------------------------------------------------------------------------------------------------------------------------------
+ 134 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 423 | WARNING | Function create_function() is deprecated since PHP 7.2; Use an anonymous function instead
+ 647 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 820 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-mssqlpo.inc.php
+-----------------------------------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AND 2 WARNINGS AFFECTING 3 LINES
+-----------------------------------------------------------------------------------------------------------------------------
+ 31 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 43 | ERROR   | Extension 'mssql' is removed since PHP 7.0
+ 57 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-mssql_n.inc.php
+-----------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-----------------------------------------------------------------------------------------------------------------------------
+ 166 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-mysql.inc.php
+---------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+---------------------------------------------------------------------------------------------------------------------------
+  43 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 611 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 768 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+---------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-mysqli.inc.php
+----------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+----------------------------------------------------------------------------------------------------------------------------
+   56 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  804 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 1111 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-mysqlpo.inc.php
+-----------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+-----------------------------------------------------------------------------------------------------------------------------
+  28 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  75 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 112 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-mysqlt.inc.php
+----------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+----------------------------------------------------------------------------------------------------------------------------
+  28 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  92 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 129 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-netezza.inc.php
+-----------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+-----------------------------------------------------------------------------------------------------------------------------
+  51 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 142 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-oci8.inc.php
+--------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 67 WARNINGS AFFECTING 67 LINES
+--------------------------------------------------------------------------------------------------------------------------
+   98 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  231 | WARNING | Function OCIPLogon() is deprecated since PHP 5.4; Use oci_pconnect() instead
+  233 | WARNING | Function OCIPLogon() is deprecated since PHP 5.4; Use oci_pconnect() instead
+  235 | WARNING | Function OCIrollback() is deprecated since PHP 5.4; Use oci_rollback() instead
+  238 | WARNING | Function OCINLogon() is deprecated since PHP 5.4; Use oci_new_connect() instead
+  240 | WARNING | Function OCINLogon() is deprecated since PHP 5.4; Use oci_new_connect() instead
+  244 | WARNING | Function OCILogon() is deprecated since PHP 5.4; Use oci_connect() instead
+  246 | WARNING | Function OCILogon() is deprecated since PHP 5.4; Use oci_connect() instead
+  263 | WARNING | Function OCIServerVersion() is deprecated since PHP 5.4; Use oci_server_version() instead
+  281 | WARNING | Function OCIRowCount() is deprecated since PHP 5.4; Use oci_num_rows() instead
+  443 | WARNING | Function OCIcommit() is deprecated since PHP 5.4; Use oci_commit() instead
+  453 | WARNING | Function OCIrollback() is deprecated since PHP 5.4; Use oci_rollback() instead
+  469 | WARNING | Function OCIError() is deprecated since PHP 5.4; Use oci_error() instead
+  471 | WARNING | Function OCIError() is deprecated since PHP 5.4; Use oci_error() instead
+  472 | WARNING | Function OCIError() is deprecated since PHP 5.4; Use oci_error() instead
+  484 | WARNING | Function OCIError() is deprecated since PHP 5.4; Use oci_error() instead
+  486 | WARNING | Function OCIError() is deprecated since PHP 5.4; Use oci_error() instead
+  487 | WARNING | Function OCIError() is deprecated since PHP 5.4; Use oci_error() instead
+  640 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+  642 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+  649 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+  656 | WARNING | Function OCIExecute() is deprecated since PHP 5.4; Use oci_execute() instead
+  657 | WARNING | Function OCIFreeStatement() is deprecated since PHP 5.4; Use oci_free_statement() instead
+  661 | WARNING | Function OCINumCols() is deprecated since PHP 5.4; Use oci_num_fields() instead
+  663 | WARNING | Function OCIColumnName() is deprecated since PHP 5.4; Use oci_field_name() instead
+  667 | WARNING | Function OCIFreeStatement() is deprecated since PHP 5.4; Use oci_free_statement() instead
+  730 | WARNING | Function OCINewDescriptor() is deprecated since PHP 5.4; Use oci_new_descriptor() instead
+  761 | WARNING | Function OCINewDescriptor() is deprecated since PHP 5.4; Use oci_new_descriptor() instead
+  858 | WARNING | Function OCIParse() is deprecated since PHP 5.4; Use oci_parse() instead
+  863 | WARNING | Function OCIError() is deprecated since PHP 5.4; Use oci_error() instead
+  873 | WARNING | Function OCIStatementType() is deprecated since PHP 5.4; Use oci_statement_type() instead
+  875 | WARNING | Function OCINewCursor() is deprecated since PHP 5.4; Use oci_new_cursor() instead
+  913 | WARNING | Function OCIFreeCursor() is deprecated since PHP 5.4; Use oci_free_statement() instead
+  955 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+  959 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+  960 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+  968 | WARNING | Function OCINewDescriptor() is deprecated since PHP 5.4; Use oci_new_descriptor() instead
+  972 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+  993 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+  994 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+ 1063 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+ 1069 | WARNING | Function OCIParse() is deprecated since PHP 5.4; Use oci_parse() instead
+ 1075 | WARNING | Function OCISetPrefetch() is deprecated since PHP 5.4; Use oci_set_prefetch() instead
+ 1081 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+ 1083 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+ 1098 | WARNING | Function OCIBindByName() is deprecated since PHP 5.4; Use oci_bind_by_name() instead
+ 1106 | WARNING | Function OCIExecute() is deprecated since PHP 5.4; Use oci_execute() instead
+ 1129 | WARNING | Function OCIStatementType() is deprecated since PHP 5.4; Use oci_statement_type() instead
+ 1138 | WARNING | Function OCIExecute() is deprecated since PHP 5.4; Use oci_execute() instead
+ 1144 | WARNING | Function OCIFreeStatement() is deprecated since PHP 5.4; Use oci_free_statement() instead
+ 1189 | WARNING | Function OCIRollback() is deprecated since PHP 5.4; Use oci_rollback() instead
+ 1196 | WARNING | Function OCILogoff() is deprecated since PHP 5.4; Use oci_close() instead
+ 1310 | WARNING | INI directive 'magic_quotes_sybase' is deprecated since PHP 5.3 and removed since PHP 5.4
+ 1333 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 1387 | WARNING | Function OCInumcols() is deprecated since PHP 5.4; Use oci_num_fields() instead
+ 1404 | WARNING | Function OCIcolumnname() is deprecated since PHP 5.4; Use oci_field_name() instead
+ 1405 | WARNING | Function OCIcolumntype() is deprecated since PHP 5.4; Use oci_field_type() instead
+ 1406 | WARNING | Function OCIcolumnsize() is deprecated since PHP 5.4; Use oci_field_size() instead
+ 1409 | WARNING | Function OCIColumnPrecision() is deprecated since PHP 5.4; Use oci_field_precision() instead
+ 1410 | WARNING | Function OCIColumnScale() is deprecated since PHP 5.4; Use oci_field_scale() instead
+ 1450 | WARNING | Function OCIfetchinto() is deprecated since PHP 5.4
+ 1504 | WARNING | Function OCIFetch() is deprecated since PHP 5.4; Use oci_fetch() instead
+ 1506 | WARNING | Function OCIfetchinto() is deprecated since PHP 5.4
+ 1541 | WARNING | Function OCIfetchinto() is deprecated since PHP 5.4
+ 1551 | WARNING | Function OCIFreeCursor() is deprecated since PHP 5.4; Use oci_free_statement() instead
+ 1554 | WARNING | Function OCIFreeStatement() is deprecated since PHP 5.4; Use oci_free_statement() instead
+ 1605 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-oci805.inc.php
+----------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+----------------------------------------------------------------------------------------------------------------------------
+ 24 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 54 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-oci8po.inc.php
+----------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 10 WARNINGS AFFECTING 10 LINES
+----------------------------------------------------------------------------------------------------------------------------
+  31 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  81 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 105 | WARNING | Function OCIcolumnname() is deprecated since PHP 5.4; Use oci_field_name() instead
+ 107 | WARNING | Function OCIcolumntype() is deprecated since PHP 5.4; Use oci_field_type() instead
+ 108 | WARNING | Function OCIcolumnsize() is deprecated since PHP 5.4; Use oci_field_size() instead
+ 111 | WARNING | Function OCIColumnScale() is deprecated since PHP 5.4; Use oci_field_scale() instead
+ 133 | WARNING | Function OCIfetchinto() is deprecated since PHP 5.4
+ 160 | WARNING | Function OCIFetch() is deprecated since PHP 5.4; Use oci_fetch() instead
+ 164 | WARNING | Function OCIfetchinto() is deprecated since PHP 5.4
+ 201 | WARNING | Function OCIfetchinto() is deprecated since PHP 5.4
+----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-odbc.inc.php
+--------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 8 WARNINGS AFFECTING 8 LINES
+--------------------------------------------------------------------------------------------------------------------------
+  42 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  51 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+  58 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+  70 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+  74 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 500 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 501 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 605 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-odbc_mssql.inc.php
+--------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+--------------------------------------------------------------------------------------------------------------------------------
+  44 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 302 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-odbc_oracle.inc.php
+---------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 4 WARNINGS AFFECTING 4 LINES
+---------------------------------------------------------------------------------------------------------------------------------
+  34 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  82 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+  95 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 110 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-odbtp.inc.php
+---------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 9 WARNINGS AFFECTING 9 LINES
+---------------------------------------------------------------------------------------------------------------------------
+  36 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 610 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 621 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 671 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 794 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 804 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 814 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 824 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 834 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+---------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-odbtp_unicode.inc.php
+-----------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-----------------------------------------------------------------------------------------------------------------------------------
+ 34 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-oracle.inc.php
+----------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+----------------------------------------------------------------------------------------------------------------------------
+  30 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 222 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-pdo.inc.php
+-------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+-------------------------------------------------------------------------------------------------------------------------
+  89 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 457 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 516 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-postgres64.inc.php
+--------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+--------------------------------------------------------------------------------------------------------------------------------
+ 120 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 876 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-postgres7.inc.php
+-------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+-------------------------------------------------------------------------------------------------------------------------------
+  25 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 218 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 249 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-proxy.inc.php
+---------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+---------------------------------------------------------------------------------------------------------------------------
+ 26 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+---------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-sapdb.inc.php
+---------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+---------------------------------------------------------------------------------------------------------------------------
+  34 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 177 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+---------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-sqlanywhere.inc.php
+---------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+---------------------------------------------------------------------------------------------------------------------------------
+  59 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 159 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-sqlite.inc.php
+----------------------------------------------------------------------------------------------------------------------------
+FOUND 18 ERRORS AND 2 WARNINGS AFFECTING 20 LINES
+----------------------------------------------------------------------------------------------------------------------------
+  34 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  49 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+  51 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 125 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 130 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 136 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 153 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 154 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 164 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 176 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 185 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 187 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 261 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 264 | ERROR   | Functions can not have multiple parameters with the same name since PHP 7.0
+ 321 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 356 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 364 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 365 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 384 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+ 389 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-sqlitepo.inc.php
+------------------------------------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AND 2 WARNINGS AFFECTING 3 LINES
+------------------------------------------------------------------------------------------------------------------------------
+ 27 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 41 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 50 | ERROR   | Extension 'sqlite' is removed since PHP 5.4
+------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-sybase.inc.php
+----------------------------------------------------------------------------------------------------------------------------
+FOUND 19 ERRORS AND 5 WARNINGS AFFECTING 23 LINES
+----------------------------------------------------------------------------------------------------------------------------
+  43 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 102 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 115 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 117 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 117 | WARNING | The variable '$php_errormsg' is deprecated since PHP 7.2; Use error_get_last() instead
+ 127 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 129 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 132 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 143 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 145 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 158 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 160 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 187 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 298 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 316 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 319 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 329 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 330 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 335 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 341 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 343 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 350 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 362 | ERROR   | Extension 'sybase' is removed since PHP 5.3; Use sybase_ct instead
+ 378 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-sybase_ase.inc.php
+--------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+--------------------------------------------------------------------------------------------------------------------------------
+  23 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 113 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\drivers\adodb-vfp.inc.php
+-------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+-------------------------------------------------------------------------------------------------------------------------
+ 37 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 75 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\pear\Auth\Container\ADOdb.php
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+  64 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+ 200 | WARNING | Passing the $glue and $pieces parameters in reverse order to join has been deprecated since PHP 7.4; $glue should be the first
+     |         | parameter and $pieces the second
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\perf\perf-db2.inc.php
+---------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+---------------------------------------------------------------------------------------------------------------------
+ 59 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+---------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\perf\perf-informix.inc.php
+--------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+--------------------------------------------------------------------------------------------------------------------------
+ 64 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\perf\perf-mssql.inc.php
+-----------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-----------------------------------------------------------------------------------------------------------------------
+ 68 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\perf\perf-mssqlnative.inc.php
+-----------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-----------------------------------------------------------------------------------------------------------------------------
+ 68 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\perf\perf-mysql.inc.php
+-----------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-----------------------------------------------------------------------------------------------------------------------
+ 84 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\perf\perf-oci8.inc.php
+----------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------------------------------------------------
+ 211 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+----------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\perf\perf-postgres.inc.php
+--------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+--------------------------------------------------------------------------------------------------------------------------
+ 90 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\server.php
+----------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------------------------------------
+ 55 | WARNING | Function get_magic_quotes_gpc() is deprecated since PHP 7.4
+----------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\session\adodb-compress-bzip2.php
+--------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+--------------------------------------------------------------------------------------------------------------------------------
+ 76 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\session\adodb-compress-gzip.php
+-------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-------------------------------------------------------------------------------------------------------------------------------
+ 59 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\session\adodb-encrypt-mcrypt.php
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+FOUND 15 ERRORS AND 1 WARNING AFFECTING 10 LINES
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+  72 | WARNING | Use of deprecated PHP4 style class constructor is not supported since PHP 7.
+  74 | ERROR   | The constant "MCRYPT_RIJNDAEL_256" is deprecated since PHP 7.1 and removed since PHP 7.2
+  77 | ERROR   | The constant "MCRYPT_MODE_ECB" is deprecated since PHP 7.1 and removed since PHP 7.2
+  80 | ERROR   | The constant "MCRYPT_RAND" is deprecated since PHP 7.1 and removed since PHP 7.2
+  91 | ERROR   | Extension 'mcrypt' is deprecated since PHP 7.1 and removed since PHP 7.2; Use openssl (preferred) or pecl/mcrypt once available
+     |         | instead
+  91 | ERROR   | Function mcrypt_get_iv_size() is deprecated since PHP 7.1 and removed since PHP 7.2; Use OpenSSL instead
+  92 | ERROR   | Extension 'mcrypt' is deprecated since PHP 7.1 and removed since PHP 7.2; Use openssl (preferred) or pecl/mcrypt once available
+     |         | instead
+  92 | ERROR   | Function mcrypt_create_iv() is deprecated since PHP 7.1 and removed since PHP 7.2; Use random_bytes() or OpenSSL instead
+  93 | ERROR   | Extension 'mcrypt' is deprecated since PHP 7.1 and removed since PHP 7.2; Use openssl (preferred) or pecl/mcrypt once available
+     |         | instead
+  93 | ERROR   | Function mcrypt_encrypt() is deprecated since PHP 7.1 and removed since PHP 7.2; Use OpenSSL instead
+  99 | ERROR   | Extension 'mcrypt' is deprecated since PHP 7.1 and removed since PHP 7.2; Use openssl (preferred) or pecl/mcrypt once available
+     |         | instead
+  99 | ERROR   | Function mcrypt_get_iv_size() is deprecated since PHP 7.1 and removed since PHP 7.2; Use OpenSSL instead
+ 100 | ERROR   | Extension 'mcrypt' is deprecated since PHP 7.1 and removed since PHP 7.2; Use openssl (preferred) or pecl/mcrypt once available
+     |         | instead
+ 100 | ERROR   | Function mcrypt_create_iv() is deprecated since PHP 7.1 and removed since PHP 7.2; Use random_bytes() or OpenSSL instead
+ 101 | ERROR   | Extension 'mcrypt' is deprecated since PHP 7.1 and removed since PHP 7.2; Use openssl (preferred) or pecl/mcrypt once available
+     |         | instead
+ 101 | ERROR   | Function mcrypt_decrypt() is deprecated since PHP 7.1 and removed since PHP 7.2; Use OpenSSL instead
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\session\adodb-session.php
+-------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+-------------------------------------------------------------------------------------------------------------------------
+ 675 | WARNING | Global with anything other than bare variables is discouraged since PHP 7.0. Found $$var
+ 696 | WARNING | Global with anything other than bare variables is discouraged since PHP 7.0. Found $$var
+-------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\session\adodb-session2.php
+--------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+--------------------------------------------------------------------------------------------------------------------------
+ 698 | WARNING | Global with anything other than bare variables is discouraged since PHP 7.0. Found $$var
+ 719 | WARNING | Global with anything other than bare variables is discouraged since PHP 7.0. Found $$var
+--------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\session\old\adodb-cryptsession.php
+----------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------------------------------------------------------------
+ 187 | WARNING | Global with anything other than bare variables is discouraged since PHP 7.0. Found $$var
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\session\old\adodb-session-clob.php
+----------------------------------------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AND 1 WARNING AFFECTING 2 LINES
+----------------------------------------------------------------------------------------------------------------------------------
+ 267 | WARNING | Global with anything other than bare variables is discouraged since PHP 7.0. Found $$var
+ 442 | ERROR   | Function session_register() is deprecated since PHP 5.3 and removed since PHP 5.4; Use $_SESSION instead
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\session\old\adodb-session.php
+-----------------------------------------------------------------------------------------------------------------------------
+FOUND 1 ERROR AND 1 WARNING AFFECTING 2 LINES
+-----------------------------------------------------------------------------------------------------------------------------
+ 298 | WARNING | Global with anything other than bare variables is discouraged since PHP 7.0. Found $$var
+ 433 | ERROR   | Function session_register() is deprecated since PHP 5.3 and removed since PHP 5.4; Use $_SESSION instead
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\tests\test.php
+--------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+--------------------------------------------------------------------------------------------------------------
+ 1692 | WARNING | INI directive 'safe_mode' is deprecated since PHP 5.3 and removed since PHP 5.4
+--------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\tests\tmssql.php
+----------------------------------------------------------------------------------------------------------------
+FOUND 8 ERRORS AFFECTING 8 LINES
+----------------------------------------------------------------------------------------------------------------
+  8 | ERROR | Extension 'mssql' is removed since PHP 7.0
+  9 | ERROR | Extension 'mssql' is removed since PHP 7.0
+ 11 | ERROR | Extension 'mssql' is removed since PHP 7.0
+ 12 | ERROR | Extension 'mssql' is removed since PHP 7.0
+ 14 | ERROR | Extension 'mssql' is removed since PHP 7.0
+ 17 | ERROR | Extension 'mssql' is removed since PHP 7.0
+ 18 | ERROR | Extension 'mssql' is removed since PHP 7.0
+ 19 | ERROR | Extension 'mssql' is removed since PHP 7.0
+----------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\2024\Leonardo\Documentos\applications_portfolio\migracion_rpcl\migracion\rpcl_up\adodb\toexport.inc.php
+----------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------------------------------------------
+ 77 | WARNING | Function each() is deprecated since PHP 7.2; Use a foreach loop instead
+----------------------------------------------------------------------------------------------------------------

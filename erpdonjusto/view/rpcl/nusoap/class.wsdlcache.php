@@ -75,7 +75,7 @@ class nusoap_wsdlcache {
 	* gets a wsdl instance from the cache
 	*
 	* @param string $wsdl The URL of the wsdl instance
-	* @return object wsdl The cached wsdl instance, null if the instance is not in the cache
+	* @return ObjectFactory wsdl The cached wsdl instance, null if the instance is not in the cache
 	* @access public
 	*/
 	function get($wsdl) {
@@ -137,7 +137,7 @@ class nusoap_wsdlcache {
 	/**
 	* adds a wsdl instance to the cache
 	*
-	* @param object wsdl $wsdl_instance The wsdl instance to add
+	* @param ObjectFactory wsdl $wsdl_instance The wsdl instance to add
 	* @return boolean WSDL successfully cached
 	* @access public
 	*/

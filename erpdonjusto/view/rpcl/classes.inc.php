@@ -123,8 +123,7 @@ function toggleLayer( whichLayer )
         $tab="";
         $c="";
         $stacktrace.='<a href="javascript:toggleLayer(\'callstack\');">Click for detailed information</a><div id="callstack" style="display:none;">';
-        while (list($k,$v)=each($stack))
-        {
+        foreach ($stack as $k => $v) {
                 $stacktrace.=$tab.$c."Callstack #$k File: <b><A HREF=\"rphp://$v[file],$v[line]\">".$v['file']."</A></b> Line: <b>".$v['line']."</b>\n";
                 $tolog.=$v['line']."@".$v['file'].'@'.$msg;
                 $tab.="  ";
@@ -227,7 +226,7 @@ class ECollectionError extends Exception
  * @see Reader
  *
  */
-class Filer extends Object
+class Filer extends ObjectFactory
 {
         protected $_xmlparser;
         protected $_root;
@@ -452,8 +451,7 @@ class Filer extends Object
                         {
                                 reset($this->_properties);
 
-                                while (list($k,$v)=each($this->_properties))
-                                {
+                                foreach ($this->_properties as $k => $v) {
                                         if ($v==$this->_lastproperty)
                                         {
                                                 $aproperty=$v;
@@ -600,7 +598,7 @@ class Filer extends Object
          * This property specifies the root component for which all read components
          * are going to be owned.
          *
-         * @return object
+         * @return ObjectFactory
          */
         function getRoot() { return($this->_root); }
         function setRoot($value)
@@ -630,7 +628,7 @@ class Reader extends Filer
 {
         /**
          * Reads a component and all its children from a stream
-         * @param object $root Root component to read
+         * @param ObjectFactory $root Root component to read
          * @param string $stream XML stream to read from
          */
         function readRootComponent($root,$stream)
@@ -659,7 +657,7 @@ class Reader extends Filer
  *
  * @link http://www.php.net/manual/en/ref.array.php
  */
-class Collection extends Object
+class Collection extends ObjectFactory
 {
         //Items array
         public $items;
@@ -746,7 +744,7 @@ class Collection extends Object
          * not in the list, IndexOf returns -1. If an item appears more than once in the array, IndexOf returns
          * the index of the first appearance.
          *
-         * @param object $item Item to find
+         * @param ObjectFactory $item Item to find
          * @return integer Index of the item or -1 if not found
          */
         function indexof($item)
@@ -754,8 +752,7 @@ class Collection extends Object
                 $result=-1;
 
                 reset($this->items);
-                while (list($k,$v)=each($this->items))
-                {
+                foreach ($this->items as $k => $v) {
                         if ($v===$item)
                         {
                                 $result=$k;
@@ -778,7 +775,7 @@ class Collection extends Object
          *
          * @see delete()
          *
-         * @param object $item Item to delete from the list
+         * @param ObjectFactory $item Item to delete from the list
          * @return integer Index of the item removed or -1 if it's not found
          */
         function remove($item)
@@ -817,7 +814,7 @@ class Collection extends Object
          *
          * @see $items
          *
-         * @return object
+         * @return ObjectFactory
          */
         function last()
         {
@@ -849,7 +846,7 @@ $methodCache = array();
  * @see serialize(), unserialize()
  *
  */
-class Persistent extends Object
+class Persistent extends ObjectFactory
 {
                 /**
                  * Used to serialize/unserialize. It returns the full path to identify this component.
@@ -968,8 +965,7 @@ class Persistent extends Object
 
                 reset($methods);
 
-                while (list($k,$method)=each($methods))
-                {
+                foreach ($methods as $k => $method) {
                         $methodname=$method->name;
                         if ($methodname[0] == 's' && $methodname[1] == 'e' && $methodname[2] == 't')   // fast check of: substr($methodname,0,3)=='set'
                         {
@@ -1198,7 +1194,7 @@ class Component extends Persistent
         *
         * @see $components, readOwner(), insertComponent()
         *
-        * @param object $aowner The owner of this component
+        * @param ObjectFactory $aowner The owner of this component
         */
         function __construct($aowner=null)
         {
@@ -1239,7 +1235,7 @@ class Component extends Persistent
         * Initializes the component after the form file has been read into memory.
         *
         * Do not call the Loaded method. The streaming system calls this method after it
-        * loads the component’s form from a stream.
+        * loads the componentï¿½s form from a stream.
         *
         * When the streaming system loads a form or data module from its form file,
         * it first constructs the form component by calling its constructor, then reads
@@ -1280,8 +1276,7 @@ class Component extends Persistent
         {
                 //Calls childrens loaded recursively
                 reset($this->components->items);
-                while (list($k,$v)=each($this->components->items))
-                {
+                foreach ($this->components->items as $k => $v) {
                         $v->loaded();
                 }
         }
@@ -1373,7 +1368,7 @@ class Component extends Persistent
                         {
                                 if (!is_object($value))
                                 {
-                                		if ($this->inheritsFrom('CustomPage')) $form=$this;
+                                	if ($this->inheritsFrom('CustomPage')) $form=$this;
                                         else $form=$this->owner;
 
                                         if (strpos($value,'.'))
@@ -1419,7 +1414,7 @@ class Component extends Persistent
         function unserializeChildren()
         {
                 reset($this->components->items);
-                while (list($k,$v)=each($this->components->items))
+                foreach ($this->components->items as $k => $v) 
                 {
                         $v->unserialize();
                 }
@@ -1515,7 +1510,7 @@ class Component extends Persistent
                 $jcomps="";
 
                 reset($comps);
-                while(list($key, $val)=each($comps))
+                foreach ($comps as $key => $val) 
                 {
                     if ($jcomps!='') $jcomps.=',';
                     $jcomps.='"'.$val.'"';
@@ -1544,7 +1539,7 @@ class Component extends Persistent
         {
                 //Calls children's init recursively
                 reset($this->components->items);
-                while (list($k,$v)=each($this->components->items))
+                foreach ($this->components->items as $k => $v) 
                 {
                         $v->preinit();
                 }
@@ -1567,7 +1562,7 @@ class Component extends Persistent
                 $comps=$this->components->items;
                 //Calls children's init recursively
                 reset($comps);
-                while (list($k,$v)=each($comps))
+                foreach ($comps as $k => $v) 
                 {
                         $v->init();
                 }
@@ -1621,7 +1616,7 @@ class Component extends Persistent
 
                                                 //Sets the key values
                                                 reset($values);
-                                                while (list($k,$v)=each($values))
+                                                foreach ($values as $k => $v) 
                                                 {
                                                         $this->_datasource->Dataset->fieldset($k,$v);
                                                 }
@@ -1707,7 +1702,7 @@ class Component extends Persistent
         * @param boolean $force If true, hidden keys will be dumped, no matter the state of the dataset
         *
         */
-        function dumpHiddenKeyFields($force=false)
+        function dumpHiddenKeyFields($basename, $values=array(),$force=false)
         {
                 if ($this->_datasource!=null)
                 {
@@ -1716,7 +1711,7 @@ class Component extends Persistent
                                 if (($this->_datasource->Dataset->State!=dsInsert) || ($force))
                                 {
                                     //Dumps the key values for this record so updating is possible in the future
-                                    $this->_datasource->Dataset->dumpHiddenKeyFields($this->Name."_key");
+                                    $this->_datasource->Dataset->dumpHiddenKeyFields($this->Name."_key",[],false);
                                 }
                         }
                 }
@@ -1737,7 +1732,7 @@ class Component extends Persistent
         {
                 //Calls children's serialize recursively
                 reset($this->components->items);
-                while (list($k,$v)=each($this->components->items))
+                foreach ($this->components->items as $k => $v) 
                 {
                         $v->serialize();
                 }
@@ -1781,7 +1776,7 @@ class Component extends Persistent
                 //Iterates through components, dumping all javascript
                 $this->dumpJavascript();
                 reset($this->components->items);
-                while (list($k,$v)=each($this->components->items))
+                foreach ($this->components->items as $k => $v) 
                 {
                         if ($v->inheritsFrom('Control'))
                         {
@@ -1809,7 +1804,7 @@ class Component extends Persistent
                 reset($this->components->items);
 
                 if ($return_contents) ob_start();
-                while (list($k,$v)=each($this->components->items))
+                foreach ($this->components->items as $k => $v) 
                 {
                         if ($v->inheritsFrom('Control'))
                         {
@@ -1860,7 +1855,7 @@ class Component extends Persistent
                 reset($this->components->items);
 
                 if ($return_contents) ob_start();
-                while (list($k,$v)=each($this->components->items))
+                foreach ($this->components->items as $k => $v) 
                 {
                         if ($v->inheritsFrom('Control'))
                         {
@@ -1899,8 +1894,8 @@ class Component extends Persistent
                         if ($this->classParent()!='Page')
                         {
                                 $varname=$this->classParent();
-                                global $$varname;
-                                $baseobject=$$varname;
+                                global $$varname;                                
+                                $baseobject=$$varname;               
                                 $this->loadResource($baseobject->lastresourceread, true);
                         }
                    }
@@ -1981,7 +1976,7 @@ class Component extends Persistent
                     $components=$_SESSION['comps.'.$application->Name.'.'.$this->className()];
 
                     reset($components);
-                    while(list($name, $classparts)=each($components))
+                    foreach ($components as $name => $classparts) 
                     {
                         $class=$classparts[1];
                         $parent=$classparts[0];
@@ -2044,7 +2039,7 @@ class Component extends Persistent
          *
          * @see $components, readOwner()
          *
-         * @param object $acomponent Component to insert
+         * @param ObjectFactory $acomponent Component to insert
          */
         function insertComponent($acomponent)
         {
@@ -2061,7 +2056,7 @@ class Component extends Persistent
          *
          * @see $components, readOwner()
          *
-         * @param object $acomponent Component to remove
+         * @param ObjectFactory $acomponent Component to remove
          */
         function removeComponent($acomponent)
         {
@@ -2299,7 +2294,7 @@ function filterSet( $method )
 /**
 * Helper function to filter the array of methods for an specific component, not to be called directly
 *
-* @param object $method Method to filter
+* @param ObjectFactory $method Method to filter
 * @param mixed $key Not used
 */
 function processMethods( &$method, $key )

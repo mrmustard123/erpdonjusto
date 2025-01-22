@@ -651,7 +651,7 @@ class DB_mssql extends DB_common
      *                     DB_ERROR* constant here.  If this isn't passed
      *                     the error information gathered from the DBMS.
      *
-     * @return object  the DB_Error object
+     * @return ObjectFactory  the DB_Error object
      *
      * @see DB_common::raiseError(),
      *      DB_mssql::errorNative(), DB_mssql::errorCode()
@@ -722,7 +722,7 @@ class DB_mssql extends DB_common
      * NOTE: only supports 'table' and 'flags' if <var>$result</var>
      * is a table name.
      *
-     * @param object|string  $result  DB_result object from a query or a
+     * @param ObjectFactory|string  $result  DB_result object from a query or a
      *                                 string containing the name of a table.
      *                                 While this also accepts a query result
      *                                 resource identifier, this behavior is
@@ -826,7 +826,7 @@ class DB_mssql extends DB_common
      * "multiple_key" (multikey index)
      *
      * mssql timestamp is NOT similar to the mysql timestamp so this is maybe
-     * not useful at all - is the behaviour of mysql_field_flags that primary
+     * not useful at all - is the behaviour of mysqli_field_flags that primary
      * keys are alway unique? is the interpretation of multiple_key correct?
      *
      * @param string $table   the table name

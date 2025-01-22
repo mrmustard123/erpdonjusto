@@ -227,7 +227,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
     /**
      * Check if the ACL allows accessing the function or method
      *
-     * @param string|object $object Object or class being accessed
+     * @param string|ObjectFactory $object Object or class being accessed
      * @param string $function Function or method being accessed
      * @return unknown_type
      */
@@ -717,7 +717,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
      * a $namespace has been provided, that namespace is used to prefix
      * AMF service call.
      *
-     * @param  string|object $class
+     * @param  string|ObjectFactory $class
      * @param  string $namespace Optional
      * @param  mixed $arg Optional arguments to pass to a method
      * @return Zend_Amf_Server

@@ -122,7 +122,7 @@ class MDB2_Driver_ibase extends MDB2_Driver_Common
             $native_code = @ibase_errcode();
         } else {
             // memo for the interbase php module hackers: we need something similar
-            // to mysql_errno() to retrieve error codes instead of this ugly hack
+            // to mysqli_errno() to retrieve error codes instead of this ugly hack
             if (preg_match('/^([^0-9\-]+)([0-9\-]+)\s+(.*)$/', $native_msg, $m)) {
                 $native_code = (int)$m[2];
             } else {

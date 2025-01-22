@@ -64,7 +64,7 @@ class Structures_DataGrid_DataSource_DB
     /**
      * Reference to the DB_Result object
      *
-     * @var object DB_Result
+     * @var ObjectFactory DB_Result
      * @access private
      */
     var $_result;
@@ -82,7 +82,7 @@ class Structures_DataGrid_DataSource_DB
     /**
      * Bind
      *
-     * @param   object DB_Result    The result object to bind
+     * @param   ObjectFactory DB_Result    The result object to bind
      * @access  public
      * @return  mixed               True on success, PEAR_Error on failure
      */

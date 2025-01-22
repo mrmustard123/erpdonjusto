@@ -69,8 +69,7 @@ function registerComponents($page,$components,$unit)
 {
    echo "page=$page\n";
    reset($components);
-   while (list($k,$v)=each($components))
-   {
+   foreach ($components as $k => $v) {
         use_unit($unit);
         $iconic=((is_subclass_of($v,'Component')) && (!is_subclass_of($v,'Control')));
         echo "$v=$unit,$iconic\n";
@@ -81,8 +80,7 @@ function registerPropertiesInCategory($category, $properties)
 {
     echo "propcategory=$category\n";
    reset($properties);
-   while (list($k,$v)=each($properties))
-   {
+   foreach ($properties as $k => $v) {
         echo "propname=$v\n";
    }
 }
@@ -108,12 +106,10 @@ function registerPropertiesInCategory($category, $properties)
 function registerAsset($components, $assets)
 {
         reset($components);
-        while (list($k,$v)=each($components))
-        {
+        foreach ($components as $k => $v) {
                 echo "asset=$v\n";
                 reset($assets);
-                while (list($c,$asset)=each($assets))
-                {
+                foreach ($assets as $c => $asset) {
                         echo "value=".$asset."\n";
                 }
         }
@@ -191,8 +187,7 @@ function registerPropertyValues($classname,$property,$values)
    echo "property=$property\n";
 
    reset($values);
-   while (list($k,$v)=each($values))
-   {
+   foreach ($values as $k => $v) {
         echo "value=$v\n";
    }
 }
@@ -217,8 +212,7 @@ function registerBooleanProperty($classname,$property)
    echo "property=$property\n";
 
    reset($values);
-   while (list($k,$v)=each($values))
-   {
+   foreach ($values as $k => $v) {
         echo "value=$v\n";
    }
 }
@@ -260,8 +254,7 @@ function registerNoVisibleComponents($components,$unit)
 {
    echo "page=no\n";
    reset($components);
-   while (list($k,$v)=each($components))
-   {
+   foreach ($components as $k => $v) {
         echo "$v=$unit\n";
    }
 }
@@ -275,8 +268,7 @@ function addSplashBitmap($caption,$bitmap)
 function registerDropDatasource($components)
 {
    reset($components);
-   while (list($k,$v)=each($components))
-   {
+   foreach ($components as $k => $v) {
         echo "multiline=$v\n";
    }
 }
@@ -284,8 +276,7 @@ function registerDropDatasource($components)
 function registerDropDatafield($components)
 {
    reset($components);
-   while (list($k,$v)=each($components))
-   {
+   foreach ($components as $k => $v) {
         echo "singleline=$v\n";
    }
 }
@@ -296,7 +287,7 @@ function registerDropDatafield($components)
  * Use this class if you want to wrote Property Editors in pure PHP.
  *
  */
-class PropertyEditor extends Object
+class PropertyEditor extends ObjectFactory
 {
         public $value;
 
@@ -345,7 +336,7 @@ class PropertyEditor extends Object
  * Base class for component editors
  *
  */
-class ComponentEditor extends Object
+class ComponentEditor extends ObjectFactory
 {
         public $component=null;
 
@@ -563,8 +554,7 @@ class ItemsPropertyEditor extends PropertyEditor
 
                 reset($input);
                 list($k,$props)=each($input);
-                while (list($k,$child)=each($input))
-                {
+                foreach ($input as $k => $child) {
                         $c=$this->JSArrayToPHPArray($child[0]);
                         $children[]=$c[0];
                 }

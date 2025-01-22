@@ -161,7 +161,7 @@ class Pager
      * Return a pager based on $mode and $options
      *
      * @param  array $options Optional parameters for the storage class
-     * @return object Object   Storage object
+     * @return ObjectFactory Object   Storage object
      * @static
      * @access public
      */

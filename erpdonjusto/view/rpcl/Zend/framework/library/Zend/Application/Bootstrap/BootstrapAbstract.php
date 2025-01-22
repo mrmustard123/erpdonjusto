@@ -46,7 +46,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
     protected $_classResources;
 
     /**
-     * @var object Resource container
+     * @var ObjectFactory Resource container
      */
     protected $_container;
 
@@ -476,7 +476,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
      *
      * Containers must be objects, and must allow setting public properties.
      *
-     * @param  object $container
+     * @param  ObjectFactory $container
      * @return Zend_Application_Bootstrap_BootstrapAbstract
      */
     public function setContainer($container)
@@ -491,7 +491,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
     /**
      * Retrieve resource container
      *
-     * @return object
+     * @return ObjectFactory
      */
     public function getContainer()
     {
@@ -695,7 +695,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
      * Load a plugin resource
      *
      * @param  string $resource
-     * @param  array|object|null $options
+     * @param  array|ObjectFactory|null $options
      * @return string|false
      */
     protected function _loadPluginResource($resource, $options)

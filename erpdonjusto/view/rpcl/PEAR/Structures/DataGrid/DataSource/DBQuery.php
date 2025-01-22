@@ -96,7 +96,7 @@ class Structures_DataGrid_DataSource_DBQuery
     /**
      * Reference to the PEAR::DB object
      *
-     * @var object DB
+     * @var ObjectFactory DB
      * @access private
      */
     var $_db;

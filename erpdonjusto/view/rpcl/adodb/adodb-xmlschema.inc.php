@@ -157,7 +157,9 @@ class dbObject {
 	* Destroys the object
 	*/
 	function destroy() {
-		unset( $this );
+            foreach ($this as $property => $value) {
+                unset($this->$property);
+            }
 	}
 	
 	/**
@@ -360,7 +362,7 @@ class dbTable extends dbObject {
 	* Adds an index to a table object
 	*
 	* @param array $attributes Index attributes
-	* @return object dbIndex object
+	* @return ObjectFactory dbIndex object
 	*/
 	function addIndex( $attributes ) {
 		$name = strtoupper( $attributes['NAME'] );
@@ -372,7 +374,7 @@ class dbTable extends dbObject {
 	* Adds data to a table object
 	*
 	* @param array $attributes Data attributes
-	* @return object dbData object
+	* @return ObjectFactory dbData object
 	*/
 	function addData( $attributes ) {
 		if( !isset( $this->data ) ) {
@@ -473,7 +475,7 @@ class dbTable extends dbObject {
 	/**
 	* Generates the SQL that will create the table in the database
 	*
-	* @param object $xmls adoSchema object
+	* @param ObjectFactory $xmls adoSchema object
 	* @return array Array containing table creation SQL
 	*/
 	function create( &$xmls ) {
@@ -637,7 +639,7 @@ class dbIndex extends dbObject {
 	/**
 	* Initializes the new dbIndex object.
 	*
-	* @param object $parent Parent object
+	* @param ObjectFactory $parent Parent object
 	* @param array $attributes Attributes
 	*
 	* @internal
@@ -738,7 +740,7 @@ class dbIndex extends dbObject {
 	/**
 	* Generates the SQL that will create the index in the database
 	*
-	* @param object $xmls adoSchema object
+	* @param ObjectFactory $xmls adoSchema object
 	* @return array Array containing index creation SQL
 	*/
 	function create( &$xmls ) {
@@ -781,7 +783,7 @@ class dbData extends dbObject {
 	/**
 	* Initializes the new dbIndex object.
 	*
-	* @param object $parent Parent object
+	* @param ObjectFactory $parent Parent object
 	* @param array $attributes Attributes
 	*
 	* @internal
@@ -884,7 +886,7 @@ class dbData extends dbObject {
 	/**
 	* Generates the SQL that will create the index in the database
 	*
-	* @param object $xmls adoSchema object
+	* @param ObjectFactory $xmls adoSchema object
 	* @return array Array containing index creation SQL
 	*/
 	function create( &$xmls ) {
@@ -982,7 +984,7 @@ class dbQuerySet extends dbObject {
 	/**
 	* Initializes the query set.
 	*
-	* @param object $parent Parent object
+	* @param ObjectFactory $parent Parent object
 	* @param array $attributes Attributes
 	*/
 	function dbQuerySet( &$parent, $attributes = NULL ) {
@@ -1129,7 +1131,7 @@ class dbQuerySet extends dbObject {
 	/**
 	* Creates and returns the current query set
 	*
-	* @param object $xmls adoSchema object
+	* @param ObjectFactory $xmls adoSchema object
 	* @return array Query set
 	*/
 	function create( &$xmls ) {
@@ -1299,7 +1301,7 @@ class adoSchema {
 	* The only parameter is an ADOdb database connection object, which must already
 	* have been created.
 	*
-	* @param object $db ADOdb database connection object.
+	* @param ObjectFactory $db ADOdb database connection object.
 	*/
 	function adoSchema( $db ) {
 		// Initialize the environment
@@ -1626,7 +1628,7 @@ class adoSchema {
 	/**
 	* Create an xml parser
 	*
-	* @return object PHP XML parser object
+	* @return ObjectFactory PHP XML parser object
 	*
 	* @access private
 	*/
@@ -1829,7 +1831,7 @@ class adoSchema {
 	/**
 	* Processes XSLT transformation errors
 	*
-	* @param object $parser XML parser object
+	* @param ObjectFactory $parser XML parser object
 	* @param integer $errno Error number
 	* @param integer $level Error level
 	* @param array $fields Error information fields

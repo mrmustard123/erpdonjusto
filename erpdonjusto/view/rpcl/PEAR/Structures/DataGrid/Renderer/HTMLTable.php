@@ -90,20 +90,20 @@ class Structures_DataGrid_Renderer_HTMLTable extends Structures_DataGrid_Rendere
 {
     /**
      * Rendering container
-     * @var object HTML_Table object
+     * @var ObjectFactory HTML_Table object
      * @access protected
      */
     var $_table;
     
     /**
      * The html_table_storage object for the table header
-     * @var object HTML_Table_Storage
+     * @var ObjectFactory HTML_Table_Storage
      */
     var $_tableHeader;
 
     /**
      * The html_table_storage object for the table body
-     * @var object HTML_Table_Storage
+     * @var ObjectFactory HTML_Table_Storage
      */
     var $_tableBody;
 
@@ -151,7 +151,7 @@ class Structures_DataGrid_Renderer_HTMLTable extends Structures_DataGrid_Rendere
     /**
      * Attach an already instantiated HTML_Table object
      *
-     * @var object HTML_Table object
+     * @var ObjectFactory HTML_Table object
      * @return mixed  True or PEAR_Error
      * @access public
      */
@@ -164,7 +164,7 @@ class Structures_DataGrid_Renderer_HTMLTable extends Structures_DataGrid_Rendere
     /**
      * Return the currently used HTML_Table object
      *
-     * @return object HTML_Table (reference to) or PEAR_Error
+     * @return ObjectFactory HTML_Table (reference to) or PEAR_Error
      * @access public
      */
     function &getContainer()
@@ -341,7 +341,7 @@ class Structures_DataGrid_Renderer_HTMLTable extends Structures_DataGrid_Rendere
      *
      * @deprecated Use getContainer() instead.
      * @access  public
-     * @return  object HTML_Table   The HTML Table object for the DataGrid
+     * @return  ObjectFactory HTML_Table   The HTML Table object for the DataGrid
      */
     function &getTable()
     {

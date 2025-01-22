@@ -1034,8 +1034,7 @@ class Control extends Component
                         {
                                 $components=$this->owner->components->items;
                                 reset($components);
-                                while (list($k,$v)=each($components))
-                                {
+                                foreach ($components as $k => $v) {
                                         if ($v->inheritsFrom('StyleSheet'))
                                         {
                                             $v->dumpHeaderCode();
@@ -2209,8 +2208,7 @@ class FocusControl extends Control
                 //Iterates through all child controls and assign the new font
                 //to all that have ParentFont=true.
                 reset($this->controls->items);
-                while (list($k,$v) = each($this->controls->items))
-                {
+                foreach ($this->controls->items as $k => $v) {
                         if ($v->ParentFont)
                         {
                                 $v->updateParentFont();
@@ -2227,8 +2225,7 @@ class FocusControl extends Control
                 //Iterates through all child controls and assigns the new color
                 //to all that have ParentColor=true.
                 reset($this->controls->items);
-                while (list($k,$v) = each($this->controls->items))
-                {
+                foreach ($this->controls->items as $k => $v) {
                         if ($v->ParentColor)
                         {
                                 $v->updateParentColor();
@@ -2245,8 +2242,7 @@ class FocusControl extends Control
                 //Iterates through all child controls and assigns the new showhint
                 //to all that have ParentShowHint=true.
                 reset($this->controls->items);
-                while (list($k,$v) = each($this->controls->items))
-                {
+                foreach ($this->controls->items as $k => $v) {
                         if ($v->ParentShowHint)
                         {
                                 $v->updateParentShowHint();
@@ -2264,8 +2260,7 @@ class FocusControl extends Control
                 //Iterates through all child controls and assigns the new font
                 //to all that have ParentFont=true.
                 reset($this->controls->items);
-                while (list($k,$v) = each($this->controls->items))
-                {
+                foreach ($this->controls->items as $k => $v) {
                         // First checks if it is really necessary to update the parent properties.
                         if ($v->ParentColor || $v->ParentFont || $v->ParentShowHint)
                         {
@@ -2322,8 +2317,7 @@ class FocusControl extends Control
         {
                 //Iterates through controls calling show for all of them.
                 reset($this->controls->items);
-                while (list($k,$v)=each($this->controls->items))
-                {
+                foreach ($this->controls->items as $k => $v) {
                         $v->show();
                 }
 

@@ -306,7 +306,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
     /**
      * Handle an array or object result
      *
-     * @param array|object $struct Result Value
+     * @param array|ObjectFactory $struct Result Value
      * @return string XML Response
      */
     protected function _handleStruct($struct)

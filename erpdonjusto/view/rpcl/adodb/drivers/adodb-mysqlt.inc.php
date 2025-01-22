@@ -25,7 +25,7 @@ class ADODB_mysqlt extends ADODB_mysql {
 	var $hasTransactions = true;
 	var $autoRollback = true; // apparently mysql does not autorollback properly 
 	
-	function ADODB_mysqlt() 
+	function __construct() 
 	{			
 	global $ADODB_EXTENSION; if ($ADODB_EXTENSION) $this->rsPrefix .= 'ext_';
 	}
@@ -89,7 +89,7 @@ class ADODB_mysqlt extends ADODB_mysql {
 class ADORecordSet_mysqlt extends ADORecordSet_mysql{	
 	var $databaseType = "mysqlt";
 	
-	function ADORecordSet_mysqlt($queryID,$mode=false) 
+	function __construct($queryID,$mode=false) 
 	{
 		if ($mode === false) { 
 			global $ADODB_FETCH_MODE;
@@ -98,12 +98,12 @@ class ADORecordSet_mysqlt extends ADORecordSet_mysql{
 		
 		switch ($mode)
 		{
-		case ADODB_FETCH_NUM: $this->fetchMode = MYSQL_NUM; break;
-		case ADODB_FETCH_ASSOC:$this->fetchMode = MYSQL_ASSOC; break;
+		case ADODB_FETCH_NUM: $this->fetchMode = mysqli_NUM; break;
+		case ADODB_FETCH_ASSOC:$this->fetchMode = MYSQLI_ASSOC; break;
 		
 		case ADODB_FETCH_DEFAULT:
 		case ADODB_FETCH_BOTH:
-		default: $this->fetchMode = MYSQL_BOTH; break;
+		default: $this->fetchMode = mysqli_BOTH; break;
 		}
 	
 		$this->adodbFetchMode = $mode;
@@ -112,7 +112,7 @@ class ADORecordSet_mysqlt extends ADORecordSet_mysql{
 	
 	function MoveNext()
 	{
-		if (@$this->fields = mysql_fetch_array($this->_queryID,$this->fetchMode)) {
+		if (@$this->fields = mysqli_fetch_array($this->_queryID,$this->fetchMode)) {
 			$this->_currentRow += 1;
 			return true;
 		}
@@ -126,7 +126,7 @@ class ADORecordSet_mysqlt extends ADORecordSet_mysql{
 
 class ADORecordSet_ext_mysqlt extends ADORecordSet_mysqlt {	
 
-	function ADORecordSet_ext_mysqlt($queryID,$mode=false) 
+	function __construct($queryID,$mode=false) 
 	{
 		if ($mode === false) { 
 			global $ADODB_FETCH_MODE;
@@ -134,13 +134,13 @@ class ADORecordSet_ext_mysqlt extends ADORecordSet_mysqlt {
 		}
 		switch ($mode)
 		{
-		case ADODB_FETCH_NUM: $this->fetchMode = MYSQL_NUM; break;
-		case ADODB_FETCH_ASSOC:$this->fetchMode = MYSQL_ASSOC; break;
+		case ADODB_FETCH_NUM: $this->fetchMode = mysqli_NUM; break;
+		case ADODB_FETCH_ASSOC:$this->fetchMode = MYSQLI_ASSOC; break;
 		
 		case ADODB_FETCH_DEFAULT:
 		case ADODB_FETCH_BOTH:
 		default: 
-			$this->fetchMode = MYSQL_BOTH; break;
+			$this->fetchMode = mysqli_BOTH; break;
 		}
 		$this->adodbFetchMode = $mode;
 		$this->ADORecordSet($queryID);	

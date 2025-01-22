@@ -365,8 +365,7 @@ class QWidget extends FocusControl
 
                 $js="";
                 reset($this->controls->items);
-                while (list($k,$v)=each($this->controls->items))
-                {
+                foreach ($this->controls->items as $k => $v) {
                     if ($v->Layer==$layer)
                     {
                         if ($v->Visible)
@@ -1366,7 +1365,7 @@ class CustomEdit extends FocusControl
                                 $this->_text = $this->readDataFieldValue();
 
                                 //Dumps hidden fields to know which is the record to update
-                                $this->dumpHiddenKeyFields();
+                                $this->dumpHiddenKeyFields("",[],false);
                         }
                 }
 
@@ -1585,7 +1584,7 @@ class CustomEdit extends FocusControl
         *       into the edit control. Changing the CharCase property to
         *       ecLowerCase or ecUpperCase changes the actual contents
         *       of the text, not just the appearance. Any case information
-        *       is lost and can’t be recaptured by changing CharCase to ecNormal.
+        *       is lost and canï¿½t be recaptured by changing CharCase to ecNormal.
         * @return enum (ecLowerCase, ecNormal, ecUpperCase)
         */
         function readCharCase() { return $this->_charcase; }
@@ -2060,7 +2059,7 @@ class CustomMemo extends CustomEdit
                                 //The value to show on the field is the one from the table
                                 $this->Text = $this->readDataFieldValue();
                                 //Dumps hidden fields to know which is the record to update
-                                $this->dumpHiddenKeyFields();
+                                $this->dumpHiddenKeyFields("",[],false);//$basename, $values=array(),$force=false
                         }
                 }
 
@@ -2702,7 +2701,7 @@ class CustomListBox extends CustomMultiSelectListControl
                                 }
 
                                 //Dumps hidden fields to know which is the record to update
-                                $this->dumpHiddenKeyFields();
+                                $this->dumpHiddenKeyFields("",[],false);
                         }
                 }
 
@@ -2845,7 +2844,7 @@ class CustomListBox extends CustomMultiSelectListControl
         * object pointers and also specify the key of the item in the items array.
         *
         * @param string $item Caption of the item to add
-        * @param object $object Object to add
+        * @param ObjectFactory $object Object to add
         * @param string $itemkey Key of the item in the items array
         *
         * @return integer Number of items in the control
@@ -3197,8 +3196,7 @@ class CustomListBox extends CustomMultiSelectListControl
                         //PHP is not able to find them
                         $this->_items=array();
                         reset($value);
-                        while(list($key, $val)=each($value))
-                        {
+                        foreach ($value as $key => $val) {
                                 $this->_items[$key]=$val;
                         }
                 }
@@ -3923,7 +3921,7 @@ class ButtonControl extends FocusControl
                                 $this->{$this->_datafieldproperty} = $this->readDataFieldValue();
 
                                 //Dumps hidden fields to know which is the record to update
-                                $this->dumpHiddenKeyFields();
+                                $this->dumpHiddenKeyFields("",[],false);
                         }
                 }
 
@@ -5198,7 +5196,7 @@ class ScrollBar extends QWidget
                 //qooxdoo calculates delphi pagesize using current widget width
                 //and maximum value with folowing formula pagesize=(W^2/Max)
                 //So, we must calculate Maximum for the control based on current
-                //Pagesize, minimum and maximum. By the way minimum doesn´t exist in
+                //Pagesize, minimum and maximum. By the way minimum doesnï¿½t exist in
                 //qooxdoo it is supposed to be allways 0. It is app work to normalize
                 //the maximum based on the current minimum knowing that it is harcoded
                 //to 0 on qooxdoo.
@@ -6278,7 +6276,7 @@ class Upload extends CustomUpload
                 return $this->readVisible();
         }
         function setVisible($value)
-        {
+        {
                 $this->writeVisible($value);
         }
 }

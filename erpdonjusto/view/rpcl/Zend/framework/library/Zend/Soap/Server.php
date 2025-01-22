@@ -578,7 +578,7 @@ class Zend_Soap_Server implements Zend_Server_Interface
      *
      * Accepts an instanciated object to use when handling requests.
      *
-     * @param object $object
+     * @param ObjectFactory $object
      * @return Zend_Soap_Server
      */
     public function setObject($object)

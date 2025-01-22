@@ -162,7 +162,7 @@ class DSRestConnection extends Component
     function defaultUserName() { return ''; }
 }
 
-class SQLClientRecordSet extends Object
+class SQLClientRecordSet extends ObjectFactory
 {
   public $fields=array();
 }

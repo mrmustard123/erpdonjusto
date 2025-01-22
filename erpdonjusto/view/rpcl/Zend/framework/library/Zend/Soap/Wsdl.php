@@ -38,12 +38,12 @@ require_once "Zend/Soap/Wsdl/Strategy/Abstract.php";
 class Zend_Soap_Wsdl
 {
     /**
-     * @var object DomDocument Instance
+     * @var ObjectFactory DomDocument Instance
      */
     private $_dom;
 
     /**
-     * @var object WSDL Root XML_Tree_Node
+     * @var ObjectFactory WSDL Root XML_Tree_Node
      */
     private $_wsdl;
 
@@ -184,7 +184,7 @@ class Zend_Soap_Wsdl
      *                     The array is constructed like: 'name of part' => 'part xml schema data type'
      *                     or 'name of part' => array('type' => 'part xml schema type')
      *                     or 'name of part' => array('element' => 'part xml element name')
-     * @return object The new message's XML_Tree_Node for use in {@link function addDocumentation}
+     * @return ObjectFactory The new message's XML_Tree_Node for use in {@link function addDocumentation}
      */
     public function addMessage($name, $parts)
     {
@@ -216,7 +216,7 @@ class Zend_Soap_Wsdl
      * Add a {@link http://www.w3.org/TR/wsdl#_porttypes portType} element to the WSDL
      *
      * @param string $name portType element's name
-     * @return object The new portType's XML_Tree_Node for use in {@link function addPortOperation} and {@link function addDocumentation}
+     * @return ObjectFactory The new portType's XML_Tree_Node for use in {@link function addPortOperation} and {@link function addDocumentation}
      */
     public function addPortType($name)
     {
@@ -230,12 +230,12 @@ class Zend_Soap_Wsdl
     /**
      * Add an {@link http://www.w3.org/TR/wsdl#_request-response operation} element to a portType element
      *
-     * @param object $portType a portType XML_Tree_Node, from {@link function addPortType}
+     * @param ObjectFactory $portType a portType XML_Tree_Node, from {@link function addPortType}
      * @param string $name Operation name
      * @param string $input Input Message
      * @param string $output Output Message
      * @param string $fault Fault Message
-     * @return object The new operation's XML_Tree_Node for use in {@link function addDocumentation}
+     * @return ObjectFactory The new operation's XML_Tree_Node for use in {@link function addDocumentation}
      */
     public function addPortOperation($portType, $name, $input = false, $output = false, $fault = false)
     {
@@ -268,7 +268,7 @@ class Zend_Soap_Wsdl
      *
      * @param string $name Name of the Binding
      * @param string $type name of the portType to bind
-     * @return object The new binding's XML_Tree_Node for use with {@link function addBindingOperation} and {@link function addDocumentation}
+     * @return ObjectFactory The new binding's XML_Tree_Node for use with {@link function addBindingOperation} and {@link function addDocumentation}
      */
     public function addBinding($name, $portType)
     {
@@ -284,11 +284,11 @@ class Zend_Soap_Wsdl
     /**
      * Add an operation to a binding element
      *
-     * @param object $binding A binding XML_Tree_Node returned by {@link function addBinding}
+     * @param ObjectFactory $binding A binding XML_Tree_Node returned by {@link function addBinding}
      * @param array $input An array of attributes for the input element, allowed keys are: 'use', 'namespace', 'encodingStyle'. {@link http://www.w3.org/TR/wsdl#_soap:body More Information}
      * @param array $output An array of attributes for the output element, allowed keys are: 'use', 'namespace', 'encodingStyle'. {@link http://www.w3.org/TR/wsdl#_soap:body More Information}
      * @param array $fault An array of attributes for the fault element, allowed keys are: 'name', 'use', 'namespace', 'encodingStyle'. {@link http://www.w3.org/TR/wsdl#_soap:body More Information}
-     * @return object The new Operation's XML_Tree_Node for use with {@link function addSoapOperation} and {@link function addDocumentation}
+     * @return ObjectFactory The new Operation's XML_Tree_Node for use with {@link function addSoapOperation} and {@link function addDocumentation}
      */
     public function addBindingOperation($binding, $name, $input = false, $output = false, $fault = false)
     {
@@ -336,7 +336,7 @@ class Zend_Soap_Wsdl
     /**
      * Add a {@link http://www.w3.org/TR/wsdl#_soap:binding SOAP binding} element to a Binding element
      *
-     * @param object $binding A binding XML_Tree_Node returned by {@link function addBinding}
+     * @param ObjectFactory $binding A binding XML_Tree_Node returned by {@link function addBinding}
      * @param string $style binding style, possible values are "rpc" (the default) and "document"
      * @param string $transport Transport method (defaults to HTTP)
      * @return boolean
@@ -355,7 +355,7 @@ class Zend_Soap_Wsdl
     /**
      * Add a {@link http://www.w3.org/TR/wsdl#_soap:operation SOAP operation} to an operation element
      *
-     * @param object $operation An operation XML_Tree_Node returned by {@link function addBindingOperation}
+     * @param ObjectFactory $operation An operation XML_Tree_Node returned by {@link function addBindingOperation}
      * @param string $soap_action SOAP Action
      * @return boolean
      */
@@ -379,7 +379,7 @@ class Zend_Soap_Wsdl
      * @param string $port_name Name of the port for the service
      * @param string $binding Binding for the port
      * @param string $location SOAP Address for the service
-     * @return object The new service's XML_Tree_Node for use with {@link function addDocumentation}
+     * @return ObjectFactory The new service's XML_Tree_Node for use with {@link function addDocumentation}
      */
     public function addService($name, $port_name, $binding, $location)
     {
@@ -411,7 +411,7 @@ class Zend_Soap_Wsdl
      * but the WSDL {@link http://schemas.xmlsoap.org/wsdl/ schema} uses 'documentation' instead.
      * The {@link http://www.ws-i.org/Profiles/BasicProfile-1.1-2004-08-24.html#WSDL_documentation_Element WS-I Basic Profile 1.1} recommends using 'documentation'.
      *
-     * @param object $input_node An XML_Tree_Node returned by another method to add the documentation to
+     * @param ObjectFactory $input_node An XML_Tree_Node returned by another method to add the documentation to
      * @param string $documentation Human readable documentation for the node
      * @return DOMElement The documentation element
      */
@@ -439,7 +439,7 @@ class Zend_Soap_Wsdl
     /**
      * Add WSDL Types element
      *
-     * @param object $types A DomDocument|DomNode|DomElement|DomDocumentFragment with all the XML Schema types defined in it
+     * @param ObjectFactory $types A DomDocument|DomNode|DomElement|DomDocumentFragment with all the XML Schema types defined in it
      */
     public function addTypes($types)
     {
@@ -503,7 +503,7 @@ class Zend_Soap_Wsdl
     /**
      * Return DOM Document
      *
-     * @return object DomDocum ent
+     * @return ObjectFactory DomDocum ent
      */
     public function toDomDocument()
     {

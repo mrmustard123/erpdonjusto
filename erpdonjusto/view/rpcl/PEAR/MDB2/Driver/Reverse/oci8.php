@@ -380,7 +380,7 @@ class MDB2_Driver_Reverse_oci8 extends MDB2_Driver_Reverse_Common
      *
      * NOTE: flags won't contain index information.
      *
-     * @param object|string  $result  MDB2_result object from a query or a
+     * @param ObjectFactory|string  $result  MDB2_result object from a query or a
      *                                 string containing the name of a table.
      *                                 While this also accepts a query result
      *                                 resource identifier, this behavior is

@@ -62,7 +62,7 @@ class MDB2_Driver_Reverse_fbsql extends MDB2_Driver_Reverse_Common
     /**
      * Returns information about a table or a result set
      *
-     * @param object|string  $result  MDB2_result object from a query or a
+     * @param ObjectFactory|string  $result  MDB2_result object from a query or a
      *                                 string containing the name of a table.
      *                                 While this also accepts a query result
      *                                 resource identifier, this behavior is

@@ -460,7 +460,7 @@ class MDB2_Driver_Reverse_ibase extends MDB2_Driver_Reverse_Common
      * NOTE: only supports 'table' and 'flags' if <var>$result</var>
      * is a table name.
      *
-     * @param object|string  $result  MDB2_result object from a query or a
+     * @param ObjectFactory|string  $result  MDB2_result object from a query or a
      *                                 string containing the name of a table.
      *                                 While this also accepts a query result
      *                                 resource identifier, this behavior is

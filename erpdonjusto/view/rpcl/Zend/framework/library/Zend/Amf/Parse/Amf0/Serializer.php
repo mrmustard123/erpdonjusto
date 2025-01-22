@@ -221,7 +221,7 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
     /**
      * Write a PHP array with string or mixed keys.
      *
-     * @param object $data
+     * @param ObjectFactory $data
      * @return Zend_Amf_Parse_Amf0_Serializer
      */
     public function writeObject($object)
@@ -294,7 +294,7 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
     /**
      * Write a class mapped object to the output stream.
      *
-     * @param  object $data
+     * @param  ObjectFactory $data
      * @return Zend_Amf_Parse_Amf0_Serializer
      */
     public function writeTypedObject($data)
@@ -323,7 +323,7 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
      * Find if the class name is a class mapped name and return the
      * respective classname if it is.
      *
-     * @param object $object
+     * @param ObjectFactory $object
      * @return false|string $className
      */
     protected function getClassName($object)

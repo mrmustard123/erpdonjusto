@@ -71,8 +71,7 @@ class ImageList extends Component
                 else
                 {
                         reset($this->_images);
-                        while(list($key, $val)=each($this->_images))
-                        {
+                        foreach ($this->_images as $key => $val) {
                                 if ($key==$index) return($val);
                         }
                         return false;

@@ -574,8 +574,8 @@ class DB_common extends PEAR
      * </li><li>
      * <var>result_buffering</var> <kbd>integer</kbd> = <samp>500</samp>
      *      <br />how many rows of the result set should be buffered?
-     *      <br />In mysql: mysql_unbuffered_query() is used instead of
-     *            mysql_query() if this value is 0.  (Release 1.7.0)
+     *      <br />In mysql: mysqli_unbuffered_query() is used instead of
+     *            mysqli_query() if this value is 0.  (Release 1.7.0)
      *      <br />In oci8: this value is passed to ocisetprefetch().
      *            (Release 1.7.0)
      * </li><li>
@@ -1869,7 +1869,7 @@ class DB_common extends PEAR
      * @param mixed   native error code, integer or string depending the
      *                 backend
      *
-     * @return object  the PEAR_Error object
+     * @return ObjectFactory  the PEAR_Error object
      *
      * @see PEAR_Error
      */
@@ -2064,7 +2064,7 @@ class DB_common extends PEAR
      * If the 'portability' option has <samp>DB_PORTABILITY_LOWERCASE</samp>
      * turned on, the names of tables and fields will be lowercased.
      *
-     * @param object|string  $result  DB_result object from a query or a
+     * @param ObjectFactory|string  $result  DB_result object from a query or a
      *                                string containing the name of a table.
      *                                While this also accepts a query result
      *                                resource identifier, this behavior is

@@ -60,7 +60,7 @@ PEAR_Command::setFrontendType('CLI');
 $all_commands = PEAR_Command::getCommands();
 
 // remove this next part when we stop supporting that crap-ass PHP 4.2
-if (!isset($_SERVER['argv']) && !isset($argv) && !isset($HTTP_SERVER_VARS['argv'])) {
+if (!isset($_SERVER['argv']) && !isset($argv) && !isset($_SERVER['argv'])) {
     echo 'ERROR: either use the CLI php executable, or set register_argc_argv=On in php.ini';
     exit(1);
 }

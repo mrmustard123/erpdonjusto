@@ -144,7 +144,7 @@ class Zend_Amf_Parse_Amf0_Deserializer extends Zend_Amf_Parse_Deserializer
      * Called when the marker type is 3.
      *
      * @param  array|null $object
-     * @return object
+     * @return ObjectFactory
      */
     public function readObject($object = null)
     {
@@ -173,7 +173,7 @@ class Zend_Amf_Parse_Amf0_Deserializer extends Zend_Amf_Parse_Deserializer
      * Used to gain access to the private array of reference objects.
      * Called when marker type is 7.
      *
-     * @return object
+     * @return ObjectFactory
      * @throws Zend_Amf_Exception for invalid reference keys
      */
     public function readReference()
@@ -257,7 +257,7 @@ class Zend_Amf_Parse_Amf0_Deserializer extends Zend_Amf_Parse_Deserializer
      * Commonly used for Value Objects on the server
      *
      * @todo   implement Typed Class mapping
-     * @return object|array
+     * @return ObjectFactory|array
      * @throws Zend_Amf_Exception if unable to load type
      */
     public function readTypedObject()

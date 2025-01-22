@@ -49,7 +49,7 @@ class Zend_Server_Reflection
      * If extra arguments should be passed to dispatchable methods, these may
      * be provided as an array to $argv.
      *
-     * @param string|object $class Class name or object
+     * @param string|ObjectFactory $class Class name or object
      * @param null|array $argv Optional arguments to be used during the method call
      * @param string $namespace Optional namespace with which to prefix the
      * method name (used for the signature key). Primarily to avoid collisions,

@@ -565,7 +565,7 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
     /**
      * Registers a helper object, bypassing plugin loader
      *
-     * @param  Zend_View_Helper_Abstract|object $helper
+     * @param  Zend_View_Helper_Abstract|ObjectFactory $helper
      * @param  string $name
      * @return Zend_View_Abstract
      * @throws Zend_View_Exception
@@ -603,7 +603,7 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
      * Get a helper by name
      *
      * @param  string $name
-     * @return object
+     * @return ObjectFactory
      */
     public function getHelper($name)
     {
@@ -666,7 +666,7 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
      * Get a filter object by name
      *
      * @param  string $name
-     * @return object
+     * @return ObjectFactory
      */
     public function getFilter($name)
     {
@@ -1154,7 +1154,7 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
      *
      * @param  string $type
      * @param  string $name
-     * @return object
+     * @return ObjectFactory
      */
     private function _getPlugin($type, $name)
     {

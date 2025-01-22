@@ -105,7 +105,7 @@ class MDB2_Driver_Manager_fbsql extends MDB2_Driver_Manager_Common
     /**
      * drop an existing table
      *
-     * @param object    $dbs        database object that is extended by this class
+     * @param ObjectFactory    $dbs        database object that is extended by this class
      * @param string $name name of the table that should be dropped
      * @return mixed MDB2_OK on success, a MDB2 error on failure
      * @access public

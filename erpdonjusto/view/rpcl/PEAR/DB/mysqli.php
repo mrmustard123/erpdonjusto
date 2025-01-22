@@ -389,8 +389,8 @@ class DB_mysqli extends DB_common
         }
         if (!$this->autocommit && $ismanip) {
             if ($this->transaction_opcount == 0) {
-                $result = @mysqli_query($this->connection, 'SET AUTOCOMMIT=0');
-                $result = @mysqli_query($this->connection, 'BEGIN');
+                $result = @mysqli_query('SET AUTOCOMMIT=0',$this->connection);
+                $result = @mysqli_query('BEGIN', $this->connection);
                 if (!$result) {
                     return $this->mysqliRaiseError();
                 }
@@ -903,7 +903,7 @@ class DB_mysqli extends DB_common
      *                     DB_ERROR* constant here.  If this isn't passed
      *                     the error information gathered from the DBMS.
      *
-     * @return object  the DB_Error object
+     * @return ObjectFactory  the DB_Error object
      *
      * @see DB_common::raiseError(),
      *      DB_mysqli::errorNative(), DB_common::errorCode()
@@ -947,7 +947,7 @@ class DB_mysqli extends DB_common
     /**
      * Returns information about a table or a result set
      *
-     * @param object|string  $result  DB_result object from a query or a
+     * @param ObjectFactory|string  $result  DB_result object from a query or a
      *                                 string containing the name of a table.
      *                                 While this also accepts a query result
      *                                 resource identifier, this behavior is
@@ -966,8 +966,7 @@ class DB_mysqli extends DB_common
              * Probably received a table name.
              * Create a result resource identifier.
              */
-            $id = @mysqli_query($this->connection,
-                                "SELECT * FROM $result LIMIT 0");
+            $id = @mysqli_query("SELECT * FROM $result LIMIT 0",$this->connection);
             $got_string = true;
         } elseif (isset($result->result)) {
             /*

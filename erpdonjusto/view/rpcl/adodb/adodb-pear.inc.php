@@ -105,7 +105,7 @@ class DB
 	 *
 	 * @param $type string database type, for example "mysql"
 	 *
-	 * @return object a newly created DB object, or a DB error code on
+	 * @return ObjectFactory a newly created DB object, or a DB error code on
 	 * error
 	 */
 
@@ -130,7 +130,7 @@ class DB
 	 * DB_common::setOption for more information on connection
 	 * options.
 	 *
-	 * @return object a newly created DB connection object, or a DB
+	 * @return ObjectFactory a newly created DB connection object, or a DB
 	 * error object on error
 	 *
 	 * @see DB::parseDSN

@@ -35,7 +35,7 @@ fclose($fp);
  *
  * Prints out an error message and kills the process.
  *
- * @param object  $o  PEAR error object automatically passed to this method
+ * @param ObjectFactory  $o  PEAR error object automatically passed to this method
  * @return void
  * @see PEAR::setErrorHandling()
  */

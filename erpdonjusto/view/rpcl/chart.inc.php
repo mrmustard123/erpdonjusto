@@ -91,7 +91,7 @@ class SimpleChart extends GraphicControl
         *
         * @see getChartType()
         *
-        * @return object Chart object.
+        * @return ObjectFactory Chart object.
         */
         function createChart()
         {
@@ -400,7 +400,7 @@ class SimpleChart extends GraphicControl
         *
         * @see getChartType()
         *
-        * @return object
+        * @return ObjectFactory
         */
         function readChart() { return $this->_chart; }
 

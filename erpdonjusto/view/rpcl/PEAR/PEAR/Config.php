@@ -630,7 +630,7 @@ class PEAR_Config extends PEAR
      * @param string (optional) file to read user-defined options from
      * @param string (optional) file to read system-wide defaults from
      *
-     * @return object an existing or new PEAR_Config instance
+     * @return ObjectFactory an existing or new PEAR_Config instance
      *
      * @access public
      *

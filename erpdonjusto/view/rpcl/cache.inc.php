@@ -37,7 +37,7 @@
       * If the identifier already exists, meaning the content has been already cached,
       * then should dump out the cached content and return true.
       *
-      * @param object $control Control to be cached
+      * @param ObjectFactory $control Control to be cached
       * @param string $cachetype A prefix to specify what kind of contents are going to be cached
       *
       * @return boolean True if the content was already cached

@@ -55,7 +55,7 @@ class Zend_Service_StrikeIron
      * instance.
      *
      * @param  null|string  $options  Service options
-     * @return object       Zend_Service_StrikeIron_* instance
+     * @return ObjectFactory       Zend_Service_StrikeIron_* instance
      * @throws Zend_Service_StrikeIron_Exception
      */
     public function getService($options = array())

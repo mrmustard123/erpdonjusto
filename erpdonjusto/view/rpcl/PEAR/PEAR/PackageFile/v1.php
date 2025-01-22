@@ -303,7 +303,7 @@ class PEAR_PackageFile_v1
 
     /**
      * An object that contains a log method that matches PEAR_Common::log's signature
-     * @var object
+     * @var ObjectFactory
      * @access private
      */
     var $_logger;
