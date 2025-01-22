@@ -1,1 +1,5 @@
 18ene2025: Se ha anulado el asiento que alimentaba la caja de ahorros para impuestos por causa de que impuestos es un costo fijo y desde ahora se asignará desde caja de ahorros de reserva. view_consign.php
+
+22:44 20/01/2025 Voy a modificar el view_consign.php "payment" para que no haya código repetido.
+
+20:22 21/01/2025 He modificado view_consign.php para que no haya código repetido y además he alterado la política de ahorro de impuesto pasando a ser fijo y por ende se pasa a caja de ahorro reserva para de ahí asignar cuando sea necesario.

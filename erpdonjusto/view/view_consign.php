@@ -931,36 +931,15 @@ class view_consign extends Page
                     return $costos_por_cobrar_id;
 
      }
-
-
-     function consignation_payment($cuentas_por_cobrar_clientes, $consignee_account_id,$unit_price, $consignatario, $cantidad, $pago_normal, $pago_por_cobrar, $producto,$product_id,$production_cost,$product_account_id,$utilidades_account_id, $caja_general_account_id,$user_id, $comments,$fecha_actual,$cuentas_por_cobrar_a_clientes_account_id){
-
-            /* TO DO:
-             * 1.- Crear asientos en la contabilidad
-             * 1.1.- Insertar asiento de costo en almacÃ©n
-             * 1.2.- Insertar asiento de utilidades
-             * 1.3.- Insertar asiento en Caja General
-             */
-
-            date_default_timezone_set('America/La_Paz');
-
-            $this->consig_prod_list->fieldset('consig_date', $fecha_actual);
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////CUENTAS POR COBRAR/////////////////////////////////////////////////////////////////////
-
-
-
-            if($cuentas_por_cobrar_clientes >0){
-
+     
+     
+    function process_payment_type($pago, $account_id,$fecha_actual, $comments, $unit_price, $user_id, $product_id){
+//$cuentas_por_cobrar_clientes, $consignee_account_id,$unit_price, $consignatario, $cantidad, $pago_normal, $pago_por_cobrar, $producto,$product_id,$production_cost,$product_account_id,$utilidades_account_id, $caja_general_account_id,$user_id, $comments,$fecha_actual,$cuentas_por_cobrar_a_clientes_account_id        
 
 
                    /* Poner en el Debe lo que entra a Venta de Productos Terminados
                     VOY A ANULAR ESTA PARTE PARA CLARIDAD EN LA CONTABILIDAD 09NOV2022*/
-                /*07mar2023: lo voy a reestablecer*/
+                   /*07mar2023: lo voy a reestablecer*/
 
                    $this->configuration_list->close();
                    $this->configuration_list->Filter = " config_name= 'CTA. VENTA DE PRODUCTOS TERMINADOS' ";
@@ -977,7 +956,7 @@ class view_consign extends Page
                    $this->entry_list->append();
                    $this->entry_list->fieldset('entry_date',$fecha_actual);
                    $this->entry_list->fieldset('details',utf8_encode($comments));
-                   $balance1 = $unit_price * $pago_por_cobrar;
+                   $balance1 = $unit_price * $pago;
                    $this->entry_list->fieldset('balance', $balance1 );
                    $this->entry_list->fieldset('account_id', $venta_de_productos_terminados_id);
                    $this->entry_list->fieldset('user_id',$user_id);
@@ -986,17 +965,18 @@ class view_consign extends Page
                    $this->entry_list->post();
 
 
-                    //Colocar en el Haber lo que sale de Cuentas por cobrar X
+                    //Si es pago por cobrar, colocar en el Haber lo que sale de cuentas x cobrar ó
+                   // si es pago normal , colocar en el Haber lo que sale de consignación X
 
 
-                    $balance = $unit_price*$pago_por_cobrar*-1;
+                    $balance = $unit_price*$pago*-1;
 
 
                     $this->entry_list->append();
                     $this->entry_list->fieldset('entry_date',$fecha_actual);
                     $this->entry_list->fieldset('details',utf8_encode($comments));
                     $this->entry_list->fieldset('balance', $balance );
-                    $this->entry_list->fieldset('account_id', $cuentas_por_cobrar_a_clientes_account_id);
+                    $this->entry_list->fieldset('account_id', $account_id);
                     $this->entry_list->fieldset('user_id',$user_id);
                     $this->entry_list->fieldset('cbte_cont_tipo',$this->consig_prod_list->fieldget('cbte_cont_tipo'));
                     $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
@@ -1050,7 +1030,7 @@ class view_consign extends Page
                             //1.- AQUI PASAMOS LO QUE ES PARA EL AHORRO PARA PAGO DE MANO DE OBRA
                             if($prod_cost_prod[$i]['saving_type']=='MANO DE OBRA'){
 
-                                $caja_de_ahorro_mano_de_obra=$caja_de_ahorro_mano_de_obra+($pago_por_cobrar * $prod_cost_prod[$i]['cost_value']);
+                                $caja_de_ahorro_mano_de_obra=$caja_de_ahorro_mano_de_obra+($pago * $prod_cost_prod[$i]['cost_value']);
                                 $caja_de_ahorro_mano_de_obra_id=$prod_cost_prod[$i]['saving_id'];
 
 
@@ -1060,7 +1040,7 @@ class view_consign extends Page
                             //2.- AQUI PASAMOS LO QUE ES PARA EL AHORRO DE COSTOS DE PRODUCCION
                             if($prod_cost_prod[$i]['saving_type']=='PRODUCCION'){
 
-                                $caja_de_ahorro_costos_produccion=$caja_de_ahorro_costos_produccion+($pago_por_cobrar * $prod_cost_prod[$i]['cost_value']);
+                                $caja_de_ahorro_costos_produccion=$caja_de_ahorro_costos_produccion+($pago * $prod_cost_prod[$i]['cost_value']);
                                 $caja_de_ahorro_costos_produccion_id=$prod_cost_prod[$i]['saving_id'];
 
 
@@ -1070,7 +1050,7 @@ class view_consign extends Page
                             //3.- AQUI PASAMO LO QUE ES PARA EL AHORRO DE COSTOS DE COMERCIALIZACION
                             if($prod_cost_prod[$i]['saving_type']=='COMERCIALIZ'){
 
-                                $caja_de_ahorro_costos_comercializacion=$caja_de_ahorro_costos_comercializacion+($pago_por_cobrar * ($prod_cost_prod[$i]['cost_value']*$unit_price));
+                                $caja_de_ahorro_costos_comercializacion=$caja_de_ahorro_costos_comercializacion+($pago * ($prod_cost_prod[$i]['cost_value']*$unit_price));
                                 $caja_de_ahorro_costos_comercializacion_id=$prod_cost_prod[$i]['saving_id'];
 
 
@@ -1080,7 +1060,7 @@ class view_consign extends Page
                             //4.- AQUI PASAMOS LO QUE ES PARA EL AHORRO DE COSTOS DE ENVASES
                             if($prod_cost_prod[$i]['saving_type']=='ENVASE'){
 
-                                $caja_de_ahorro_envases=$caja_de_ahorro_envases+($pago_por_cobrar * $prod_cost_prod[$i]['cost_value']);
+                                $caja_de_ahorro_envases=$caja_de_ahorro_envases+($pago * $prod_cost_prod[$i]['cost_value']);
                                 $caja_de_ahorro_envases_id=$prod_cost_prod[$i]['saving_id'];
 
 
@@ -1089,7 +1069,7 @@ class view_consign extends Page
                             //5.- AQUI PASAMOS LO QUE ES PARA EL AHORRO PARA IMPUESTOS
                             if($prod_cost_prod[$i]['saving_type']=='IMPUESTOS'){
 
-                                $caja_de_ahorro_impuestos=$caja_de_ahorro_impuestos+($pago_por_cobrar * ($prod_cost_prod[$i]['cost_value']*$unit_price));
+                                $caja_de_ahorro_impuestos=$caja_de_ahorro_impuestos+($pago * ($prod_cost_prod[$i]['cost_value']*$unit_price));
                                 $caja_de_ahorro_impuestos_id= $prod_cost_prod[$i]['saving_id'];
 
 
@@ -1097,8 +1077,8 @@ class view_consign extends Page
 
                             //6.- AQUI PASAMOS LO QUE ES PARA EL AHORRO DE COSTOS DE PRODUCCION DE MATERIAS PRIMAS
                             if($prod_cost_prod[$i]['saving_type']=='MAT. PRIM.'){
-
-                                $caja_de_ahorro_mat_prim=$caja_de_ahorro_mat_prim+($pago_por_cobrar * $prod_cost_prod[$i]['cost_value']);
+                                
+                                $caja_de_ahorro_mat_prim=$caja_de_ahorro_mat_prim+($pago * $prod_cost_prod[$i]['cost_value']);
                                 $caja_de_ahorro_mat_prim_id=$prod_cost_prod[$i]['saving_id'];
 
 
@@ -1109,7 +1089,7 @@ class view_consign extends Page
                             //7.- AQUI PASAMOS LO QUE ES PARA EL AHORRO DE RESERVAS
                             if($prod_cost_prod[$i]['saving_type']=='RESERVA'){
 
-                                $caja_de_ahorro_reserva=$caja_de_ahorro_reserva+($pago_por_cobrar * ($prod_cost_prod[$i]['cost_value']*$unit_price));
+                                $caja_de_ahorro_reserva=$caja_de_ahorro_reserva+($pago * ($prod_cost_prod[$i]['cost_value']*$unit_price));
                                 $caja_de_ahorro_reserva_id=$prod_cost_prod[$i]['saving_id'];
 
 
@@ -1179,12 +1159,13 @@ class view_consign extends Page
                             $this->entry_list->post();
                         }
 
-                        /*COSTOS POR COBRAR:
+                        /*
                          * 18ene2025: Se borrara este asiento por que los impuestos son 
                          * un costo fijo.
                          */
-                        //ASIENTO DE CAJA DE AHORRO PARA IMPUESTOS
-                        /*if($caja_de_ahorro_impuestos!=0)
+                        //ASIENT0 DE CAJA DE AHORRO PARA IMPUESTOS
+                        /*
+                        if($caja_de_ahorro_impuestos!=0)
                         {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
@@ -1198,9 +1179,9 @@ class view_consign extends Page
                             $this->entry_list->post();
                         }
                         */
-                        
-                        /*CUENTAS POR COBRAR:
-                        * 
+
+                        /*
+                         * 
                         **03sept2021: Estoy anulando este codigo por que a partir de ahora*
                          * la caja de ahorro de mat. prim. sera un costo fijo y se sacara de
                          * caja de ahorro reserva de forma anual.
@@ -1211,8 +1192,9 @@ class view_consign extends Page
                          ***/
 
                         //ASIENTO DE CAJA DE AHORRO DE MATERIAS PRIMAS
-                       if($caja_de_ahorro_mat_prim!=0)
-                       {
+                        /*
+                        if($caja_de_ahorro_mat_prim!=0)
+                        {
                             $this->entry_list->append();
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('details',$comments);
@@ -1223,9 +1205,11 @@ class view_consign extends Page
                             $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
                             $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
                             $this->entry_list->post();
-                       }
+                        } 
                         /*/
 
+
+                        /***Entonces adicionamos este nuevo codigo***/
                         /*$caja_de_ahorro_reserva = $caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim; Ya no adicionaremos a reserva lo de mat. primas*/
 
                         //ASIENTO DE CAJA DE AHORRO PARA FONDO DE RESERVA
@@ -1235,8 +1219,9 @@ class view_consign extends Page
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
                             $this->entry_list->fieldset('details',utf8_encode($comments));
                             $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            //$this->entry_list->fieldset('balance', $caja_de_ahorro_reserva);
-                            $this->entry_list->fieldset('balance', $caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim);
+                            /*El ahorro de materias primas y el ahorro para impuestos los sumaremos a reserva*/
+                            $caja_de_ahorro_reserva=$caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim+$caja_de_ahorro_impuestos;                          
+                            $this->entry_list->fieldset('balance', $caja_de_ahorro_reserva);
                             $this->entry_list->fieldset('account_id',$caja_de_ahorro_reserva_id);
                             $this->entry_list->fieldset('user_id',$user_id);
                             $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
@@ -1265,9 +1250,14 @@ class view_consign extends Page
                         $costos = $caja_de_ahorro_mano_de_obra+$caja_de_ahorro_impuestos+$caja_de_ahorro_costos_comercializacion+$caja_de_ahorro_costos_produccion+$caja_de_ahorro_reserva+$caja_de_ahorro_envases;*/
 
                         /*Revision 04ago2022: volvemos a lo anterior pues solo pondremos el costo en 0 */
-                        $costos = $caja_de_ahorro_mano_de_obra+$caja_de_ahorro_impuestos+$caja_de_ahorro_costos_comercializacion+$caja_de_ahorro_costos_produccion+$caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim+$caja_de_ahorro_envases;
+                        //$costos = $caja_de_ahorro_mano_de_obra+$caja_de_ahorro_impuestos+$caja_de_ahorro_costos_comercializacion+$caja_de_ahorro_costos_produccion+$caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim+$caja_de_ahorro_envases;
                         
-                        $caja_de_ahorro_utilidades = ($pago_por_cobrar*$unit_price)-$costos;
+                        /*Revision 21ene2025: quitaremos $caja_de_ahorro_mat_prim por que lo estamos sumando en $caja_de_ahorro_reserva, del mismo modo $caja_de_ahorro_impuestos pues se ha difinido que es un costo fijo */
+                        $costos = $caja_de_ahorro_mano_de_obra+$caja_de_ahorro_costos_comercializacion+$caja_de_ahorro_costos_produccion+$caja_de_ahorro_reserva+$caja_de_ahorro_envases;
+                        
+                        
+                      
+                        $caja_de_ahorro_utilidades = ($pago*$unit_price)-$costos;
 
                         $checksum = $checksum + $costos + $caja_de_ahorro_utilidades;
                         $balance_checksum = $costos + $caja_de_ahorro_utilidades;
@@ -1285,21 +1275,18 @@ class view_consign extends Page
                         $this->entry_list->post();
 
 
-                   /*Poner en el haber lo que sale de Venta de productos terminados */
+                        /*Poner en el haber lo que sale de Venta de productos terminados */
 
-                   $this->entry_list->append();
-                   $this->entry_list->fieldset('entry_date',$fecha_actual);
-                   $this->entry_list->fieldset('details',utf8_encode($comments));
-                   $balance2 = $unit_price * $pago_por_cobrar*-1;
-                   $this->entry_list->fieldset('balance', $balance2 );
-                   $this->entry_list->fieldset('account_id', $venta_de_productos_terminados_id);
-                   $this->entry_list->fieldset('user_id',$user_id);
-                   $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                   $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                   $this->entry_list->post();
-
-
-
+                        $this->entry_list->append();
+                        $this->entry_list->fieldset('entry_date',$fecha_actual);
+                        $this->entry_list->fieldset('details',utf8_encode($comments));
+                        $balance2 = $unit_price * $pago*-1;
+                        $this->entry_list->fieldset('balance', $balance2 );
+                        $this->entry_list->fieldset('account_id', $venta_de_productos_terminados_id);
+                        $this->entry_list->fieldset('user_id',$user_id);
+                        $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
+                        $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
+                        $this->entry_list->post();
 
 
                         $this->qry_budget->close();
@@ -1319,387 +1306,38 @@ class view_consign extends Page
                         $this->tbbalance_checksum1->post();
 
                     }//end if
+                             
+                  
+         
+     }//end function process_payment_type
 
+
+     function consignation_payment($cuentas_por_cobrar_clientes, $consignee_account_id,$unit_price, $consignatario, $cantidad, $pago_normal, $pago_por_cobrar, $producto,$product_id,$production_cost,$product_account_id,$utilidades_account_id, $caja_general_account_id,$user_id, $comments,$fecha_actual,$cuentas_por_cobrar_a_clientes_account_id){
+
+            /* TO DO:
+             * 1.- Crear asientos en la contabilidad
+             * 1.1.- Insertar asiento de costo en almacÃ©n
+             * 1.2.- Insertar asiento de utilidades
+             * 1.3.- Insertar asiento en Caja General
+             */
+
+            date_default_timezone_set('America/La_Paz');
+
+            $this->consig_prod_list->fieldset('consig_date', $fecha_actual);
+
+
+            if($cuentas_por_cobrar_clientes >0){                          
+                    $pago=$pago_por_cobrar;
+                    $account_id = $cuentas_por_cobrar_a_clientes_account_id;                    
             }//end if(cuentas_por_cobrar_a_clientes >0)
 
-
-
-
-//////////////////////////PAGO NORMAL////////////////////////////////////////////
-
-
-
-
-
-            if($pago_normal>0){
-
-
-
-
-                   /* Poner en el Debe lo que entra a Venta de Productos Terminados
-                    VOY A ANULAR ESTA PARTE PARA CLARIDAD EN LA CONTABILIDAD 09NOV2022*/
-                   /*07mar2023: lo voy a reestablecer*/
-
-                   $this->configuration_list->close();
-                   $this->configuration_list->Filter = " config_name= 'CTA. VENTA DE PRODUCTOS TERMINADOS' ";
-                   $this->configuration_list->open();
-
-                   $venta_de_productos_terminados_id = $this->configuration_list->fieldget('config_value');
-
-                   $this->configuration_list->close();
-                   $this->configuration_list->Filter = "";
-                   $this->configuration_list->open();
-
-
-                   /*Poner en el debe lo que entra a Venta de productos terminados*/
-
-                   $this->entry_list->append();
-                   $this->entry_list->fieldset('entry_date',$fecha_actual);
-                   $this->entry_list->fieldset('details',utf8_encode($comments));
-                   $balance1 = $unit_price * $pago_normal;
-                   $this->entry_list->fieldset('balance', $balance1 );
-                   $this->entry_list->fieldset('account_id', $venta_de_productos_terminados_id);
-                   $this->entry_list->fieldset('user_id',$user_id);
-                   $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                   $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                   $this->entry_list->post();
-
-
-                    //Colocar en el Haber lo que sale de consignación X
-
-
-                    $balance = $unit_price*$pago_normal*-1;
-
-
-                    $this->entry_list->append();
-                    $this->entry_list->fieldset('entry_date',$fecha_actual);
-                    $this->entry_list->fieldset('details',utf8_encode($comments));
-                    $this->entry_list->fieldset('balance', $balance );
-                    $this->entry_list->fieldset('account_id', $consignee_account_id);
-                    $this->entry_list->fieldset('user_id',$user_id);
-                    $this->entry_list->fieldset('cbte_cont_tipo',$this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                    $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                    $this->entry_list->post();
-
-
-
-                    //Obtenemos los costos para este producto
-
-                    $prod_cost_prod = $this->getProdCostProdCollection($product_id);
-                    if($prod_cost_prod){
-
-
-                        //TO DO: Asentar los costos de produccion y crear el(los)
-                        //producto(s) por los que se esta pagando.
-
-                        $longitud = count($prod_cost_prod);
-
-
-                        $caja_de_ahorro_mano_de_obra=0;
-                        $caja_de_ahorro_impuestos=0;
-                        $caja_de_ahorro_costos_comercializacion=0;
-                        $caja_de_ahorro_costos_produccion=0;
-                        $caja_de_ahorro_reserva=0;
-                        $caja_de_ahorro_mat_prim=0;
-                        $caja_de_ahorro_envases=0;
-                        $caja_de_ahorro_utilidades=0;
-
-                        $caja_de_ahorro_mano_de_obra_id=0;
-                        $caja_de_ahorro_impuestos_id=0;
-                        $caja_de_ahorro_costos_comercializacion_id=0;
-                        $caja_de_ahorro_costos_produccion_id=0;
-                        $caja_de_ahorro_reserva_id=0;
-                        $caja_de_ahorro_mat_prim_id=0;
-                        $caja_de_ahorro_envases_id=0;
-                        $caja_de_ahorro_utilidades_id=0;
-
-
-                        $this->tbbalance_checksum1->refresh();
-
-                        $this->tbbalance_checksum1->last();
-
-                        $checksum = $this->tbbalance_checksum1->fieldget('checksum');
-
-
-                        for($i=1;$i<=$longitud;$i++){
-
-
-
-                            //1.- AQUI PASAMOS LO QUE ES PARA EL AHORRO PARA PAGO DE MANO DE OBRA
-                            if($prod_cost_prod[$i]['saving_type']=='MANO DE OBRA'){
-
-                                $caja_de_ahorro_mano_de_obra=$caja_de_ahorro_mano_de_obra+($pago_normal * $prod_cost_prod[$i]['cost_value']);
-                                $caja_de_ahorro_mano_de_obra_id=$prod_cost_prod[$i]['saving_id'];
-
-
-                            }//end if
-
-
-                            //2.- AQUI PASAMOS LO QUE ES PARA EL AHORRO DE COSTOS DE PRODUCCION
-                            if($prod_cost_prod[$i]['saving_type']=='PRODUCCION'){
-
-                                $caja_de_ahorro_costos_produccion=$caja_de_ahorro_costos_produccion+($pago_normal * $prod_cost_prod[$i]['cost_value']);
-                                $caja_de_ahorro_costos_produccion_id=$prod_cost_prod[$i]['saving_id'];
-
-
-                            }//end if
-
-
-                            //3.- AQUI PASAMO LO QUE ES PARA EL AHORRO DE COSTOS DE COMERCIALIZACION
-                            if($prod_cost_prod[$i]['saving_type']=='COMERCIALIZ'){
-
-                                $caja_de_ahorro_costos_comercializacion=$caja_de_ahorro_costos_comercializacion+($pago_normal * ($prod_cost_prod[$i]['cost_value']*$unit_price));
-                                $caja_de_ahorro_costos_comercializacion_id=$prod_cost_prod[$i]['saving_id'];
-
-
-                            }//end if
-
-
-                            //4.- AQUI PASAMOS LO QUE ES PARA EL AHORRO DE COSTOS DE ENVASES
-                            if($prod_cost_prod[$i]['saving_type']=='ENVASE'){
-
-                                $caja_de_ahorro_envases=$caja_de_ahorro_envases+($pago_normal * $prod_cost_prod[$i]['cost_value']);
-                                $caja_de_ahorro_envases_id=$prod_cost_prod[$i]['saving_id'];
-
-
-                            }//end if
-
-                            //5.- AQUI PASAMOS LO QUE ES PARA EL AHORRO PARA IMPUESTOS
-                            if($prod_cost_prod[$i]['saving_type']=='IMPUESTOS'){
-
-                                $caja_de_ahorro_impuestos=$caja_de_ahorro_impuestos+($pago_normal * ($prod_cost_prod[$i]['cost_value']*$unit_price));
-                                $caja_de_ahorro_impuestos_id= $prod_cost_prod[$i]['saving_id'];
-
-
-                            }//end if
-
-                            //6.- AQUI PASAMOS LO QUE ES PARA EL AHORRO DE COSTOS DE PRODUCCION DE MATERIAS PRIMAS
-                            if($prod_cost_prod[$i]['saving_type']=='MAT. PRIM.'){
-                                $caja_de_ahorro_mat_prim=$caja_de_ahorro_mat_prim+($pago_normal * $prod_cost_prod[$i]['cost_value']);
-                                $caja_de_ahorro_mat_prim_id=$prod_cost_prod[$i]['saving_id'];
-                            }//end if
-
-
-
-                            //7.- AQUI PASAMOS LO QUE ES PARA EL AHORRO DE RESERVAS
-                            if($prod_cost_prod[$i]['saving_type']=='RESERVA'){
-
-                                $caja_de_ahorro_reserva=$caja_de_ahorro_reserva+($pago_normal * ($prod_cost_prod[$i]['cost_value']*$unit_price));
-                                $caja_de_ahorro_reserva_id=$prod_cost_prod[$i]['saving_id'];
-
-
-                            }//end if
-
-                        }//end for
-
-                        //ASIENTO DE CAJA DE AHORRO PARA MANO DE OBRA
-                        if($caja_de_ahorro_mano_de_obra!=0)
-                        {
-                            $this->entry_list->append();
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',utf8_encode($comments));
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('balance', $caja_de_ahorro_mano_de_obra );
-                            $this->entry_list->fieldset('account_id', $caja_de_ahorro_mano_de_obra_id);
-                            $this->entry_list->fieldset('user_id',$user_id);
-                            $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                            $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                            $this->entry_list->post();
-                        }
-
-
-                        //ASIENTO DE CAJA DE AHORRO PARA COSTOS DE PRODUCCION
-                        if($caja_de_ahorro_costos_produccion!=0)
-                        {
-                            $this->entry_list->append();
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',utf8_encode($comments));
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('balance', $caja_de_ahorro_costos_produccion);
-                            $this->entry_list->fieldset('account_id', $caja_de_ahorro_costos_produccion_id);
-                            $this->entry_list->fieldset('user_id',$user_id);
-                            $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                            $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                            $this->entry_list->post();
-                        }
-
-
-                        //ASIENTO DE CAJA DE AHORRO PARA COSTOS DE COMERCIALIZACION
-                        if($caja_de_ahorro_costos_comercializacion!=0)
-                        {
-                            $this->entry_list->append();
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',utf8_encode($comments));
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('balance', $caja_de_ahorro_costos_comercializacion );
-                            $this->entry_list->fieldset('account_id', $caja_de_ahorro_costos_comercializacion_id);
-                            $this->entry_list->fieldset('user_id',$user_id);
-                            $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                            $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                            $this->entry_list->post();
-                        }
-
-
-                        //ASIENTO DE CAJA DE AHORRO PARA ENVASES
-                        if($caja_de_ahorro_envases!=0)
-                        {
-                            $this->entry_list->append();
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',utf8_encode($comments));
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('balance', $caja_de_ahorro_envases );
-                            $this->entry_list->fieldset('account_id', $caja_de_ahorro_envases_id);
-                            $this->entry_list->fieldset('user_id',$user_id);
-                            $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                            $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                            $this->entry_list->post();
-                        }
-
-                        /*PAGO NORMAL:
-                         * 18ene2025: Se borrara este asiento por que los impuestos son 
-                         * un costo fijo.
-                         */
-                        //ASIENT0 DE CAJA DE AHORRO PARA IMPUESTOS
-                        /*
-                        if($caja_de_ahorro_impuestos!=0)
-                        {
-                            $this->entry_list->append();
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',utf8_encode($comments));
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('balance', $caja_de_ahorro_impuestos );
-                            $this->entry_list->fieldset('account_id', $caja_de_ahorro_impuestos_id);
-                            $this->entry_list->fieldset('user_id',$user_id);
-                            $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                            $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                            $this->entry_list->post();
-                        }
-                        */
-
-                        /*PAGO NORMAL:
-                         * **03sept2021: Estoy anulando este codigo por que a partir de ahora
-                         * la caja de ahorro de mat. prim. sera un costo fijo y se sacara de
-                         * caja de ahorro reserva de forma anual.
-                         * REVISION 04AGO2022: Lo volvere a habilitar pues lo que haremos
-                         * es poner este costo en 0
-                         * REVISION 08feb2023: Ha cambiado la politica de la empresa.
-                         * Ahora lo de mat. primas no irá a utilidades sino a reserva.
-                         ***/
-
-                        //ASIENTO DE CAJA DE AHORRO PARA PRODUCCION DE MATERIAS PRIMAS
-                        if($caja_de_ahorro_mat_prim!=0)
-                        {
-                            $this->entry_list->append();
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',$comments);
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('balance', $caja_de_ahorro_mat_prim );
-                            $this->entry_list->fieldset('account_id', $caja_de_ahorro_mat_prim_id);
-                            $this->entry_list->fieldset('user_id',$user_id);
-                            $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                            $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                            $this->entry_list->post();
-                        } 
-                        /*/
-
-
-                        /***Entonces adicionamos este nuevo codigo***/
-                        /*$caja_de_ahorro_reserva = $caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim;  Ya no adicionaremos a mat. prim a reserva*/
-
-                        //ASIENTO DE CAJA DE AHORRO PARA FONDO DE RESERVA
-                        if($caja_de_ahorro_reserva!=0)
-                        {
-                            $this->entry_list->append();
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            $this->entry_list->fieldset('details',utf8_encode($comments));
-                            $this->entry_list->fieldset('entry_date',$fecha_actual);
-                            //$this->entry_list->fieldset('balance', $caja_de_ahorro_reserva );
-                            $this->entry_list->fieldset('balance', $caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim);
-                            $this->entry_list->fieldset('account_id',$caja_de_ahorro_reserva_id);
-                            $this->entry_list->fieldset('user_id',$user_id);
-                            $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                            $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                            $this->entry_list->post();
-                        }
-
-
-
-                        //7.- AQUI PASAMOS LO QUE ES PARA EL AHORRO DE UTILIDADES
-
-                        $this->configuration_list->close();
-                        $this->configuration_list->Filter = " config_name= 'Caja de ahorro Utilidades' ";
-                        $this->configuration_list->open();
-
-                        $caja_de_ahorro_utilidades_id = $this->configuration_list->fieldget('config_value');
-
-                        $this->configuration_list->close();
-                        $this->configuration_list->Filter = "";
-                        $this->configuration_list->open();
-                        /**03sept2021: Cambiaremos esto pues lo de caja de ahorro mat. prim. lo estamos pasando a caja de ahorro de reserva
-                        $costos = $caja_de_ahorro_mano_de_obra+$caja_de_ahorro_impuestos+$caja_de_ahorro_costos_comercializacion+$caja_de_ahorro_costos_produccion+$caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim+$caja_de_ahorro_envases;
-                         **/
-                        /*Entonces quitamos lo de caja de ahorro mat. prim. de la suma:
-                        $costos = $caja_de_ahorro_mano_de_obra+$caja_de_ahorro_impuestos+$caja_de_ahorro_costos_comercializacion+$caja_de_ahorro_costos_produccion+$caja_de_ahorro_reserva+$caja_de_ahorro_envases; */
-
-                        /*Revision 04ago2022: volveremos a lo anterior pues solo pondremos el costo en 0*/
-                        $costos = $caja_de_ahorro_mano_de_obra+$caja_de_ahorro_impuestos+$caja_de_ahorro_costos_comercializacion+$caja_de_ahorro_costos_produccion+$caja_de_ahorro_reserva+$caja_de_ahorro_mat_prim+$caja_de_ahorro_envases;
-
-
-                        $caja_de_ahorro_utilidades = ($pago_normal*$unit_price)-$costos;
-
-                        $checksum = $checksum + $costos + $caja_de_ahorro_utilidades;
-                        $balance_checksum = $costos + $caja_de_ahorro_utilidades;
-
-
-                        $this->entry_list->append();
-                        $this->entry_list->fieldset('entry_date',$fecha_actual);
-                        $this->entry_list->fieldset('details',utf8_encode($comments));
-                        $this->entry_list->fieldset('entry_date',$fecha_actual);
-                        $this->entry_list->fieldset('balance', $caja_de_ahorro_utilidades );
-                        $this->entry_list->fieldset('account_id', $caja_de_ahorro_utilidades_id);
-                        $this->entry_list->fieldset('user_id',$user_id);
-                        $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                        $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                        $this->entry_list->post();
-
-
-
-                   /*Poner en el haber lo que sale de Venta de productos terminados */
-
-                   $this->entry_list->append();
-                   $this->entry_list->fieldset('entry_date',$fecha_actual);
-                   $this->entry_list->fieldset('details',utf8_encode($comments));
-                   $balance2 = $unit_price * $pago_normal*-1;
-                   $this->entry_list->fieldset('balance', $balance2 );
-                   $this->entry_list->fieldset('account_id', $venta_de_productos_terminados_id);
-                   $this->entry_list->fieldset('user_id',$user_id);
-                   $this->entry_list->fieldset('cbte_cont_tipo', $this->consig_prod_list->fieldget('cbte_cont_tipo'));
-                   $this->entry_list->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                   $this->entry_list->post();
-
-
-
-
-
-                        $this->qry_budget->close();
-                        $sql ="SELECT SUM(balance) as `Total` FROM `entry` WHERE account_id in (432, 413, 419, 433, 434, 435, 579,581, 582) AND entry_date BETWEEN '2019-06-28 11:48:46' AND NOW()";
-                        $this->qry_budget->SQL = $sql;
-                        $this->qry_budget->open();
-
-                        $budget = $this->qry_budget->fieldget('Total');
-
-
-                        $this->tbbalance_checksum1->append();
-                        $this->tbbalance_checksum1->fieldset('checksum_date', $fecha_actual);
-                        $this->tbbalance_checksum1->fieldset('checksum', $checksum);
-                        $this->tbbalance_checksum1->fieldset('budget', $budget);
-                        $this->tbbalance_checksum1->fieldset('cbte_cont_nro', $this->consig_prod_list->fieldget('cbte_cont_nro'));
-                        $this->tbbalance_checksum1->fieldset('balance', $balance_checksum );
-                        $this->tbbalance_checksum1->post();
-
-                    }//end if
-            }//end if pago normal
-
+             if($pago_normal>0){          
+                    $pago=$pago_normal;
+                    $account_id = $consignee_account_id;                        
+             }//end if pago normal
+
+             $this->process_payment_type($pago, $account_id,$fecha_actual, $comments, $unit_price, $user_id, $product_id);
+            
      }
 
 
