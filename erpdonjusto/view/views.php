@@ -4,8 +4,15 @@ class views
 {        
     public function views()
     {
+        /*constructor php 5*/
         
-    }        
+    }   
+    
+    public function _construct()
+    {
+        /*constructor php 8*/
+        
+    }       
     
     public function display_view_login($params)
     {                        

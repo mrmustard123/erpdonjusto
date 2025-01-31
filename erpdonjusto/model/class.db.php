@@ -6,10 +6,12 @@ class db    {
     public  $link;   
     
     function __construct() {
+        /*constructor php 8*/
         $this->link=null;
     }
     
     function db(){
+        /*constructor php 5*/
         $this->link=null;                      
         
     }        

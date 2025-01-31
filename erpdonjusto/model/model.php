@@ -36,37 +36,37 @@
        require_once ('class.product_price.php');
     /*echo 'model: class.product_price.php cargado... <br>';
 */
-   require_once ('class.supply_price.php');
+        require_once ('class.supply_price.php');
    /*echo 'model: class.supply_price.php cargado... <br>';
   */
-             require_once ('class.consig_prod.php');
+        require_once ('class.consig_prod.php');
   /* echo 'model: class.consig_prod.php cargado... <br>';
    */
-         require_once ('class.bitacora.php');
+        require_once ('class.bitacora.php');
    /* echo 'model: class.bitacora.php cargado... <br>';
    */
-         require_once ('class.position.php');
+        require_once ('class.position.php');
    /* echo 'model: class.position.php cargado... <br>';
   */
-           require_once ('class.pos_history.php');
+        require_once ('class.pos_history.php');
    /* echo 'model: class.pos_history.php cargado... <br>';
   */
-         require_once ('class.pend_empresa.php');
+        require_once ('class.pend_empresa.php');
   /*  echo 'model: class.pend_empresa.php cargado... <br>';
  */
-          require_once ('class.pendiente.php');
+        require_once ('class.pendiente.php');
   /*  echo 'model: class.pendiente.php cargado... <br>';
  */
-               require_once ('class.balance_checksum.php');
+        require_once ('class.balance_checksum.php');
   /*  echo 'model: class.balance_checksum.php cargado... <br>';
  */
-                  require_once ('class.configuration.php');
+        require_once ('class.configuration.php');
   /* echo 'model: class.configuration.php cargado... <br>';
    */
-          require_once ('class.posic_descrip_hist.php');
+        require_once ('class.posic_descrip_hist.php');
   /* echo 'model: class.posic_descrip_hist.php cargado... <br>';
    */
-         require_once ('class.posic_salud_hist.php');
+        require_once ('class.posic_salud_hist.php');
   /* echo 'model: class.posic_salud_hist.php cargado... <br>';
    */
          
@@ -81,12 +81,14 @@ class model {
     private $clients;
     
     function __construct() {
+        /*constructor php 8*/
                 /*echo 'Persistence?<br>';*/
                $this->persistence = new PersistenceErpLeo();
                 /*echo 'Persistence ok <br>';*/
     }
 
     public function model() {
+        /*constructor php 5*/
                 /*echo 'Persistence?<br>';*/
                $this->persistence = new PersistenceErpLeo();
                 /*echo 'Persistence ok <br>';*/
