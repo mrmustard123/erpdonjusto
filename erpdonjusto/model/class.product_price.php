@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpDonJusto 
  * File: price.php
@@ -11,9 +11,9 @@
 
 /**
 
-* @Entity
+* @ORM\Entity
 
-* @Table(name="product_price")
+* @ORM\Table(name="product_price")
 
 */
 
@@ -21,16 +21,16 @@
 class ProductPrice{
     
     
-     /** @Id @Column(type="integer") @GeneratedValue */ 
+     /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */ 
     public $prod_price_id;
     
-    /** @balance @Column(type="decimal", nullable=false) */
+    /** @ORM\balance @ORM\Column(type="decimal", nullable=false) */
     public $value;
-    /** @Column(type="datetime", nullable=false) */
+    /** @ORM\Column(type="datetime", nullable=false) */
     public $start_date;
-    /** @Column(length=400, nullable=true) */
+    /** @ORM\Column(length=400, nullable=true) */
     public $comments; 
-    /** @product_id @Column(type="integer", nullable=true) */
+    /** @ORM\product_id @ORM\Column(type="integer", nullable=true) */
     public $product_id;
     
     function getProduct_price_id() {

@@ -1,4 +1,5 @@
 <?php
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  erpdonjusto_1_0_0_6 
  * File: posic_salud_hist.php
@@ -9,9 +10,9 @@
 
 /**
 
- * @Entity
+ * @ORM\Entity
 
- * @Table(name="posic_salud_hist")
+ * @ORM\Table(name="posic_salud_hist")
 
  */
 
@@ -32,15 +33,15 @@ class PosicSaludHist{
     
     
     
-    /** @Id @Column(type="integer") @GeneratedValue */   
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */   
     public $posic_salud_hist_id; 
 
-    /** @Column(length=20, nullable=true) */
+    /** @ORM\Column(length=20, nullable=true) */
     public $salud;     
 
-    /** @Column(type="datetime", nullable=false) */
+    /** @ORM\Column(type="datetime", nullable=false) */
     public $posic_salud_hist_date;  
-    /** $position_id @Column(type="integer", nullable=true) */
+    /** $position_id @ORM\Column(type="integer", nullable=true) */
     public $position_id;      
     
     function getPosic_salud_hist_id() {

@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpDonJusto 
  * File: client.php
@@ -10,9 +10,9 @@
 
 /**
 
-* @Entity
+* @ORM\Entity
 
-* @Table(name="client")
+* @ORM\Table(name="client")
 
 */
 
@@ -20,31 +20,31 @@ class Client{
 
 
 
-    /** @Id @Column(type="integer") @GeneratedValue */  
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */  
     public $client_id;    /*int(10) unsigned NOT NULL AUTO_INCREMENT, */
-    /** @Column(length=200, nullable=false) */
+    /** @ORM\Column(length=200, nullable=false) */
     public $client_name; /*char(200) NOT NULL, */
-    /** @Column(length=200, nullable=false) */
+    /** @ORM\Column(length=200, nullable=false) */
     public $prefered_time; /*varchar(200) DEFAULT NULL COMMENT 'prefered time to deliver', */
-    /** @Column(length=300, nullable=false) */
+    /** @ORM\Column(length=300, nullable=false) */
     public $address; /*varchar(300) DEFAULT NULL,*/
-    /** @Column(length=200, nullable=false) */
+    /** @ORM\Column(length=200, nullable=false) */
     public $neighborhood;
-    /** @Column(length=30, nullable=false) */
+    /** @ORM\Column(length=30, nullable=false) */
     public $coordinates; /*char(30) DEFAULT NULL, */
-    /** @Column(length=16, nullable=false) */
+    /** @ORM\Column(length=16, nullable=false) */
     public $mobile; /*varchar//(16) DEFAULT NULL, */
-    /** @Column(length=16, nullable=false) */
+    /** @ORM\Column(length=16, nullable=false) */
     public $phone; /*varchar(16) DEFAULT NULL, */
-    /** @Column(length=100, nullable=false) */
+    /** @ORM\Column(length=100, nullable=false) */
     public $email; /* varchar(100) DEFAULT NULL,*/
-    /** @Column(length=150, nullable=false) */
+    /** @ORM\Column(length=150, nullable=false) */
     public $how_knew; /*varchar(150) DEFAULT NULL COMMENT 'how he knew about us', */
-    /** @Column(length=20, nullable=false) */
+    /** @ORM\Column(length=20, nullable=false) */
     public $pay_method; /*char(20) DEFAULT 'AL CONTADO',*/
-    /** @Column(length=10, nullable=false) */
+    /** @ORM\Column(length=10, nullable=false) */
     public $gender; /*char(10) NOT NULL DEFAULT 'FEMENINO', */
-    /** @Column(length=1, nullable=false) */
+    /** @ORM\Column(length=1, nullable=false) */
     public $company; /*char(1) NOT NULL DEFAULT 'F', */
     
 

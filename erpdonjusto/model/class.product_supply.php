@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpLeo 
  * File: product_supply.php
@@ -10,9 +10,9 @@
 
      /**
 
-     * @Entity
+     * @ORM\Entity
 
-     * @Table(name="product_supply")
+     * @ORM\Table(name="product_supply")
 
      */
 
@@ -20,13 +20,13 @@
 
 class ProductSupply{
     
-    /** @Id @Column(type="integer") @GeneratedValue */  
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */  
     public $product_suppy_id;/* bigint(20) NOT NULL AUTO_INCREMENT, */
-    /** @product_id @Column(type="integer", nullable=false) */
+    /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */
     public $product_id;/* tinyint(4) NOT NULL, */
-    /** @supply_id @Column(type="integer", nullable=false) */
+    /** @ORM\supply_id @ORM\Column(type="integer", nullable=false) */
     public $supply_id;/* tinyint(4) NOT NULL, */
-    /** @cant @Column(type="integer", nullable=false) */
+    /** @ORM\cant @ORM\Column(type="integer", nullable=false) */
     public $cant;
     
     

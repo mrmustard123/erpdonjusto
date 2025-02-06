@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpLeo 
  * File: recipe_ingredient.php
@@ -10,9 +10,9 @@
 
 
 
-/* @Entity
+/* @ORM\Entity
 
-* @Table(name="product_product")
+* @ORM\Table(name="product_product")
 
 */
 
@@ -20,13 +20,13 @@
 class ProductProduct{
     
           
-    /** @Id @Column(type="integer") @GeneratedValue */  
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */  
     public $product_product_id;/* int(11) NOT NULL AUTO_INCREMENT, */
-    /** @ingredient_id @Column(type="integer", nullable=false) */
+    /** @ORM\ingredient_id @ORM\Column(type="integer", nullable=false) */
     public $ingredient_id;/* tinyint(4) NOT NULL */
-    /** @product_id @Column(type="integer", nullable=false) */
+    /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */
     public $product_id;/* tinyint(4) NOT NULL, */
-    /** @cant @Column(type="decimal", nullable=false) */   
+    /** @ORM\cant @ORM\Column(type="decimal", nullable=false) */   
     public $cant;
     
     function getProduct_product_id() {

@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,14 +9,14 @@
 /**
  * Description of pendiente
  *
- * @author Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
+ * @ORM\author Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
 
 /**
 
- * @Entity
+ * @ORM\Entity
 
- * @Table(name="pendiente")
+ * @ORM\Table(name="pendiente")
 
  */
 
@@ -24,13 +24,13 @@
 class Pendiente {
     
     
-    /** @Id @Column(type="integer") @GeneratedValue */ 
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */ 
     public $pendientes_id;/*` int(11) unsigned NOT NULL AUTO_INCREMENT,*/
-    /** @Column(type="datetime", nullable=false) */
+    /** @ORM\Column(type="datetime", nullable=false) */
     public $fecha;/*` date DEFAULT NULL,*/
-    /** @Column(length=3500, nullable=true) */
+    /** @ORM\Column(length=3500, nullable=true) */
     public $cuerpo;/*` varchar(3500) DEFAULT NULL,*/
-    /** @Column(length=50, nullable=false) */
+    /** @ORM\Column(length=50, nullable=false) */
     public $realizado;/*` char(1) NOT NULL DEFAULT 'N' COMMENT 'N=NO;S=SI',   */   
 
  /*

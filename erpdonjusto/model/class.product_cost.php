@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpDonJusto 
  * File: product_cost.php
@@ -11,9 +11,9 @@
 
      /**
 
-     * @Entity
+     * @ORM\Entity
 
-     * @Table(name="product_cost")
+     * @ORM\Table(name="product_cost")
 
      */
 
@@ -41,19 +41,19 @@
 class ProductCost{
     
         
-/** @Id @Column(type="bigint") @GeneratedValue */     
+/** @ORM\Id @ORM\Column(type="bigint") @ORM\GeneratedValue */     
     public $prod_cost_id; /*`prod_cost_id` int(11) NOT NULL AUTO_INCREMENT, */
-/** @Column(length=255, nullable=false) */      
+/** @ORM\Column(length=255, nullable=false) */      
     public $cost_name;/*`cost_name` varchar(255) NOT NULL, */
-/** @Column(length=255, nullable=true) */      
+/** @ORM\Column(length=255, nullable=true) */      
     public $comments;/*`comments` varchar(255) DEFAULT NULL, */
-/** @Column(length=15, nullable=true) */    
+/** @ORM\Column(length=15, nullable=true) */    
     public $cost_type;/*`cost_type` char(15) DEFAULT 'VENTA', */
-/** @Column(length=15, nullable=true) */ 
+/** @ORM\Column(length=15, nullable=true) */ 
     public $saving_type;/*  `saving_type` char(15) DEFAULT NULL, */
-/** @saving_id @Column(type="bigint", nullable=true) */        
+/** @ORM\saving_id @ORM\Column(type="bigint", nullable=true) */        
     public $saving_id;/*  `saving_id` bigint(20) DEFAULT NULL,      */       
-/** @account_id @Column(type="bigint", nullable=true) */    
+/** @ORM\account_id @ORM\Column(type="bigint", nullable=true) */    
     public $account_id;/*  `account_id` bigint(20) unsigned DEFAULT NULL,     */  
 
     function getSaving_type() {

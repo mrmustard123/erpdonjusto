@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpLeo 
  * File: movement.php
@@ -12,9 +12,9 @@
 
 /**
 
- * @Entity
+ * @ORM\Entity
 
- * @Table(name="movement")
+ * @ORM\Table(name="movement")
 
  */
 
@@ -23,23 +23,23 @@ class Movement{
 
 
     
-    /** @Id @Column(type="integer") @GeneratedValue */ 
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */ 
     public $mov_id; /* bigint(20) NOT NULL AUTO_INCREMENT, */
-    /** @Column(length=10, nullable=false) */
+    /** @ORM\Column(length=10, nullable=false) */
     public $mov_type; /*char(10) NOT NULL DEFAULT 'SALIDA', */
-    /** @Column(type="datetime", nullable=false) */
+    /** @ORM\Column(type="datetime", nullable=false) */
     public $mov_date; /*datetime NOT NULL, */
-    /** @$mov_cant @Column(type="decimal", nullable=false) */    
+    /** @ORM\$mov_cant @ORM\Column(type="decimal", nullable=false) */    
     public $mov_cant; /*int(11) NOT NULL DEFAULT '1', */
-    /** @Column(length=15, nullable=false) */
+    /** @ORM\Column(length=15, nullable=false) */
     public $mov_lot; /*char(15) DEFAULT NULL, */
-    /** @product_id @Column(type="integer", nullable=false) */
+    /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */
     public $product_id; /* tinyint(4) DEFAULT NULL, */
-    /** @Column(length=400, nullable=true) */
+    /** @ORM\Column(length=400, nullable=true) */
     public $comments; /*varchar(400) DEFAULT NULL */
-    /** @user_id @Column(type="integer", nullable=true) */
+    /** @ORM\user_id @ORM\Column(type="integer", nullable=true) */
     public $user_id; /* `user_id` tinyint(3) unsigned DEFAULT NULL, */
-    /** @Column(length=15, nullable=true) */
+    /** @ORM\Column(length=15, nullable=true) */
     public $reason;
     
     

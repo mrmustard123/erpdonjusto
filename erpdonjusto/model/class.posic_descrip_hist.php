@@ -1,4 +1,5 @@
 <?php
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  erpdonjusto_1_0_0_6 
  * File: posic_descrip_hist.php
@@ -22,9 +23,9 @@
 
 /**
 
- * @Entity
+ * @ORM\Entity
 
- * @Table(name="posic_descrip_hist")
+ * @ORM\Table(name="posic_descrip_hist")
 
  */
 
@@ -34,15 +35,15 @@
 class PosicDescripHist{     
     
     
-    /** @Id @Column(type="integer") @GeneratedValue */   
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */   
     public $posic_descrip_hist_id; 
     
-    /** @Column(length=255, nullable=true) */    
+    /** @ORM\Column(length=255, nullable=true) */    
     public $descripcion;     
 
-    /** @Column(type="datetime", nullable=false) */
+    /** @ORM\Column(type="datetime", nullable=false) */
     public $posic_descrip_hsit_date;  
-    /** $position_id @Column(type="integer", nullable=true) */
+    /** $position_id @ORM\Column(type="integer", nullable=true) */
     public $position_id;        
     
     function getPosic_descrip_hist_id() {

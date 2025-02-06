@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,15 +9,15 @@
 /**
  * Description of class.pend_empresa
  *
- * @author Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
+ * Author Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
 
 
 /**
 
- * @Entity
+ * @ORM\Entity
 
- * @Table(name="pend_empresa")
+ * @ORM\Table(name="pend_empresa")
 
  */
 
@@ -34,15 +34,15 @@ CREATE TABLE `pend_empresa` (
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
      */
     
-    /** @Id @Column(type="integer") @GeneratedValue */ 
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */ 
     public $pend_empresa_id; /*` int(11) unsigned NOT NULL AUTO_INCREMENT,*/
-    /** @Column(type="datetime", nullable=false) */
+    /** @ORM\Column(type="datetime", nullable=false) */
     public $fecha;/*` date DEFAULT NULL, */
-    /** @Column(length=3500, nullable=true) */
+    /** @ORM\Column(length=3500, nullable=true) */
     public $cuerpo;/*` varchar(3500) DEFAULT NULL, */
-    /** @Column(length=50, nullable=false) */
+    /** @ORM\Column(length=50, nullable=false) */
     public $responsable;/*` char(50) DEFAULT NULL,*/
-    /** @Column(length=1, nullable=true) */
+    /** @ORM\Column(length=1, nullable=true) */
     public $realizado;/*` char(1) NOT NULL DEFAULT 'N' COMMENT 'N=NO;S=SI', */    
     
     function getPend_empresa_id() {

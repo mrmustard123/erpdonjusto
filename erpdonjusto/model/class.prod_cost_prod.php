@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpDonJusto 
  * File: prod_cost_prod.php
@@ -10,24 +10,24 @@
 
 /**
 
-* @Entity
+* @ORM\Entity
 
-* @Table(name="prod_cost_prod")
+* @ORM\Table(name="prod_cost_prod")
 
 */
 
 class  ProdCostPprod {
     
-     /** @Id @Column(type="integer") @GeneratedValue */     
+     /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */     
     public $prod_cost_prod_id;
     
-    /** @product_id @Column(type="integer", nullable=false) */    
+    /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */    
     public $product_id;
     
-    /** @prod_cost_id @Column(type="integer", nullable=false) */    
+    /** @ORM\prod_cost_id @ORM\Column(type="integer", nullable=false) */    
     public $prod_cost_id;
     
-    /** @cost_value @Column(type="decimal", nullable=false) */    
+    /** @ORM\cost_value @ORM\Column(type="decimal", nullable=false) */    
     public $cost_value;    
 
     

@@ -1,12 +1,5 @@
 <?php
-
-require_once 'persistence.php';
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Description of balance_checksum
@@ -31,26 +24,26 @@ CREATE TABLE `balance_checksum` (
 
      /**
 
-     * @Entity
+     * @ORM\Entity
 
-     * @Table(name="balance_checksum")
+     * @ORM\Table(name="balance_checksum")
 
      */
 
 
 class balance_checksum {
     
-    /** @Id @Column(type="bigint") @GeneratedValue */    
+    /** @ORM\Id @ORM\Column(type="bigint") @ORM\GeneratedValue */    
     public $checksum_id;
-    /** @Column(type="datetime", nullable=false) */
+    /** @ORM\Column(type="datetime", nullable=false) */
     public $checksum_date;
-    /** @checksum @Column(type="decimal", nullable=false) */
+    /** @ORM\checksum @ORM\Column(type="decimal", nullable=false) */
     public $checksum;  
-    /** @budget @Column(type="decimal", nullable=false) */
+    /** @ORM\budget @ORM\Column(type="decimal", nullable=false) */
     public $budget;     
-    /** @Column(length=30, nullable=true) */
+    /** @ORM\Column(length=30, nullable=true) */
     public $cbte_cont_nro;            /*`cbte_cont_nro` varchar(30) DEFAULT NULL,*/
-    /** @balance @Column(type="decimal", nullable=false) */
+    /** @ORM\balance @ORM\Column(type="decimal", nullable=false) */
     public $balance;            /*`balance` decimal(13,2) DEFAULT '0.00',*/    
     
     

@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpDonJusto 
  * File: mov_supply.php
@@ -11,34 +11,30 @@
 
 /**
 
- * @Entity
+ * @ORM\Entity
 
- * @Table(name="mov_supply")
+ * @ORM\Table(name="mov_supply")
 
  */
 
 
 class SupplyMovement{
 
-
-
-
-
-        /** @Id @Column(type="integer") @GeneratedValue */ 
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */ 
     public $mov_supply_id; /*bigint(20) NOT NULL AUTO_INCREMENT, */
-    /** @Column(length=10, nullable=false) */
+    /** @ORM\Column(length=10, nullable=false) */
     public $mov_supply_type; /*char(10) NOT NULL DEFAULT 'SALIDA', */
-    /** @Column(type="datetime", nullable=false) */
+    /** @ORM\Column(type="datetime", nullable=false) */
     public $mov_supply_date; /*datetime NOT NULL, */
-    /** $mov_supply_cant @Column(type="integer", nullable=false) */
+    /** @ORM\Column(type="integer", nullable=false) */
     public $mov_supply_cant; /*int(11) NOT NULL DEFAULT '1', */
-    /** @Column(length=15, nullable=false) */
+    /** @ORM\Column(length=15, nullable=false) */
     public $mov_supply_lot; /* char(15) DEFAULT NULL, */
-    /** @product_id @Column(type="integer", nullable=false) */
+    /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */
     public $supply_id; /* tinyint(4) DEFAULT NULL, */
-    /** @Column(length=400, nullable=true) */
+    /** @ORM\Column(length=400, nullable=true) */
     public $comments; /*varchar(400) DEFAULT NULL */
-    /** @user_id @Column(type="integer", nullable=true) */
+    /** @ORM\user_id @ORM\Column(type="integer", nullable=true) */
     public $user_id; /* `user_id` tinyint(3) unsigned DEFAULT NULL, */
     
     

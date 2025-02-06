@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpLeo 
  * File: supply.php
@@ -12,9 +12,9 @@
 
 /**
 
-* @Entity
+* @ORM\Entity
 
-* @Table(name="supply")
+* @ORM\Table(name="supply")
 
 */
 
@@ -26,21 +26,21 @@ class Supply{
     
     
     
-    /** @Id @Column(type="integer") @GeneratedValue */ 
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */ 
     public $supply_id;/* tinyint(4) NOT NULL AUTO_INCREMENT,*/
-    /** @Column(length=255, nullable=false) */
+    /** @ORM\Column(length=255, nullable=false) */
     public $supply_name;/* char(255) NOT NULL,*/
-    /** @Column(length=10, nullable=false) */
+    /** @ORM\Column(length=10, nullable=false) */
     public $unit;/* char(10) NOT NULL,*/
-    /** @stock @Column(type="integer", nullable=false) */
+    /** @ORM\stock @ORM\Column(type="integer", nullable=false) */
     public $stock;/* int(11) NOT NULL DEFAULT '0',*/
-    /** @price @Column(type="decimal", nullable=true) */ 
+    /** @ORM\price @ORM\Column(type="decimal", nullable=true) */ 
     public $price;
-    /** @Column(length=400, nullable=true) */
+    /** @ORM\Column(length=400, nullable=true) */
     public $comments;/* varchar(400) DEFAULT NULL, */
-    /** @account_id @Column(type="integer", nullable=true) */
+    /** @ORM\account_id @ORM\Column(type="integer", nullable=true) */
     public $account_id;    
-    /** @stock_min @Column(type="integer", nullable=true) */
+    /** @ORM\stock_min @ORM\Column(type="integer", nullable=true) */
     public $stock_min;
  
     function getSupply_id() {

@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,7 +9,7 @@
 /**
  * Description of configuration
  *
- * @author Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
+ * @ORM\author Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
 
 
@@ -27,9 +27,9 @@ CREATE TABLE `configuration` (
 
 /**
 
- * @Entity
+ * @ORM\Entity
 
- * @Table(name="configuration")
+ * @ORM\Table(name="configuration")
 
  */
 
@@ -37,11 +37,11 @@ class configuration {
     
     
     
-    /** @Id @Column(type="integer") @GeneratedValue */   
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */   
     public $config_id;
-    /** @Column(length=255, nullable=false) */
+    /** @ORM\Column(length=255, nullable=false) */
     public $config_name;
-    /** @Column(length=255, nullable=false) */
+    /** @ORM\Column(length=255, nullable=false) */
     public $config_value;    
     
     

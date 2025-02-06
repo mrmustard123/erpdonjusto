@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpDonJusto 
  * File: supply_price.php
@@ -10,9 +10,9 @@
 
 /**
 
-* @Entity
+* @ORM\Entity
 
-* @Table(name="supply_price")
+* @ORM\Table(name="supply_price")
 
 */
 
@@ -20,16 +20,16 @@
 class SupplyPrice{
     
     
-     /** @Id @Column(type="integer") @GeneratedValue */ 
+     /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */ 
     public $supply_price_id;
     
-    /** @balance @Column(type="decimal", nullable=false) */
+    /** @ORM\balance @ORM\Column(type="decimal", nullable=false) */
     public $value;
-    /** @Column(type="datetime", nullable=false) */
+    /** @ORM\Column(type="datetime", nullable=false) */
     public $start_date;
-    /** @Column(length=400, nullable=true) */
+    /** @ORM\Column(length=400, nullable=true) */
     public $comments; 
-    /** @supplys_id @Column(type="integer", nullable=true) */
+    /** @ORM\supplys_id @ORM\Column(type="integer", nullable=true) */
     public $supply_id;
     
     function getSupply_price_id() {

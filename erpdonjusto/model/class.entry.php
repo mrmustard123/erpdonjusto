@@ -1,6 +1,16 @@
 <?php    
+/**
+ * Project:  ErpDonJusto 
+ * File: class.entry.php
+ * Created on: Mar 13, 2017
+ * Author: Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
+ */
+
 /*echo 'Estoy en class.entry.php<br>';*/         
-/**     * @Entity     * @Table(name="entry")     */
+/**     
+ * @Entity     
+ * @Table(name="entry")     
+ */
 
 use Doctrine\ORM\Mapping as ORM;
 

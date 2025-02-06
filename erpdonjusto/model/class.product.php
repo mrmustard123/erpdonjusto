@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpLeo 
  * File: product.php
@@ -12,9 +12,9 @@
 
 /**
 
- * @Entity
+ * @ORM\Entity
 
- * @Table(name="product")
+ * @ORM\Table(name="product")
 
  */
 
@@ -24,33 +24,33 @@
 class Product{
         
     
-    /** @Id @Column(type="integer") @GeneratedValue */   
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */   
     public $product_id; /*tinyint(4) NOT NULL AUTO_INCREMENT, */
-    /** @Column(length=255, nullable=false) */    
+    /** @ORM\Column(length=255, nullable=false) */    
     public $product_name; /*char(255) NOT NULL, */
-    /** @Column(length=50, nullable=false) */
+    /** @ORM\Column(length=50, nullable=false) */
     public $presentation; /*char(50) NOT NULL COMMENT 'frasco, gotero, spry, pote,chup-chup', */
-    /** @mesure @Column(type="decimal", nullable=false) */
+    /** @ORM\mesure @ORM\Column(type="decimal", nullable=false) */
    /* public $mesure; /*decimal(5,2) NOT NULL, */
-    /** @Column(length=10, nullable=false) */
+    /** @ORM\Column(length=10, nullable=false) */
     public $unit; /*char(10) NOT NULL, */
-    /** @stock @Column(type="decimal", nullable=false) */
+    /** @ORM\stock @ORM\Column(type="decimal", nullable=false) */
     public $stock; /*decimal(5,2)  NOT NULL DEFAULT '0', */
-    /** @Column(length=400, nullable=true) */
+    /** @ORM\Column(length=400, nullable=true) */
     public $comments; /*varchar(400) DEFAULT NULL, */
-    /** @Column(length=500, nullable=true) */
+    /** @ORM\Column(length=500, nullable=true) */
     public $preparation;
-    /** @utility @Column(type="decimal", nullable=false) */
+    /** @ORM\utility @ORM\Column(type="decimal", nullable=false) */
     public $utility;
-    /** @employee_cost @Column(type="decimal", nullable=false) */
+    /** @ORM\employee_cost @ORM\Column(type="decimal", nullable=false) */
     public $employee_cost;
-    /** @production_cost @Column(type="decimal", nullable=false) */
+    /** @ORM\production_cost @ORM\Column(type="decimal", nullable=false) */
     public $production_cost;    
-    /** @account_id @Column(type="integer", nullable=true) */
+    /** @ORM\account_id @ORM\Column(type="integer", nullable=true) */
     public $account_id;
-    /** @Column(length=8, nullable=true) */ 
+    /** @ORM\Column(length=8, nullable=true) */ 
     public $status; /*char(8),
-    /** @stock_min @Column(type="integer", nullable=true) */
+    /** @ORM\stock_min @ORM\Column(type="integer", nullable=true) */
     public $stock_min;
                
     

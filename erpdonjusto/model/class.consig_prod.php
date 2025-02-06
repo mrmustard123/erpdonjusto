@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  ErpDonJusto 
  * File: consig_prod.php
@@ -13,25 +13,25 @@ class Consig_Prod{
     
 
     
-  /** @Id @Column(type="integer") @GeneratedValue */    
+  /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */    
   public $consig_prod_id;/* int(10) unsigned NOT NULL AUTO_INCREMENT, */
-  /** @consig_id @Column(type="integer", nullable=false) */
+  /** @ORM\consig_id @ORM\Column(type="integer", nullable=false) */
   public $consig_id;/* smallint(5) unsigned NOT NULL, */
-  /** @product_id @Column(type="integer", nullable=false) */
+  /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */
   public $product_id;/* tinyint(4) NOT NULL, */
-  /** @Column(type="datetime", nullable=false) */
+  /** @ORM\Column(type="datetime", nullable=false) */
   public $consig_date;/* datetime NOT NULL, */
-  /** @Column(length=10, nullable=false) */
+  /** @ORM\Column(length=10, nullable=false) */
   public $mov_type;/* char(10) NOT NULL DEFAULT 'ENTREGA' COMMENT 'ENTREGA/DEVOLUCION',*/
-  /** @cant @Column(type="integer", nullable=false) */
+  /** @ORM\cant @ORM\Column(type="integer", nullable=false) */
   public $cant;/* tinyint(4) NOT NULL DEFAULT '0', */
-  /** @balance @Column(type="integer", nullable=false) */
+  /** @ORM\balance @ORM\Column(type="integer", nullable=false) */
   public $balance;/* smallint(6) NOT NULL DEFAULT '0', */
-  /** @owes @Column(type="integer", nullable=false) */
+  /** @ORM\owes @ORM\Column(type="integer", nullable=false) */
   public $owes;/* smallint(6) NOT NULL DEFAULT '0', */
-  /** @topay @Column(type="integer", nullable=false) */
+  /** @ORM\topay @ORM\Column(type="integer", nullable=false) */
    public $topay;/* smallint(6) NOT NULL DEFAULT '0', */
-  /** @Column(length=500, nullable=false) */
+  /** @ORM\Column(length=500, nullable=false) */
   public $comments; /* varchar(500) DEFAULT NULL,   */
     
     

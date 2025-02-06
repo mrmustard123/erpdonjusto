@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  erpdonjusto_1_0_0_6 
  * File: bitacora.php
@@ -10,9 +10,9 @@
 
      /**
 
-     * @Entity
+     * @ORM\Entity
 
-     * @Table(name="bitacora")
+     * @ORM\Table(name="bitacora")
 
      */
 
@@ -20,11 +20,11 @@
 class Bitacora{
     
     
-    /** @Id @Column(type="integer") @GeneratedValue */  
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */  
     public $bitacora_id; 
-    /** @Column(type="datetime", nullable=false) */
+    /** @ORM\Column(type="datetime", nullable=false) */
     public $fecha; /*datetime NOT NULL,*/        
-    /** @Column(length=3500, nullable=false) */
+    /** @ORM\Column(length=3500, nullable=false) */
     public $cuerpo;  
     
     function getBitacora_id() {

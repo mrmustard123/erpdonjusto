@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  erpdonjusto_1_0_0_6 
  * File: position.php
@@ -9,9 +9,9 @@
 
 /**
 
- * @Entity
+ * @ORM\Entity
 
- * @Table(name="position")
+ * @ORM\Table(name="position")
 
  */
 
@@ -20,17 +20,17 @@
 
 class Position{
     
-    /** @Id @Column(type="integer") @GeneratedValue */   
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */   
     public $position_id; 
-    /** @Column(length=255, nullable=false) */    
+    /** @ORM\Column(length=255, nullable=false) */    
     public $pos_name; 
-    /** @Column(length=500, nullable=true) */
+    /** @ORM\Column(length=500, nullable=true) */
     public $descripcion; 
-    /** @Column(length=255, nullable=true) */
+    /** @ORM\Column(length=255, nullable=true) */
     public $coordenadas;  
-    /** @Column(length=20, nullable=true) */
+    /** @ORM\Column(length=20, nullable=true) */
     public $salud;
-    /** $id_apiario @Column(type="integer", nullable=true) */
+    /** $id_apiario @ORM\Column(type="integer", nullable=true) */
     public $id_apiario;
     
     function getPosition_id() {

@@ -1,5 +1,5 @@
 <?php
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Project:  erpdonjusto_1_0_0_6 
  * File: pos_history.php
@@ -10,9 +10,9 @@
 
 /**
 
- * @Entity
+ * @ORM\Entity
 
- * @Table(name="pos_history")
+ * @ORM\Table(name="pos_history")
 
  */
 
@@ -20,13 +20,13 @@
 class PosHistory{
     
     
-    /** @Id @Column(type="integer") @GeneratedValue */  
+    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */  
     public $pos_hist_id;/*`pos_hist_id` int(10) unsigned NOT NULL AUTO_INCREMENT,*/
-    /** @Column(type="datetime", nullable=false) */
+    /** @ORM\Column(type="datetime", nullable=false) */
     public $pos_hist_date;/*`pos_hist_date` datetime NOT NULL, */
-    /** @Column(length=3500, nullable=true) */
+    /** @ORM\Column(length=3500, nullable=true) */
     public $pos_hist_body;/*`pos_hist_body` varchar(3500) DEFAULT NULL, */
-     /** $position_id @Column(type="integer", nullable=true) */
+     /** $position_id @ORM\Column(type="integer", nullable=true) */
     public $position_id;/*position_id` tinyint(10) unsigned DEFAULT NULL,    */  
     
     function getPos_hist_id() {

@@ -1,13 +1,18 @@
-<?php/** * @Entity * @Table(name="dolar_price") */
+<?php
+use Doctrine\ORM\Mapping as ORM;
+/** 
+ * @ORM\Entity 
+ * @ORM\Table(name="dolar_price") 
+ */
 
 class DolarPrice{            
-    /** @Id @Column(type="bigint") @GeneratedValue */      
+    /** @ORM\Id @ORM\Column(type="bigint") @ORM\GeneratedValue */      
     public $dolar_price_id; /*int(10) unsigned NOT NULL AUTO_INCREMENT, */    
-    /** @Column(type="date", nullable=false) */    
+    /** @ORM\Column(type="date", nullable=false) */    
     public $change_date; /*date NOT NULL, */    
-    /** @balance @Column(type="decimal", nullable=false) */    
+    /** @ORM\balance @ORM\Column(type="decimal", nullable=false) */    
     public $value; /*float NOT NULL DEFAULT '0', */    
-    /** @Column(length=500, nullable=true) */    
+    /** @ORM\Column(length=500, nullable=true) */    
     public $comment; /*varchar(500) DEFAULT NULL,       */        
     function getDolar_price_id() {        
         return $this->dolar_price_id;    
