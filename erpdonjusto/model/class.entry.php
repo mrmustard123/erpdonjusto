@@ -1,25 +1,41 @@
 <?php    
 /*echo 'Estoy en class.entry.php<br>';*/         
-/**     * @Entity     * @Table(name="entry")     */    
-class Entry{                        
-    /** @Id @Column(type="bigint") @GeneratedValue */           
-    public $entry_id;/* bigint(20) unsigned NOT NULL AUTO_INCREMENT, */        
-    /** @Column(type="datetime", nullable=false) */        
-    public $entry_date; /*datetime NOT NULL,*/        
-    /** @Column(length=500, nullable=true) */        
-    public $details; /*varchar(500) DEFAULT NULL,*/        
-    /** @balance @Column(type="decimal", nullable=false) */        
-    public $balance; /*decimal NOT NULL DEFAULT '0',*/        
-    /** @account_id @Column(type="bigint", nullable=false) */        
-    public $account_id; /*bigint(20) unsigned NOT NULL,        */ 
-    /** @user_id @Column(type="integer", nullable=true) */                
-    public $user_id; /*tinyint(3) unsigned default NULL,        */                          
-    /** @entry_id @Column(type="bigint", nullable=true)             
-     * public $fk_entry_id; bigint(20) unsigned NOT NULL AUTO_INCREMENT, */ 
-    /** @Column(length=30, nullable=true) */        
-    public $cbte_cont_tipo;/*`cbte_cont_tipo`  char(10) NULL DEFAULT NULL AFTER `fk_entry_id`,*/                
-    /** @Column(length=30, nullable=true) */        
-    public $cbte_cont_nro;/*`cbte_cont_nro`  varchar(15) NULL DEFAULT NULL AFTER `cbte_cont_tipo`;*/              
+/**     * @Entity     * @Table(name="entry")     */
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="entry")
+ */
+class Entry {
+    /** @ORM\Id @ORM\Column(type="bigint") @ORM\GeneratedValue */
+    public $entry_id; /* bigint(20) unsigned NOT NULL AUTO_INCREMENT, */
+    
+    /** @ORM\Column(type="datetime", nullable=false) */
+    public $entry_date; /* datetime NOT NULL, */
+    
+    /** @ORM\Column(length=500, nullable=true) */
+    public $details; /* varchar(500) DEFAULT NULL, */
+    
+    /** @ORM\Column(type="decimal", nullable=false) */
+    public $balance; /* decimal NOT NULL DEFAULT '0', */
+    
+    /** @ORM\Column(type="bigint", nullable=false) */
+    public $account_id; /* bigint(20) unsigned NOT NULL, */
+    
+    /** @ORM\Column(type="integer", nullable=true) */
+    public $user_id; /* tinyint(3) unsigned default NULL, */
+    
+    /** @ORM\Column(length=30, nullable=true) */
+    public $cbte_cont_tipo; /* cbte_cont_tipo char(10) NULL DEFAULT NULL AFTER fk_entry_id, */
+    
+    /** @ORM\Column(length=30, nullable=true) */
+    public $cbte_cont_nro; /* cbte_cont_nro varchar(15) NULL DEFAULT NULL AFTER cbte_cont_tipo; */
+
+  
+    
+/*GETTERS AND SETTERS*/    
     function getEntry_id() {            
         return $this->entry_id;        
         

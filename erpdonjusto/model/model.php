@@ -1,4 +1,6 @@
-<?php   /* echo 'estoy en model.php<br>';
+<?php   
+error_reporting(E_ALL);
+/* echo 'estoy en model.php<br>';
 */
 
 

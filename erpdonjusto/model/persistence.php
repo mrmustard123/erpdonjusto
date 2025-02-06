@@ -1,41 +1,83 @@
 <?php
+    error_reporting(E_ALL);
     /*echo 'estoy en persistence.php<br>';*/
     require_once ('class.db.php');
 
     include 'connection.php';
 
-    require_once ("doctrine2/autoload.php");
+    //require_once ("doctrine2/autoload.php");//versión antigua
+    //require_once ("vendor/autoload.php");    
+    require_once __DIR__ . "/vendor/autoload.php";
+    
 
     /*echo 'pas? doctrine <br>';*/
 
     require_once('ipersistence.php');
 
-    use Doctrine\ORM\Tools\Setup;
+/*    use Doctrine\ORM\Tools\Setup;
     use Doctrine\ORM\EntityManager;
+*/    
+    
+
+//    use Doctrine\ORM\EntityManagerInterface;  
+    use Doctrine\ORM\Tools\Setup;    
+    use Doctrine\ORM\EntityManager;
+//    use Doctrine\Common\Annotations\AnnotationReader;
+    use Doctrine\Common\Annotations\AnnotationRegistry;  
+    use Doctrine\ORM\Configuration;
+    //use Doctrine\ORM\ORMSetup;
+    //use Doctrine\DBAL\DriverManager;
+
+  
+    
 
     /*echo 'break05<br>';*/
 
 
     class PersistenceErpLeo implements iPersistence{
 
-        public $clasificados;
-        public $periodicos;
-        public $entityManager;
+        private  $entityManager;        
         public $db;
         public $item_per_page;
         public $link;
         
+                
+        
         function __construct() {
             /*constructor PHP 7+*/
-            $paths = array("./");
-            $isDevMode = false;
 
-            /* the connection configuration*/
-            $dbParams = connect_db();
             
+            /*forma antigua con Doctrine 2
             $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
             $this->entityManager = EntityManager::create($dbParams, $config);
+            */
   
+            
+            $paths = [__DIR__ . "/model"]; 
+            //$paths = array("./");
+            $isDevMode = false;            
+            //$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+
+            $config = new Configuration();
+            $config->setMetadataDriverImpl($config->newDefaultAnnotationDriver($paths, $isDevMode)); // Deshabilitamos el SimpleAnnotationReader
+            $config->setProxyDir(__DIR__ . '/proxies');  // Configura el directorio para los proxies generados
+            $config->setProxyNamespace('DoctrineProxies');  // Establece un espacio de nombres para los proxies
+
+            
+
+            // Registrar el cargador de anotaciones para Doctrine
+            //AnnotationRegistry::registerLoader('class_exists'); // Esto es necesario para cargar las anotaciones
+            
+            //$config->setAnnotationReader(new AnnotationReader()); 
+            
+            /* the connection configuration*/
+            $dbParams = connect_db();            
+
+            // Crear el EntityManager
+            $this->entityManager = EntityManager::create($dbParams, $config);            
+
+            //$connection = DriverManager::getConnection($dbParams, $config);
+            //$this->entityManager = new EntityManager($connection, $config);            
 
             $this->db = new db();
 
@@ -49,32 +91,31 @@
             $this->item_per_page = 50; /*item to display per page*/ 
         }
 
-        public function PersistenceErpLeo(){
-            /*constructor PHP 5.6*/
-            $paths = array("./");
-            $isDevMode = false;
-
-            /* the connection configuration*/
-            $dbParams = connect_db();
-            
-            $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
-            $this->entityManager = EntityManager::create($dbParams, $config);
-  
-
-            $this->db = new db();
-
-            $this->db->setDb_name($dbParams['dbname']);
-            $this->db->setUser($dbParams['user']);
-            $this->db->setPassword($dbParams['password']);
-            $this->db->setServer_name("localhost");
-
-            $this->link = $this->db->connect();
-
-            $this->item_per_page = 50; /*item to display per page*/             
-
-
+      public function PersistenceErpLeo(){
+//            /*constructor PHP 5.6*/
+//            $paths = array("./");
+//            $isDevMode = false;
+//
+//            /* the connection configuration*/
+//            $dbParams = connect_db();
+//            
+//            $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+//            $this->entityManager = EntityManager::create($dbParams, $config);
+//  
+//
+//            $this->db = new db();
+//
+//            $this->db->setDb_name($dbParams['dbname']);
+//            $this->db->setUser($dbParams['user']);
+//            $this->db->setPassword($dbParams['password']);
+//            $this->db->setServer_name("localhost");
+//
+//            $this->link = $this->db->connect();
+//
+//            $this->item_per_page = 50; /*item to display per page*/             
+//
+//
         }
-
 
 
         public function process_access($params) {
