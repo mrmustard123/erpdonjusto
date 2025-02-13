@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 /**
  * Project:  ErpDonJusto 
  * File: view_diary.php

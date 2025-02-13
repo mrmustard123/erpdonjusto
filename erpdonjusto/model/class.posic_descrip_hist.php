@@ -43,7 +43,7 @@ class PosicDescripHist{
 
     /** @ORM\Column(type="datetime", nullable=false) */
     public $posic_descrip_hsit_date;  
-    /** $position_id @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="integer", nullable=true) */
     public $position_id;        
     
     function getPosic_descrip_hist_id() {

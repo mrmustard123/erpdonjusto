@@ -41,7 +41,7 @@ class PosicSaludHist{
 
     /** @ORM\Column(type="datetime", nullable=false) */
     public $posic_salud_hist_date;  
-    /** $position_id @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="integer", nullable=true) */
     public $position_id;      
     
     function getPosic_salud_hist_id() {

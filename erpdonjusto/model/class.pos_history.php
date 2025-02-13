@@ -26,7 +26,7 @@ class PosHistory{
     public $pos_hist_date;/*`pos_hist_date` datetime NOT NULL, */
     /** @ORM\Column(length=3500, nullable=true) */
     public $pos_hist_body;/*`pos_hist_body` varchar(3500) DEFAULT NULL, */
-     /** $position_id @ORM\Column(type="integer", nullable=true) */
+     /** @ORM\Column(type="integer", nullable=true) */
     public $position_id;/*position_id` tinyint(10) unsigned DEFAULT NULL,    */  
     
     function getPos_hist_id() {

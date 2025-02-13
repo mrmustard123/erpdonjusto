@@ -10,7 +10,7 @@ class DolarPrice{
     public $dolar_price_id; /*int(10) unsigned NOT NULL AUTO_INCREMENT, */    
     /** @ORM\Column(type="date", nullable=false) */    
     public $change_date; /*date NOT NULL, */    
-    /** @ORM\balance @ORM\Column(type="decimal", nullable=false) */    
+    /** @ORM\Column(type="decimal", nullable=false) */    
     public $value; /*float NOT NULL DEFAULT '0', */    
     /** @ORM\Column(length=500, nullable=true) */    
     public $comment; /*varchar(500) DEFAULT NULL,       */        

@@ -22,11 +22,11 @@ class ProductSupply{
     
     /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */  
     public $product_suppy_id;/* bigint(20) NOT NULL AUTO_INCREMENT, */
-    /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */
+    /** @ORM\Column(type="integer", nullable=false) */
     public $product_id;/* tinyint(4) NOT NULL, */
-    /** @ORM\supply_id @ORM\Column(type="integer", nullable=false) */
+    /** @ORM\Column(type="integer", nullable=false) */
     public $supply_id;/* tinyint(4) NOT NULL, */
-    /** @ORM\cant @ORM\Column(type="integer", nullable=false) */
+    /** @ORM\Column(type="integer", nullable=false) */
     public $cant;
     
     

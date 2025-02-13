@@ -29,15 +29,15 @@ class Movement{
     public $mov_type; /*char(10) NOT NULL DEFAULT 'SALIDA', */
     /** @ORM\Column(type="datetime", nullable=false) */
     public $mov_date; /*datetime NOT NULL, */
-    /** @ORM\$mov_cant @ORM\Column(type="decimal", nullable=false) */    
+    /** @ORM\Column(type="decimal", nullable=false) */    
     public $mov_cant; /*int(11) NOT NULL DEFAULT '1', */
     /** @ORM\Column(length=15, nullable=false) */
     public $mov_lot; /*char(15) DEFAULT NULL, */
-    /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */
+    /** @ORM\Column(type="integer", nullable=false) */
     public $product_id; /* tinyint(4) DEFAULT NULL, */
     /** @ORM\Column(length=400, nullable=true) */
     public $comments; /*varchar(400) DEFAULT NULL */
-    /** @ORM\user_id @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="integer", nullable=true) */
     public $user_id; /* `user_id` tinyint(3) unsigned DEFAULT NULL, */
     /** @ORM\Column(length=15, nullable=true) */
     public $reason;

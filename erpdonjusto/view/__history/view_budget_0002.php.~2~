@@ -89,39 +89,39 @@ class view_budget0002 extends Page
             $utilidades=$this->Query9->fieldget('balance');
             /*Desactivare esta caracteristica por error en PHP8
             if($otros < 0){
-              $this->Label2->Font->Color = #FF000;
+              $this->Label2->Font->Color = Red;
             }
 
             if($envases < 0){
-              $this->Label4->Font->Color = #FF000;
+              $this->Label4->Font->Color = Red;
             }
 
             if($comercializacion < 0){
-              $this->Label6->Font->Color = #FF000;
+              $this->Label6->Font->Color = Red;
             }
 
             if($reserva < 0){
-              $this->Label8->Font->Color = #FF000;
+              $this->Label8->Font->Color = Red;
             }
 
             if($produccion < 0){
-              $this->Label10->Font->Color = #FF000;
+              $this->Label10->Font->Color = Red;
             }
 
             if($impuestos < 0){
-              $this->Label12->Font->Color = #FF000;
+              $this->Label12->Font->Color = Red;
             }
 
             if($mano_de_obra < 0){
-              $this->Label16->Font->Color = #FF000;
+              $this->Label16->Font->Color = Red;
             }
 
             if($mat_primas < 0){
-              $this->Label17->Font->Color = #FF000;
+              $this->Label17->Font->Color = Red;
             }
 
             if($utilidades < 0){
-              $this->Label20->Font->Color = #FF000;
+              $this->Label20->Font->Color = Red;
             }
             */
 

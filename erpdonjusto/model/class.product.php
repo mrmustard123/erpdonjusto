@@ -30,27 +30,27 @@ class Product{
     public $product_name; /*char(255) NOT NULL, */
     /** @ORM\Column(length=50, nullable=false) */
     public $presentation; /*char(50) NOT NULL COMMENT 'frasco, gotero, spry, pote,chup-chup', */
-    /** @ORM\mesure @ORM\Column(type="decimal", nullable=false) */
+
    /* public $mesure; /*decimal(5,2) NOT NULL, */
     /** @ORM\Column(length=10, nullable=false) */
     public $unit; /*char(10) NOT NULL, */
-    /** @ORM\stock @ORM\Column(type="decimal", nullable=false) */
+    /** @ORM\Column(type="decimal", nullable=false) */
     public $stock; /*decimal(5,2)  NOT NULL DEFAULT '0', */
     /** @ORM\Column(length=400, nullable=true) */
     public $comments; /*varchar(400) DEFAULT NULL, */
     /** @ORM\Column(length=500, nullable=true) */
     public $preparation;
-    /** @ORM\utility @ORM\Column(type="decimal", nullable=false) */
+    /** @ORM\Column(type="decimal", nullable=false) */
     public $utility;
-    /** @ORM\employee_cost @ORM\Column(type="decimal", nullable=false) */
+    /** @ORM\Column(type="decimal", nullable=false) */
     public $employee_cost;
-    /** @ORM\production_cost @ORM\Column(type="decimal", nullable=false) */
+    /** @ORM\Column(type="decimal", nullable=false) */
     public $production_cost;    
-    /** @ORM\account_id @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="integer", nullable=true) */
     public $account_id;
     /** @ORM\Column(length=8, nullable=true) */ 
     public $status; /*char(8),
-    /** @ORM\stock_min @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="integer", nullable=true) */
     public $stock_min;
                
     

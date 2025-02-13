@@ -30,7 +30,7 @@ class Position{
     public $coordenadas;  
     /** @ORM\Column(length=20, nullable=true) */
     public $salud;
-    /** $id_apiario @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="integer", nullable=true) */
     public $id_apiario;
     
     function getPosition_id() {

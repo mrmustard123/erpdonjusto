@@ -22,11 +22,11 @@ class ProductProduct{
           
     /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */  
     public $product_product_id;/* int(11) NOT NULL AUTO_INCREMENT, */
-    /** @ORM\ingredient_id @ORM\Column(type="integer", nullable=false) */
+    /** @ORM\Column(type="integer", nullable=false) */
     public $ingredient_id;/* tinyint(4) NOT NULL */
-    /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */
+    /** @ORM\Column(type="integer", nullable=false) */
     public $product_id;/* tinyint(4) NOT NULL, */
-    /** @ORM\cant @ORM\Column(type="decimal", nullable=false) */   
+    /** @ORM\Column(type="decimal", nullable=false) */   
     public $cant;
     
     function getProduct_product_id() {

@@ -21,13 +21,13 @@ class  ProdCostPprod {
      /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */     
     public $prod_cost_prod_id;
     
-    /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */    
+    /** @ORM\Column(type="integer", nullable=false) */    
     public $product_id;
     
-    /** @ORM\prod_cost_id @ORM\Column(type="integer", nullable=false) */    
+    /** @ORM\Column(type="integer", nullable=false) */    
     public $prod_cost_id;
     
-    /** @ORM\cost_value @ORM\Column(type="decimal", nullable=false) */    
+    /** @ORM\Column(type="decimal", nullable=false) */    
     public $cost_value;    
 
     

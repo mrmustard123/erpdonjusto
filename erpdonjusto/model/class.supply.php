@@ -32,15 +32,15 @@ class Supply{
     public $supply_name;/* char(255) NOT NULL,*/
     /** @ORM\Column(length=10, nullable=false) */
     public $unit;/* char(10) NOT NULL,*/
-    /** @ORM\stock @ORM\Column(type="integer", nullable=false) */
+    /** @ORM\Column(type="integer", nullable=false) */
     public $stock;/* int(11) NOT NULL DEFAULT '0',*/
-    /** @ORM\price @ORM\Column(type="decimal", nullable=true) */ 
+    /** @ORM\Column(type="decimal", nullable=true) */ 
     public $price;
     /** @ORM\Column(length=400, nullable=true) */
     public $comments;/* varchar(400) DEFAULT NULL, */
-    /** @ORM\account_id @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="integer", nullable=true) */
     public $account_id;    
-    /** @ORM\stock_min @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="integer", nullable=true) */
     public $stock_min;
  
     function getSupply_id() {

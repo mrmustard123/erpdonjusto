@@ -51,9 +51,9 @@ class ProductCost{
     public $cost_type;/*`cost_type` char(15) DEFAULT 'VENTA', */
 /** @ORM\Column(length=15, nullable=true) */ 
     public $saving_type;/*  `saving_type` char(15) DEFAULT NULL, */
-/** @ORM\saving_id @ORM\Column(type="bigint", nullable=true) */        
+/** @ORM\Column(type="bigint", nullable=true) */        
     public $saving_id;/*  `saving_id` bigint(20) DEFAULT NULL,      */       
-/** @ORM\account_id @ORM\Column(type="bigint", nullable=true) */    
+/** @ORM\Column(type="bigint", nullable=true) */    
     public $account_id;/*  `account_id` bigint(20) unsigned DEFAULT NULL,     */  
 
     function getSaving_type() {

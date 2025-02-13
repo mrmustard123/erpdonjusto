@@ -15,7 +15,7 @@ class Consig_Prod{
     
   /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */    
   public $consig_prod_id;/* int(10) unsigned NOT NULL AUTO_INCREMENT, */
-  /** @ORM\consig_id @ORM\Column(type="integer", nullable=false) */
+  /** @ORM\Column(type="integer", nullable=false) */
   public $consig_id;/* smallint(5) unsigned NOT NULL, */
   /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */
   public $product_id;/* tinyint(4) NOT NULL, */
@@ -25,11 +25,11 @@ class Consig_Prod{
   public $mov_type;/* char(10) NOT NULL DEFAULT 'ENTREGA' COMMENT 'ENTREGA/DEVOLUCION',*/
   /** @ORM\cant @ORM\Column(type="integer", nullable=false) */
   public $cant;/* tinyint(4) NOT NULL DEFAULT '0', */
-  /** @ORM\balance @ORM\Column(type="integer", nullable=false) */
+  /** @ORM\Column(type="integer", nullable=false) */
   public $balance;/* smallint(6) NOT NULL DEFAULT '0', */
-  /** @ORM\owes @ORM\Column(type="integer", nullable=false) */
+  /** @ORM\Column(type="integer", nullable=false) */
   public $owes;/* smallint(6) NOT NULL DEFAULT '0', */
-  /** @ORM\topay @ORM\Column(type="integer", nullable=false) */
+  /** @ORM\Column(type="integer", nullable=false) */
    public $topay;/* smallint(6) NOT NULL DEFAULT '0', */
   /** @ORM\Column(length=500, nullable=false) */
   public $comments; /* varchar(500) DEFAULT NULL,   */

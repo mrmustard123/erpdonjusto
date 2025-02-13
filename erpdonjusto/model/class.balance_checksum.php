@@ -1,5 +1,4 @@
 <?php
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Description of balance_checksum
@@ -20,6 +19,7 @@ CREATE TABLE `balance_checksum` (
  */
 
 
+use Doctrine\ORM\Mapping as ORM;
 
 
      /**
@@ -37,13 +37,13 @@ class balance_checksum {
     public $checksum_id;
     /** @ORM\Column(type="datetime", nullable=false) */
     public $checksum_date;
-    /** @ORM\checksum @ORM\Column(type="decimal", nullable=false) */
+    /** @ORM\Column(type="decimal", nullable=false) */
     public $checksum;  
-    /** @ORM\budget @ORM\Column(type="decimal", nullable=false) */
+    /** @ORM\Column(type="decimal", nullable=false) */
     public $budget;     
     /** @ORM\Column(length=30, nullable=true) */
     public $cbte_cont_nro;            /*`cbte_cont_nro` varchar(30) DEFAULT NULL,*/
-    /** @ORM\balance @ORM\Column(type="decimal", nullable=false) */
+    /** @ORM\Column(type="decimal", nullable=false) */
     public $balance;            /*`balance` decimal(13,2) DEFAULT '0.00',*/    
     
     

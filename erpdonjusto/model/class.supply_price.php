@@ -23,13 +23,13 @@ class SupplyPrice{
      /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */ 
     public $supply_price_id;
     
-    /** @ORM\balance @ORM\Column(type="decimal", nullable=false) */
+    /** @ORM\Column(type="decimal", nullable=false) */
     public $value;
     /** @ORM\Column(type="datetime", nullable=false) */
     public $start_date;
     /** @ORM\Column(length=400, nullable=true) */
     public $comments; 
-    /** @ORM\supplys_id @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="integer", nullable=true) */
     public $supply_id;
     
     function getSupply_price_id() {

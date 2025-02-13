@@ -17,8 +17,9 @@ Count=0
 Count=0
 
 [OpenFiles]
-Module2=database_module01.php
-Module3=view_consig_prod_sales_report1.php
+Module1=database_module01.php
+Module2=view_consig_prod_sales_report1.php
+Module3=view_budget_0002.php
 
 [database_module01.php]
 Line=0
@@ -28,6 +29,10 @@ Position=0
 Line=0
 Position=0
 
+[view_budget_0002.php]
+Line=17
+Position=12
+
 [Status]
-OpenModule=view_consig_prod_sales_report1.php
+OpenModule=view_budget_0002.php
 

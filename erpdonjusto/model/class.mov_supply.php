@@ -34,7 +34,7 @@ class SupplyMovement{
     public $supply_id; /* tinyint(4) DEFAULT NULL, */
     /** @ORM\Column(length=400, nullable=true) */
     public $comments; /*varchar(400) DEFAULT NULL */
-    /** @ORM\user_id @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="integer", nullable=true) */
     public $user_id; /* `user_id` tinyint(3) unsigned DEFAULT NULL, */
     
     

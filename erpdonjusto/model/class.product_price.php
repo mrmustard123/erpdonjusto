@@ -30,7 +30,7 @@ class ProductPrice{
     public $start_date;
     /** @ORM\Column(length=400, nullable=true) */
     public $comments; 
-    /** @ORM\product_id @ORM\Column(type="integer", nullable=true) */
+    /** @ORM\Column(type="integer", nullable=true) */
     public $product_id;
     
     function getProduct_price_id() {
