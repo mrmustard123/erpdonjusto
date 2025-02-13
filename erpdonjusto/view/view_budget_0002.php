@@ -87,43 +87,43 @@ class view_budget0002 extends Page
             $mano_de_obra=$this->Query7->fieldget('balance');
             $mat_primas=$this->Query8->fieldget('balance');
             $utilidades=$this->Query9->fieldget('balance');
-            /*Desactivare esta caracteristica por error en PHP8
+            
             if($otros < 0){
-              $this->Label2->Font->Color = #FF000;
+              $this->Label2->Font->Color = '#FF000';
             }
 
             if($envases < 0){
-              $this->Label4->Font->Color = #FF000;
+              $this->Label4->Font->Color = '#FF000';
             }
 
             if($comercializacion < 0){
-              $this->Label6->Font->Color = #FF000;
+              $this->Label6->Font->Color = '#FF0000';
             }
 
             if($reserva < 0){
-              $this->Label8->Font->Color = #FF000;
+              $this->Label8->Font->Color = '#FF0000';
             }
 
             if($produccion < 0){
-              $this->Label10->Font->Color = #FF000;
+              $this->Label10->Font->Color = '#FF0000';
             }
 
             if($impuestos < 0){
-              $this->Label12->Font->Color = #FF000;
+              $this->Label12->Font->Color = '#FF0000';
             }
 
             if($mano_de_obra < 0){
-              $this->Label16->Font->Color = #FF000;
+              $this->Label16->Font->Color = '#FF0000';
             }
 
             if($mat_primas < 0){
-              $this->Label17->Font->Color = #FF000;
+              $this->Label17->Font->Color = '#FF0000';
             }
 
             if($utilidades < 0){
-              $this->Label20->Font->Color = #FF000;
+              $this->Label20->Font->Color = '#FF000';
             }
-            */
+          
 
             $total = $this->Query1->fieldget('balance')+$this->Query2->fieldget('balance')+$this->Query3->fieldget('balance')+$this->Query4->fieldget('balance')+$this->Query5->fieldget('balance')+$this->Query6->fieldget('balance')+$this->Query7->fieldget('balance')+$this->Query8->fieldget('balance')+$this->Query9->fieldget('balance');
             $this->lblTotal->Caption =  $total;
