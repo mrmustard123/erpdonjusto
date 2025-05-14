@@ -24,7 +24,7 @@ class ProductPrice{
      /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue */ 
     public $prod_price_id;
     
-    /** @ORM\balance @ORM\Column(type="decimal", nullable=false) */
+    /** @ORM\Column(type="decimal", nullable=false) */
     public $value;
     /** @ORM\Column(type="datetime", nullable=false) */
     public $start_date;

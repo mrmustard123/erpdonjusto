@@ -49,7 +49,7 @@ class Product{
     /** @ORM\Column(type="integer", nullable=true) */
     public $account_id;
     /** @ORM\Column(length=8, nullable=true) */ 
-    public $status; /*char(8),
+    public $status;
     /** @ORM\Column(type="integer", nullable=true) */
     public $stock_min;
                

@@ -8,6 +8,28 @@ use Doctrine\ORM\Mapping as ORM;
  */
 
 
+/* DDL de esta tabla:
+ *
+CREATE TABLE `mov_supply` (
+  `mov_supply_id` int(11) NOT NULL AUTO_INCREMENT,
+  `mov_supply_type` char(10) NOT NULL DEFAULT 'ENTRADA',
+  `mov_supply_date` datetime NOT NULL,
+  `mov_supply_cant` int(11) NOT NULL DEFAULT '1',
+  `mov_supply_lot` char(15) DEFAULT NULL,
+  `supply_id` tinyint(4) NOT NULL,
+  `comments` varchar(400) DEFAULT NULL,
+  `user_id` tinyint(3) unsigned DEFAULT NULL,
+  PRIMARY KEY (`mov_supply_id`),
+  KEY `fk_supply_id02` (`supply_id`),
+  KEY `fk_user_id03` (`user_id`),
+  CONSTRAINT `fk_supply_id02` FOREIGN KEY (`supply_id`) REFERENCES `supply` (`supply_id`),
+  CONSTRAINT `fk_user_id03` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1051 DEFAULT CHARSET=utf8;
+ * 
+ */
+
+
+
 
 /**
 
@@ -30,7 +52,7 @@ class SupplyMovement{
     public $mov_supply_cant; /*int(11) NOT NULL DEFAULT '1', */
     /** @ORM\Column(length=15, nullable=false) */
     public $mov_supply_lot; /* char(15) DEFAULT NULL, */
-    /** @ORM\product_id @ORM\Column(type="integer", nullable=false) */
+    /** @ORM\Column(type="integer", nullable=false) */
     public $supply_id; /* tinyint(4) DEFAULT NULL, */
     /** @ORM\Column(length=400, nullable=true) */
     public $comments; /*varchar(400) DEFAULT NULL */

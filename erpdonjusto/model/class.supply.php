@@ -7,6 +7,34 @@ use Doctrine\ORM\Mapping as ORM;
  * Author: Leonardo Gabriel Tellez Saucedo <mr_mustard123@hotmail.com>
  */
 
+/* DDL tabla Supply:
+ * 
+  CREATE TABLE `supply` (
+  `supply_id` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `supply_name` char(255) NOT NULL,
+  `unit` char(10) NOT NULL,
+  `stock` bigint(20) NOT NULL DEFAULT '0',
+  `price` decimal(10,5) DEFAULT '0.00000',
+  `comments` varchar(400) DEFAULT NULL,
+  `account_id` bigint(20) unsigned DEFAULT NULL,
+  `stock_min` int(11) DEFAULT NULL,
+  `cost_account_id` bigint(20) unsigned DEFAULT NULL,
+  `prod_cost_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`supply_id`),
+  KEY `fk_account_id03` (`account_id`),
+  KEY `fk_cost_account_id01` (`cost_account_id`),
+  KEY `fk_prod_cost_id` (`prod_cost_id`),
+  CONSTRAINT `fk_account_id03` FOREIGN KEY (`account_id`) REFERENCES `account` (`account_id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_cost_account_id01` FOREIGN KEY (`cost_account_id`) REFERENCES `account` (`account_id`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_prod_cost_id` FOREIGN KEY (`prod_cost_id`) REFERENCES `product_cost` (`prod_cost_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+ * 
+ * 
+ *  */
+
+
+
+
 
 
 
