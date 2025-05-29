@@ -322,7 +322,15 @@ Author: Leonardo G. Tellez Saucedo
                         </li>
                         <?php
                             }//end if
-                        ?>   
+                            if(in_array('47', $v_functionalities)){
+                        ?>                           
+                        <li>
+                            <a href="<?php echo $path; ?>index.php?action=report_pos_hist_alive">&bullet;&nbsp;Reporte historia de posiciones vivas</a>
+                        </li>
+                        <?php
+                            }//end if
+                        ?>                         
+                        
                         
                     </ul>
                 </li>

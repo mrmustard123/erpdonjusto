@@ -601,12 +601,30 @@
                 return NULL;
             }                           
             
-        }        
+        }              
         
         
-    public function getListPosHistory(){
+        
+        public function getPositionCollection_last_review(){
+            $sql = "SELECT * from position where salud<>'MUERTA';";
+            $result=$this->db->query($sql);
+            if(mysqli_num_rows($result)>0){
+                while($tupla1 = mysqli_fetch_assoc($result))
+                {
+                  $v_positions[] = $tupla1;
+                }
+                return $v_positions;
 
-            $sql = "select * from pos_history ORDER BY position_id, pos_hist_date";
+            }else{
+                return NULL;
+            }                           
+            
+        }          
+        
+        public function getListPosHistory(){
+
+            $sql = "SELECT * FROM pos_history WHERE DATE(pos_hist_date) IN (
+                    SELECT DATE(MAX(pos_hist_date)) FROM pos_history)";
             $result=$this->db->query($sql);
             if(mysqli_num_rows($result)>0){
                 while($tupla1 = mysqli_fetch_assoc($result))
@@ -619,7 +637,7 @@
                 return NULL;
             }
 
-    }        
+        }        
 
 
 

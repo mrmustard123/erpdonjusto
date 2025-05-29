@@ -263,6 +263,12 @@ class model {
 
      }       
      
+     public function getPositionCollection_last_review(){
+                $v_positions = $this->persistence->getPositionCollection_last_review();
+                return $v_positions;
+
+     }      
+     
 
      public function getLastPosHistories(){
                 $v_pos_histories = $this->persistence->getLastPosHistories();

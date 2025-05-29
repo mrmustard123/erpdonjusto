@@ -12,6 +12,17 @@
     $params = import_request_data();   //recupera $params()      
     /*echo 'request data:<br>';    var_dump($params);    echo '<br>';*/
     $_SESSION['view']='';
+	
+	// Refrescar la sesión para extender su duración
+if (isset($_SESSION['user_id'])) {
+    // Regenerar ID de sesión periódicamente para mayor seguridad (opcional)
+    if (!isset($_SESSION['last_regeneration']) || time() - $_SESSION['last_regeneration'] > 1800) {
+        session_regenerate_id(true);
+        $_SESSION['last_regeneration'] = time();
+    }
+}
+	
+	
     if(!isset($params['action']))
     {        
        $params['action']='login'; 

@@ -1,62 +1,3 @@
-<?php
-/**
- * Project:  ErpLeo
- * File: view_home.php
- * Created on: Feb 17, 2017
- * Author: Leonardo Gabriel Tellez Saucedo (mr_mustard123@hotmail.com)
- */
-?>
-
-<!doctype html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="HandheldFriendly" content="true">
-        <meta name="viewport" content="width=device-width, initial-scale=0.666667, maximum-scale=0.666667, user-scalable=0">
-        <meta name="viewport" content="width=device-width">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	    <!--script src="view/js/session_clock.js"></script-->
-
-        <style>
-            #session-timer {
-                position: fixed;
-                top: 10px;
-                right: 10px;
-                background-color: #f8f8f8;
-                border: 1px solid #ddd;
-                padding: 8px 12px;
-                border-radius: 4px;
-                font-size: 14px;
-                z-index: 1000;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-            .warning {
-                color: #cc0000;
-                font-weight: bold;
-            }
-        </style>
-
-<title>ERP DON JUSTO</title>
-</head>
-
-<body>
-    
-    <?php require "view_links.php" ?>
-
-    <!-- Session Timer -->
-    <div id="session-timer">
-        Sesi&oacute;n expira en: <span id="timer">--:--:--</span>
-    </div>
-    
-    <div class="wrapper">
-
-        <?php require "view_menu.php";  ?>
-
-        <div id="div_target">
-            <div style="width: 100%;"><span class="txt_company">Ap&iacute;cola"Don Justo"</span><br/><img src="view/images/logo_adj.png" width="170em" height="170em" style="margin-left:2em;"/></div>
-        </div>                
-    </div>
-  <script>
     $(document).ready(function() {
         // Variable para almacenar el intervalo de actualización
         let timerInterval;
@@ -98,7 +39,7 @@
                         
                         // Opcional: Redirigir a la página de login después de un breve retraso
                         setTimeout(function() {
-                            window.location.href = 'index.php?action=login';
+                            window.location.href = '../index.php?action=login';
                         }, 3000);
                     }
                 },
@@ -121,6 +62,3 @@
             });
         });
     });
-    </script>
-</body>
-</html>

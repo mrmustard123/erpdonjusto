@@ -95,6 +95,8 @@ interface iPersistence{
     public function getListPosHistory();
     
     public function getPositionCollection_alive();
+    
+    public function  getPositionCollection_last_review();
                    
     /********SUBSISTEMA DE INVENTÁRIO*******/        
     public function getMovementsByDateCollection($fecha_ini, $fecha_fin);

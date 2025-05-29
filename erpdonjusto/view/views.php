@@ -183,7 +183,12 @@ class views
     
     public function display_view_report_pos_hist_alive($params)
     {
-        require_once ('view_reporte_hist_posiciones_vivas.php');                            
+        require_once ('view_reporte_hist_posiciones_vivas.php');
+    }
+    
+    public function display_view_report_last_apiary_review($params)
+    {
+        require_once ('view_report_last_apiary_review.php');
     }
     
     
