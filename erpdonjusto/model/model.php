@@ -264,7 +264,8 @@ class model {
      }       
      
      public function getPositionCollection_last_review(){
-                $v_positions = $this->persistence->getPositionCollection_last_review();
+                $previous = $_SESSION['apiary_review'];
+                $v_positions = $this->persistence->getPositionCollection_last_review($previous);
                 return $v_positions;
 
      }      
@@ -311,7 +312,7 @@ class model {
                 $pos_history =  new PosHistory();
                 $fecha = new DateTime($params['text_pos_date'.$count]);
                 $pos_history->setPos_hist_date($fecha);
-                $pos_history->setPos_hist_body($params['text_pos_body'.$count]);
+                $pos_history->setPos_hist_body(($params['text_pos_body'.$count]));
                 $pos_history->setPosition_id($params['text_position_id'.$count]);
                 $this->persistence->savePosHistory($pos_history);
 

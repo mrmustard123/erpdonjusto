@@ -605,8 +605,22 @@
         
         
         
-        public function getPositionCollection_last_review(){
-            $sql = "SELECT * from position where salud<>'MUERTA';";
+        public function getPositionCollection_last_review($previous){            
+            
+            $sql = "SELECT *, DATE(P.pos_hist_date) AS `hist_date`
+                    FROM
+                            pos_history AS P
+                    INNER JOIN (
+                            SELECT
+                              DATE(pos_hist_date) `hist_date`
+                            FROM
+                              pos_history AS D
+                            GROUP BY DATE(pos_hist_date)
+                            ORDER BY
+                              `hist_date`  DESC
+                            LIMIT 1 OFFSET ".$previous."
+                    ) AS K ON (DATE(P.pos_hist_date) = K.`hist_date`)";
+            
             $result=$this->db->query($sql);
             if(mysqli_num_rows($result)>0){
                 while($tupla1 = mysqli_fetch_assoc($result))
@@ -623,8 +637,7 @@
         
         public function getListPosHistory(){
 
-            $sql = "SELECT * FROM pos_history WHERE DATE(pos_hist_date) IN (
-                    SELECT DATE(MAX(pos_hist_date)) FROM pos_history)";
+            $sql = "select * from pos_history ORDER BY position_id, pos_hist_date";
             $result=$this->db->query($sql);
             if(mysqli_num_rows($result)>0){
                 while($tupla1 = mysqli_fetch_assoc($result))

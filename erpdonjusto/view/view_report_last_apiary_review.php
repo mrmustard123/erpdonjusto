@@ -1,10 +1,11 @@
-<html>
+<html>    
 <head>
 
     <title>REPORTE DE LA &Uacute;LTIMA REVISI&Oacute;N DEL API&Aacute;RIO</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
         <meta name="HandheldFriendly" content="true">
+        <meta charset="UTF-8">
 
         
 </head>
@@ -12,64 +13,46 @@
 <body>
 
 <?php
+header('Content-Type: text/html; charset=utf-8');
 error_reporting(1);
 /*
   Created on : 29 may. de 2023, 17:38:25
   Author: Leonardo G. Tellez Saucedo
  */
 
-require_once 'model/model.php';
-require_once 'model/class.pos_history.php';
-require_once 'model/class.position.php';
+    require_once 'model/model.php';
+    require_once 'model/class.pos_history.php';
+    require_once 'model/class.position.php';
 
     $model = new model();
-
-
-    $v_positions = $model->getPositionCollection_last_review();
-    
+   
        
     echo '<a href="index.php?action=home">Inicio</a>';  
     
     echo '<H1>REPORTE DE LA &Uacute;LTIMA REVISI&Oacute;N DEL API&Aacute;RIO</H1>';
     
-    foreach($v_positions as $position){
-        
-        
-        $ActualPosition = new Position();
-               
-        $ActualPosition->setPosition_id($position['position_id']);
-        $ActualPosition->setPos_name($position['pos_name']);
-        $ActualPosition->setDescripcion($position['descripcion']);
-        $ActualPosition->setCoordenadas($position['coordenadas']);
-        $ActualPosition->setSalud($position['salud']);        
-        $ActualPosition->setId_apiario($position['id_apiario']);
-        
-        $pos = $ActualPosition->getPosition_id();
-        $v_pos_histories = $model->getPosHistory($pos);        
-        
-        
-        echo '<h2>Posici&oacute;n # '.$ActualPosition->getPosition_id().'</h2>';
-        echo '<p><strong>Configuraci&oacute;n actual: </strong>'.$ActualPosition->getDescripcion().'<br/>';
-        echo '<strong>Salud actual: </strong>'.$ActualPosition->getSalud().'</p>';
-        
-        foreach($v_pos_histories as $pos_history){
-
-            $PosHistory = new PosHistory();
-
-            $PosHistory->setPos_hist_id($pos_history['pos_hist_id']);
-            $PosHistory->setPos_hist_date($pos_history['pos_hist_date']);
-            $PosHistory->setPos_hist_body($pos_history['pos_hist_body']);
-            $PosHistory->setPosition_id($pos_history['position_id']);
-
-            $new_position = $PosHistory->getPosition_id();
-
-            echo $PosHistory->getPos_hist_date().': ';
-
-            echo $PosHistory->getPos_hist_body().'</BR>';
+    $_SESSION['apiary_review'] = $_SESSION['apiary_review']+1;
+    
+    $previous = $_SESSION['apiary_review'];
+    
+    $v_pos_histories = $model->getPositionCollection_last_review($previous);        
 
 
-        }           
-    }
+    foreach($v_pos_histories as $pos_history){
+
+
+        echo '<h2>Posici&oacute;n # '.$pos_history['position_id'].'</h2>';
+
+        echo $pos_history['pos_hist_date'].': ';
+
+        echo utf8_encode($pos_history['pos_hist_body']).'</BR>';
+
+    }          
+    
+    
+    
+    echo '<a href="index.php?action=report_last_apiary_review"> < </a>';
+
     
 
     

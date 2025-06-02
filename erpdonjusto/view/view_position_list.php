@@ -127,6 +127,7 @@
                       dataType: 'JSON',
                       async: true,
                       url:'index.php?action=saveposhistory',
+                      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                       beforeSend: function() {
                         $('#btn_save_pos'+contador).prop('disabled', true);
                         $('#text_pos_body'+contador).css("background-color", "White"); 

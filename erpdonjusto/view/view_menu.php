@@ -323,9 +323,10 @@ Author: Leonardo G. Tellez Saucedo
                         <?php
                             }//end if
                             if(in_array('47', $v_functionalities)){
+                                $_SESSION['apiary_review'] = -1; 
                         ?>                           
                         <li>
-                            <a href="<?php echo $path; ?>index.php?action=report_pos_hist_alive">&bullet;&nbsp;Reporte historia de posiciones vivas</a>
+                            <a href="<?php echo $path; ?>index.php?action=report_last_apiary_review">&bullet;&nbsp;Reporte &uacute;ltima revisi&oacute;n</a>
                         </li>
                         <?php
                             }//end if
