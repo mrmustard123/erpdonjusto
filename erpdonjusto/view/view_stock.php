@@ -76,7 +76,7 @@
 ?>
             
               <td><?php   echo $product['product_id'];     ?></td>
-              <td><?php   echo utf8_encode($product['product_name']);   ?></td>
+              <td><?php   echo  ($product['product_name']);   ?></td>
               <td><?php   echo $product['unit'];           ?></td>
               <td><?php   echo $product['stock'];         ?></td>             
               <td><?php   echo $product['stock_min'];         ?></td> 
@@ -125,7 +125,7 @@
   
               
               <td><?php   echo $supply['supply_id'];     ?></td>
-              <td><?php   echo utf8_encode($supply['supply_name']);   ?></td>
+              <td><?php   echo  ($supply['supply_name']);   ?></td>
               <td><?php   echo $supply['unit'];           ?></td>
               <td><?php   echo $supply['stock'];          ?></td>
               <td><?php   echo $supply['stock_min'];          ?></td>

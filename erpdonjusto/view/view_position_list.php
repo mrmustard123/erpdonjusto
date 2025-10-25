@@ -183,22 +183,22 @@
           <input type="hidden" name="text_count" id="text_count" value="" />
           <input type="hidden" name="text_position_id" id="text_position_id<?php echo $count?>" value="<?php echo $pos_history['position_id']; ?>" />
         
-          <input class="text_pos_name" name="text_pos_name" id="text_pos_name<?php echo $count?>" value="<?php  echo utf8_encode($pos_history['pos_name']); ?>" />
+          <input class="text_pos_name" name="text_pos_name" id="text_pos_name<?php echo $count?>" value="<?php  echo  ($pos_history['pos_name']); ?>" />
                            
         <br> 
         <br>
         <label>Descripci&oacute;n:</label><a href="index.php?action=poshisdescript&pos=<?php  echo $pos_history['position_id']; ?>">Historia</a>         
         <br>
-        <textarea class="text_pos_descripcion" name="text_pos_descripcion<?php echo $count?>" id="text_pos_descripcion<?php echo $count?>"><?php echo utf8_encode($pos_history['descripcion']); ?></textarea>
+        <textarea class="text_pos_descripcion" name="text_pos_descripcion<?php echo $count?>" id="text_pos_descripcion<?php echo $count?>"><?php echo  ($pos_history['descripcion']); ?></textarea>
         <br>
-        <input  type="hidden" id="hd_change_descript<?php echo $count?>" name="hd_change_descript<?php echo $count?>"    value="<?php echo utf8_encode($pos_history['descripcion']); ?>" />   
+        <input  type="hidden" id="hd_change_descript<?php echo $count?>" name="hd_change_descript<?php echo $count?>"    value="<?php echo  ($pos_history['descripcion']); ?>" />   
         <br>
         <label>Fecha:</label>
         <br>
         <input class="text_pos_date" name="text_pos_date<?php echo $count; ?>" id="text_pos_date<?php echo $count; ?>" value="<?php echo $pos_history['pos_hist_date'];  ?>"/>
         <br>
         
-        <input  type="hidden" id="hd_change_salud<?php echo $count?>" name="hd_change_salud<?php echo $count?>"    value="<?php echo utf8_encode($pos_history['salud']); ?>" />           
+        <input  type="hidden" id="hd_change_salud<?php echo $count?>" name="hd_change_salud<?php echo $count?>"    value="<?php echo  ($pos_history['salud']); ?>" />           
         <label>Salud:</label><a href="index.php?action=poshistsalud&pos=<?php  echo $pos_history['position_id']; ?>">Historia</a><br/>        
         <select id="slct_salud<?php echo $count; ?>" name="slct_salud<?php echo $count; ?>">
             <option <?php if($pos_history['salud']=='BUENA'){ echo ' selected '; }   ?> value='BUENA' >BUENA</option>
@@ -216,7 +216,7 @@
         <br>
         <label>Anotaci&oacute;n:</label><a href="index.php?action=poshistorylist&pos=<?php  echo $pos_history['position_id']; ?>">Historia</a>        
         <br>
-        <textarea class="text_pos_body" name="text_pos_body<?php echo $count?>" id="text_pos_body<?php echo $count?>"  rows=8 ><?php echo utf8_encode($pos_history['pos_hist_body']); ?></textarea>
+        <textarea class="text_pos_body" name="text_pos_body<?php echo $count?>" id="text_pos_body<?php echo $count?>"  rows=8 ><?php echo ($pos_history['pos_hist_body']); ?></textarea>
         <br>                
         <button type="normal" class="btn_save_pos" name="btn_save_pos<?php echo $count?>" id="btn_save_pos<?php echo $count?>" disabled="true">GRABAR</button>   
         

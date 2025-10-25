@@ -218,16 +218,6 @@
     <property name="DataSet">Query1</property>
     <property name="Name">Datasource1</property>
   </object>
-  <object class="Database" name="dbamenoec1_erpdonjusto1" >
-        <property name="Left">66</property>
-        <property name="Top">389</property>
-    <property name="Connected"></property>
-    <property name="DatabaseName">apicolad_erpdonjusto</property>
-    <property name="Host">localhost</property>
-    <property name="Name">dbamenoec1_erpdonjusto1</property>
-    <property name="UserName">apicolad_justo</property>
-    <property name="UserPassword">aA1NfDBW5Wlm</property>
-  </object>
   <object class="Table" name="tbconsig_prod1" >
         <property name="Left">241</property>
         <property name="Top">395</property>

@@ -162,7 +162,7 @@ jQuery( document ).ready(function(){
 ?>    
     <tr>     
 	  <td><?php echo $activo['account_code']; ?></td>
-      <td><?php echo utf8_encode($activo['Cuenta']); ?></td>
+      <td><?php echo  ($activo['Cuenta']); ?></td>
       <td><?php echo $activo['Suma']; ?></td>
     </tr>
       
@@ -199,7 +199,7 @@ jQuery( document ).ready(function(){
 ?>    
     <tr>    
 	  <td><?php echo $activo['account_code']; ?></td>	
-      <td><?php echo utf8_encode($pasivo['Cuenta']); ?></td>
+      <td><?php echo  ($pasivo['Cuenta']); ?></td>
       <td><?php echo $pasivo['Suma']; ?></td>
     </tr>
       
@@ -237,7 +237,7 @@ jQuery( document ).ready(function(){
 ?>    
     <tr>      
 	  <td><?php echo $activo['account_code']; ?></td>
-      <td><?php echo utf8_encode($capital['Cuenta']); ?></td>
+      <td><?php echo  ($capital['Cuenta']); ?></td>
       <td><?php echo $capital['Suma']; ?></td>
 
     </tr>
@@ -279,7 +279,7 @@ jQuery( document ).ready(function(){
 ?>    
     <tr> 
 	  <td><?php echo $activo['account_code']; ?></td>	
-      <td><?php echo utf8_encode($ingreso['Cuenta']); ?></td>
+      <td><?php echo  ($ingreso['Cuenta']); ?></td>
       <td><?php echo $ingreso['Suma']; ?></td>
     </tr>
       
@@ -319,7 +319,7 @@ jQuery( document ).ready(function(){
 ?>    
     <tr>  
 	  <td><?php echo $activo['account_code']; ?></td>    
-      <td><?php echo utf8_encode($egreso['Cuenta']); ?></td>
+      <td><?php echo  ($egreso['Cuenta']); ?></td>
       <td><?php echo $egreso['Suma']; ?></td>
     </tr>
       

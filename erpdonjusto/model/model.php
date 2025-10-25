@@ -1,4 +1,4 @@
-<?php   
+<?php  
 error_reporting(E_ALL);
 /* echo 'estoy en model.php<br>';
 */
@@ -133,7 +133,7 @@ class model {
         $entry->setAccount_id($params['hf_id_account']);
         $fecha = new DateTime($params['edt_date']);
         $entry->setEntry_date($fecha);
-        $entry->setDetails(utf8_encode($params['ta_description']));
+        $entry->setDetails( ($params['ta_description']));
         $entry->setBalance($params['edt_balance']);
         $entry->setCbte_cont_tipo($params['edt_cbte_tipo']);
         $entry->setCbte_cont_nro($params['edt_cbte_nro']);
@@ -173,9 +173,9 @@ class model {
                 if($accounts){
                     foreach($accounts as $account){
                         /* put in bold the written text */
-                        $name = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>', $account->getAccount_code()." ".utf8_encode($account->getName()));
+                        $name = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>', $account->getAccount_code()." ". ($account->getName()));
                         /* add new option */
-                        echo '<li onclick="set_item(\''.str_replace("'", "\'", $account->getAccount_code()." ".utf8_encode($account->getName())).'\','.$account->getAccount_id().')">'.$name.'</li>';
+                        echo '<li onclick="set_item(\''.str_replace("'", "\'", $account->getAccount_code()." ". ($account->getName())).'\','.$account->getAccount_id().')">'.$name.'</li>';
 
                     }
 
@@ -264,8 +264,8 @@ class model {
      }       
      
      public function getPositionCollection_last_review(){
-                $previous = $_SESSION['apiary_review'];
-                $v_positions = $this->persistence->getPositionCollection_last_review($previous);
+                $flow = $_SESSION['apiary_review'];
+                $v_positions = $this->persistence->getPositionCollection_last_review($flow);
                 return $v_positions;
 
      }      
@@ -279,18 +279,30 @@ class model {
 
      public function process_save_pos_history($params){
                 $count = $params['contador'];
+                
+                
+// DIAGNÓSTICO: Ver qué llega desde el formulario
+    $texto_recibido = $params['text_pos_body'.$count];
+    error_log("=== DIAGNÓSTICO POS_HISTORY ===");
+    error_log("Texto recibido: " . $texto_recibido);
+    error_log("Longitud original: " . strlen($texto_recibido));
+    error_log("Encoding detectado: " . mb_detect_encoding($texto_recibido, ['UTF-8', 'ISO-8859-1', 'Windows-1252'], true));                
+                
+                
+                
+                
                 /*Actualizamos la posicion*/
                 $position = new Position();
                 $position->setPosition_id($params['text_position_id'.$count]);
                 $position-> setPos_name($params['text_pos_name'.$count]);
-                $position->setDescripcion(utf8_encode($params['text_pos_descripcion'.$count]));
+                $position->setDescripcion($params['text_pos_descripcion'.$count]);
                 $position->setSalud($params['slct_salud'.$count]);
                 $this->persistence->updatePosition($position);
                 $hd_change_descript = $params['hd_change_descript'.$count];
                 /*Si ha cambiado la descripción, hacemos el registro del cambio*/
                 if($hd_change_descript!=$params['text_pos_descripcion'.$count]){
                                     $PosicDescripHist = new PosicDescripHist();
-                                    $PosicDescripHist->setDescripcion(utf8_encode($params['text_pos_descripcion'.$count]));
+                                    $PosicDescripHist->setDescripcion($params['text_pos_descripcion'.$count]);
                                     $fecha = new DateTime($params['text_pos_date'.$count]);
                                     $PosicDescripHist->setPosic_descrip_hsit_date($fecha);
                                     $PosicDescripHist->setPosition_id($params['text_position_id'.$count]);
@@ -306,13 +318,12 @@ class model {
                                     $PosicSaludHist->setPosic_salud_hist_date($fecha);
                                     $PosicSaludHist->setPosition_id($params['text_position_id'.$count]);
                                     $this->persistence->savePosicSaludHist($PosicSaludHist);
-
                 }
                 /*Creamos una nueva entrada en el historico de posiciones*/
                 $pos_history =  new PosHistory();
                 $fecha = new DateTime($params['text_pos_date'.$count]);
                 $pos_history->setPos_hist_date($fecha);
-                $pos_history->setPos_hist_body(($params['text_pos_body'.$count]));
+                $pos_history->setPos_hist_body($params['text_pos_body'.$count]);
                 $pos_history->setPosition_id($params['text_position_id'.$count]);
                 $this->persistence->savePosHistory($pos_history);
 
@@ -396,9 +407,9 @@ class model {
                 if($clients){
                     foreach($clients as $client)                {
                         /* put in bold the written text */
-                        $name = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>', utf8_encode($client->getClient_name()));
+                        $name = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>',  ($client->getClient_name()));
                         /* add new option */
-                        echo '<li onclick="set_item(\''.str_replace("'", "\'", utf8_encode($client->getClient_name())).'\','.$client->getClient_id().')">'.$name.'</li>';
+                        echo '<li onclick="set_item(\''.str_replace("'", "\'",  ($client->getClient_name())).'\','.$client->getClient_id().')">'.$name.'</li>';
 
                     }
 
@@ -506,6 +517,12 @@ class model {
         $v_pos_histories = $this->persistence->getListPosHistory();
         return $v_pos_histories;
     }
+    
+    
+    public function report_harvests(){
+        $v_harvests = $this->persistence->report_harvests();
+        return $v_harvests;
+    }
             
 
     /****************FUNCIONES PARA INVENTÁRIO *************************/
@@ -543,11 +560,11 @@ class model {
                 if($products){
                     foreach($products as $product)                {
                         /* put in bold the written text */
-                        $name = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>', utf8_encode($product->getProduct_name()));
-                        $stock = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>', utf8_encode($product->getStock()));
-                        $stock_min = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>', utf8_encode($product->getStock_min()));
+                        $name = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>',  ($product->getProduct_name()));
+                        $stock = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>',  ($product->getStock()));
+                        $stock_min = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>',  ($product->getStock_min()));
                         /* add new option */
-                        echo '<li onclick="set_item(\''.str_replace("'", "\'", utf8_encode($product->getProduct_name())).'\','.$product->getProduct_id().')">'.$name;
+                        echo '<li onclick="set_item(\''.str_replace("'", "\'",  ($product->getProduct_name())).'\','.$product->getProduct_id().')">'.$name;
                         if ($stock<$stock_min){
                             echo '&nbsp;<span class="alert">'.$stock.'</span></li>';
                         }else{
@@ -593,7 +610,7 @@ class model {
 
         // Para enviar un correo HTML, debe establecerse la cabecera Content-type
         $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-        $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
         // Cabeceras adicionales
         $cabeceras .= 'To: Eli <elianatellezsaucedo@gmail.com>, Leo <leonardo616@gmail.com>' . "\r\n";
@@ -617,7 +634,7 @@ class model {
                 $movement->setMov_cant($params['edt_cant']);
                 $movement->setProduct_id($params['hf_product_id']);
                 $movement->setMov_lot($params['edt_lot']);
-                $movement->setComments(utf8_encode($params['ta_comments']));
+                $movement->setComments( ($params['ta_comments']));
                 $movement->setUser_id($_SESSION['user_id']);
                 $movement->setReason($params['slct_mov_reason']);
                 $this->persistence->saveMovement($movement);
@@ -670,7 +687,7 @@ class model {
                                         /*$fecha_actual = date('Y-m-d H:i:s');
                                          $fecha = new DateTime($fecha_actual);*/
                                         $entry->setEntry_date($fecha);
-                                        $entry->setDetails(utf8_encode($params['ta_comments']));
+                                        $entry->setDetails( ($params['ta_comments']));
                                         $mov_cant=$movement->getMov_cant();
                                         $product_product_cant = $product_product['cant'];
                                         $costo = $mov_cant*$product_product_cant*$price*-1;
@@ -716,7 +733,7 @@ class model {
                                        /* $fecha_actual = date('Y-m-d H:i:s');
                                           $fecha = new DateTime($fecha_actual);*/
                                         $entry->setEntry_date($fecha);
-                                        $entry->setDetails(utf8_encode($params['ta_comments']));
+                                        $entry->setDetails( ($params['ta_comments']));
                                         $mov_cant=$movement->getMov_cant();
                                         $product_supply_cant = $product_supply['cant'];
                                         $costo = $mov_cant*$product_supply_cant*$price*-1;
@@ -752,7 +769,7 @@ class model {
                                            /* $fecha_actual = date('Y-m-d H:i:s');
                                              $fecha = new DateTime($fecha_actual);*/
                                             $entry->setEntry_date($fecha);
-                                            $entry->setDetails(utf8_encode($params['ta_comments']));
+                                            $entry->setDetails( ($params['ta_comments']));
                                                  $entry->setBalance($costo);
                                             $costo_total += $costo;
                                             $entry->setUser_id($_SESSION['user_id']);
@@ -777,7 +794,7 @@ class model {
                                            /* $fecha_actual = date('Y-m-d H:i:s');
                                               $fecha = new DateTime($fecha_actual);*/
                                             $entry->setEntry_date($fecha);
-                                            $entry->setDetails(utf8_encode($params['ta_comments']));
+                                            $entry->setDetails( ($params['ta_comments']));
                                             $entry->setBalance($costo);
                                             $costo_total += $costo;
                                             $entry->setUser_id($_SESSION['user_id']);
@@ -800,7 +817,7 @@ class model {
                                 /*$fecha_actual = date('Y-m-d H:i:s');
                                   $fecha = new DateTime($fecha_actual);*/
                                 $entry->setEntry_date($fecha);
-                                $entry->setDetails(utf8_encode($params['ta_comments']));
+                                $entry->setDetails( ($params['ta_comments']));
                                 $entry->setBalance($costo_total*-1);
                                 $entry->setUser_id($_SESSION['user_id']);
                                 $this->persistence->saveEntry($entry);
@@ -829,7 +846,7 @@ class model {
                                 $fecha_actual = date('Y-m-d H:i:s');
                                 $fecha = new DateTime($fecha_actual);
                                 $entry->setEntry_date($fecha);
-                                $entry->setDetails(utf8_encode($params['ta_comments']));
+                                $entry->setDetails( ($params['ta_comments']));
                                 $mov_cant=$movement->getMov_cant();
                                 $costo = $mov_cant*$product->getProduction_cost();
                                 $entry->setBalance($costo);
@@ -852,7 +869,7 @@ class model {
                                 $fecha_actual = date('Y-m-d H:i:s');
                                 $fecha = new DateTime($fecha_actual);
                                 $entry->setEntry_date($fecha);
-                                $entry->setDetails(utf8_encode($params['ta_comments']));
+                                $entry->setDetails( ($params['ta_comments']));
                                 $mov_cant=$movement->getMov_cant();
                                 $costo = $mov_cant*$product->getProduction_cost()*(-1);
                                 $entry->setBalance($costo);
@@ -939,9 +956,9 @@ class model {
                 if($supplies){
                     foreach($supplies as $supply)                {
                         /* put in bold the written text */
-                        $name = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>', utf8_encode($supply->getSupply_name()));
+                        $name = str_ireplace($params['keyword'], '<b>'.$params['keyword'].'</b>',  ($supply->getSupply_name()));
                         /* add new option */
-                        echo '<li onclick="set_item(\''.str_replace("'", "\'", utf8_encode($supply->getSupply_name())).'\','.$supply->getSupply_id().')">'.$name.'</li>';
+                        echo '<li onclick="set_item(\''.str_replace("'", "\'",  ($supply->getSupply_name())).'\','.$supply->getSupply_id().')">'.$name.'</li>';
                     }
                 }
                 else{
@@ -965,7 +982,7 @@ class model {
                             $mov_supply->setMov_supply_cant($params['edt_cant']);
                             $mov_supply->setSupply_id($params['hf_supply_id']);
                             $mov_supply->setMov_supply_lot($params['edt_lot']);
-                            $mov_supply->setComments(utf8_encode($params['ta_comments']));
+                            $mov_supply->setComments( ($params['ta_comments']));
                             $mov_supply->setUser_id($_SESSION['user_id']);
                             $this->persistence->saveMovSupply($mov_supply);
                             /*2.- Disminuir po de movimiento el stock de ingredientes de la receta del producto */

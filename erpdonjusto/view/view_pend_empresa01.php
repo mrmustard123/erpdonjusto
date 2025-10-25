@@ -159,7 +159,7 @@ jQuery( document ).ready(function(){
                                 <input type="hidden" name="edt_fecha_ini<?php echo $entry['pend_empresa_id']; ?>" id="edt_fecha_ini<?php echo $entry['pend_empresa_id']; ?>"  value="<?php echo $entry['fecha']; ?>"  />
                                 <br>
                                 <label for="lname">Pendiente:</label> <br>
-                                <textarea  id="txt_pendiente<?php echo $entry['pend_empresa_id']; ?>" name="txt_pendiente<?php echo $entry['pend_empresa_id']; ?>"   rows="4" cols="20" > <?php echo utf8_encode($entry['cuerpo']); ?> </textarea> <br>
+                                <textarea  id="txt_pendiente<?php echo $entry['pend_empresa_id']; ?>" name="txt_pendiente<?php echo $entry['pend_empresa_id']; ?>"   rows="4" cols="20" > <?php echo  ($entry['cuerpo']); ?> </textarea> <br>
                                 <label for="lname">Asignaci&oacute;n:</label><br>
                                 <input type="text" id="txt_asignacion<?php echo $entry['pend_empresa_id']; ?>" name="txt_asignacion<?php echo $entry['pend_empresa_id']; ?>" autocomplete="off"  value="<?php echo $entry['responsable']; ?>">              
                                 <br>

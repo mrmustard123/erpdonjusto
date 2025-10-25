@@ -3,6 +3,7 @@
   <property name="Background"></property>
   <property name="Caption">Ultimos pagos de consignatarios</property>
   <property name="DocType">dtNone</property>
+  <property name="Encoding">Unicode (UTF-8)            |utf-8</property>
   <property name="Height">525</property>
   <property name="IsMaster">0</property>
   <property name="Name">view_consig_lasts_pay</property>
@@ -74,6 +75,7 @@
   <object class="Database" name="dbamenoec1_erpdonjusto1" >
         <property name="Left">77</property>
         <property name="Top">161</property>
+    <property name="Connected"></property>
     <property name="DatabaseName">apicolad_erpdonjusto</property>
     <property name="Host">localhost</property>
     <property name="Name">dbamenoec1_erpdonjusto1</property>

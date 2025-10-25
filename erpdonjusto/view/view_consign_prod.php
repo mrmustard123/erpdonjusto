@@ -2,6 +2,29 @@
 //error_reporting(E_ALL);
 error_reporting(0);
 session_start();
+
+    // Al inicio de cada página
+    if (isset($_SESSION['user_id'])) {
+        $_SESSION['last_activity'] = time();
+    }
+
+    // Después puedes revisar cuánto tiempo ha pasado
+    if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 36000) {
+        $elapsed=(time() - $_SESSION['last_activity']);
+        echo 'La sesión ha expirado por inactividad: '.$elapsed.'<br/>';
+        var_dump($_SESSION('last_activity'));
+
+        if (isset($_SESSION['user_id'])) {
+            // Regenerar ID de sesión periódicamente para mayor seguridad (opcional)
+            if (!isset($_SESSION['last_regeneration']) || time() - $_SESSION['last_regeneration'] > 36000) {
+                session_regenerate_id(true);
+                $_SESSION['last_regeneration'] = time();
+            }
+        }else{
+            session_regenerate_id(true);
+        }
+    }
+
 $_SESSION['view']='radphp';
 require_once("rpcl/rpcl.inc.php");
 //Includes
@@ -36,7 +59,6 @@ class view_consign_prod extends Page
     public $dsconsignee2 = null;
     public $tbconsignee1 = null;
     public $dsconsig_prod1 = null;
-    public $dbamenoec1_erpdonjusto1 = null;
     public $Datasource1 = null;
     public $consignee_list = null;
     public $dsconsignee1 = null;

@@ -30,12 +30,26 @@ error_reporting(1);
     echo '<a href="index.php?action=home">Inicio</a>';  
     
     echo '<H1>REPORTE DE LA &Uacute;LTIMA REVISI&Oacute;N DEL API&Aacute;RIO</H1>';
+ 
+    if(!isset($_GET['flow'])){
+      $_SESSION['apiary_review']= 0;  
+    }
     
-    $_SESSION['apiary_review'] = $_SESSION['apiary_review']+1;
     
-    $previous = $_SESSION['apiary_review'];
+    if($_GET['flow']=='previous'){
+     $_SESSION['apiary_review'] = $_SESSION['apiary_review']+1;   
+    }
     
-    $v_pos_histories = $model->getPositionCollection_last_review($previous);        
+    if($_GET['flow']=='following'){
+        
+        $_SESSION['apiary_review'] = $_SESSION['apiary_review']-1;     
+    }
+    
+    
+    
+    $flow = $_SESSION['apiary_review'];
+    
+    $v_pos_histories = $model->getPositionCollection_last_review($flow);        
 
 
     foreach($v_pos_histories as $pos_history){
@@ -45,13 +59,14 @@ error_reporting(1);
 
         echo $pos_history['pos_hist_date'].': ';
 
-        echo utf8_encode($pos_history['pos_hist_body']).'</BR>';
+        echo  ($pos_history['pos_hist_body']).'</BR>';
 
     }          
     
     
     
-    echo '<a href="index.php?action=report_last_apiary_review"> < </a>';
+    echo '<a href="index.php?action=report_last_apiary_review&flow=previous"> < </a>';
+    echo '<a href="index.php?action=report_last_apiary_review&flow=following"> > </a>';
 
     
 

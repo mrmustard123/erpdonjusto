@@ -197,6 +197,11 @@ class views
         require_once ('view_supply_price.php');                            
     }
     
+    public function display_view_report_harvests($params)
+    {
+        require_once ('view_report_harvests1.php');                            
+    }
+    
     
     
  }     

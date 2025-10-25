@@ -3,6 +3,7 @@
   <property name="Background"></property>
   <property name="Caption">Consignaciones ultimos movimientos</property>
   <property name="DocType">dtNone</property>
+  <property name="Encoding">Unicode (UTF-8)            |utf-8</property>
   <property name="Height">1200</property>
   <property name="IsMaster">0</property>
   <property name="Name">view_consig_lasts_mov</property>
@@ -78,6 +79,7 @@
   <object class="Database" name="dbamenoec1_erpdonjusto1" >
         <property name="Left">548</property>
         <property name="Top">136</property>
+    <property name="Connected"></property>
     <property name="DatabaseName">apicolad_erpdonjusto</property>
     <property name="Host">localhost</property>
     <property name="Name">dbamenoec1_erpdonjusto1</property>

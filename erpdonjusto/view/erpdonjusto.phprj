@@ -35,6 +35,7 @@ Item30=view_salidas_farmacorp_x_mes.php
 Item31=..\model\persistence.php
 Item32=view_supply_price.php
 Item33=database_module01.php
+Item34=view_report_harvests.php
 
 [MainScript]
 Script=

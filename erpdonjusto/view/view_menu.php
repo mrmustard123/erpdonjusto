@@ -330,6 +330,15 @@ Author: Leonardo G. Tellez Saucedo
                         </li>
                         <?php
                             }//end if
+                            
+                            if(in_array('48', $v_functionalities)){
+                                $_SESSION['report_harvests'] = -1; 
+                        ?>                           
+                        <li>
+                            <a href="<?php echo $path; ?>index.php?action=report_harvests">&bullet;&nbsp;Reporte Cosechas</a>
+                        </li>
+                        <?php
+                            }//end if                            
                         ?>                         
                         
                         

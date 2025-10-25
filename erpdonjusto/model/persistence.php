@@ -71,10 +71,27 @@
             //$config->setAnnotationReader(new AnnotationReader()); 
             
             /* the connection configuration*/
-            $dbParams = connect_db();            
+            $dbParams = connect_db(); 
+            
+            // CONFIGURACIÓN CRÍTICA PARA UTF-8
+            $dbParams['charset'] = 'utf8mb4';
+            $dbParams['driverOptions'] = [
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci"
+            ];            
+            
 
             // Crear el EntityManager
-            $this->entityManager = EntityManager::create($dbParams, $config);            
+            $this->entityManager = EntityManager::create($dbParams, $config);  
+            
+            
+// DIAGNÓSTICO TEMPORAL - verificar charset de la conexión
+$conn = $this->entityManager->getConnection();
+$charset = $conn->executeQuery("SELECT @@character_set_connection")->fetchOne();
+$collation = $conn->executeQuery("SELECT @@collation_connection")->fetchOne();
+error_log("=== DOCTRINE CONNECTION ===");
+error_log("Character set: " . $charset);
+error_log("Collation: " . $collation);            
+            
 
             //$connection = DriverManager::getConnection($dbParams, $config);
             //$this->entityManager = new EntityManager($connection, $config);            
@@ -84,9 +101,14 @@
             $this->db->setDb_name($dbParams['dbname']);
             $this->db->setUser($dbParams['user']);
             $this->db->setPassword($dbParams['password']);
-            $this->db->setServer_name("localhost");
+            $this->db->setServer_name($dbParams['host']);
 
             $this->link = $this->db->connect();
+            
+            // This is crucial for raw mysqli interactions to handle UTF-8 correctly
+            if ($this->link) {
+                mysqli_set_charset($this->link, "utf8mb4"); // Use utf8mb4 for full compatibility
+            }            
 
             $this->item_per_page = 50; /*item to display per page*/ 
         }
@@ -525,8 +547,8 @@
             $filtro = ' AND p.product_id = '.$product_id.' ';
         }
 
-        $sql = "SELECT c.consig_date, c.mov_type, p.product_name, c.cant, c.balance AS 'tiene',
-  c.topay AS 'topay', c.unit_price, c.total_price AS 'total', c.comments, c.cbte_cont_nro FROM
+        $sql = "SELECT c.consig_date, c.mov_type, p.product_name, c.cant, c.balance, c.owes,
+  c.topay, c.unit_price, c.total_price, c.comments, c.cbte_cont_nro FROM
          consig_prod AS c INNER JOIN product AS p ON (p.product_id = c.product_id)
         WHERE c.consig_id = ".$consig_id." AND c.consig_date BETWEEN '".$fecha_ini."' AND  DATE('".$fecha_fin." ')  + INTERVAL 1 DAY ".$filtro.
         "ORDER BY c.consig_date, c.consig_prod_id ASC LIMIT 3000";
@@ -605,7 +627,7 @@
         
         
         
-        public function getPositionCollection_last_review($previous){            
+        public function getPositionCollection_last_review($flow){            
             
             $sql = "SELECT *, DATE(P.pos_hist_date) AS `hist_date`
                     FROM
@@ -618,7 +640,7 @@
                             GROUP BY DATE(pos_hist_date)
                             ORDER BY
                               `hist_date`  DESC
-                            LIMIT 1 OFFSET ".$previous."
+                            LIMIT 1 OFFSET ".$flow."
                     ) AS K ON (DATE(P.pos_hist_date) = K.`hist_date`)";
             
             $result=$this->db->query($sql);
@@ -746,21 +768,17 @@
             $this->entityManager->persist($pos_history);
             $this->entityManager->flush();
 
-
         }
 
 
         public function savePosicDescripHist($PosicDescripHist){
             $this->entityManager->persist($PosicDescripHist);
             $this->entityManager->flush();
-
-
         }
 
         public function savePosicSaludHist($PosicSaludHist){
             $this->entityManager->persist($PosicSaludHist);
             $this->entityManager->flush();
-
 
         }
 
@@ -831,6 +849,32 @@
             $this->entityManager->merge($pendiente);
             $this->entityManager->flush();
 
+        }
+        
+        
+        public function report_harvests(){
+            
+            $sql = "SELECT m.mov_date, 
+               ((m.mov_cant/1.3)/1000) AS `KG`, 
+               m.comments 
+                FROM movement m 
+                WHERE m.comments LIKE '%COSECHA%' 
+                ORDER BY m.mov_date"; 
+            
+            
+            $result=$this->db->query($sql);
+            if(mysqli_num_rows($result)>0){
+                while($tupla1 = mysqli_fetch_assoc($result))
+                {
+                  $v_harvests[] = $tupla1;
+                }
+                return $v_harvests;
+
+            }else{
+                return NULL;
+            }            
+            
+            
         }
 
 

@@ -144,8 +144,8 @@ jQuery( document ).ready(function(){
                     <td><?php echo $entry['mov_type']; ?></td>
                     <td><?php echo $entry['mov_lot']; ?></td>                    
                     <td><?php echo $entry['mov_cant'];?></td>
-                    <td><?php echo utf8_encode($entry['product_name']); ?></td>
-                    <td><?php echo utf8_encode($entry['comments']); ?></td>
+                    <td><?php echo  ($entry['product_name']); ?></td>
+                    <td><?php echo  ($entry['comments']); ?></td>
                 </tr>                    
                 
 <?php                

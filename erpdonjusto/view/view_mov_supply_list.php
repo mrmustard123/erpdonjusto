@@ -161,8 +161,8 @@ jQuery( document ).ready(function(){
                     <td><a href="<?php echo $relative_path.$path_html; ?>view/view_mov_supply_details.php?movid=<?php echo $entry['mov_supply_id']; ?>" ><?php echo $entry['mov_supply_date']; ?></a></td>
                     <td><?php echo $entry['mov_supply_type']; ?></td>
                     <td><?php echo $entry['mov_supply_cant'];?></td>
-                    <td><?php echo utf8_encode($entry['supply_name']); ?></td>
-                    <td><?php echo utf8_encode($entry['comments']); ?></td>
+                    <td><?php echo  ($entry['supply_name']); ?></td>
+                    <td><?php echo  ($entry['comments']); ?></td>
                 </tr>
 
 

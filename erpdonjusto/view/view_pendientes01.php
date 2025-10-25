@@ -159,7 +159,7 @@ jQuery( document ).ready(function(){
                                 <input type="hidden" name="edt_fecha_ini<?php echo $entry['pendientes_id']; ?>" id="edt_fecha_ini<?php echo $entry['pendientes_id']; ?>"  value="<?php echo $entry['fecha']; ?>"  />
                                 <br>
                                 <label for="lname">Pendiente:</label> <br>
-                                <textarea  id="txt_pendiente<?php echo $entry['pendientes_id']; ?>" name="txt_pendiente<?php echo $entry['pendientes_id']; ?>" rows="4" cols="20" > <?php echo utf8_encode($entry['cuerpo']); ?> </textarea> <br>
+                                <textarea  id="txt_pendiente<?php echo $entry['pendientes_id']; ?>" name="txt_pendiente<?php echo $entry['pendientes_id']; ?>" rows="4" cols="20" > <?php echo  ($entry['cuerpo']); ?> </textarea> <br>
                                 <br>
                                 <label>Realizado:  </label>
                                 <input type="checkbox" name="chk_realizado<?php echo $entry['pendientes_id']; ?>" value="S"> 

@@ -70,8 +70,8 @@
                <tr>
                     <td><?php echo $account['account_id'];  ?></td>
                     <td><?php echo $account['account_code'];  ?></td>
-                    <td><a  href="index.php?action=ledger&code=<?php echo $account['account_code'];  ?>&name=<?php echo utf8_encode($account['name']); ?>"> <?php echo utf8_encode($account['name']); ?></a></td>
-                    <td><?php echo utf8_encode($account['description']); ?></td>
+                    <td><a  href="index.php?action=ledger&code=<?php echo $account['account_code'];  ?>&name=<?php echo  ($account['name']); ?>"> <?php echo  ($account['name']); ?></a></td>
+                    <td><?php echo  ($account['description']); ?></td>
                 </tr>  
                 
                 

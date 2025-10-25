@@ -196,9 +196,9 @@ jQuery( document ).ready(function(){
                     <td><?php echo $entry['account_code']; ?></td>
                     <td><?php 
                         if($entry['balance']>=0){
-                            echo utf8_encode($entry['name']);
+                            echo  ($entry['name']);
                         }else{
-                            echo '&nbsp;&nbsp;'.utf8_encode($entry['name']);
+                            echo '&nbsp;&nbsp;'. ($entry['name']);
                         }
                         ?>
                     </td>

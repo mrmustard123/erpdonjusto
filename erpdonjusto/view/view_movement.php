@@ -244,7 +244,7 @@
                 <tr>
                     <td><?php echo $movement['mov_date']; ?></td>
                     <td><?php echo $movement['mov_type']; ?></td>
-                    <td><?php echo utf8_encode($movement['product_name']);?></td>
+                    <td><?php echo  ($movement['product_name']);?></td>
                     <td><?php echo $movement['mov_cant']; ?></td>
                     
                 </tr>                    

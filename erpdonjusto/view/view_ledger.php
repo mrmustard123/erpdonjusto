@@ -98,7 +98,7 @@ jQuery( document ).ready(function(){
         <div id="div_target">
             
 <h1>Libro Mayor <?php echo $_SESSION['account_code']; ?></h1>
-<h1><?php echo utf8_encode($_SESSION['account_name']); ?></h1>
+<h1><?php echo  ($_SESSION['account_name']); ?></h1>
 <div class="date_select_container">
 
       <form method="post" action="<?php echo $relative_path.$path_html; ?>index.php" id="form_results">
@@ -181,10 +181,10 @@ jQuery( document ).ready(function(){
     <td><?php  echo $entry['entry_date']; ?></td>
     <td><?php  echo $entry['account_code']; ?></td>
    <td><?php  echo $entry['cbte_cont_nro']; ?></td>    
-    <td><?php  echo utf8_encode($entry['name']); ?></td>
-    <td><?php  if($entry['balance']>0){ echo utf8_encode($entry['details']); }else{ echo '&nbsp;';} ?></td>
+    <td><?php  echo  ($entry['name']); ?></td>
+    <td><?php  if($entry['balance']>0){ echo  ($entry['details']); }else{ echo '&nbsp;';} ?></td>
     <td><?php  if($entry['balance']>0){ echo bcdiv($entry['balance'],1,2)   ; $suma_debe = $suma_debe +$entry['balance']; }else{ echo '&nbsp;';} ?></td>
-    <td><?php  if($entry['balance']<0){ echo utf8_encode($entry['details']); }else{ echo '&nbsp;';} ?></td>
+    <td><?php  if($entry['balance']<0){ echo  ($entry['details']); }else{ echo '&nbsp;';} ?></td>
     <td><?php  if($entry['balance']<0){ echo bcdiv($entry['balance'],1,2); $suma_haber = $suma_haber +$entry['balance'];}else{ echo '&nbsp;';} ?></td>
   </tr>
   

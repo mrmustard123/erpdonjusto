@@ -3,6 +3,7 @@
   <property name="Background"></property>
   <property name="Caption">Consignatarios con mayor stock de sprays</property>
   <property name="DocType">dtNone</property>
+  <property name="Encoding">Unicode (UTF-8)            |utf-8</property>
   <property name="Height">370</property>
   <property name="IsMaster">0</property>
   <property name="Name">view_consig_max_sprays_stock</property>
@@ -69,6 +70,7 @@
   <object class="Database" name="dbapicolad_erpdonjusto1" >
         <property name="Left">113</property>
         <property name="Top">169</property>
+    <property name="Connected"></property>
     <property name="DatabaseName">apicolad_erpdonjusto</property>
     <property name="Host">localhost</property>
     <property name="Name">dbapicolad_erpdonjusto1</property>

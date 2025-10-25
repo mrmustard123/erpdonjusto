@@ -4,6 +4,7 @@
   <property name="Background"></property>
   <property name="Caption">Supply movement details</property>
   <property name="DocType">dtNone</property>
+  <property name="Encoding">Unicode (UTF-8)            |utf-8</property>
   <property name="Height">550</property>
   <property name="IsMaster">0</property>
   <property name="Name">view_mov_supply_details</property>
@@ -13,6 +14,7 @@
   <object class="Database" name="dbamenoec1_erpdonjusto1" >
         <property name="Left">588</property>
         <property name="Top">424</property>
+    <property name="Connected"></property>
     <property name="DatabaseName">apicolad_erpdonjusto</property>
     <property name="Host">localhost</property>
     <property name="Name">dbamenoec1_erpdonjusto1</property>

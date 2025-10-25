@@ -94,7 +94,7 @@ echo 'Path html: '.$path_html.'<br/>';
        
             echo $pos_history['posic_descrip_hsit_date'];
             echo '<br>';
-            echo utf8_encode($pos_history['descripcion']);
+            echo  ($pos_history['descripcion']);
             echo '<br>';
        
        ?>

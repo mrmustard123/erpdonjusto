@@ -1,4 +1,4 @@
-<?php    
+<?php 
 // Configuración de sesión - debe ir antes de session_start()
     ini_set('session.gc_maxlifetime', 36000);
     ini_set('session.cookie_lifetime', 36000); // Duración de la cookie en el navegador
@@ -16,10 +16,12 @@
 	// Refrescar la sesión para extender su duración
 if (isset($_SESSION['user_id'])) {
     // Regenerar ID de sesión periódicamente para mayor seguridad (opcional)
-    if (!isset($_SESSION['last_regeneration']) || time() - $_SESSION['last_regeneration'] > 1800) {
+    if (!isset($_SESSION['last_regeneration']) || time() - $_SESSION['last_regeneration'] > 36000) {
         session_regenerate_id(true);
         $_SESSION['last_regeneration'] = time();
     }
+}else{
+            session_regenerate_id(true);
 }
 	
 	
@@ -57,6 +59,16 @@ if (isset($_SESSION['user_id'])) {
         $elapsed=(time() - $_SESSION['last_activity']);
         echo 'La sesión ha expirado por inactividad: '.$elapsed.'<br/>';
         var_dump($_SESSION('last_activity'));
+        
+        if (isset($_SESSION['user_id'])) {
+            // Regenerar ID de sesión periódicamente para mayor seguridad (opcional)
+            if (!isset($_SESSION['last_regeneration']) || time() - $_SESSION['last_regeneration'] > 36000) {
+                session_regenerate_id(true);
+                $_SESSION['last_regeneration'] = time();
+            }
+        }else{
+            session_regenerate_id(true);
+        }                                                
     }    
         
 ?>

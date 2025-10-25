@@ -31,8 +31,7 @@ error_reporting(1);
   <?php require "view_links.php" ?>       
     
   
-        
-        
+
 <script  type="text/javascript">
 
 
@@ -112,7 +111,7 @@ jQuery( document ).ready(function(){
             foreach($v_products as $product){                  
               
               ?>
-                <option value="<?php echo $product['product_id']  ?>"><?php   echo utf8_encode($product['product_name']);   ?></option>
+                <option value="<?php echo $product['product_id']  ?>"><?php   echo  ($product['product_name']);   ?></option>
                 <?php      //Fin select productos       ?>
                 
   <?php
@@ -162,6 +161,7 @@ jQuery( document ).ready(function(){
 ?>        
  
 <div id="div_tabla">
+
 <h2>Consignaciones del <?php if( isset($params['edt_fecha_ini'])) { echo $params['edt_fecha_ini']; } ?> al <?php if( isset($_POST['edt_fecha_fin'])) { echo $_POST['edt_fecha_fin']; } ?></h2>        
 
 <a  href="<?php echo $relative_path.$path_html; ?>view/export_libro_diario_xls.php?fecha_ini=<?php if( isset($params['edt_fecha_ini'])) {echo $params['edt_fecha_ini']; }  ?>&fecha_fin=<?php  if( isset($_POST['edt_fecha_fin'])){ echo $params['edt_fecha_fin']; } ?>" >Exportar a Excel</a>
@@ -181,7 +181,8 @@ jQuery( document ).ready(function(){
     <th>PRODUCTO</th>
     <th>CANTIDAD</th>
     <th>TIENE</th>
-    <th>UDDS. POR PAGAR</th>
+    <th>DEBE</th>
+    <th>UDDS. X PAGAR</th>
     <th>PRECIO UNITARIO</th>
     <th>TOTAL</th>
     <th>COMENTARIO</th>
@@ -202,15 +203,14 @@ jQuery( document ).ready(function(){
                     <td><?php echo $entry['mov_type']; ?></td>
                     <td><?php echo $entry['product_name'];?></td>
                     <td><?php echo $entry['cant']; ?></td>
-                    <td><?php echo $entry['tiene']; ?></td>
+                    <td><?php echo $entry['balance']; ?></td>
+                    <td><?php echo $entry['owes']; ?></td>
                     <td><?php echo $entry['topay']; ?></td>
                     <td><?php echo $entry['unit_price']; ?></td>
-                    <td><?php echo $entry['total']; ?></td>
-                    <td><?php echo utf8_encode($entry['comments']); ?></td>   
-                    <td><?php echo utf8_encode($entry['cbte_cont_nro']); ?></td>  
+                    <td><?php echo $entry['total-price']; ?></td>
+                    <td><?php echo  ($entry['comments']); ?></td>   
+                    <td><?php echo  ($entry['cbte_cont_nro']); ?></td>  
                     
-
-
                 </tr>                    
                 
 <?php                

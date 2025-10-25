@@ -1,0 +1,5 @@
+dbtables.inc.php
+troquei _rs->Fields por _rs->fields
+
+classes.inc.php on line 484
+comentei a linha

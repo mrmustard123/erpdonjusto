@@ -3,6 +3,7 @@
   <property name="Background"></property>
   <property name="Caption">Conteo de productos vendidos</property>
   <property name="DocType">dtNone</property>
+  <property name="Encoding">Unicode (UTF-8)            |utf-8</property>
   <property name="Height">970</property>
   <property name="IsMaster">0</property>
   <property name="Name">ViewConsigSalesProdReport</property>

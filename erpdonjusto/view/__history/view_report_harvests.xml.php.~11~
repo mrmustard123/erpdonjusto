@@ -1,0 +1,88 @@
+<?php
+<object class="view_report_harvest" name="view_report_harvest" baseclass="Page">
+  <property name="Background"></property>
+  <property name="Caption">view_report_harvest</property>
+  <property name="DocType">dtNone</property>
+  <property name="Height">484</property>
+  <property name="IsMaster">0</property>
+  <property name="Name">view_report_harvest</property>
+  <property name="Width">781</property>
+  <object class="DBRepeater" name="DBRepeater1" >
+    <property name="DataSource">Datasource1</property>
+    <property name="Height">41</property>
+    <property name="Layout">
+    <property name="Type">XY_LAYOUT</property>
+    </property>
+    <property name="Left">16</property>
+    <property name="Name">DBRepeater1</property>
+    <property name="Top">80</property>
+    <property name="Width">747</property>
+    <object class="Label" name="Label1" >
+      <property name="Caption">Label1</property>
+      <property name="DataField">mov_date</property>
+      <property name="DataSource">Datasource1</property>
+      <property name="Height">13</property>
+      <property name="Left">8</property>
+      <property name="Name">Label1</property>
+      <property name="Top">8</property>
+      <property name="Width">107</property>
+    </object>
+    <object class="Label" name="Label2" >
+      <property name="Caption">Label2</property>
+      <property name="DataField">KG</property>
+      <property name="DataSource">Datasource1</property>
+      <property name="Height">13</property>
+      <property name="Left">128</property>
+      <property name="Name">Label2</property>
+      <property name="Top">8</property>
+      <property name="Width">115</property>
+    </object>
+    <object class="Label" name="Label3" >
+      <property name="Caption">Label3</property>
+      <property name="DataField">comments</property>
+      <property name="DataSource">Datasource1</property>
+      <property name="Height">13</property>
+      <property name="Left">264</property>
+      <property name="Name">Label3</property>
+      <property name="Top">8</property>
+      <property name="Width">459</property>
+    </object>
+  </object>
+  <object class="Label" name="Label4" >
+    <property name="Caption">REPORTE DE COSECHAS</property>
+    <property name="Font">
+    <property name="Size">20px</property>
+    </property>
+    <property name="Height">43</property>
+    <property name="Left">16</property>
+    <property name="Name">Label4</property>
+    <property name="ParentFont">0</property>
+    <property name="Top">8</property>
+    <property name="Width">459</property>
+  </object>
+  <object class="Label" name="Label5" >
+    <property name="Caption">Label5</property>
+    <property name="Height">13</property>
+    <property name="Left">64</property>
+    <property name="Name">Label5</property>
+    <property name="Top">160</property>
+    <property name="Width">75</property>
+  </object>
+  <object class="Datasource" name="Datasource1" >
+        <property name="Left">80</property>
+        <property name="Top">216</property>
+    <property name="DataSet">Query1</property>
+    <property name="Name">Datasource1</property>
+  </object>
+  <object class="Query" name="Query1" >
+        <property name="Left">104</property>
+        <property name="Top">304</property>
+    <property name="Active">1</property>
+    <property name="Database">database_module01.dbapicolad_erpdonjusto1</property>
+    <property name="LimitCount">-1</property>
+    <property name="Name">Query1</property>
+    <property name="Params">a:0:{}</property>
+    <property name="SQL"><![CDATA[a:1:{i:0;s:133:&quot;SELECT m.mov_date, ((m.mov_cant/1.3)/1000) AS `KG`, m.comments FROM movement m WHERE m.comments LIKE &quot;%COSECHA%&quot; ORDER BY m.mov_date;&quot;;}]]></property>
+  </object>
+</object>
+?>

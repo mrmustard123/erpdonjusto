@@ -1,0 +1,30 @@
+<?php
+<object class="Unit1" name="Unit1" baseclass="Page">
+  <property name="Background"></property>
+  <property name="Caption">Unit1</property>
+  <property name="DocType">dtNone</property>
+  <property name="Height">484</property>
+  <property name="IsMaster">0</property>
+  <property name="Name">Unit1</property>
+  <property name="Width">781</property>
+  <object class="Database" name="Database1" >
+        <property name="Left">72</property>
+        <property name="Top">32</property>
+    <property name="Connected"></property>
+    <property name="Name">Database1</property>
+  </object>
+  <object class="Datasource" name="Datasource1" >
+        <property name="Left">56</property>
+        <property name="Top">120</property>
+    <property name="DataSet"></property>
+    <property name="Name">Datasource1</property>
+  </object>
+  <object class="Query" name="Query1" >
+        <property name="Left">56</property>
+        <property name="Top">208</property>
+    <property name="Name">Query1</property>
+    <property name="Params">a:0:{}</property>
+    <property name="SQL">a:0:{}</property>
+  </object>
+</object>
+?>

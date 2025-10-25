@@ -95,7 +95,7 @@ echo 'Path html: '.$path_html.'<br/>';
        
             echo $pos_history['posic_salud_hist_date'];
             echo '<br>';
-            echo utf8_encode($pos_history['salud']);
+            echo  ($pos_history['salud']);
             echo '<br>';
        
        ?>

@@ -213,7 +213,7 @@
                 <tr>
                     <td><?php echo $movement['mov_supply_date']; ?></td>
                     <td><?php echo $movement['mov_supply_type']; ?></td>
-                    <td><?php echo utf8_encode($movement['supply_name']);?></td>
+                    <td><?php echo  ($movement['supply_name']);?></td>
                     <td><?php echo $movement['mov_supply_cant']; ?></td>                    
                 </tr>                         
 <?php                
