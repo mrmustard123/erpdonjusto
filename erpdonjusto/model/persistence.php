@@ -72,25 +72,12 @@
             
             /* the connection configuration*/
             $dbParams = connect_db(); 
-            
-            // CONFIGURACIÓN CRÍTICA PARA UTF-8
-            $dbParams['charset'] = 'utf8mb4';
-            $dbParams['driverOptions'] = [
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci"
-            ];            
+                      
             
 
             // Crear el EntityManager
             $this->entityManager = EntityManager::create($dbParams, $config);  
-            
-            
-// DIAGNÓSTICO TEMPORAL - verificar charset de la conexión
-$conn = $this->entityManager->getConnection();
-$charset = $conn->executeQuery("SELECT @@character_set_connection")->fetchOne();
-$collation = $conn->executeQuery("SELECT @@collation_connection")->fetchOne();
-error_log("=== DOCTRINE CONNECTION ===");
-error_log("Character set: " . $charset);
-error_log("Collation: " . $collation);            
+                   
             
 
             //$connection = DriverManager::getConnection($dbParams, $config);

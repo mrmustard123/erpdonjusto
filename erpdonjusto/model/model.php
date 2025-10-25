@@ -279,16 +279,7 @@ class model {
 
      public function process_save_pos_history($params){
                 $count = $params['contador'];
-                
-                
-// DIAGNÓSTICO: Ver qué llega desde el formulario
-    $texto_recibido = $params['text_pos_body'.$count];
-    error_log("=== DIAGNÓSTICO POS_HISTORY ===");
-    error_log("Texto recibido: " . $texto_recibido);
-    error_log("Longitud original: " . strlen($texto_recibido));
-    error_log("Encoding detectado: " . mb_detect_encoding($texto_recibido, ['UTF-8', 'ISO-8859-1', 'Windows-1252'], true));                
-                
-                
+                                               
                 
                 
                 /*Actualizamos la posicion*/
