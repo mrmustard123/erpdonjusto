@@ -201,7 +201,12 @@ class views
     {
         require_once ('view_report_harvests1.php');                            
     }
-    
+        
+    public function display_view_map($params)
+    {
+        require_once ('view_mapa_apiarios.php');                            
+    }
+        
     
     
  }     

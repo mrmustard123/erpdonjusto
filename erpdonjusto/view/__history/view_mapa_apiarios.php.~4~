@@ -30,10 +30,6 @@ class view_mapa_apiarios extends Page
 
 
     }
-    function view_mapa_apiariosShow($sender, $params)
-    {
-      echo '<a href="./index.php?action=home">Inicio</a>';
-    }
 }
 
 global $application;

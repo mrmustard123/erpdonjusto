@@ -338,7 +338,18 @@ Author: Leonardo G. Tellez Saucedo
                             <a href="<?php echo $path; ?>index.php?action=report_harvests">&bullet;&nbsp;Reporte Cosechas</a>
                         </li>
                         <?php
-                            }//end if                            
+                            }//end if   
+                            
+                            if(in_array('49', $v_functionalities)){
+                                $_SESSION['map'] = -1; 
+                        ?>                           
+                        <li>
+                            <a href="<?php echo $path; ?>index.php?action=map">&bullet;&nbsp;Mapa Apiarios</a>
+                        </li>
+                        <?php
+                            }//end if                                
+                            
+                                                                                    
                         ?>                         
                         
                         

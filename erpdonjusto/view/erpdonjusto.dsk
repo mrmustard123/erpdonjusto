@@ -17,17 +17,17 @@ Count=0
 Count=0
 
 [OpenFiles]
-Module1=view_supply_price.php
+Module1=view_new_consignee.php
 Module2=database_module01.php
 
-[view_supply_price.php]
-Line=20
-Position=30
+[view_new_consignee.php]
+Line=13
+Position=53
 
 [database_module01.php]
 Line=0
 Position=0
 
 [Status]
-OpenModule=view_supply_price.php
+OpenModule=view_new_consignee.php
 

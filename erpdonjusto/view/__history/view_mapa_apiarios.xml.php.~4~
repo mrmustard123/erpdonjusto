@@ -4,21 +4,19 @@
   <property name="Caption">view_mapa</property>
   <property name="DocType">dtNone</property>
   <property name="Encoding">Unicode (UTF-8)            |utf-8</property>
-  <property name="Height">768</property>
+  <property name="Height">556</property>
   <property name="IsMaster">0</property>
   <property name="Name">view_mapa_apiarios</property>
-  <property name="Width">1035</property>
-  <property name="OnShow">view_mapa_apiariosShow</property>
+  <property name="Width">755</property>
   <property name="OnShowHeader">view_mapa_apiariosShowHeader</property>
   <object class="Image" name="Image1" >
     <property name="Border">0</property>
-    <property name="Height">624</property>
+    <property name="Height">555</property>
     <property name="ImageSource">view/images/apiarios_de_apiarios_don_justo1.jpg</property>
     <property name="Link"></property>
     <property name="LinkTarget"></property>
     <property name="Name">Image1</property>
     <property name="Stretch">1</property>
-    <property name="Top">83</property>
     <property name="Width">754</property>
     <object class="Label" name="lblPos01" >
       <property name="Caption">1</property>
