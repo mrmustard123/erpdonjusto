@@ -926,7 +926,7 @@
 
         public function getHintProduct($keyword){
 
-            $sql = "SELECT * FROM product WHERE (product_name like '%" . $keyword . "%')  ORDER BY product_name ";
+            $sql = "SELECT * FROM product WHERE (product_name like '%" . $keyword . "%') AND status='ACTIVO'  ORDER BY product_name ";
             $result=$this->db->query($sql);
             if(mysqli_num_rows($result)>0){
                 while($tupla1 = mysqli_fetch_assoc($result))

@@ -207,7 +207,7 @@ jQuery( document ).ready(function(){
                     <td><?php echo $entry['owes']; ?></td>
                     <td><?php echo $entry['topay']; ?></td>
                     <td><?php echo $entry['unit_price']; ?></td>
-                    <td><?php echo $entry['total-price']; ?></td>
+                    <td><?php echo $entry['total_price']; ?></td>
                     <td><?php echo  ($entry['comments']); ?></td>   
                     <td><?php echo  ($entry['cbte_cont_nro']); ?></td>  
                     
