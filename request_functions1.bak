@@ -1,0 +1,65 @@
+<?php    
+// Configuración de sesión - debe ir antes de session_start()
+    ini_set('session.gc_maxlifetime', 36000);
+    ini_set('session.cookie_lifetime', 36000); // Duración de la cookie en el navegador
+    session_set_cookie_params(36000);
+    ini_set('session.gc_probability', 1);
+    ini_set('session.gc_divisor', 100);
+    session_start();    /*echo 'break0<br>';*/
+    require_once ('request_functions.php');   /* echo 'break1<br>';   */
+    require_once('./controller/controller.php');    
+   /* echo 'break2<br>';    echo 'Action: '.$_GET['action'].'<br>';*/
+    $params = import_request_data();   //recupera $params()      
+    /*echo 'request data:<br>';    var_dump($params);    echo '<br>';*/
+    $_SESSION['view']='';
+	
+	// Refrescar la sesión para extender su duración
+if (isset($_SESSION['user_id'])) {
+    // Regenerar ID de sesión periódicamente para mayor seguridad (opcional)
+    if (!isset($_SESSION['last_regeneration']) || time() - $_SESSION['last_regeneration'] > 300) {
+        session_regenerate_id(true);
+        $_SESSION['last_regeneration'] = time();
+    }
+}
+	
+	
+    if(!isset($params['action']))
+    {        
+       $params['action']='login'; 
+    }
+    else
+    {        
+        if($params['action']!='access')
+        {        
+            if(!isset($_SESSION['user_id']))
+            {
+                $params['action']='login';                 
+            }
+        }                 
+    }
+
+    
+    /*echo 'Action: '.$params['action'].'<br>';*/
+    $controller = new controller();        
+    /*$controller->proccess_test();*/
+    /*var_dump($controller);*/
+    /*echo 'brake06<br>';*/
+    $controller->action_performed($params);       
+    /* echo 'brake07<br>'; */
+
+    // Al inicio de cada página
+    if (isset($_SESSION['user_id'])) {
+        $_SESSION['last_activity'] = time();
+    }
+
+    // Después puedes revisar cuánto tiempo ha pasado
+    if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 300) {
+        $elapsed=(time() - $_SESSION['last_activity']);
+        echo 'La sesión ha expirado por inactividad: '.$elapsed.'<br/>';
+        var_dump($_SESSION('last_activity'));
+        
+        
+        
+    }    
+        
+?>

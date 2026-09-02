@@ -1,0 +1,70 @@
+<?php
+
+error_reporting(E_ALL);
+//error_reporting(0);
+session_start();
+
+    // Al inicio de cada página
+    if (isset($_SESSION['user_id'])) {
+        $_SESSION['last_activity'] = time();
+    }
+
+    // Después puedes revisar cuánto tiempo ha pasado
+    if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 36000) {
+        $elapsed=(time() - $_SESSION['last_activity']);
+        echo 'La sesión ha expirado por inactividad: '.$elapsed.'<br/>';
+        var_dump($_SESSION('last_activity'));
+
+        if (isset($_SESSION['user_id'])) {
+            // Regenerar ID de sesión periódicamente para mayor seguridad (opcional)
+            if (!isset($_SESSION['last_regeneration']) || time() - $_SESSION['last_regeneration'] > 36000) {
+                session_regenerate_id(true);
+                $_SESSION['last_regeneration'] = time();
+            }
+        }else{
+            session_regenerate_id(true);
+        }
+    }
+
+$_SESSION['view']='radphp';
+
+require_once("rpcl/rpcl.inc.php");
+//Includes
+use_unit("forms.inc.php");
+use_unit("extctrls.inc.php");
+use_unit("stdctrls.inc.php");
+use_unit("dbtables.inc.php");
+use_unit("db.inc.php");
+use_unit("dbctrls.inc.php");
+
+include("database_module01.php");
+include("../model/class.db.php");
+
+
+//Class definition
+class view_report_harvest extends Page
+{
+    public $Datasource1 = null;
+    public $Query1 = null;
+    public $DBRepeater1 = null;
+    public $Label1 = null;
+    public $Label2 = null;
+    public $Label3 = null;
+    public $Label4 = null;
+    public $Label5 = null;
+}
+
+global $application;
+
+global $view_report_harvest;
+
+//Creates the form
+$view_report_harvest=new view_report_harvest($application);
+
+//Read from resource file
+$view_report_harvest->loadResource(__FILE__);
+
+//Shows the form
+$view_report_harvest->show();
+
+?>

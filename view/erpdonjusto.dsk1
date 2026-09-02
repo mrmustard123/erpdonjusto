@@ -1,0 +1,11 @@
+[Breakpoints]
+Count=1
+Breakpoint0='C:\wamp22\www\amenoe\erpdonjusto_1_0_0_3\view\view_consign.php',86,'',0,'',1
+
+[Watches]
+Groups=1
+group0=Observadores
+
+[Watchgroup_Observadores]
+Count=0
+
