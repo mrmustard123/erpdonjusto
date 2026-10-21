@@ -1,6 +1,7 @@
 # ERP Don Justo
 
-This project was created as a custom solution for a small company specializing in beekeeping. It was developed "on the fly" under tight deadlines, which led to the use of various technologies, including **Doctrine 2** and **RADPHP (rpcl library)**. Despite its limitations, the system served its purpose effectively and streamlined several processes. Below, you’ll find an overview of its features and current limitations.
+This project was created as a custom solution for a small beekeeping company. It was developed *on the fly* under tight deadlines, which led to the use of various technologies, including **Doctrine 2** and **RADPHP (RPCL library)**. Despite its limitations, the system served its purpose effectively and streamlined several processes. I am now working on a new, from-scratch, general-purpose version called Agasaja ERP, built with Laravel + React communicating via an API. 
+Below you will find an overview of its features and current limitations.
 
 ---
 
